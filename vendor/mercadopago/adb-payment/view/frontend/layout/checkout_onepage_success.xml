@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MercadoPago. All rights reserved.
+ *
+ * @author      Mercado Pago
+ * @license     See LICENSE for license details.
+ */
+-->
+<body>
+    <referenceContainer name="order.success.additional.info">
+        <block class="MercadoPago\AdbPayment\Block\Order\Success\Additional" name="order.success.additional.info.mercadopago" after="-" />
+    </referenceContainer>
+</body>
