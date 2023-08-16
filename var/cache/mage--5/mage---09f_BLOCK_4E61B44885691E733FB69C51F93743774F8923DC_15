@@ -1,0 +1,19 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1692227993;s:6:"expire";i:1692231593;s:4:"tags";s:46:"09f_BLOCK_HTML,09f_CAT_P_15,09f_CAT_P,09f_MAGE";}
+<div class="swatch-opt" data-role="swatch-options"></div>
+
+<script type="text/x-magento-init">
+    {
+        "[data-role=swatch-options]": {
+            "Magento_Swatches/js/swatch-renderer": {
+                "jsonConfig": {"attributes":{"93":{"id":"93","code":"color","label":"Color","options":[{"id":"4","label":"White","products":["10"]},{"id":"5","label":"Black","products":["11"]},{"id":"6","label":"Red","products":["12"]},{"id":"7","label":"Blue","products":["13"]},{"id":"8","label":"Green","products":["14"]}],"position":"0"}},"template":"$<%- data.price %>","currencyFormat":"$%s","optionPrices":{"10":{"baseOldPrice":{"amount":120},"oldPrice":{"amount":120},"basePrice":{"amount":120},"finalPrice":{"amount":120},"tierPrices":[],"msrpPrice":{"amount":0}},"11":{"baseOldPrice":{"amount":120},"oldPrice":{"amount":120},"basePrice":{"amount":120},"finalPrice":{"amount":120},"tierPrices":[],"msrpPrice":{"amount":0}},"12":{"baseOldPrice":{"amount":120},"oldPrice":{"amount":120},"basePrice":{"amount":120},"finalPrice":{"amount":120},"tierPrices":[],"msrpPrice":{"amount":0}},"13":{"baseOldPrice":{"amount":120},"oldPrice":{"amount":120},"basePrice":{"amount":120},"finalPrice":{"amount":120},"tierPrices":[],"msrpPrice":{"amount":0}},"14":{"baseOldPrice":{"amount":120},"oldPrice":{"amount":120},"basePrice":{"amount":120},"finalPrice":{"amount":120},"tierPrices":[],"msrpPrice":{"amount":0}}},"priceFormat":{"pattern":"$%s","precision":2,"requiredPrecision":2,"decimalSymbol":".","groupSymbol":",","groupLength":3,"integerRequired":false},"prices":{"baseOldPrice":{"amount":120},"oldPrice":{"amount":120},"basePrice":{"amount":120},"finalPrice":{"amount":120}},"productId":"15","chooseText":"Choose an Option...","images":[],"index":{"10":{"93":"4"},"11":{"93":"5"},"12":{"93":"6"},"13":{"93":"7"},"14":{"93":"8"}},"salable":[],"canDisplayShowOutOfStockStatus":false,"channel":"website","salesChannelCode":"base","sku":{"10":"Sample Configurable-White","11":"Sample Configurable-Black","12":"Sample Configurable-Red","13":"Sample Configurable-Blue","14":"Sample Configurable-Green"}},
+                "jsonSwatchConfig": {"93":{"4":{"type":"1","value":"#ffffff","label":"White"},"5":{"type":"1","value":"#262626","label":"Black"},"6":{"type":"1","value":"#e62e4d","label":"Red"},"7":{"type":"1","value":"#3933d6","label":"Blue"},"8":{"type":"1","value":"#43c23c","label":"Green"},"additional_data":"{\"swatch_input_type\":\"visual\",\"update_product_preview_image\":\"0\",\"use_product_image_for_swatch\":\"0\"}"}},
+                "mediaCallback": "http\u003A\u002F\u002Fquickstart244.local\u002Fswatches\u002Fajax\u002Fmedia\u002F",
+                "gallerySwitchStrategy": "prepend",
+                "jsonSwatchImageSizeConfig": {"swatchImage":{"width":30,"height":20},"swatchThumb":{"height":90,"width":110}},
+                "showTooltip": 1            }
+        },
+        "*" : {
+            "Magento_Swatches/js/catalog-add-to-cart": {}
+        }
+    }
+</script>
