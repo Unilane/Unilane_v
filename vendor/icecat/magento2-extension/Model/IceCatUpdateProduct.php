@@ -397,12 +397,23 @@ class IceCatUpdateProduct
                     column-gap: 30px;
                 }
 
-                .tableRowHead h3 {
+                .tableRowHead{
                     background: ' . $this->data->getSpecificationHeaderColor() . ';
-                    margin: 0;
+                    margin: -7px;
                     padding: 5px;
                     font-size: 16px;
                     font-weight: 600;
+                    margin-top: 0px;
+                    margin-left: -10px;
+                    margin-right: -10px;
+                }
+
+                p {
+                    font-weight: 700;
+                    color: #000;
+                    font-size: 14px;
+                    line-height: 32px;
+                    margin: 0 0 -6px 0;
                 }
 
                 .table {
@@ -433,7 +444,7 @@ class IceCatUpdateProduct
                 $specificationHtml .= '<div class="panel-body break_cols">';
                 $specificationHtml .= '<div class="spec-column">';
                 $specificationHtml .= '<div class="table">';
-                $specificationHtml .= '<div class="tableRow">';
+                $specificationHtml .= '<div class="tableRow col-12">';
 
                 $features               = [];
                 $counting               = null;
@@ -476,18 +487,19 @@ class IceCatUpdateProduct
                 foreach ($arrayFirst as $key => $value) {
                     $specificationHtml .= '<div>';
                     $specificationHtml .= '<div class="tableRowHead row">';
-                    $specificationHtml .= '<h3>' . $key . '</h3>';
+                    $specificationHtml .= '<p>' . $key . '</p>';
                     $specificationHtml .= '</div>';
                     foreach ($value as $val) {
                         $specificationHtml .= '<div class="row inner-data">';
                         $specificationHtml .= '<div class="ds_label">';
-                        $specificationHtml .= '<span title="' . $val['featureDescription'] . '">' . $val['featureName'] . '</span>';
-                        $specificationHtml .= (!empty($val['mandatory'])) ? '<span>*</span>' : '';
+                        $specificationHtml .= '<span style="font-size: 11px;" title="' . $val['featureDescription'] . '">' . $val['featureName'] . '</span>';                        
+                        $specificationHtml .= (!empty($val['mandatory'])) ? '<span style="font-size: 11px;">*</span>' : '';
                         $specificationHtml .= '</div>';
-                        $featureStyle       = ($val['featureValue'] == 'Y') ? 'style="color: green;"' : (($val['featureValue'] == 'N') ? 'style="color: red;"' : '');
-                        $featureValue       = ($val['featureValue'] == 'Y') ? '&#x2713;' : (($val['featureValue'] == 'N') ? '&#10005;' : $val['featureValue']);
+                        $featureStyle       = ($val['featureValue'] == 'Si') ? 'style="color: #39DA2F; font-size: 20px;"' : (($val['featureValue'] == 'No') ? 'style="color: #DC1B1B; font-size: 20px;"' : 'style="font-size: 11px;"');
+                        $featureValue       = ($val['featureValue'] == 'Si') ? '&#x2713;' : (($val['featureValue'] == 'No') ? '&#10005;' : $val['featureValue']);
                         $specificationHtml .= '<div class="ds_data" ' . $featureStyle . '>' . $featureValue . '</div>';
                         $specificationHtml .= '</div>';
+                        $specificationHtml .= '<hr style="margin: -5px; background: #afafaf; margin-left: -10px;margin-right: -10px;">';
                     }
                     $specificationHtml .= '</div>';
                 }
@@ -496,22 +508,23 @@ class IceCatUpdateProduct
                 $specificationHtml .= '</div>';
                 $specificationHtml .= '<div class="spec-column">';
                 $specificationHtml .= '<div class="table">';
-                $specificationHtml .= '<div class="tableRow">';
+                $specificationHtml .= '<div class="tableRow col-12">';
                 foreach ($arraySecond as $key => $value) {
                     $specificationHtml .= '<div>';
                     $specificationHtml .= '<div class="tableRowHead row">';
-                    $specificationHtml .= '<h3>' . $key . '</h3>';
+                    $specificationHtml .= '<p>' . $key . '</p>';
                     $specificationHtml .= '</div>';
                     foreach ($value as $val) {
                         $specificationHtml .= '<div class="row inner-data">';
                         $specificationHtml .= '<div class="ds_label">';
-                        $specificationHtml .= '<span title="' . $val['featureDescription'] . '">' . $val['featureName'] . '</span>';
-                        $specificationHtml .= (!empty($val['mandatory'])) ? '<span>*</span>' : '';
+                        $specificationHtml .= '<span style="font-size: 11px;" title="' . $val['featureDescription'] . '">' . $val['featureName'] . '</span>';
+                        $specificationHtml .= (!empty($val['mandatory'])) ? '<span style="font-size: 11px;">*</span>' : '';
                         $specificationHtml .= '</div>';
-                        $featureStyle       = ($val['featureValue'] == 'Y') ? 'style="color: green;"' : (($val['featureValue'] == 'N') ? 'style="color: red;"' : '');
-                        $featureValue       = ($val['featureValue'] == 'Y') ? '&#x2713;' : (($val['featureValue'] == 'N') ? '&#10005;' : $val['featureValue']);
+                        $featureStyle       = ($val['featureValue'] == 'Si') ? 'style="color: #39DA2F; font-size: 20px;"' : (($val['featureValue'] == 'No') ? 'style="color: #DC1B1B; font-size: 20px;"' : 'style="font-size: 11px;"');
+                        $featureValue       = ($val['featureValue'] == 'Si') ? '&#x2713;' : (($val['featureValue'] == 'No') ? '&#10005;' : $val['featureValue']);
                         $specificationHtml .= '<div class="ds_data" ' . $featureStyle . '>' . $featureValue . '</div>';
                         $specificationHtml .= '</div>';
+                        $specificationHtml .= '<hr style="margin: -5px; background: #afafaf; margin-left: -10px;margin-right: -10px;">';
                     }
                     $specificationHtml .= '</div>';
                 }
