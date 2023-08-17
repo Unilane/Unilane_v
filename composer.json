@@ -26,7 +26,8 @@
         "mercadopago/adb-payment": "^1.4",
         "openpay/magento2-banks": "~4.1.0",
         "openpay/magento2-cards": "3.4.*",
-        "openpay/magento2-stores": "~4.1.0"
+        "openpay/magento2-stores": "~4.1.0",
+        "weltpixel/m2-weltpixel-quickview": "^1.11"
     },
     "autoload": {
         "exclude-from-classmap": [

@@ -338,8 +338,6 @@ return [
         'Mageplaza_Smtp' => 1,
         'Mageplaza_Osc' => 1,
         'MercadoPago_AdbPayment' => 1,
-        'Morganingland_CheckoutSuccessPage' => 1,
-        'Morganingland_Core' => 1,
         'Openpay_Banks' => 1,
         'Openpay_Cards' => 1,
         'Openpay_Stores' => 1,
@@ -351,6 +349,8 @@ return [
         'Smartwave_Megamenu' => 1,
         'Smartwave_Porto' => 1,
         'Smartwave_Socialfeeds' => 1,
-        'Temando_ShippingRemover' => 1
+        'Temando_ShippingRemover' => 1,
+        'WeltPixel_Backend' => 1,
+        'WeltPixel_Quickview' => 1
     ]
 ];

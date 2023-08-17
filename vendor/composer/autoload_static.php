@@ -492,6 +492,8 @@ class ComposerStaticInitc96ecaacf3719b75b13057a42d56b271
         'aa75ea0761a2f40c1f3b32ad314f86c4' => __DIR__ . '/..' . '/phpseclib/mcrypt_compat/lib/mcrypt.php',
         '38143a9afc50997d55e4815db8489d1c' => __DIR__ . '/..' . '/rector/rector/bootstrap.php',
         '940abd8fb01ee76a36b44f35dcf9783b' => __DIR__ . '/..' . '/weew/helpers-array/src/array.php',
+        '1506602cad1f917a0661dc7b3038b155' => __DIR__ . '/..' . '/weltpixel/m2-weltpixel-backend/registration.php',
+        'd7b61400ceb71c481643812b365908a8' => __DIR__ . '/..' . '/weltpixel/m2-weltpixel-quickview-free/registration.php',
         'a754c973d3b38fc831d832a54392dcd3' => __DIR__ . '/..' . '/icecat/magento2-extension/registration.php',
         'eda65932675b68b5aee4503e0762d64d' => __DIR__ . '/..' . '/magento/magento2-functional-testing-framework/src/Magento/FunctionalTestingFramework/_bootstrap.php',
         'a77049f7f3ca4c78b9e3635c8f857d84' => __DIR__ . '/..' . '/mageplaza/module-smtp/registration.php',
@@ -514,6 +516,8 @@ class ComposerStaticInitc96ecaacf3719b75b13057a42d56b271
         ),
         'W' => 
         array (
+            'WeltPixel\\Quickview\\' => 20,
+            'WeltPixel\\Backend\\' => 18,
             'Webmozart\\Assert\\' => 17,
             'Webimpress\\SafeWriter\\' => 22,
         ),
@@ -1086,6 +1090,14 @@ class ComposerStaticInitc96ecaacf3719b75b13057a42d56b271
         'Yandex\\Allure\\Adapter\\' => 
         array (
             0 => __DIR__ . '/..' . '/allure-framework/allure-php-commons/src/Legacy',
+        ),
+        'WeltPixel\\Quickview\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/weltpixel/m2-weltpixel-quickview-free',
+        ),
+        'WeltPixel\\Backend\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/weltpixel/m2-weltpixel-backend',
         ),
         'Webmozart\\Assert\\' => 
         array (

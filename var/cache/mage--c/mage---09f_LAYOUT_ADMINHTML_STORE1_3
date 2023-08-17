@@ -1,4 +1,4 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1692292130;s:6:"expire";i:1723828130;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1692297646;s:6:"expire";i:1723833646;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
 <?xml version="1.0"?>
 <layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><handle id="adminhtml_system_config_edit" layout="admin-2columns-left"><body>
    <referenceContainer name="js">
@@ -8437,6 +8437,90 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1692292130;s:6:"expire";i:1723828130;s:4:"t
 </handle><handle id="adminhtml_system_config_edit" layout="admin-2columns-left"><body>
    <referenceContainer name="js">
       <block class="Magento\Backend\Block\Template" template="Smartwave_Porto::system/config/jsinit.phtml"/>
+   </referenceContainer>
+</body>
+</handle><handle id="adminhtml_system_config_edit"><head>
+   <link src="WeltPixel_Backend::jscolor/jscolor.js"/>
+</head>
+</handle><handle id="default"><body>
+   <referenceContainer name="before.body.end">
+      <block class="Magento\Backend\Block\Template" template="WeltPixel_Backend::helpcenter/init.phtml"/>
+      <block class="Magento\Backend\Block\Template" template="WeltPixel_Backend::menu/adjustments.phtml"/>
+   </referenceContainer>
+</body>
+</handle><handle id="weltpixel_backend_debugger_modules"><update handle="styles"/>
+<body>
+   <referenceContainer name="content">
+      <block class="WeltPixel\Backend\Block\Adminhtml\ModulesVersion" name="weltpixel_rewrites_modulesversion" template="WeltPixel_Backend::modules.phtml"/>
+   </referenceContainer>
+</body>
+</handle><handle id="weltpixel_backend_debugger_rewrites"><update handle="styles"/>
+<body>
+   <referenceContainer name="content">
+      <block class="WeltPixel\Backend\Block\Adminhtml\Debugger" name="weltpixel_rewrites_grid">
+         <block class="Magento\Backend\Block\Widget\Grid" name="weltpixel_rewrites_grid.grid" as="grid">
+            <arguments>
+               <argument name="dataSource" xsi:type="object">WeltPixel\Backend\Model\ResourceModel\Debugger\Grid\Collection</argument>
+               <argument name="pager_visibility" xsi:type="string">0</argument>
+            </arguments>
+            <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" name="weltpixel_rewrites_grid.grid.columnSet" as="grid.columnSet">
+               <arguments>
+                  <argument name="filter_visibility" xsi:type="string">1</argument>
+               </arguments>
+               <block class="Magento\Backend\Block\Widget\Grid\Column" as="area">
+                  <arguments>
+                     <argument name="header" translate="true" xsi:type="string">Area</argument>
+                     <argument name="index" xsi:type="string">area</argument>
+                     <argument name="sortable" xsi:type="string">0</argument>
+                     <argument name="filter" xsi:type="string">0</argument>
+                  </arguments>
+               </block>
+               <block class="Magento\Backend\Block\Widget\Grid\Column" as="original_class">
+                  <arguments>
+                     <argument name="header" translate="true" xsi:type="string">Original Class</argument>
+                     <argument name="index" xsi:type="string">original_class</argument>
+                     <argument name="sortable" xsi:type="string">0</argument>
+                  </arguments>
+               </block>
+               <block class="Magento\Backend\Block\Widget\Grid\Column" as="rewrite_class">
+                  <arguments>
+                     <argument name="header" translate="true" xsi:type="string">Rewrite Class</argument>
+                     <argument name="index" xsi:type="string">rewrite_class</argument>
+                     <argument name="sortable" xsi:type="string">0</argument>
+                     <argument name="filter" xsi:type="string">0</argument>
+                  </arguments>
+               </block>
+               <block class="Magento\Backend\Block\Widget\Grid\Column" as="status">
+                  <arguments>
+                     <argument name="header" translate="true" xsi:type="string">Status</argument>
+                     <argument name="filter" xsi:type="string">0</argument>
+                     <argument name="sortable" xsi:type="string">0</argument>
+                     <argument name="renderer" xsi:type="string">WeltPixel\Backend\Block\Adminhtml\Grid\Renderer\RewriteStatus</argument>
+                     <argument name="header_css_class" xsi:type="string">col-rewrite-status</argument>
+                  </arguments>
+               </block>
+            </block>
+         </block>
+      </block>
+   </referenceContainer>
+</body>
+</handle><handle id="weltpixel_backend_licenses_index"><update handle="styles"/>
+<head>
+   <title>
+            WeltPixel Licenses
+        </title>
+</head>
+<body>
+   <referenceContainer name="content">
+      <block class="WeltPixel\Backend\Block\Adminhtml\Licenses" name="weltpixel_licenses" template="WeltPixel_Backend::licenses/list.phtml"/>
+   </referenceContainer>
+</body>
+</handle><handle id="weltpixel_license_needed" layout="admin-1column"><head>
+   <title>WeltPixel License Key Needed</title>
+</head>
+<body>
+   <referenceContainer name="content">
+      <block class="WeltPixel\Backend\Block\Adminhtml\Licenses" name="license.needed" template="WeltPixel_Backend::licenses/license_needed.phtml"/>
    </referenceContainer>
 </body>
 </handle><handle id="default"><head>

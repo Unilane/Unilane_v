@@ -491,6 +491,8 @@ return array(
     'aa75ea0761a2f40c1f3b32ad314f86c4' => $vendorDir . '/phpseclib/mcrypt_compat/lib/mcrypt.php',
     '38143a9afc50997d55e4815db8489d1c' => $vendorDir . '/rector/rector/bootstrap.php',
     '940abd8fb01ee76a36b44f35dcf9783b' => $vendorDir . '/weew/helpers-array/src/array.php',
+    '1506602cad1f917a0661dc7b3038b155' => $vendorDir . '/weltpixel/m2-weltpixel-backend/registration.php',
+    'd7b61400ceb71c481643812b365908a8' => $vendorDir . '/weltpixel/m2-weltpixel-quickview-free/registration.php',
     'a754c973d3b38fc831d832a54392dcd3' => $vendorDir . '/icecat/magento2-extension/registration.php',
     'eda65932675b68b5aee4503e0762d64d' => $vendorDir . '/magento/magento2-functional-testing-framework/src/Magento/FunctionalTestingFramework/_bootstrap.php',
     'a77049f7f3ca4c78b9e3635c8f857d84' => $vendorDir . '/mageplaza/module-smtp/registration.php',

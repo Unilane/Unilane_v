@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f7fba23c466858ba1540b90ce42c7b9",
+    "content-hash": "226f5e7515f0ac06451733d3ba9f2fd1",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -24790,6 +24790,72 @@
                 }
             ],
             "time": "2023-03-08T11:44:02+00:00"
+        },
+        {
+            "name": "weltpixel/m2-weltpixel-backend",
+            "version": "1.11.15",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/weltpixel/m2-weltpixel-backend/weltpixel-m2-weltpixel-backend-1.11.15.0.zip",
+                "shasum": "6436be849f875c2286d1a1a1889e3df5e14007f4"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "WeltPixel\\Backend\\": ""
+                }
+            },
+            "license": [
+                "OSL-3.0",
+                "AFL-3.0"
+            ],
+            "description": "WeltPixel Backend Module"
+        },
+        {
+            "name": "weltpixel/m2-weltpixel-quickview",
+            "version": "1.11.17",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/weltpixel/m2-weltpixel-quickview/weltpixel-m2-weltpixel-quickview-1.11.17.0.zip",
+                "shasum": "0f2b223aaff9394d6d50c776855db74e8f81687a"
+            },
+            "require": {
+                "magento/framework": "103.0.*",
+                "weltpixel/m2-weltpixel-backend": "1.11.15",
+                "weltpixel/m2-weltpixel-quickview-free": "1.11.15"
+            },
+            "type": "metapackage",
+            "license": [
+                "OSL-3.0",
+                "AFL-3.0"
+            ],
+            "description": "WeltPixel Quickview Module"
+        },
+        {
+            "name": "weltpixel/m2-weltpixel-quickview-free",
+            "version": "1.11.15",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/weltpixel/m2-weltpixel-quickview-free/weltpixel-m2-weltpixel-quickview-free-1.11.15.0.zip",
+                "shasum": "f1af14ab88b971969a37c054a813744eceb341ed"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "WeltPixel\\Quickview\\": ""
+                }
+            },
+            "license": [
+                "OSL-3.0",
+                "AFL-3.0"
+            ],
+            "description": "WeltPixel Quickview Module"
         },
         {
             "name": "wikimedia/less.php",

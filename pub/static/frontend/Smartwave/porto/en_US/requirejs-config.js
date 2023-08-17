@@ -1446,6 +1446,22 @@ var config = {
 require.config(config);
 })();
 (function() {
+var config = {
+    map: {
+        '*': {
+            magnificPopup: 'WeltPixel_Quickview/js/jquery.magnific-popup.min',            
+            weltpixel_quickview: 'WeltPixel_Quickview/js/weltpixel_quickview'
+        }
+    },
+    shim: {
+        magnificPopup: {
+            deps: ['jquery']
+        }
+    }
+};
+require.config(config);
+})();
+(function() {
 /**
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.

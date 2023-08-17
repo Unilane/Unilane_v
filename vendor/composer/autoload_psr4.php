@@ -9,6 +9,8 @@ return array(
     'tubalmartin\\CssMin\\' => array($vendorDir . '/tubalmartin/cssmin/src'),
     'phpseclib3\\' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
     'Yandex\\Allure\\Adapter\\' => array($vendorDir . '/allure-framework/allure-php-commons/src/Legacy'),
+    'WeltPixel\\Quickview\\' => array($vendorDir . '/weltpixel/m2-weltpixel-quickview-free'),
+    'WeltPixel\\Backend\\' => array($vendorDir . '/weltpixel/m2-weltpixel-backend'),
     'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
     'Webimpress\\SafeWriter\\' => array($vendorDir . '/webimpress/safe-writer/src'),
     'Vault\\' => array($vendorDir . '/csharpru/vault-php/src'),

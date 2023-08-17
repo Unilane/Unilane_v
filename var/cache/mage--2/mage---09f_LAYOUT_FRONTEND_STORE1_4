@@ -1,4 +1,4 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1692292106;s:6:"expire";i:1723828106;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1692297647;s:6:"expire";i:1723833647;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
 <?xml version="1.0"?>
 <layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><handle id="catalog_category_view"><body/>
 </handle><handle id="catalogsearch_advanced_index"><body/>
@@ -8302,6 +8302,99 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1692292106;s:6:"expire";i:1723828106;s:4:"t
       </container>
    </referenceContainer>
 </body>
+</handle><handle id="catalog_category_view"><body>
+   <referenceContainer name="category.product.list.additional">
+      <block class="Magento\Catalog\Block\Product\ListProduct" name="category.product.list.weltpixel.quickview.image" template="WeltPixel_Quickview::listing/retailjs.phtml"/>
+   </referenceContainer>
+</body>
+</handle><handle id="default"><head>
+   <css src="WeltPixel_Quickview::css/magnific-popup.css"/>
+</head>
+<body>
+   <referenceContainer name="before.body.end">
+      <block ifconfig="weltpixel_quickview/general/enable_product_listing" class="WeltPixel\Quickview\Block\Initialize" name="welpixel.quickview.initialize" template="WeltPixel_Quickview::initialize.phtml"/>
+   </referenceContainer>
+</body>
+</handle><handle id="weltpixel_quickview_catalog_product_view" layout="1column"><update handle="catalog_product_view"/>
+<body>
+   <referenceBlock name="catalog.product.related" remove="true"/>
+   <referenceBlock name="product.info.upsell" remove="true"/>
+   <referenceBlock name="header.container" remove="true"/>
+   <referenceBlock name="footer-container" remove="true"/>
+   <referenceBlock name="page.top" remove="true"/>
+   <referenceBlock name="copyright" remove="true"/>
+   <referenceBlock name="authentication-popup" remove="true"/>
+   <referenceContainer name="page.messages" remove="true"/>
+   <referenceBlock name="product.info.overview">
+      <action method="setTemplate" ifconfig="weltpixel_quickview/general/remove_short_description">
+         <argument name="template" xsi:type="string"/>
+      </action>
+   </referenceBlock>
+   <referenceBlock name="product.info.sku">
+      <action method="setTemplate">
+         <argument name="template" helper="WeltPixel\Quickview\Helper\Data::getSkuTemplate" xsi:type="helper">
+                </argument>
+      </action>
+   </referenceBlock>
+   <referenceBlock name="product.info.estimations.delivery">
+      <action method="setTemplate" ifconfig="weltpixel_quickview/general/remove_estimated_arrival">
+         <argument name="template" xsi:type="string"/>
+      </action>
+   </referenceBlock>
+   <referenceBlock name="product.info.form.content">
+      <block ifconfig="weltpixel_quickview/general/enable_goto_product_button" class="Magento\Catalog\Block\Product\View" after="product.info.addtocart" name="goto.product" as="goto.product" template="WeltPixel_Quickview::gotoproduct.phtml"/>
+   </referenceBlock>
+   <referenceContainer name="before.body.end">
+      <block class="Magento\Framework\View\Element\Template" name="welpixel.quickview.beforebodyend" template="WeltPixel_Quickview::beforebodyend.phtml"/>
+      <block class="Magento\Checkout\Block\Cart\Sidebar" name="wp.quickview.window.checkout" as="wp.quickview.window.checkout" template="WeltPixel_Quickview::checkoutjs.phtml"/>
+   </referenceContainer>
+   <referenceContainer name="product.info.social" remove="true"/>
+   <referenceBlock name="product.info.details" remove="true"/>
+   <referenceBlock name="product.info.addtocart">
+      <action method="setTemplate">
+         <argument name="template" xsi:type="string">WeltPixel_Quickview::product/view/addtocart.phtml</argument>
+      </action>
+   </referenceBlock>
+   <referenceBlock name="product.info.addtocart.additional">
+      <action method="setTemplate">
+         <argument name="template" xsi:type="string">WeltPixel_Quickview::product/view/addtocart.phtml</argument>
+      </action>
+   </referenceBlock>
+   <referenceBlock name="related_products_impression" remove="true"/>
+   <referenceBlock name="upsell_products_impression" remove="true"/>
+   <referenceBlock name="related_products_impression" remove="true"/>
+</body>
+</handle><handle id="weltpixel_quickview_catalog_product_view_type_bundle" layout="1column"><body>
+   <referenceBlock name="goto.product" remove="true"/>
+   <referenceBlock name="product.info.main">
+      <block ifconfig="weltpixel_quickview/general/enable_goto_product_button" class="Magento\Catalog\Block\Product\View" after="customize.button" name="goto.product.bundle" as="goto.product.bundle" template="WeltPixel_Quickview::gotoproduct.phtml"/>
+   </referenceBlock>
+</body>
+</handle><handle id="weltpixel_quickview_catalog_product_view_type_configurable" layout="1column"><body>
+   <referenceBlock name="goto.product" remove="true"/>
+   <referenceBlock name="product.info.options.wrapper.bottom">
+      <block ifconfig="weltpixel_quickview/general/enable_goto_product_button" class="Magento\Catalog\Block\Product\View" after="product.info.addtocart" name="goto.product.configurable" as="goto.product.configurable" template="WeltPixel_Quickview::gotoproduct.phtml"/>
+   </referenceBlock>
+</body>
+</handle><handle id="weltpixel_quickview_catalog_product_view_type_downloadable" layout="1column"><body>
+   <referenceBlock name="goto.product" remove="true"/>
+   <move element="product.info" destination="product.info.main" after="product.info.price"/>
+   <referenceBlock name="product.info.options.wrapper.bottom">
+      <block ifconfig="weltpixel_quickview/general/enable_goto_product_button" class="Magento\Catalog\Block\Product\View" after="product.info.addtocart" name="goto.product.downloadable" as="goto.product.downloadable" template="WeltPixel_Quickview::gotoproduct.phtml"/>
+   </referenceBlock>
+</body>
+</handle><handle id="weltpixel_quickview_removeavailability" layout="1column"><body>
+   <referenceContainer name="product.info.type" remove="true"/>
+</body>
+</handle><handle id="weltpixel_quickview_removeproduct_image" layout="1column"><head>
+   <css src="WeltPixel_Quickview::css/quickview_remove_productimage.css"/>
+</head>
+<body>
+   <referenceContainer name="product.info.media" remove="true"/>
+</body>
+</handle><handle id="weltpixel_quickview_removeproduct_image_thumb" layout="1column"><head>
+   <css src="WeltPixel_Quickview::css/quickview_remove_productimage_thumb.css"/>
+</head>
 </handle><handle id="default"><body>
    <referenceBlock name="logo">
       <arguments>
@@ -8557,6 +8650,54 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1692292106;s:6:"expire";i:1723828106;s:4:"t
    <referenceBlock name="header.links">
       <block class="Smartwave\Porto\Block\Template" name="custom_link" template="html/custom_link.phtml"/>
    </referenceBlock>
+</body>
+</handle><handle id="weltpixel_quickview_catalog_product_view" layout="1column"><update handle="catalog_product_view"/>
+<body>
+   <referenceBlock name="catalog.product.related" remove="true"/>
+   <referenceBlock name="product.info.upsell" remove="true"/>
+   <referenceBlock name="prev_next_products" remove="true"/>
+   <referenceBlock name="header.container" remove="true"/>
+   <referenceBlock name="porto_header" remove="true"/>
+   <referenceBlock name="footer-container" remove="true"/>
+   <referenceBlock name="page.top" remove="true"/>
+   <referenceBlock name="copyright" remove="true"/>
+   <referenceBlock name="authentication-popup" remove="true"/>
+   <referenceBlock name="product.info.overview">
+      <action method="setTemplate" ifconfig="weltpixel_quickview/general/remove_short_description">
+         <argument name="template" xsi:type="string"/>
+      </action>
+   </referenceBlock>
+   <referenceBlock name="product.info.sku">
+      <action method="setTemplate">
+         <argument name="template" helper="WeltPixel\Quickview\Helper\Data::getSkuTemplate" xsi:type="helper">
+                </argument>
+      </action>
+   </referenceBlock>
+   <referenceBlock name="product.info.form.content">
+      <block ifconfig="weltpixel_quickview/general/enable_goto_product_button" class="Magento\Catalog\Block\Product\View" after="product.info.addtocart" name="goto.product" as="goto.product" template="WeltPixel_Quickview::gotoproduct.phtml"/>
+   </referenceBlock>
+   <referenceContainer name="before.body.end">
+      <block class="Magento\Framework\View\Element\Template" name="welpixel.quickview.beforebodyend" template="WeltPixel_Quickview::beforebodyend.phtml"/>
+   </referenceContainer>
+   <referenceContainer name="product.info.social" remove="true"/>
+   <referenceBlock name="product.info.details" remove="true"/>
+   <referenceBlock name="product.info.addtocart">
+      <action method="setTemplate">
+         <argument name="template" xsi:type="string">WeltPixel_Quickview::product/view/addtocart.phtml</argument>
+      </action>
+   </referenceBlock>
+   <referenceBlock name="product.info.addtocart.additional">
+      <action method="setTemplate">
+         <argument name="template" xsi:type="string">WeltPixel_Quickview::product/view/addtocart.phtml</argument>
+      </action>
+   </referenceBlock>
+   <referenceBlock name="category_list_on_left" remove="true"/>
+   <referenceBlock name="product.info.media.image">
+      <action method="setTemplate">
+         <argument name="template" xsi:type="string">WeltPixel_Quickview::product/view/gallery.phtml</argument>
+      </action>
+   </referenceBlock>
+   <referenceBlock name="product_view_custom_block" remove="true"/>
 </body>
 </handle><layout id="1column"><update handle="empty"/>
 <referenceContainer name="page.wrapper">
