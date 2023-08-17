@@ -49,7 +49,9 @@ define(
 
         return {
             saveShippingInformation: function () {
-                var payload, addressInformation = {}, additionInformation = oscData.getData();
+                var payload,
+                    addressInformation = {},
+                    additionInformation = oscData.getData();
                
                 if (!quote.billingAddress()) {
                     selectBillingAddressAction(quote.shippingAddress());
@@ -69,11 +71,14 @@ define(
                     addressInformation = {
                         billing_address: quote.billingAddress()
                     };
-                }               
+                }             
+                
                 payload = {
-                    addressInformation: addressInformation,                    
+                    addressInformation: addressInformation,
+                    
                     additionInformation: additionInformation
                 };
+
                 this.payloadExtender(payload);
 
                 fullScreenLoader.startLoader();
@@ -90,12 +95,12 @@ define(
                         fullScreenLoader.stopLoader();
                     }
                 );
-            },         
+            },           
 
             payloadExtender: function (payload) {
                 if (!payload.addressInformation.hasOwnProperty('shipping_address')) {
                     return payload;
-                }                
+                }
             }
         };
     }

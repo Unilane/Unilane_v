@@ -1,0 +1,12 @@
+@morganinglandcore-icons-admin__font-name-path: '@{baseDir}Morganingland_Core/fonts/morganinglandcore';
+@morganinglandcore-icons-admin__font-name : 'Morganingland_Core';
+.lib-font-face(
+  @family-name:@morganinglandcore-icons-admin__font-name,
+  @font-path: @morganinglandcore-icons-admin__font-name-path,
+  @font-weight: normal,
+  @font-style: normal
+);
+.admin__menu .item-morganmenu.parent.level-0 > a:before {
+  font-family: @morganinglandcore-icons-admin__font-name;
+  content: "\0049";
+}

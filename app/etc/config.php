@@ -338,6 +338,8 @@ return [
         'Mageplaza_Smtp' => 1,
         'Mageplaza_Osc' => 1,
         'MercadoPago_AdbPayment' => 1,
+        'Morganingland_CheckoutSuccessPage' => 1,
+        'Morganingland_Core' => 1,
         'Openpay_Banks' => 1,
         'Openpay_Cards' => 1,
         'Openpay_Stores' => 1,

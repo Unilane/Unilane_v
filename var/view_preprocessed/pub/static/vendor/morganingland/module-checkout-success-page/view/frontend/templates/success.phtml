@@ -1,0 +1,1 @@
+<?php use Morganingland\CheckoutSuccessPage\Block\Checkout\SuccessPage; /** @var $block SuccessPage */ $allblocks = $block->getChildNames(); ?> <div class="morganingland_checkout_success_page"><?php foreach ($allblocks as $item) { echo $block->getChildBlock($item)->toHtml(); } ?></div>

@@ -1,0 +1,396 @@
+.morganingland_checkout_success_page {
+    text-align: center;
+    margin: 0px auto 50px auto;
+}
+.icon_thank_you_morgan
+{
+    width: 55px;
+    height: 55px;
+    background-image: url('../../Morganingland_CheckoutSuccessPage/images/icon_01.svg');
+    background-repeat: no-repeat;
+    margin: 81px auto 21px auto; 
+}
+.coupon-bg {
+    width: 714px;
+    height: 260px;
+    background-image: url("../../Morganingland_CheckoutSuccessPage/images/coupon-code.jpg");
+    background-repeat: no-repeat;    
+    display: inline-block;
+    position: relative;
+}
+.coupon-content {
+    position: absolute;
+    top: 60.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+strong.blink-me {
+            font-size: 5em; 
+            font-family: serif; 
+            color: #008000; 
+            text-align: center; 
+            animation: animate  
+                1.5s linear infinite; 
+}
+@keyframes animate { 
+            0% { 
+                opacity: 0; 
+            } 
+  
+            50% { 
+                opacity: 0.7; 
+            } 
+  
+            100% { 
+                opacity: 0; 
+            } 
+        } 
+.block.widget .pager {
+    display: none;
+}
+.morganingland_checkout_success_page .thankyou-title {
+    margin-bottom: 12px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #303030;
+    font-family: 'Questrial',sans-serif;
+    font-style: inherit;
+    font-weight: 900;
+    margin-top: 0;
+}
+.morganingland_checkout_success_page .thankyou-subtitle {
+    margin-bottom: 12px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #303030;
+    font-family: 'Questrial',sans-serif;
+    font-style: inherit;
+    font-weight: 600;
+    margin-top: 0;
+}
+.morganingland_checkout_success_page .thankyou-detail-message {
+    color: #303030;
+    font-family: 'Source Sans Pro',sans-serif;
+    font-style: inherit;
+    font-weight: 400;
+    line-height: 1.42857143;
+    font-size: 1.4rem;
+}
+.actions-toolbar-thanks {
+    margin-top: 21px;
+    float: none;
+}
+.morganingland_checkout_success_page button.action.primary.continue.thanks {
+    background-color: #000;
+    border: 1px solid #000;
+    color: #fff;
+    transition-duration: .3s;
+    transition-property: background-color;
+}
+.morganingland_checkout_success_page button.action.primary.continue.thanks span {
+    color: #fff;
+    line-height: 18px;
+    font-family: 'Questrial',sans-serif;
+    letter-spacing: 1px;
+}
+.address-wrapper {
+    display: flex;
+}
+.shipping-address {
+    padding: 10px 10px;
+    text-align: right;
+    width: 46% !important;
+}
+.billing-address {
+    padding: 10px 10px;
+    text-align: left;
+    width: 46% !important;
+}
+.methods-wrapper {
+    display: flex;
+}
+.shipping-method {
+    padding: 10px 10px;
+    text-align: right;
+    width: 46% !important;
+}
+.morganingland_checkout_success_page .billing-method {
+    padding: 10px 10px;
+    text-align: left;
+    width: 46% !important;
+}
+h4 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #303030;
+    font-family: 'Questrial',sans-serif;
+    font-style: inherit;
+    line-height: 1.1;
+    font-size: 1.4rem;
+    margin-top: 2rem;
+}
+p.box-content {
+    margin-bottom: 0;
+    margin-top: 0;
+    letter-spacing: 1px;
+    color: #303030;
+    font-family: 'Source Sans Pro',sans-serif;
+    font-style: inherit;
+    font-weight: 400;
+    line-height: 1.42857143;
+    font-size: 1.4rem;
+}
+.row.order-additional-info {
+    display: flex;
+}
+.col.order-additional {
+    margin: 0 35px;
+}
+span.order-status {
+    background-color: #000;
+    border: 1px solid #000;
+    color: #fff;
+    transition-duration: .3s;
+    transition-property: background-color;
+}
+button.action.primary {
+    background-color: #000;
+    border: 1px solid #000;
+    color: #fff;
+    transition-duration: .3s;
+    transition-property: background-color;
+}
+.table tfoot {
+    background: rgb(255, 255, 255);
+}
+ .coupon {
+    text-align: center;   
+}
+
+ .text-under {
+    float: right;
+}
+
+ .show-order {
+    margin-top: 20px;
+}
+
+ .show-order tr {
+    border-bottom: 1px solid #cccccc;
+}
+
+ .thumbnail {
+    height: 100px;
+}
+
+ .reorderurl {
+    margin-bottom: 5px;
+    float: right;
+}
+
+ > div {
+    margin-bottom: 10px;
+}
+
+ .coupon , .checkout-success-message{
+    padding: 10px 0;
+}
+
+ .products-grid.grid {
+    padding: 15px 0;
+}
+
+ .slick-track {
+    padding-top: 15px;
+    padding-bottom: 50px;
+}
+
+.page-layout-1column  .block.widget .products-grid .product-item {
+    margin-left: 0 !important;
+    padding: 0 20px;
+}
+
+
+.cart > .item {
+    border-bottom: 1px solid #cccccc;
+    position: relative;
+}
+
+.products-grid.grid button.slick-arrow {
+    background-color: transparent;
+}
+
+.slick-prev:before, .slick-next:before {
+    color: #333333;
+}
+
+.order-details .product {
+    overflow: hidden;
+}
+
+.order-details .product:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.order-details .thumbnail {
+    float: left;
+    margin-right: 15px;
+}
+
+.order-details .product-name a{
+    float: left;
+    letter-spacing: 1px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: rgb(48, 48, 48);
+    font-family: Questrial, sans-serif;
+    font-style: inherit;
+    font-weight: 600;
+}
+
+.order-total-label {
+    text-align: right;
+}
+
+.order-total-info {
+    display: inline-block;
+    letter-spacing: 2px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: rgb(48, 48, 48);
+    font-family: Questrial, sans-serif;
+    font-style: inherit;
+    font-weight: 600;
+}
+tr.data-item.total.total-grand {
+    border-top: 2px solid rgb(238, 238, 238);
+    border-bottom: 2px solid rgb(238, 238, 238);    
+    margin-bottom: 40px;
+}
+ .order-date {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+ .order-date .label {
+    display: none;
+}
+
+ .page-title-wrapper {
+    position: relative;
+}
+
+ .page-title {
+    display: inline-block;
+    font-size: 28px;
+    margin-bottom: 15px;
+    margin-top: 0;
+    margin-right: 15px;
+}
+
+ .actions-order {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+ .block-title {
+    border-bottom: 1px solid #c6c6c6;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+}
+
+ .block-title strong {
+    font-size: 2.2rem;
+    font-weight: 300;
+}
+
+ .page-title-wrapper,
+ .show-order,
+ .info,
+ .coupon.sort-block {
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.order-details-table {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+@media only screen and (max-width: 639px) {
+    .order-details .table-wrapper .col.qty,
+    .order-details .table-wrapper .col.price,
+    .order-details .table-wrapper .col.subtotal,
+    .order-details .table-wrapper .col.msrp {
+        box-sizing: border-box;
+        display: block;
+        float: left;
+        white-space: nowrap;
+        width: 33%;
+        border-bottom: none !important;
+    }
+
+    .order-details .table-wrapper .col.qty[data-th]:before,
+    .order-details .table-wrapper .col.price[data-th]:before,
+    .order-details .table-wrapper .col.subtotal[data-th]:before,
+    .order-details .table-wrapper .col.msrp[data-th]:before {
+        content: attr(data-th) !important;
+        display: block !important;
+        font-weight: 600 !important;
+        padding-bottom: 10px;
+    }
+
+    .order-details .table-wrapper .data-item {
+        overflow: hidden;
+    }
+
+     .block-content:not(.widget) .box {
+        margin-bottom: 20px;
+    }
+
+     .actions-order {
+        position: relative;
+    }
+}
+
+@media (min-width: 768px) {
+     .block-content:not(.widget) .box {
+        clear: none;
+        float: left;
+        width: 25%;
+    }
+
+     .page-title {
+        font-size: 36px;
+    }
+}
+
+ .block-content:not(.widget) .box .box-title {
+    display: inline-block;
+    margin: 0 0 10px;
+}
+
+ .block-content:not(.widget) .box .box-title > span {
+    font-size: 1.6rem;
+}
+.block.newsletter {
+    text-align: center;
+    margin: auto;
+}
+.checkout-success {
+    display: none;
+}
+#registration {
+    display: none;
+}
