@@ -532,7 +532,7 @@ class IceCatUpdateProduct
                 $specificationHtml .= '</div>';
                 $specificationHtml .= '</div>';
                 $specificationHtml .= '</div>';
-                $specificationHtml .= '</div>';
+                $specificationHtml .= '</div>'; 
                 $product->setData(AttributeCodes::ICECAT_PRODUCT_ATTRIBUTE_SPECIFICATION, $specificationHtml);
             } else {
                 $product->setData(AttributeCodes::ICECAT_PRODUCT_ATTRIBUTE_SPECIFICATION, "");
