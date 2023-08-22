@@ -350,6 +350,7 @@ return [
         'Smartwave_Porto' => 1,
         'Smartwave_Socialfeeds' => 1,
         'Temando_ShippingRemover' => 1,
+        'Unilane_SyncProduct' => 1,
         'WeltPixel_Backend' => 1,
         'WeltPixel_Quickview' => 1
     ]

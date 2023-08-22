@@ -52,7 +52,9 @@ define(
                 var payload,
                     addressInformation = {},
                     additionInformation = oscData.getData();
-              
+                if (window.checkoutConfig.oscConfig.giftMessageOptions.isOrderLevelGiftOptionsEnabled) {
+                    additionInformation.giftMessage = this.saveGiftMessage();
+                }
                 if (!quote.billingAddress()) {
                     selectBillingAddressAction(quote.shippingAddress());
                 }
@@ -72,10 +74,25 @@ define(
                         billing_address: quote.billingAddress()
                     };
                 }
-              
-               
+
+                var customAttributes = {};
+                if (_.isObject(quote.billingAddress().customAttributes)) {
+                    _.each(quote.billingAddress().customAttributes, function (attribute, key) {
+                        if (_.isArray(attribute)) {
+                            customAttributes[key] = attribute.join(',')
+                        } else if (_.isString(attribute) || _.isNumber(attribute)) {
+                            customAttributes[key] = attribute
+                        } else if (_.isObject(attribute)) {
+                            customAttributes[attribute.attribute_code] = attribute.value
+                        }
+                    });
+                }
+                var extension_attributes = addressInformation.shipping_address.extension_attributes,
+                    extensionAttributes =   addressInformation.shipping_address.extensionAttributes;
+                addressInformation.shipping_address.extension_attributes=$.extend(extension_attributes, extensionAttributes);
                 payload = {
-                    addressInformation: addressInformation,                    
+                    addressInformation: addressInformation,
+                    customerAttributes: customAttributes,
                     additionInformation: additionInformation
                 };
 
@@ -95,12 +112,37 @@ define(
                         fullScreenLoader.stopLoader();
                     }
                 );
-            },  
+            },
+
+            saveGiftMessage: function () {
+                var giftMessage = {};
+                if (!$("#osc-gift-message").is(":checked")) $('.gift-options-content').find('input:text,textarea').val('');
+                giftMessage.sender = $("#gift-message-whole-from").val();
+                giftMessage.recipient = $("#gift-message-whole-to").val();
+                giftMessage.message = $("#gift-message-whole-message").val();
+                return JSON.stringify(giftMessage);
+            },
 
             payloadExtender: function (payload) {
                 if (!payload.addressInformation.hasOwnProperty('shipping_address')) {
                     return payload;
-                }              
+                }
+
+                var deliveryData = {
+                    mp_delivery_date: $('#mp-delivery-date').val(),
+                    mp_delivery_time: $('#mp-delivery-time').val(),
+                    mp_house_security_code: $('#mp-house-security-code').val(),
+                    mp_delivery_comment: $('#mp-delivery-comment').val()
+                };
+
+                if (!payload.addressInformation.shipping_address.hasOwnProperty('extension_attributes')) {
+                    payload.addressInformation.shipping_address.extension_attributes = {};
+                }
+
+                payload.addressInformation.shipping_address.extension_attributes = $.extend(
+                    payload.addressInformation.shipping_address.extension_attributes,
+                    deliveryData
+                )
             }
         };
     }
