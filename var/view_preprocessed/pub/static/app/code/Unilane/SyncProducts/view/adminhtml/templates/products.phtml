@@ -1,6 +1,23 @@
-<?php /** * Copyright © Magento, Inc. All rights reserved. * See COPYING.txt for license details. */ /** * @var \Unilane\SyncProducts\Block\Adminhtml\System\Config\Form\Field\Import $block */ ?> <?= $block->getChildHtml('button'); ?> <script type="text/x-magento-init">
-	{
-		"*":{
-			"Unilane_SyncProducts/js/products":{}
-		}
-	}</script>
+<?php /** * Copyright © Magento, Inc. All rights reserved. * See COPYING.txt for license details. */ /** * @var \Unilane\SyncProducts\Block\Adminhtml\System\Config\Form\Field\Import $block */ ?> <?= $block->getChildHtml('button'); ?> <script type="text/javascript">
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+define(['jquery'], function ($) {
+    'use strict';
+    /**
+     * Initialize click and input events to handle validation
+     *    
+     */
+    console.log("ejecucion");
+    $('#sync-products').on('click', function () {
+        $.ajax({
+        url: URL_BASE+'/syncproduct/products/importproducts',
+        showLoader: true,                
+        }).done(function (data) {
+            console.log("hola",data);
+        });
+    });        
+
+});</script>
