@@ -9,28 +9,28 @@
  */
 ?>
 <?= $block->getChildHtml('button'); ?>
-<script type="text/javascript">
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
-define(['jquery'], function ($) {
+<!-- <script type="text/x-magento-init">
+{
+    "*": {
+        Unilane_SyncProducts/js/products
+    }
+}
+</script> -->
+<script>
+require(['jquery'], function ($) {
     'use strict';
-    /**
-     * Initialize click and input events to handle validation
-     *    
-     */
-    console.log("ejecucion");
-    $('#sync-products').on('click', function () {
+    $('#sync-products').click(function () {
+        console.log("ejecucion");
         $.ajax({
-        url: URL_BASE+'/syncproduct/products/importproducts',
-        showLoader: true,                
+        type: "POST",
+        url: BASE_URL+'/syncproduct/products/importproducts?isAjax=true',
+        data: {form_key: window.FORM_KEY},
+        dataType: "json",
+        showLoader: true,
         }).done(function (data) {
-            console.log("hola",data);
+            console.log("si entra");
         });
-    });        
-
+    }); 
 });
-
 </script>
+

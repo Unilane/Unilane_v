@@ -10,13 +10,15 @@ namespace Unilane\SyncProducts\Controller\Adminhtml\Products;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Catalog\Api\Data\ProductInterfaceFactory;
 use Magento\Catalog\Api\ProductRepositoryInterface;
+
 /**
  * Class ValidateApi
  */
-class ImportProducts extends \Magento\Backend\App\Action implements \Magento\Framework\App\Action\HttpPostActionInterface
+class ImportProducts extends \Magento\Backend\App\Action
 {
-    const ADMIN_RESOURCE = 'Magento_Backend::content';
+    
     private $productFactory;
+    private $resultJsonFactory;
     /**
      * Constructor
      *
@@ -24,10 +26,12 @@ class ImportProducts extends \Magento\Backend\App\Action implements \Magento\Fra
      */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
-        \Magento\Catalog\Model\ProductFactory $productFactory
+        \Magento\Catalog\Model\ProductFactory $productFactory,
+        \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory
     ) {
         parent::__construct($context);
         $this->productFactory = $productFactory;
+        $this->resultJsonFactory = $resultJsonFactory;
     }
 
     /**
@@ -37,48 +41,54 @@ class ImportProducts extends \Magento\Backend\App\Action implements \Magento\Fra
      */
     public function execute()
     {
-        //CODIGO DE INSERCION        
-        $data = file_get_contents("C:\Users\luis.olivarria\Desktop\productsjson\dataPrueba.json");
+        $response = $this->resultJsonFactory->create();
+        $data         = file_get_contents("C:\Users\luis.olivarria\Desktop\productsjson\dataPrueba.json");
+        $dataCatagory = file_get_contents("C:\Users\luis.olivarria\Desktop\productsjson\arregloCategorias.json");
         if($data){
             try {
-                $products = json_decode($data, true);
+                $products  = json_decode($data, true);
+                $categorys = json_decode($dataCatagory, true);
                 foreach($products as $product){
-                    // $producto = $objectManager->create('\Magento\Catalog\Model\Product');
                     $items = $this->productFactory->create();
-
                     $sumaExistencia = 0;
                     $pro = $product['existencia'];
-
                     foreach($pro as $existencia){
                         $sumaExistencia += $existencia;
                     }
-
                     $items->setAttributeSetId(4);
                     $items->setName($product['nombre']);
                     $items->setSku($product['clave']);
                     $items->setPrice($product['precio']);
                     $items->setVisibility(4);
                     $items->setStatus(1);
-                    $items->setGTIN('t');
+                    $items->setTypeId('simple');
+                    $items->setTaxClassId(1);
+                    $items->setWebsiteIds([1]);
+                    //ICECAT
+                    $items->setGtinEan($product['upc']);
+                    $items->setBrandName($product['marca']);
+                    $items->setProductCode($product['numParte']);                    
                     $items->setCategoryIds([
-                        1,2,3
+                        2,24,31,243
                     ]);
                     $items->setStockData(
                         array( 
                         'use_config_manage_stock' => 1,                       
                         'manage_stock' => 1,
                         'is_in_stock' => 1,   
-                        'qty' => 6
+                        'qty' => $sumaExistencia
                         )
                     );
                     $items->save();
-                }          
-
+                }
+                $response->setData(['test' => 'hello']); 
             } catch (Exception $e) {
-                // No Ip found in database
-                $data = [];
+                $response->setData(['test' => 'hello']);
             }           
         }
-        return $this->resultFactory->create(ResultFactory::TYPE_JSON)->setData($validationResult);
+        else{
+
+        }
+        return $response;
     }
 }
