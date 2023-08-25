@@ -5,18 +5,33 @@
 
 define(['jquery'], function ($) {
     'use strict';
-    /**
-     * Initialize click and input events to handle validation
-     *    
-     */
-    console.log("ejecucion");
-    $('#sync-products').on('click', function () {
+    $('#sync-products').click(function () {
+        console.log("ejecucion");
         $.ajax({
-        url: URL_BASE+'/syncproduct/products/importproducts',
-        showLoader: true,                
+        type: "POST",
+        url: BASE_URL+'syncproduct/products/importproducts?isAjax=true',
+        data: {form_key: window.FORM_KEY},
+        dataType: "json",
+        showLoader: true,
         }).done(function (data) {
-            console.log("hola",data);
+            console.log("si entra");
         });
-    });        
+    }); 
 
 });
+
+// require(['jquery'], function ($) {
+//     'use strict';
+//     $('#sync-products').click(function () {
+//         console.log("ejecucion");
+//         $.ajax({
+//         type: "POST",
+//         url: BASE_URL+'/syncproduct/products/importproducts?isAjax=true',
+//         data: {form_key: window.FORM_KEY},
+//         dataType: "json",
+//         showLoader: true,
+//         }).done(function (data) {
+//             console.log("si entra");
+//         });
+//     }); 
+// });

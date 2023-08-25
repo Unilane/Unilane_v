@@ -10,13 +10,12 @@ namespace Unilane\SyncProducts\Controller\Adminhtml\Products;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Catalog\Api\Data\ProductInterfaceFactory;
 use Magento\Catalog\Api\ProductRepositoryInterface;
-
+$block->getFormKey();
 /**
  * Class ValidateApi
  */
-class ImportProducts extends \Magento\Backend\App\Action
+class ImportProducts extends \Magento\Framework\App\Action
 {
-    
     private $productFactory;
     private $resultJsonFactory;
     /**
@@ -25,7 +24,7 @@ class ImportProducts extends \Magento\Backend\App\Action
      * @param \Magento\Backend\App\Action\Context $context     
      */
     public function __construct(
-        \Magento\Backend\App\Action\Context $context,
+        \Magento\Framework\App\Action\Context $context,
         \Magento\Catalog\Model\ProductFactory $productFactory,
         \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory
     ) {
@@ -35,7 +34,6 @@ class ImportProducts extends \Magento\Backend\App\Action
     }
 
     /**
-     * Send test request to Google Maps and return response
      *
      * @return \Magento\Framework\Controller\Result\Json
      */
@@ -81,13 +79,13 @@ class ImportProducts extends \Magento\Backend\App\Action
                     );
                     $items->save();
                 }
-                $response->setData(['test' => 'hello']); 
+                $response->setData(['test' => 'La importacion fue correcta']); 
             } catch (Exception $e) {
-                $response->setData(['test' => 'hello']);
+                $response->setData(['test' => 'hubo un error']);
             }           
         }
         else{
-
+            $response->setData(['test' => 'el archivo esta vacio']);
         }
         return $response;
     }

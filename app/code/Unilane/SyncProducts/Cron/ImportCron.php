@@ -6,7 +6,7 @@
 
 namespace Unilane\SyncProducts\Cron;
 
-use Unilane\SyncProducts\Helper\ImportC;
+use Unilane\SyncProducts\Helper\ImportC as ImportC;
 /**
  * Class SynchronizeWebsiteAttributes
  * @package Magento\Catalog\Cron
