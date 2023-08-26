@@ -5,17 +5,20 @@
     }
 }</script> --><script>
 require(['jquery'], function ($) {
+
     'use strict';
+    var url = window.location.origin+"/rest/V1/syncproducts";
     $('#sync-products').click(function () {
+
+        console.log("url",url);
         console.log("ejecucion");
         $.ajax({
-        type: "POST",
-        url: BASE_URL+'/syncproduct/products/importproducts?isAjax=true',
-        data: {form_key: window.FORM_KEY},
-        dataType: "json",
+        type: "POST", 
+        url,        
         showLoader: true,
+        data: {form_key: window.FORM_KEY}
         }).done(function (data) {
-            console.log("si entra");
+            console.log("si entra",data);
         });
     }); 
 });</script>

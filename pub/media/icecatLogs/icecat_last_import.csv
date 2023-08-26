@@ -1,43 +1,38 @@
 "Product Id",Message,GTIN,Brand,"Product Code"
+201,"The GTIN can not be found",887184014906,ACER,"Memoria USB 2.0  ACER UP200"
+202,"The GTIN can not be found",887184015071,ACER,"Memoria USB 3.2 ACER UP300"
+203,"The GTIN can not be found",887184012780,ACER,"Unidad de Estado Solido NVMe Predator  ACER GM3500"
+208,"The GTIN can not be found",195133098540,ACER,"Computadora Portátil ACER Aspire 5 A515-45-R4PQ"
+209,"The requested product is not present in the Icecat database",4710886258346,ACER,"Proyector  ACER X1128H"
+210,"The GTIN can not be found",195133142366,ACER,"LAPTOP ACER NITRO 5 "
+211,"The GTIN can not be found",195133149761,ACER,"Laptop ACER A314-22-R23N"
+212,"The GTIN can not be found",887184014753,ACER,"Memoria USB ACER BL.9BWWA.508"
+213,"The GTIN can not be found",887184014890,ACER,"Memoria USB ACER BL.9BWWA.548"
+214,"The GTIN can not be found",887184014692,ACER,"Memoria USB ACER BL.9BWWA.502"
+215,"The GTIN can not be found",887184014685,ACER,"Memoria USB ACER BL.9BWWA.501 "
+217,"The GTIN can not be found",195133092845,ACER,"Proyector ACER X1328WH"
+218,"The GTIN can not be found",195133157063,ACER,"Laptop ACER TMP215-54-38W1"
+219,"The GTIN can not be found",195133157087,ACER,"Laptop ACER TMP215-54-73SG"
+220,"The GTIN can not be found",887184014708,ACER,"Memoria USB ACER UF200"
+221,"The GTIN can not be found",887184017433,ACER,"SSD ACER GM7"
+222,"The GTIN can not be found",195133184793,ACER,"Laptop ACER A315-24P-R8H5"
+223,"The GTIN can not be found",195133193313,ACER,"Laptop ACER A314-36P-36W4"
+224,"The GTIN can not be found",195133157070,ACER,"Laptop ACER TMP215-54-520F"
+225,"The GTIN can not be found",193199140753,ACER,"Laptop ACER A315-58-350L"
+226,"The requested product is not present in the Icecat database",,ACER,"Laptop ACER A515-48M-R16M"
+227,"The GTIN can not be found",195133193337,ACER,"Laptop ACER A315-510P-38R3"
+228,"The GTIN can not be found",195133174602,ACER,"Laptop ACER A315-59-56FL"
+229,"The GTIN can not be found",193199104298,ACER,"Monitor ACER KG241Y Sbiip"
+230,"The GTIN can not be found",195133202299,ACER,"Laptop ACER A315-24P-R3XC"
+231,"The GTIN can not be found",193199140722,ACER,"Laptop ACER AN515-58-55Z2"
+232,"The GTIN can not be found",195133170574,ACER,"Laptop ACER A515-57-73QJ"
+233,"The requested product is not present in the Icecat database",7506215900874,ACTECK,"Diadema ACTECK AM-370"
+235,"The requested product is not present in the Icecat database",7506215902335,ACTECK,"Gabinete ACTECK BERN"
+236,"The requested product is not present in the Icecat database",7506215909587,ACTECK,"Fuente de Poder ACTECK S-500"
+237,"The requested product is not present in the Icecat database",7506215904001,ACTECK,"Gabinete ACTECK DASSEL"
+239,"The requested product is not present in the Icecat database",7506215909570,ACTECK,"Fuente de Poder ACTECK AF-B500P"
+240,"The requested product is not present in the Icecat database",7506215909594,ACTECK,"Fuente de Poder ACTECK Z-600"
+243,"The requested product is not present in the Icecat database",7506215912648,ACTECK,"Cable USB Multi puntas ACTECK BASICS"
+244,"The requested product is not present in the Icecat database",7506215922722,ACTECK,"Gabinete Gaming ACTECK AC-922722"
+257,"The requested product is not present in the Icecat database",7506215924023,ACTECK,"Mouse Inalámbrico ACTECK M120 Lux"
 ,,,,
-1,"Product(s) ids 1 with missing GTIN, Brand and Product Code",,,
-2,"Product(s) ids 2 with missing GTIN, Brand and Product Code",,,
-3,"Product(s) ids 3 with missing GTIN, Brand and Product Code",,,
-4,"Product(s) ids 4 with missing GTIN, Brand and Product Code",,,
-5,"Product(s) ids 5 with missing GTIN, Brand and Product Code",,,
-6,"Product(s) ids 6 with missing GTIN, Brand and Product Code",,,
-7,"Product(s) ids 7 with missing GTIN, Brand and Product Code",,,
-8,"Product(s) ids 8 with missing GTIN, Brand and Product Code",,,
-9,"Product(s) ids 9 with missing GTIN, Brand and Product Code",,,
-10,"Product(s) ids 10 with missing GTIN, Brand and Product Code",,,
-11,"Product(s) ids 11 with missing GTIN, Brand and Product Code",,,
-12,"Product(s) ids 12 with missing GTIN, Brand and Product Code",,,
-13,"Product(s) ids 13 with missing GTIN, Brand and Product Code",,,
-14,"Product(s) ids 14 with missing GTIN, Brand and Product Code",,,
-15,"Product(s) ids 15 with missing GTIN, Brand and Product Code",,,
-16,"Product(s) ids 16 with missing GTIN, Brand and Product Code",,,
-17,"Product(s) ids 17 with missing GTIN, Brand and Product Code",,,
-18,"Product(s) ids 18 with missing GTIN, Brand and Product Code",,,
-19,"Product(s) ids 19 with missing GTIN, Brand and Product Code",,,
-20,"Product(s) ids 20 with missing GTIN, Brand and Product Code",,,
-21,"Product(s) ids 21 with missing GTIN, Brand and Product Code",,,
-22,"Product(s) ids 22 with missing GTIN, Brand and Product Code",,,
-23,"Product(s) ids 23 with missing GTIN, Brand and Product Code",,,
-24,"Product(s) ids 24 with missing GTIN, Brand and Product Code",,,
-25,"Product(s) ids 25 with missing GTIN, Brand and Product Code",,,
-26,"Product(s) ids 26 with missing GTIN, Brand and Product Code",,,
-27,"Product(s) ids 27 with missing GTIN, Brand and Product Code",,,
-28,"Product(s) ids 28 with missing GTIN, Brand and Product Code",,,
-29,"Product(s) ids 29 with missing GTIN, Brand and Product Code",,,
-30,"Product(s) ids 30 with missing GTIN, Brand and Product Code",,,
-31,"Product(s) ids 31 with missing GTIN, Brand and Product Code",,,
-32,"Product(s) ids 32 with missing GTIN, Brand and Product Code",,,
-33,"Product(s) ids 33 with missing GTIN, Brand and Product Code",,,
-34,"Product(s) ids 34 with missing GTIN, Brand and Product Code",,,
-35,"Product(s) ids 35 with missing GTIN, Brand and Product Code",,,
-36,"Product(s) ids 36 with missing GTIN, Brand and Product Code",,,
-37,"Product(s) ids 37 with missing GTIN, Brand and Product Code",,,
-38,"Product(s) ids 38 with missing GTIN, Brand and Product Code",,,
-39,"Product(s) ids 39 with missing GTIN, Brand and Product Code",,,
-40,"Product(s) ids 40 with missing GTIN, Brand and Product Code",,,
-43,"Product(s) ids 43 with missing GTIN, Brand and Product Code",,,
