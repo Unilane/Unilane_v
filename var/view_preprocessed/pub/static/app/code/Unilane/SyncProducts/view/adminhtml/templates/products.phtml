@@ -7,9 +7,8 @@
 require(['jquery'], function ($) {
 
     'use strict';
-    var url = window.location.origin+"/rest/V1/syncproducts";
+    var url = window.location.origin+"/V1/syncproduct";
     $('#sync-products').click(function () {
-
         console.log("url",url);
         console.log("ejecucion");
         $.ajax({

@@ -327,6 +327,7 @@ return [
         'Magento_Wishlist' => 1,
         'Magento_WishlistAnalytics' => 1,
         'Magento_WishlistGraphQl' => 1,
+        'AfterShip_Tracking' => 1,
         'Icecat_DataFeed' => 1,
         'Mageplaza_Core' => 1,
         'Mageplaza_AjaxLayer' => 1,
