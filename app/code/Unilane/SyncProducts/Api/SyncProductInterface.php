@@ -16,4 +16,9 @@ interface SyncProductInterface
      * @return bool
      */
     public function importProduct();    
+
+    /**
+     * @return bool
+     */
+    public function updateStock();
 }

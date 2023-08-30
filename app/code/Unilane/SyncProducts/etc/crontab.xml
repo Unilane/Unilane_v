@@ -11,4 +11,9 @@
             <schedule>0 0 * * *</schedule>
         </job>
     </group>
+        <group id="default">
+        <job name="update_stock" instance="Unilane\SyncProducts\Cron\ImportCron" method="update">
+            <schedule>0 0 * * *</schedule>
+        </job>
+    </group>
 </config>

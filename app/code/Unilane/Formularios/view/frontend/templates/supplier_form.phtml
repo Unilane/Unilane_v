@@ -1,0 +1,33 @@
+<form method="POST" action="<?= $block->escapeUrl($block->getFormAction()) ?>" enctype="multipart/form-data">
+            
+    <div class="col-12 form-control"> 
+        <label for="name">Nombre<span style="color: red;">*</span></label> 
+        <input class="form-control" type="text" id="name" name="nombre" placeholder="tu nombre completo" pattern=[A-Z\sa-z]{3,20} required> </div>
+    <div>
+    <div class="col-12 form-control"> 
+        <label for="name">Correo electrónico<span style="color: red;">*</span></label> 
+        <input class="form-control" type="text" id="name" name="correo" placeholder="Direccion de correo electronico valido" required> </div>
+    <div>
+
+
+    <div class="col-12 form-control"> 
+        <label for="name">Telefono<span style="color: red;">*</span></label> 
+        <input class="form-control" type="text" id="name" name="Telefono" placeholder="Numero de Telefono" pattern=[A-Z\sa-z]{3,20} required> </div>
+    <div>
+    <div class="col-12 form-control"> 
+        <label for="name">Area de Experiencia<span style="color: red;">*</span></label> 
+        <input class="form-control" type="text" id="name" name="correo" placeholder="ingresa el area deseada en la que quieras ejercer" pattern=[A-Z\sa-z]{3,20} required> </div>
+    <div>
+
+
+    <div class="col-12  form-control"> 
+        <label for="name">Mensaje<span style="color: red;">*</span></label> 
+        <textarea class="form-control" type="textarea" rows="8" id="name" name="Telefono" placeholder="Numero de Telefono" pattern=[A-Z\sa-z]{3,20} required></textarea>
+    <div>
+    <div class="col-12 form-control"> 
+        <label>Agrega tu CV(Adjuntar PDF):</label>
+        <input type="file" name="archivo" />            
+        <button class="btn btn-primary" type="submit" name="uploadBtn" value="Upload">Enviar Mensaje</button>
+    <div>
+
+</form>

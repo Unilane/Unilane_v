@@ -35,4 +35,12 @@ class ImportCron
     {
         $this->helper->importProduct();
     }
+    /**
+     * Synchronizes website attribute values if needed
+     * @return void
+     */
+    public function update()
+    {
+        $this->helper->updateStock();
+    }
 }
