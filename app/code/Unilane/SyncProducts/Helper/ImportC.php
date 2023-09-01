@@ -80,4 +80,31 @@ class ImportC
             }           
         }
     }
+    
+    public function updateStock() {
+        $data = file_get_contents("C:\Users\luis.olivarria\Desktop\productsjson\dataPrueba.json");
+        try{
+            $products  = json_decode($data, true);
+            foreach($products as $product){
+                $items = $this->productFactory->create();
+                $sumaExistencia = 0;
+                $pro = $product['existencia'];
+                foreach($pro as $existencia){
+                    $sumaExistencia += $existencia;
+                }
+                $producto = $this->productRepository->get($product['clave']);
+                if($producto){
+                    foreach($producto->_data as $key => $valor){
+                        if($key == "quantity_and_stock_status"){
+                            $valor['qty'] = $sumaExistencia;
+                            $producto->setData($key, $valor);
+                        }
+                    }                           
+                    $this->productRepository->save($producto);
+                }               
+            }
+        }catch (Exception $e) {
+            $data = [];
+        } 
+    }
 }

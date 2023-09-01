@@ -32,6 +32,6 @@ class SupplierForm extends Template
      */
     public function getFormAction()
     {
-        return $this->getUrl('forms/index/supplerpost', ['_secure' => true]);
+        return $this->getUrl('forms/index/supplierpost', ['_secure' => true]);
     }
 }

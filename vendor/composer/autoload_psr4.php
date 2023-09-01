@@ -71,6 +71,7 @@ return array(
     'PayPal\\BraintreeGraphQl\\' => array($vendorDir . '/paypal/module-braintree-graph-ql'),
     'ParagonIE\\ConstantTime\\' => array($vendorDir . '/paragonie/constant_time_encoding/src'),
     'PHPStan\\PhpDocParser\\' => array($vendorDir . '/phpstan/phpdoc-parser/src'),
+    'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
     'PDepend\\' => array($vendorDir . '/pdepend/pdepend/src/main/php/PDepend'),
     'Openpay\\' => array($vendorDir . '/openpay/sdk'),
     'OpenSearch\\' => array($vendorDir . '/opensearch-project/opensearch-php/src/OpenSearch'),

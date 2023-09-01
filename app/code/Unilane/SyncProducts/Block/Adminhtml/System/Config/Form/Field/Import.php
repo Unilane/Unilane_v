@@ -32,33 +32,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
      * @inheritdoc
      */
     protected function _getElementHtml(\Magento\Framework\Data\Form\Element\AbstractElement $element)
-    {  
-        $data = file_get_contents("C:\Users\luis.olivarria\Desktop\productsjson\dataPrueba.json");
-        try{
-            $products  = json_decode($data, true);
-            foreach($products as $product){
-                $items = $this->productFactory->create();
-                $sumaExistencia = 0;
-                $pro = $product['existencia'];
-                foreach($pro as $existencia){
-                    $sumaExistencia += $existencia;
-                }
-                $existe = $items->get($product['clave']);
-                if($existe){
-                    $items->setStockData(
-                        array( 
-                        'use_config_manage_stock' => 1,                       
-                        'manage_stock' => 1,
-                        'is_in_stock' => 1,   
-                        'qty' => $sumaExistencia <= 3 ? 0 : $sumaExistencia
-                        )
-                    );                    
-                    $items->save();
-                }               
-            }
-        }catch (Exception $e) {
-            $data = [];
-        } 
+    {          
         //CT     
         $data         = file_get_contents("C:\Users\luis.olivarria\Desktop\productsjson\dataPrueba.json");
         if($data){

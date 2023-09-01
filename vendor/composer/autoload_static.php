@@ -597,6 +597,7 @@ class ComposerStaticInitc96ecaacf3719b75b13057a42d56b271
             'PayPal\\BraintreeGraphQl\\' => 24,
             'ParagonIE\\ConstantTime\\' => 23,
             'PHPStan\\PhpDocParser\\' => 21,
+            'PHPMailer\\PHPMailer\\' => 20,
             'PDepend\\' => 8,
         ),
         'O' => 
@@ -1341,6 +1342,10 @@ class ComposerStaticInitc96ecaacf3719b75b13057a42d56b271
         'PHPStan\\PhpDocParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'PDepend\\' => 
         array (

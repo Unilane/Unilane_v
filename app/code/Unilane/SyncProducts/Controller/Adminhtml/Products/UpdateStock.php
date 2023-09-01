@@ -18,6 +18,7 @@ class UpdateStock extends \Magento\Backend\App\Action implements \Magento\Framew
 {
     private $productFactory;
     private $resultJsonFactory;
+    private $productRepository;
     
     /**
      * Constructor
@@ -27,11 +28,13 @@ class UpdateStock extends \Magento\Backend\App\Action implements \Magento\Framew
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Catalog\Model\ProductFactory $productFactory,
-        \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory
+        \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory,
+        ProductRepositoryInterface $productRepository
     ) {
         parent::__construct($context);
         $this->productFactory = $productFactory;
         $this->resultJsonFactory = $resultJsonFactory;
+        $this->productRepository = $productRepository;
     }
 
     /**
@@ -50,17 +53,15 @@ class UpdateStock extends \Magento\Backend\App\Action implements \Magento\Framew
                 foreach($pro as $existencia){
                     $sumaExistencia += $existencia;
                 }
-                $existe = $items->get($product['clave']);
-                if($existe){
-                    $items->setStockData(
-                        array( 
-                        'use_config_manage_stock' => 1,                       
-                        'manage_stock' => 1,
-                        'is_in_stock' => 1,   
-                        'qty' => $sumaExistencia
-                        )
-                    );                    
-                    $items->save();
+                $producto = $this->productRepository->get($product['clave']);
+                if($producto){
+                    foreach($producto->_data as $key => $valor){
+                        if($key == "quantity_and_stock_status"){
+                            $valor['qty'] = $sumaExistencia;
+                            $producto->setData($key, $valor);
+                        }
+                    }                           
+                    $this->productRepository->save($producto);
                 }               
             }
         }catch (Exception $e) {

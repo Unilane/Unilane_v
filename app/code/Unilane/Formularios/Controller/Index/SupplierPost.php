@@ -18,6 +18,10 @@ use Psr\Log\LoggerInterface;
 use Magento\Framework\App\ObjectManager;
 use Magento\Framework\DataObject;
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 class SupplierPost implements HttpPostActionInterface
 {
     /**
@@ -67,67 +71,70 @@ class SupplierPost implements HttpPostActionInterface
      */
     public function execute()
     {
-        if (!$this->getRequest()->isPost()) {
-            return $this->resultRedirectFactory->create()->setPath('*/*/');
+        try{
+         /**
+             * @var mail
+             */
+            $mail = new PHPMailer(true);
+            //Server settings
+            //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+            $mail->isSMTP();                                            //Send using SMTP
+            $mail->Host       = 'smtp.office365.com';                     //Set the SMTP server to send through
+            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+            $mail->Username   = 'luis.pruebasqar@outlook.com';                     //SMTP username
+            $mail->Password   = 'D11DB6B02A.123';                               //SMTP password
+            $mail->SMTPSecure = 'tls';            //Enable implicit TLS encryption
+            $mail->Port       = '587';
+            //INFORMACION DE LA EMPRESA
+            $nombreRazon = $_POST['nombrerazon'];
+            $sitioweb    = $_POST['sitioweb'];
+            $sku         = $_POST['sku'];
+            $productos   = $_POST['productos'];
+            $marcas      = $_POST['marcas'];
+            $ubicacion    = $_POST['ubicacion'];
+            //INFORMACION DE CONTACTO
+            $nombre           = $_POST['nombre'];
+            $apellidos        = $_POST['apellidos'];
+            $telefonoContacto = $_POST['telefonoContacto'];
+            $extension        = $_POST['extension'];
+            $correo           = $_POST['correo'];
+            //Recipients
+            $mail->setFrom('luis.pruebasqar@outlook.com', 'Unilane');
+            $destinatarios = [
+                'luis.pruebasqar@outlook.com' => 'Unilane',
+                $correo => $nombre.' '.$apellidos
+            ];
+            foreach ($destinatarios as $email => $nombre) {
+                $mail->addAddress($email, $nombre);
+            }           
+            //Content
+            $mail->isHTML(true); //Set email format to HTML
+            $mail->Subject = 'QUIERO SER PROVEEDOR EN UNILANE';
+            $mail->Body    = '                                 
+                        <img src="C:\xampp\htdocs\magento\pub\media\wysiwyg\smartwave\porto\homepage\34\unilane.png" alt="Imagen" style="display: block; max-width: 30%;">
+                        <br>
+                        <br>
+                        <p> INFORMACION DE LA EMPRESA </p>
+                        <p> Nombre o Razon social: '.$nombreRazon.'</p>
+                        <p> Nombre del sitio web de la empresa: '.$sitioweb.'</p>
+                        <p> Skus de los productos de la empresa: '.$sku.'</p>
+                        <p> Productos de la empresa: '.$productos.'</p>
+                        <p> Marcas de la empresa: '.$marcas.'</p>
+                        <p> Ubicacion de la empresa: '.$ubicacion.'</p>
+                        <hr>
+                        <p> INFORMACION DEL CONTACTO </p>                        
+                        <p> Nombre del solicitante: '.$nombre.'</p>
+                        <p> Telefonodel solicitante: '.$telefonoContacto.'</p>
+                        <p> Extension del numero de telefono del solicitante: '.$extension.'</p>
+                        <p> Correo del solicitante: '.$correo.'</p>';
+                        
+            if ($mail->Send())
+                 echo "<script>alert('Formulario enviado exitosamente.');</script>";
+            else
+                 echo "<script>alert('Error al enviar el formulario');</script>";
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
-        try {
-            $this->sendEmail($this->validatedParams());
-            $this->messageManager->addSuccessMessage(
-                __('Thanks for contacting us with your comments and questions. We\'ll respond to you very soon.')
-            );
-            $this->dataPersistor->clear('contact_us');
-        } catch (LocalizedException $e) {
-            $this->messageManager->addErrorMessage($e->getMessage());
-            $this->dataPersistor->set('contact_us', $this->getRequest()->getParams());
-        } catch (\Exception $e) {
-            $this->logger->critical($e);
-            $this->messageManager->addErrorMessage(
-                __('An error occurred while processing your form. Please try again later.')
-            );
-            $this->dataPersistor->set('contact_us', $this->getRequest()->getParams());
-        }
-        return $this->resultRedirectFactory->create()->setPath('contact/index');
-    }
-
-    /**
-     * Method to send email.
-     *
-     * @param array $post Post data from contact form
-     *
-     * @return void
-     */
-    private function sendEmail($post)
-    {
-        $this->mail->send(
-            $post['email'],
-            ['data' => new DataObject($post)]
-        );
-    }
-
-    /**
-     * Method to validated params.
-     *
-     * @return array
-     * @throws \Exception
-     */
-    private function validatedParams()
-    {
-        $request = $this->getRequest();
-
-        if (trim($request->getParam('name', '')) === '') {
-            throw new LocalizedException(__('Enter the Name and try again.'));
-        }
-        if (trim($request->getParam('comment', '')) === '') {
-            throw new LocalizedException(__('Enter the comment and try again.'));
-        }
-        if (\strpos($request->getParam('email', ''), '@') === false) {
-            throw new LocalizedException(__('The email address is invalid. Verify the email address and try again.'));
-        }
-        if (trim($request->getParam('hideit', '')) !== '') {
-            // phpcs:ignore Magento2.Exceptions.DirectThrow
-            throw new \Exception();
-        }
-
-        return $request->getParams();
+        //return $this->resultRedirectFactory->create()->setPath('contact/index');
     }
 }

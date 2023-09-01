@@ -9,15 +9,20 @@ namespace Unilane\Formularios\Controller\Index;
 use Magento\Framework\App\Action\HttpGetActionInterface as HttpGetActionInterface;
 use Magento\Framework\Controller\ResultFactory;
 
-class TeamIndex implements HttpGetActionInterface
+class TeamIndex extends \Magento\Framework\App\Action\Action
 {
-    /**
-     * Show Contact Us page
-     *
-     * @return \Magento\Framework\Controller\ResultInterface
-     */
-    public function execute()
-    {
-        return $this->resultFactory->create(ResultFactory::TYPE_PAGE);
-    }
+	protected $_pageFactory;
+
+	public function __construct(
+		\Magento\Framework\App\Action\Context $context,
+		\Magento\Framework\View\Result\PageFactory $pageFactory)
+	{
+		$this->_pageFactory = $pageFactory;
+		return parent::__construct($context);
+	}
+
+	public function execute()
+	{
+		return $this->_pageFactory->create();
+	}
 }
