@@ -114,19 +114,19 @@ class SupplierPost implements HttpPostActionInterface
                         <img src="C:\xampp\htdocs\magento\pub\media\wysiwyg\smartwave\porto\homepage\34\unilane.png" alt="Imagen" style="display: block; max-width: 30%;">
                         <br>
                         <br>
-                        <p> INFORMACION DE LA EMPRESA </p>
-                        <p> Nombre o Razon social: '.$nombreRazon.'</p>
-                        <p> Nombre del sitio web de la empresa: '.$sitioweb.'</p>
-                        <p> Skus de los productos de la empresa: '.$sku.'</p>
-                        <p> Productos de la empresa: '.$productos.'</p>
-                        <p> Marcas de la empresa: '.$marcas.'</p>
-                        <p> Ubicacion de la empresa: '.$ubicacion.'</p>
+                        <h3> INFORMACION DE LA EMPRESA </h3>
+                        <p> <strong>Nombre o Razon social:</strong> '.$nombreRazon.'</p>
+                        <p> <strong>Nombre del sitio web de la empresa:</strong> '.$sitioweb.'</p>
+                        <p> <strong>cantidad de SKU de los productos de la empresa:</strong> '.$sku.'</p>
+                        <p> <strong>Productos de la empresa:</strong> '.$productos.'</p>
+                        <p> <strong>Marcas de la empresa:</strong> '.$marcas.'</p>
+                        <p> <strong>Ubicacion de la empresa:</strong> '.$ubicacion.'</p>
                         <hr>
-                        <p> INFORMACION DEL CONTACTO </p>                        
-                        <p> Nombre del solicitante: '.$nombre.'</p>
-                        <p> Telefonodel solicitante: '.$telefonoContacto.'</p>
-                        <p> Extension del numero de telefono del solicitante: '.$extension.'</p>
-                        <p> Correo del solicitante: '.$correo.'</p>';
+                        <h3> INFORMACION DEL CONTACTO </h3>                        
+                        <p> <strong>Nombre del solicitante:</strong> '.$nombre.'</p>
+                        <p> <strong>Telefonodel solicitante:</strong> '.$telefonoContacto.'</p>
+                        <p> <strong>Extension del numero de telefono del solicitante:</strong> '.$extension.'</p>
+                        <p> <strong>Correo del solicitante:</strong> '.$correo.'</p>';
                         
             if ($mail->Send())
                  echo "<script>alert('Formulario enviado exitosamente.');</script>";

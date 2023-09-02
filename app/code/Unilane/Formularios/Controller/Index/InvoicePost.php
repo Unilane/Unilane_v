@@ -86,20 +86,24 @@ class InvoicePost implements HttpPostActionInterface
             $mail->SMTPSecure = 'tls';            //Enable implicit TLS encryption
             $mail->Port       = '587';
             //Datos de facturación 
-            $nombreRazon = $_POST['nombrerazon'];
-            $sitioweb    = $_POST['sitioweb'];
-            $sku         = $_POST['sku'];
-            $productos   = $_POST['productos'];
-            $marcas      = $_POST['marcas'];
-            $ubicacion    = $_POST['ubicacion'];
+            $foliopedido   = $_POST['foliopedido'];
+            $razonsocial   = $_POST['razonsocial'];
+            $fisicamoral   = $_POST['fisicamoral'];
+            $rfc           = $_POST['rfc'];
+            $regimenfiscal = $_POST['regimenfiscal'];
+            $cfdi          = $_POST['cfdi'];
             //Domicilio Fiscal 
-            $nombre           = $_POST['nombre'];
-            $apellidos        = $_POST['apellidos'];
-            $telefonoContacto = $_POST['telefonoContacto'];
-            $extension        = $_POST['extension'];
-            $correo           = $_POST['correo'];
+            $calle        = $_POST['calle'];
+            $noexterno    = $_POST['noexterno'];
+            $nointerno    = $_POST['nointerno'];
+            $colonia      = $_POST['colonia'];
+            $ciudad       = $_POST['ciudad'];
+            $municipio    = $_POST['municipio'];
+            $estado       = $_POST['estado'];
+            $codigopostal = $_POST['codigopostal'];
             //Datos de contacto
-            
+            $telefono   = $_POST['telefono'];
+            $correoelec = $_POST['correoelec'];
             //Archivo
             $nombreArchivo = $_FILES["archivo"]["name"];
             $rutaTemporal  = $_FILES["archivo"]["tmp_name"];
@@ -107,13 +111,14 @@ class InvoicePost implements HttpPostActionInterface
             $mail->setFrom('luis.pruebasqar@outlook.com', 'Unilane');
             $destinatarios = [
                 'luis.pruebasqar@outlook.com' => 'Unilane',
-                $correo => $nombre.' '.$apellidos
+                $correoelec => "A quien corresponda"
             ];
             foreach ($destinatarios as $email => $nombre) {
                 $mail->addAddress($email, $nombre);
-            }   
-           
-            $mail->addAttachment($rutaTemporal,$nombreArchivo);//Add attachments                
+            }
+            if($nombreArchivo !=""){
+                $mail->addAttachment($rutaTemporal,$nombreArchivo);//Add attachments
+            }
             //Content
             $mail->isHTML(true); //Set email format to HTML
             $mail->Subject = 'QUIERO SER PROVEEDOR EN UNILANE';
@@ -121,20 +126,26 @@ class InvoicePost implements HttpPostActionInterface
                         <img src="C:\xampp\htdocs\magento\pub\media\wysiwyg\smartwave\porto\homepage\34\unilane.png" alt="Imagen" style="display: block; max-width: 30%;">
                         <br>
                         <br>
-                        <p> INFORMACION DE LA EMPRESA </p>
-                        <p> Nombre o Razon social: '.$nombreRazon.'</p>
-                        <p> Nombre del sitio web de la empresa: '.$sitioweb.'</p>
-                        <p> Skus de los productos de la empresa: '.$sku.'</p>
-                        <p> Productos de la empresa: '.$productos.'</p>
-                        <p> Marcas de la empresa: '.$marcas.'</p>
-                        <p> Ubicacion de la empresa: '.$ubicacion.'</p>
+                        <h3> Datos de facturación </h3>
+                        <p> <strong>Folio Pedido o No. Orden:</strong> '.$foliopedido.'</p>
+                        <p> <strong>Razón Social:</strong> '.$razonsocial.'</p>
+                        <p> <strong>Persona Física o Moral:</strong> '.$fisicamoral.'</p>
+                        <p> <strong>RFC:</strong> '.$rfc.'</p>
+                        <p> <strong>Regimen Fiscal:</strong> '.$regimenfiscal.'</p>
+                        <p> <strong>Uso de CFDI:</strong> '.$cfdi.'</p>
                         <hr>
-                        <p> INFORMACION DEL CONTACTO </p>                        
-                        <p> Nombre del solicitante: '.$nombre.'</p>
-                        <p> Telefonodel solicitante: '.$telefonoContacto.'</p>
-                        <p> Extension del numero de telefono del solicitante: '.$extension.'</p>
-                        <p> Correo del solicitante: '.$correo.'</p>';
-                        
+                        <h3> Datos de contacto </h3>                        
+                        <p> <strong>Calle del domicilio:</strong> '.$calle.'</p>
+                        <p> <strong>Número Externo:</strong> '.$noexterno.'</p>
+                        <p> <strong>Colonia:</strong> '.$nointerno.'</p>
+                        <p> <strong>Municipio:</strong> '.$colonia.'</p>
+                        <p> <strong>Ciudad:</strong> '.$ciudad.'</p>
+                        <p> <strong>Estado:</strong> '.$estado.'</p>
+                        <p> <strong>Código Postal:</strong> '.$codigopostal.'</p>
+                        <hr>
+                        <h3> Datos de contacto </h3>                        
+                        <p> <strong>Teléfono:</strong> '.$telefono.'</p>
+                        <p> <strong>Correo Electrónico:</strong> '.$correoelec.'</p>';                        
             if ($mail->Send())
                  echo "<script>alert('Formulario enviado exitosamente.');</script>";
             else

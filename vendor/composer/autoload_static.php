@@ -498,7 +498,6 @@ class ComposerStaticInitc96ecaacf3719b75b13057a42d56b271
         'a754c973d3b38fc831d832a54392dcd3' => __DIR__ . '/..' . '/icecat/magento2-extension/registration.php',
         'eda65932675b68b5aee4503e0762d64d' => __DIR__ . '/..' . '/magento/magento2-functional-testing-framework/src/Magento/FunctionalTestingFramework/_bootstrap.php',
         'a77049f7f3ca4c78b9e3635c8f857d84' => __DIR__ . '/..' . '/mageplaza/module-smtp/registration.php',
-        '053dd5c4bbcb7d5e6b0c8644f35b2161' => __DIR__ . '/..' . '/mercadopago/adb-payment/registration.php',
         'b4cf39431a4b949eea8aa69ebb3d39da' => __DIR__ . '/../..' . '/app/etc/NonComposerComponentRegistration.php',
     );
 
@@ -610,8 +609,6 @@ class ComposerStaticInitc96ecaacf3719b75b13057a42d56b271
         array (
             'Monolog\\' => 8,
             'Metadata\\' => 9,
-            'MercadoPago\\PP\\Sdk\\' => 19,
-            'MercadoPago\\AdbPayment\\' => 23,
             'Mageplaza\\Smtp\\' => 15,
             'Mageplaza\\Core\\' => 15,
             'Magento\\Wishlist\\' => 17,
@@ -1370,14 +1367,6 @@ class ComposerStaticInitc96ecaacf3719b75b13057a42d56b271
         'Metadata\\' => 
         array (
             0 => __DIR__ . '/..' . '/jms/metadata/src',
-        ),
-        'MercadoPago\\PP\\Sdk\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/mp-plugins/php-sdk/src',
-        ),
-        'MercadoPago\\AdbPayment\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/mercadopago/adb-payment',
         ),
         'Mageplaza\\Smtp\\' => 
         array (

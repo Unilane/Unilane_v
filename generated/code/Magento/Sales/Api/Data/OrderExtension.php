@@ -257,40 +257,4 @@ class OrderExtension extends \Magento\Framework\Api\AbstractSimpleObject impleme
         $this->setData('osc_order_comment', $oscOrderComment);
         return $this;
     }
-
-    /**
-     * @return float|null
-     */
-    public function getFinanceCostAmount()
-    {
-        return $this->_get('finance_cost_amount');
-    }
-
-    /**
-     * @param float $financeCostAmount
-     * @return $this
-     */
-    public function setFinanceCostAmount($financeCostAmount)
-    {
-        $this->setData('finance_cost_amount', $financeCostAmount);
-        return $this;
-    }
-
-    /**
-     * @return float|null
-     */
-    public function getBaseFinanceCostAmount()
-    {
-        return $this->_get('base_finance_cost_amount');
-    }
-
-    /**
-     * @param float $baseFinanceCostAmount
-     * @return $this
-     */
-    public function setBaseFinanceCostAmount($baseFinanceCostAmount)
-    {
-        $this->setData('base_finance_cost_amount', $baseFinanceCostAmount);
-        return $this;
-    }
 }

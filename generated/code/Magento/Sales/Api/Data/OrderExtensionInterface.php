@@ -159,26 +159,4 @@ interface OrderExtensionInterface extends \Magento\Framework\Api\ExtensionAttrib
      * @return $this
      */
     public function setOscOrderComment($oscOrderComment);
-
-    /**
-     * @return float|null
-     */
-    public function getFinanceCostAmount();
-
-    /**
-     * @param float $financeCostAmount
-     * @return $this
-     */
-    public function setFinanceCostAmount($financeCostAmount);
-
-    /**
-     * @return float|null
-     */
-    public function getBaseFinanceCostAmount();
-
-    /**
-     * @param float $baseFinanceCostAmount
-     * @return $this
-     */
-    public function setBaseFinanceCostAmount($baseFinanceCostAmount);
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "74a7a874a5d8c3bc7a31c9bf036481d7",
+    "content-hash": "387c51adb41e81b5d7bcd6c635475fa4",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -19687,58 +19687,6 @@
             "time": "2023-06-22T04:40:30+00:00"
         },
         {
-            "name": "mercadopago/adb-payment",
-            "version": "v1.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mercadopago/adb-payment.git",
-                "reference": "f6f38b62257e657886f16baca5fff8b12296d157"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mercadopago/adb-payment/zipball/f6f38b62257e657886f16baca5fff8b12296d157",
-                "reference": "f6f38b62257e657886f16baca5fff8b12296d157",
-                "shasum": ""
-            },
-            "require": {
-                "ext-gd": "*",
-                "ext-json": "*",
-                "ext-zip": "*",
-                "mp-plugins/php-sdk": "1.3.0",
-                "php": "~7.3.0||~7.4.0||~8.1.0||~8.2.0"
-            },
-            "require-dev": {
-                "magento/magento-coding-standard": "*",
-                "phpmd/phpmd": "^2.13",
-                "phpstan/extension-installer": "^1.2",
-                "phpstan/phpstan": "^1.6.8"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "MercadoPago\\AdbPayment\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Mercado Pago"
-                }
-            ],
-            "description": "MercadoPago - Payment for Adobe Commerce",
-            "support": {
-                "source": "https://github.com/mercadopago/adb-payment/tree/v1.4.1"
-            },
-            "time": "2023-07-19T13:00:46+00:00"
-        },
-        {
             "name": "monolog/monolog",
             "version": "2.9.1",
             "source": {
@@ -19835,53 +19783,6 @@
                 }
             ],
             "time": "2023-02-06T13:44:46+00:00"
-        },
-        {
-            "name": "mp-plugins/php-sdk",
-            "version": "1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mercadopago/pp-php-sdk.git",
-                "reference": "cf18b6479f16fe9d28f77d68b4b567c6b683fe09"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mercadopago/pp-php-sdk/zipball/cf18b6479f16fe9d28f77d68b4b567c6b683fe09",
-                "reference": "cf18b6479f16fe9d28f77d68b4b567c6b683fe09",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "php": ">=7"
-            },
-            "require-dev": {
-                "phpunit/phpunit": ">=7.2",
-                "squizlabs/php_codesniffer": ">=3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "MercadoPago\\PP\\Sdk\\": [
-                        "src"
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Mercado Pago SMB",
-                    "email": "pp_smb@mercadolivre.com"
-                }
-            ],
-            "description": "Mercado Pago Plugins PHP-SDK",
-            "support": {
-                "issues": "https://github.com/mercadopago/pp-php-sdk/issues",
-                "source": "https://github.com/mercadopago/pp-php-sdk/tree/v1.3.0"
-            },
-            "time": "2023-06-23T19:59:14+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",

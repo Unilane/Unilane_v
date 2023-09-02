@@ -1,4 +1,4 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1693529371;s:6:"expire";i:1725065371;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1693613350;s:6:"expire";i:1725149350;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
 <?xml version="1.0"?>
 <layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><handle id="catalog_category_view"><body/>
 </handle><handle id="catalogsearch_advanced_index"><body/>
@@ -7679,181 +7679,6 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1693529371;s:6:"expire";i:1725065371;s:4:"t
       <block class="Mageplaza\Osc\Block\Order\Totals" name="creditmemo.osc.totals"/>
    </referenceBlock>
 </body>
-</handle><handle id="checkout_cart_index"><body>
-   <referenceBlock name="checkout.cart.totals">
-      <arguments>
-         <argument name="jsLayout" xsi:type="array">
-            <item name="components" xsi:type="array">
-               <item name="block-totals" xsi:type="array">
-                  <item name="children" xsi:type="array">
-                     <item name="before_grandtotal" xsi:type="array">
-                        <item name="children" xsi:type="array">
-                           <item name="finance_cost_amount" xsi:type="array">
-                              <item name="component" xsi:type="string">MercadoPago_AdbPayment/js/view/cart/totals/finance_cost</item>
-                              <item name="config" xsi:type="array">
-                                 <item name="title" translate="true" xsi:type="string">Finance Cost</item>
-                              </item>
-                           </item>
-                        </item>
-                     </item>
-                  </item>
-               </item>
-            </item>
-         </argument>
-      </arguments>
-   </referenceBlock>
-</body>
-</handle><handle id="checkout_index_index" layout="1column"><body>
-   <referenceBlock name="checkout.root">
-      <arguments>
-         <argument name="jsLayout" xsi:type="array">
-            <item name="components" xsi:type="array">
-               <item name="checkout" xsi:type="array">
-                  <item name="children" xsi:type="array">
-                     <item name="steps" xsi:type="array">
-                        <item name="children" xsi:type="array">
-                           <item name="billing-step" xsi:type="array">
-                              <item name="component" xsi:type="string">uiComponent</item>
-                              <item name="children" xsi:type="array">
-                                 <item name="payment" xsi:type="array">
-                                    <item name="children" xsi:type="array">
-                                       <item name="renders" xsi:type="array">
-                                          <item name="children" xsi:type="array">
-                                             <item name="mercadopago_adbpayment" xsi:type="array">
-                                                <item name="component" xsi:type="string">MercadoPago_AdbPayment/js/view/payment/mercadopago</item>
-                                                <item name="methods" xsi:type="array">
-                                                   <item name="mercadopago_adbpayment" xsi:type="array">
-                                                      <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
-                                                   </item>
-                                                   <item name="mercadopago_adbpayment_cc" xsi:type="array">
-                                                      <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
-                                                   </item>
-                                                   <item name="mercadopago_adbpayment_cc_vault" xsi:type="array">
-                                                      <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
-                                                   </item>
-                                                   <item name="mercadopago_adbpayment_checkout_pro" xsi:type="array">
-                                                      <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
-                                                   </item>
-                                                   <item name="mercadopago_adbpayment_pix" xsi:type="array">
-                                                      <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
-                                                   </item>
-                                                   <item name="mercadopago_adbpayment_payment_methods_off" xsi:type="array">
-                                                      <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
-                                                   </item>
-                                                   <item name="mercadopago_adbpayment_pse" xsi:type="array">
-                                                      <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
-                                                   </item>
-                                                   <item name="mercadopago_adbpayment_webpay" xsi:type="array">
-                                                      <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
-                                                   </item>
-                                                   <item name="mercadopago_adbpayment_twocc" xsi:type="array">
-                                                      <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
-                                                   </item>
-                                                   <item name="mercadopago_adbpayment_checkout_credits" xsi:type="array">
-                                                      <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
-                                                   </item>
-                                                </item>
-                                             </item>
-                                          </item>
-                                       </item>
-                                    </item>
-                                 </item>
-                              </item>
-                           </item>
-                        </item>
-                     </item>
-                     <item name="sidebar" xsi:type="array">
-                        <item name="children" xsi:type="array">
-                           <item name="summary" xsi:type="array">
-                              <item name="children" xsi:type="array">
-                                 <item name="totals" xsi:type="array">
-                                    <item name="children" xsi:type="array">
-                                       <item name="finance_cost_amount" xsi:type="array">
-                                          <item name="component" xsi:type="string">MercadoPago_AdbPayment/js/view/checkout/cart/totals/finance_cost</item>
-                                          <item name="sortOrder" xsi:type="string">20</item>
-                                          <item name="config" xsi:type="array">
-                                             <item name="template" xsi:type="string">MercadoPago_AdbPayment/checkout/cart/totals/finance_cost</item>
-                                             <item name="title" translate="true" xsi:type="string">Finance Cost</item>
-                                          </item>
-                                       </item>
-                                    </item>
-                                 </item>
-                              </item>
-                           </item>
-                        </item>
-                     </item>
-                  </item>
-               </item>
-            </item>
-         </argument>
-      </arguments>
-   </referenceBlock>
-</body>
-</handle><handle id="checkout_onepage_success"><referenceContainer name="order.success.additional.info">
-   <block class="MercadoPago\AdbPayment\Block\Order\Success\Additional" name="order.success.additional.info.mercadopago" after="-"/>
-</referenceContainer>
-</handle><handle id="sales_email_order_creditmemo_items"><body>
-   <referenceBlock name="invoice_totals">
-      <block class="MercadoPago\AdbPayment\Block\Sales\Order\Totals\FinanceCost" name="finance_cost_amount" as="finance_cost_amount"/>
-   </referenceBlock>
-</body>
-</handle><handle id="sales_email_order_invoice_items"><body>
-   <referenceBlock name="invoice_totals">
-      <block class="MercadoPago\AdbPayment\Block\Sales\Order\Totals\FinanceCost" name="finance_cost_amount" as="finance_cost_amount"/>
-   </referenceBlock>
-</body>
-</handle><handle id="sales_email_order_items"><body>
-   <referenceBlock name="order_totals">
-      <block class="MercadoPago\AdbPayment\Block\Sales\Order\Totals\FinanceCost" name="finance_cost_amount" as="finance_cost_amount"/>
-   </referenceBlock>
-</body>
-</handle><handle id="sales_guest_invoice"><body>
-   <referenceBlock name="invoice_totals">
-      <block class="MercadoPago\AdbPayment\Block\Sales\Order\Totals\FinanceCost" name="finance_cost_amount" as="finance_cost_amount"/>
-   </referenceBlock>
-</body>
-</handle><handle id="sales_guest_print"><body>
-   <referenceBlock name="order_totals">
-      <block class="MercadoPago\AdbPayment\Block\Sales\Order\Totals\FinanceCost" name="finance_cost_amount" as="finance_cost_amount"/>
-   </referenceBlock>
-</body>
-</handle><handle id="sales_guest_printinvoice"><body>
-   <referenceBlock name="invoice_totals">
-      <block class="MercadoPago\AdbPayment\Block\Sales\Order\Totals\FinanceCost" name="finance_cost_amount" as="finance_cost_amount"/>
-   </referenceBlock>
-</body>
-</handle><handle id="sales_guest_view"><body>
-   <referenceBlock name="order_totals">
-      <block class="MercadoPago\AdbPayment\Block\Sales\Order\Totals\FinanceCost" name="finance_cost_amount" as="finance_cost_amount"/>
-   </referenceBlock>
-</body>
-</handle><handle id="sales_order_creditmemo"><body>
-   <referenceBlock name="creditmemo_totals">
-      <block class="MercadoPago\AdbPayment\Block\Sales\Order\Totals\FinanceCost" name="finance_cost_amount" as="finance_cost_amount"/>
-   </referenceBlock>
-</body>
-</handle><handle id="sales_order_invoice"><body>
-   <referenceBlock name="invoice_totals">
-      <block class="MercadoPago\AdbPayment\Block\Sales\Order\Totals\FinanceCost" name="finance_cost_amount" as="finance_cost_amount"/>
-   </referenceBlock>
-</body>
-</handle><handle id="sales_order_print"><body>
-   <referenceBlock name="order_totals">
-      <block class="MercadoPago\AdbPayment\Block\Sales\Order\Totals\FinanceCost" name="finance_cost_amount" as="finance_cost_amount"/>
-   </referenceBlock>
-</body>
-</handle><handle id="sales_order_view"><body>
-   <referenceBlock name="order_totals">
-      <block class="MercadoPago\AdbPayment\Block\Sales\Order\Totals\FinanceCost" name="finance_cost_amount" as="finance_cost_amount"/>
-   </referenceBlock>
-</body>
-</handle><handle id="vault_cards_listaction"><body>
-   <referenceContainer name="content">
-      <referenceBlock name="vault.cards.list">
-         <block class="MercadoPago\AdbPayment\Block\Customer\CardRenderer" name="mercadopago.card.renderer" template="Magento_Vault::customer_account/credit_card.phtml"/>
-      </referenceBlock>
-   </referenceContainer>
-</body>
 </handle><handle id="checkout_index_index" layout="1column"><body>
    <referenceBlock name="checkout.root">
       <arguments>
@@ -8302,7 +8127,12 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1693529371;s:6:"expire";i:1725065371;s:4:"t
       </container>
    </referenceContainer>
 </body>
-</handle><handle id="forms_index_invoiceform" layout="1column"><body>
+</handle><handle id="forms_index_cancelindex" layout="1column"><body>
+   <referenceContainer name="content">
+      <block class="Unilane\Formularios\Block\CancelForm" name="CancelForm" template="Unilane_Formularios::cancel_form.phtml"/>
+   </referenceContainer>
+</body>
+</handle><handle id="forms_index_invoiceindex" layout="1column"><body>
    <referenceContainer name="content">
       <block class="Unilane\Formularios\Block\InvoiceForm" name="InvoiceForm" template="Unilane_Formularios::invoice_form.phtml"/>
    </referenceContainer>
@@ -8315,6 +8145,11 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1693529371;s:6:"expire";i:1725065371;s:4:"t
 </handle><handle id="forms_index_teamindex" layout="1column"><body>
    <referenceContainer name="content">
       <block class="Unilane\Formularios\Block\TeamForm" name="TeamForm" template="Unilane_Formularios::team_form.phtml"/>
+   </referenceContainer>
+</body>
+</handle><handle id="forms_index_warrantyindex" layout="1column"><body>
+   <referenceContainer name="content">
+      <block class="Unilane\Formularios\Block\WarrantyForm" name="WarrantyForm" template="Unilane_Formularios::warranty_form.phtml"/>
    </referenceContainer>
 </body>
 </handle><handle id="catalog_category_view"><body>

@@ -497,6 +497,5 @@ return array(
     'a754c973d3b38fc831d832a54392dcd3' => $vendorDir . '/icecat/magento2-extension/registration.php',
     'eda65932675b68b5aee4503e0762d64d' => $vendorDir . '/magento/magento2-functional-testing-framework/src/Magento/FunctionalTestingFramework/_bootstrap.php',
     'a77049f7f3ca4c78b9e3635c8f857d84' => $vendorDir . '/mageplaza/module-smtp/registration.php',
-    '053dd5c4bbcb7d5e6b0c8644f35b2161' => $vendorDir . '/mercadopago/adb-payment/registration.php',
     'b4cf39431a4b949eea8aa69ebb3d39da' => $baseDir . '/app/etc/NonComposerComponentRegistration.php',
 );

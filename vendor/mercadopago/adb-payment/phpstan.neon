@@ -1,8 +1,0 @@
-parameters:
-    level: 1
-    fileExtensions:
-        - php
-        - phtml
-    excludePaths:
-        - %currentWorkingDirectory%/vendor/*
-        

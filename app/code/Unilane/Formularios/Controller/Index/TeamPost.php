@@ -93,9 +93,17 @@ class TeamPost implements HttpPostActionInterface
             $rutaTemporal  = $_FILES["archivo"]["tmp_name"];        
             //Recipients
             $mail->setFrom('luis.pruebasqar@outlook.com', 'Unilane');
-            $mail->addAddress($correoDestino, $nombre); //Add a recipient        
+            $destinatarios = [
+                'luis.pruebasqar@outlook.com' => 'Unilane',
+                $correo => $nombre.' '.$apellidos
+            ];
+            foreach ($destinatarios as $email => $nombre) {
+                $mail->addAddress($email, $nombre);
+            }         
             //Attachments
-            $mail->addAttachment($rutaTemporal,$nombreArchivo);//Add attachments        
+            if($nombreArchivo !=""){
+                $mail->addAttachment($rutaTemporal,$nombreArchivo);//Add attachments
+            }
             //Content
             $mail->isHTML(true); //Set email format to HTML
             $mail->Subject = 'únete al equipo unilane';
@@ -103,10 +111,11 @@ class TeamPost implements HttpPostActionInterface
                         <img src="C:\xampp\htdocs\magento\pub\media\wysiwyg\smartwave\porto\homepage\34\unilane.png" alt="Imagen" style="display: block; max-width: 30%;">
                         <br>
                         <br>
-                        <p> Nombre del solicitante: '.$nombre.'</p>
-                        <p> Telefono: '.$telefono.'</p>
-                        <p> Area prometida: '.$area.'</p>
-                        <p> Mensaje: '.$mensaje.'</p>';
+                        <h3> DATOS DEL SOLICITANTE </h3>
+                        <p> <strong>Nombre del solicitante:</strong> '.$nombre.'</p>
+                        <p> <strong>Telefono:</strong> '.$telefono.'</p>
+                        <p> <strong>Area prometida:</strong> '.$area.'</p>
+                        <p> <strong>Mensaje:</strong> '.$mensaje.'</p>';
                         
             if ($mail->Send())
                  echo "<script>alert('Formulario enviado exitosamente.');</script>";

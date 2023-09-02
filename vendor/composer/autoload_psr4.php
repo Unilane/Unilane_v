@@ -78,8 +78,6 @@ return array(
     'OTPHP\\' => array($vendorDir . '/spomky-labs/otphp/src'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'Metadata\\' => array($vendorDir . '/jms/metadata/src'),
-    'MercadoPago\\PP\\Sdk\\' => array($vendorDir . '/mp-plugins/php-sdk/src'),
-    'MercadoPago\\AdbPayment\\' => array($vendorDir . '/mercadopago/adb-payment'),
     'Mageplaza\\Smtp\\' => array($vendorDir . '/mageplaza/module-smtp'),
     'Mageplaza\\Core\\' => array($vendorDir . '/mageplaza/module-core'),
     'Magento\\Wishlist\\' => array($vendorDir . '/magento/module-wishlist'),

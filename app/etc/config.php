@@ -338,7 +338,6 @@ return [
         'Mageplaza_Search' => 1,
         'Mageplaza_Smtp' => 1,
         'Mageplaza_Osc' => 1,
-        'MercadoPago_AdbPayment' => 1,
         'Openpay_Banks' => 1,
         'Openpay_Cards' => 1,
         'Openpay_Stores' => 1,
