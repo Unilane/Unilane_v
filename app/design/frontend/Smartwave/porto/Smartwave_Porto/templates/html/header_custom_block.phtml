@@ -5,6 +5,8 @@
         $block->setBlockId($static_block_id);
     }
     if($block){
-        echo '<div class="custom-block">'.$block->toHtml().'</div>';
+        echo $block->toHtml();
+        /*'<div class="custom-block">'
+        '</div>'*/
     }
 ?>

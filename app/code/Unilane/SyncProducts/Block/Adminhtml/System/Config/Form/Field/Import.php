@@ -1829,7 +1829,61 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                    
                         $items->save();
                     }
-                    if($nombreCategoria == "Acceso" || $nombreCategoria == "Accesorios para PCs" || $nombreCategoria == "Adaptadores USB" || $nombreCategoria == "Kits para Teclado y Mouse" || $nombreCategoria == "Seguridad Inteligente"){
+                    if($nombreCategoria == "Adaptadores USB"){
+                        $items->setAttributeSetId(4);
+                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setSku($product['clave']);
+                        $items->setPrice($precioReal);
+                        $items->setVisibility(4);
+                        $items->setStatus(1);
+                        $items->setTypeId('simple');
+                        $items->setTaxClassId(1);
+                        $items->setWebsiteIds([1]);
+                        //ICECAT
+                        $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
+                        $items->setBrandName($product['marca']);
+                        $items->setProductCode($product['numParte']);                    
+                        $items->setCategoryIds([
+                            2,25,36,105
+                        ]);
+                        $items->setStockData(
+                            array( 
+                            'use_config_manage_stock' => 1,                       
+                            'manage_stock' => 1,
+                            'is_in_stock' => 1,   
+                            'qty' => $sumaExistencia
+                            )
+                        );                    
+                        $items->save();
+                    }
+                    if($nombreCategoria == "Accesorios para PCs" || $nombreCategoria == "Kits para Teclado y Mouse"){
+                        $items->setAttributeSetId(4);
+                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setSku($product['clave']);
+                        $items->setPrice($precioReal);
+                        $items->setVisibility(4);
+                        $items->setStatus(1);
+                        $items->setTypeId('simple');
+                        $items->setTaxClassId(1);
+                        $items->setWebsiteIds([1]);
+                        //ICECAT
+                        $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
+                        $items->setBrandName($product['marca']);
+                        $items->setProductCode($product['numParte']);                    
+                        $items->setCategoryIds([
+                            2,24,32,77,24,31,69
+                        ]);
+                        $items->setStockData(
+                            array( 
+                            'use_config_manage_stock' => 1,                       
+                            'manage_stock' => 1,
+                            'is_in_stock' => 1,   
+                            'qty' => $sumaExistencia
+                            )
+                        );                    
+                        $items->save();
+                    }
+                    if($nombreCategoria == "Acceso" || $nombreCategoria == "Seguridad Inteligente"){
                         $items->setAttributeSetId(4);
                         $items->setName($product['nombre']."-".$product['clave']);
                         $items->setSku($product['clave']);

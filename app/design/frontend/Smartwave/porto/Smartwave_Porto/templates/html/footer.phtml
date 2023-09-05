@@ -18,7 +18,8 @@
                             $block->setBlockId($footer['footer_top_custom']);
                         }
                         if($block){
-                            echo '<div class="custom-block">'.$block->toHtml().'</div>';
+                            echo $block->toHtml();
+                            //echo '<div class="custom-block">'.$block->toHtml().'</div>';
                         }
                     }
 
@@ -134,7 +135,8 @@
                     $block->setBlockId($footer['footer_bottom_custom_1']);
                 }
                 if($block){
-                    echo '<div class="custom-block">'.$block->toHtml().'</div>';
+                    echo $block->toHtml();
+                    //echo '<div class="custom-block">'.$block->toHtml().'</div>';
                 }
             }
             ?>

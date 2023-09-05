@@ -5,6 +5,7 @@
         $block->setBlockId($product_view['main_custom_block']);
     }
     if($block && isset($product_view['main_custom_block']) && $product_view['main_custom_block'] !=''){
-        echo '<div class="custom-block">'.$block->toHtml().'</div>';
+        echo $block->toHtml();
+        //echo '<div class="custom-block">'.$block->toHtml().'</div>';
     }
 ?>

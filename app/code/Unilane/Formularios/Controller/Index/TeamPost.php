@@ -95,7 +95,7 @@ class TeamPost implements HttpPostActionInterface
             $mail->setFrom('luis.pruebasqar@outlook.com', 'Unilane');
             $destinatarios = [
                 'luis.pruebasqar@outlook.com' => 'Unilane',
-                $correo => $nombre.' '.$apellidos
+                $correoDestino => $nombre
             ];
             foreach ($destinatarios as $email => $nombre) {
                 $mail->addAddress($email, $nombre);
