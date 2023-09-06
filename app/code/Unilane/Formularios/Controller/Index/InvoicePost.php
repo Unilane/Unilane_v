@@ -17,12 +17,13 @@ use Magento\Framework\Exception\LocalizedException;
 use Psr\Log\LoggerInterface;
 use Magento\Framework\App\ObjectManager;
 use Magento\Framework\DataObject;
+use Magento\Framework\App\Action\Action;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-class InvoicePost implements HttpPostActionInterface
+class InvoicePost extends Action
 {
     /**
      * @var DataPersistorInterface
@@ -58,7 +59,7 @@ class InvoicePost implements HttpPostActionInterface
         DataPersistorInterface $dataPersistor,
         LoggerInterface $logger = null
     ) {
-        $this->context = $context;
+        parent::__construct($context);        
         $this->mail = $mail;
         $this->dataPersistor = $dataPersistor;
         $this->logger = $logger ?: ObjectManager::getInstance()->get(LoggerInterface::class);
@@ -70,8 +71,9 @@ class InvoicePost implements HttpPostActionInterface
      * @return Redirect
      */
     public function execute()
-    {
-        try{
+    {          
+        try{          
+
          /**
              * @var mail
              */
@@ -85,6 +87,7 @@ class InvoicePost implements HttpPostActionInterface
             $mail->Password   = 'D11DB6B02A.123';                               //SMTP password
             $mail->SMTPSecure = 'tls';            //Enable implicit TLS encryption
             $mail->Port       = '587';
+            $mail->CharSet    = 'UTF-8';
             //Datos de facturación 
             $foliopedido   = $_POST['foliopedido'];
             $razonsocial   = $_POST['razonsocial'];
@@ -92,6 +95,8 @@ class InvoicePost implements HttpPostActionInterface
             $rfc           = $_POST['rfc'];
             $regimenfiscal = $_POST['regimenfiscal'];
             $cfdi          = $_POST['cfdi'];
+            $metodopago    = $_POST['metodopago'];           
+            $importeFinal  = $_POST['importeiva'];
             //Domicilio Fiscal 
             $calle        = $_POST['calle'];
             $noexterno    = $_POST['noexterno'];
@@ -102,8 +107,9 @@ class InvoicePost implements HttpPostActionInterface
             $estado       = $_POST['estado'];
             $codigopostal = $_POST['codigopostal'];
             //Datos de contacto
-            $telefono   = $_POST['telefono'];
-            $correoelec = $_POST['correoelec'];
+            $telefono    = $_POST['telefono'];
+            $correoelec  = $_POST['correoelec'];
+            $comentarios = $_POST['comentarios'];
             //Archivo
             $nombreArchivo = $_FILES["archivo"]["name"];
             $rutaTemporal  = $_FILES["archivo"]["tmp_name"];
@@ -121,7 +127,7 @@ class InvoicePost implements HttpPostActionInterface
             }
             //Content
             $mail->isHTML(true); //Set email format to HTML
-            $mail->Subject = 'QUIERO SER PROVEEDOR EN UNILANE';
+            $mail->Subject = 'FACTURACIÓN';
             $mail->Body    = '                                 
                         <img src="C:\xampp\htdocs\magento\pub\media\wysiwyg\smartwave\porto\homepage\34\unilane.png" alt="Imagen" style="display: block; max-width: 30%;">
                         <br>
@@ -132,7 +138,8 @@ class InvoicePost implements HttpPostActionInterface
                         <p> <strong>Persona Física o Moral:</strong> '.$fisicamoral.'</p>
                         <p> <strong>RFC:</strong> '.$rfc.'</p>
                         <p> <strong>Regimen Fiscal:</strong> '.$regimenfiscal.'</p>
-                        <p> <strong>Uso de CFDI:</strong> '.$cfdi.'</p>
+                        <p> <strong>Método de pago:</strong> '.$metodopago.'</p>
+                        <p> <strong>Importe(Incluye IVA):</strong> $'.$importeFinal.'</p>
                         <hr>
                         <h3> Datos de contacto </h3>                        
                         <p> <strong>Calle del domicilio:</strong> '.$calle.'</p>
@@ -145,14 +152,25 @@ class InvoicePost implements HttpPostActionInterface
                         <hr>
                         <h3> Datos de contacto </h3>                        
                         <p> <strong>Teléfono:</strong> '.$telefono.'</p>
-                        <p> <strong>Correo Electrónico:</strong> '.$correoelec.'</p>';                        
+                        <p> <strong>Correo Electrónico:</strong> '.$correoelec.'</p>  
+                        <p> <strong>Comentarios:</strong> '.$comentarios.'</p>';                        
+
             if ($mail->Send())
-                 echo "<script>alert('Formulario enviado exitosamente.');</script>";
+            {
+                $this->messageManager->addSuccessMessage(
+                    __('El formulario se mando correctamente.')
+                );
+                return $this->resultRedirectFactory->create()->setPath('forms/index/invoiceindex');
+            }
             else
-                 echo "<script>alert('Error al enviar el formulario');</script>";
+            {
+                $this->messageManager->addErrorMessage(
+                    __('Error al enviar el formulario.')
+                );
+                return $this->resultRedirectFactory->create()->setPath('forms/index/invoiceindex');
+            }
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
-        //return $this->resultRedirectFactory->create()->setPath('contact/index');
     }
 }

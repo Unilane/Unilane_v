@@ -17,11 +17,13 @@ use Magento\Framework\Exception\LocalizedException;
 use Psr\Log\LoggerInterface;
 use Magento\Framework\App\ObjectManager;
 use Magento\Framework\DataObject;
+use Magento\Framework\App\Action\Action;
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-class TeamPost implements HttpPostActionInterface
+class TeamPost extends Action
 {
     /**
      * @var DataPersistorInterface
@@ -58,7 +60,7 @@ class TeamPost implements HttpPostActionInterface
         DataPersistorInterface $dataPersistor,
         LoggerInterface $logger = null
     ) {
-        $this->context = $context;
+        parent::__construct($context);
         $this->mail = $mail;
         $this->dataPersistor = $dataPersistor;
         $this->logger = $logger ?: ObjectManager::getInstance()->get(LoggerInterface::class);
@@ -84,6 +86,8 @@ class TeamPost implements HttpPostActionInterface
             $mail->Password   = 'D11DB6B02A.123';                               //SMTP password
             $mail->SMTPSecure = 'tls';            //Enable implicit TLS encryption
             $mail->Port       = '587';
+            $mail->CharSet    = 'UTF-8';
+
             $nombre        = $_POST['nombre'];
             $correoDestino = $_POST['correo'];
             $telefono      = $_POST['telefono'];
@@ -118,9 +122,19 @@ class TeamPost implements HttpPostActionInterface
                         <p> <strong>Mensaje:</strong> '.$mensaje.'</p>';
                         
             if ($mail->Send())
-                 echo "<script>alert('Formulario enviado exitosamente.');</script>";
+            {
+                $this->messageManager->addSuccessMessage(
+                    __('El formulario se mando correctamente.')
+                );
+                return $this->resultRedirectFactory->create()->setPath('forms/index/teamindex');
+            }
             else
-                 echo "<script>alert('Error al enviar el formulario');</script>";
+            {
+                $this->messageManager->addErrorMessage(
+                    __('Error al enviar el formulario.')
+                );
+                return $this->resultRedirectFactory->create()->setPath('forms/index/teamindex');
+            }
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }

@@ -17,12 +17,13 @@ use Magento\Framework\Exception\LocalizedException;
 use Psr\Log\LoggerInterface;
 use Magento\Framework\App\ObjectManager;
 use Magento\Framework\DataObject;
+use Magento\Framework\App\Action\Action;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-class SupplierPost implements HttpPostActionInterface
+class SupplierPost extends Action
 {
     /**
      * @var DataPersistorInterface
@@ -58,7 +59,7 @@ class SupplierPost implements HttpPostActionInterface
         DataPersistorInterface $dataPersistor,
         LoggerInterface $logger = null
     ) {
-        $this->context = $context;
+        parent::__construct($context);
         $this->mail = $mail;
         $this->dataPersistor = $dataPersistor;
         $this->logger = $logger ?: ObjectManager::getInstance()->get(LoggerInterface::class);
@@ -85,6 +86,8 @@ class SupplierPost implements HttpPostActionInterface
             $mail->Password   = 'D11DB6B02A.123';                               //SMTP password
             $mail->SMTPSecure = 'tls';            //Enable implicit TLS encryption
             $mail->Port       = '587';
+            $mail->CharSet    = 'UTF-8';
+
             //INFORMACION DE LA EMPRESA
             $nombreRazon = $_POST['nombrerazon'];
             $sitioweb    = $_POST['sitioweb'];
@@ -129,9 +132,19 @@ class SupplierPost implements HttpPostActionInterface
                         <p> <strong>Correo del solicitante:</strong> '.$correo.'</p>';
                         
             if ($mail->Send())
-                 echo "<script>alert('Formulario enviado exitosamente.');</script>";
+            {
+                $this->messageManager->addSuccessMessage(
+                    __('El formulario se mando correctamente.')
+                );
+                return $this->resultRedirectFactory->create()->setPath('forms/index/supplierindex');
+            }
             else
-                 echo "<script>alert('Error al enviar el formulario');</script>";
+            {
+                $this->messageManager->addErrorMessage(
+                    __('Error al enviar el formulario.')
+                );
+                return $this->resultRedirectFactory->create()->setPath('forms/index/supplierindex');
+            }
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }

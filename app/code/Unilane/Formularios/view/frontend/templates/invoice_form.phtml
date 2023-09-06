@@ -12,7 +12,7 @@
         <div class="col-1"></div>
         <div class="col-10">
             <h2 class="text-center titulo">FACTURACIÓN</h2>
-            <h3 class="text-center titulo">Bienvenido al módulo de facturación</h3>
+            <h3 class="text-center">Bienvenido al módulo de facturación</h3>
             <p class="text-justify">
                 Bienvenido a la sección de facturación, aquí puedes solicitar factura de tus compras de manera rápida y sencilla. A continuación, te explicamos cómo hacerlo:<br><br>
 
@@ -61,7 +61,7 @@
                 </div>
                 <div class="col-4 form-control"> 
                     <label for="name">Regimen Fiscal: <span style="color: red;">*</span></label> 
-                    <select id="regimenfiscal" class="form-control" name="regimenfiscal" required>
+                    <select id="regimenfiscal select2" class="form-control" name="regimenfiscal" required>
                         <option value="0">--Seleccione--</option>
                         <option value="601 – General de Ley Personas Morales">601 – General de Ley Personas Morales</option>
                         <option value="603 – Personas Morales con Fines no Lucrativos">603 – Personas Morales con Fines no Lucrativos</option>
@@ -87,8 +87,14 @@
                     </select>
                 </div>
                 <div class="col-4 form-control"> 
-                    <label for="name">Uso de CFDI: <span style="color: red;">*</span></label> 
-                    <select class="form-control" name="cfdi" required>
+                    <label for="name">Uso de CFDI: <span style="color: red;">*</span></label>                     
+                    <input class="form-control" type="text" id="cfdi" name="cfdi" placeholder="Uso de CFDI"  required>
+                </div>                
+            </div>
+            <div class="row">
+                <div class="col-4 form-control"> 
+                    <label for="name">Método de pago: <span style="color: red;">*</span></label>
+                    <select class="form-control select2" name="metodopago" required>
                         <option value="0">--Seleccione--</option>
                         <option value="1 – Efectivo">1 – Efectivo</option>
                         <option value="2 – Cheque">2 – Cheque</option>
@@ -102,16 +108,10 @@
                         <option value="61 – Servicios prestados por medios electrónicos">61 – Servicios prestados por medios electrónicos</option>
                         <option value="63 – Pago por terceros">63 – Pago por terceros</option>
                         <option value="65 – Pago por internet con intermediario pagos">65 – Pago por internet con intermediario pagos</option>
-                    </select>
-                </div>                
-            </div>
-            <div class="row">
-                <div class="col-4 form-control"> 
-                    <label for="name">Método de pago: <span style="color: red;">*</span></label> 
-                    <input class="form-control" type="text" id="metodopago" name="rfc" placeholder="Método de pago"  required>
+                    </select> 
                 </div>
                 <div class="col-4 form-control"> 
-                    <label for="name">Importe (Incluye IVA): <span style="color: red;">*</span></label> 
+                    <label for="name">Importe Total: <span style="color: red;">*</span></label> 
                     <input class="form-control" type="text" id="importeiva" name="importeiva" placeholder="Importe (Incluye IVA)"  required>
                 </div>
             </div>
@@ -127,26 +127,27 @@
                     <input class="form-control" type="text" id="name" name="noexterno" placeholder="Número Externo" required>
                 </div>
                 <div class="col-3 form-control"> 
-                    <label for="name">No. Interno: <span style="color: red;">*</span></label> 
+                    <label for="name">No. Interno:</label> 
                     <input class="form-control" type="text" id="name" name="nointerno" placeholder="No. Interno" >
-                </div>
-                <div class="col-3 form-control"> 
-                    <label for="name">Ciudad: <span style="color: red;">*</span></label> 
-                    <input class="form-control" type="text" id="name" name="ciudad" placeholder="Ciudad" >
-                </div>                    
-            </div>
-            <div class="row">
-                <div class="col-3 form-control"> 
-                    <label for="name">Colonia: <span style="color: red;">*</span></label> 
-                    <input class="form-control" type="text" id="name" name="colonia" placeholder="Colonia"  >
-                </div>
-                <div class="col-3 form-control"> 
-                    <label for="name">Municipio: <span style="color: red;">*</span></label> 
-                    <input class="form-control" type="text" id="name" name="municipio" placeholder="Municipio"  required>
                 </div>
                 <div class="col-3 form-control"> 
                     <label for="name">Estado: <span style="color: red;">*</span></label> 
                     <input class="form-control" type="text" id="name" name="estado" placeholder="Estado"  required>
+                </div>
+                  
+            </div>
+            <div class="row">
+                <div class="col-3 form-control"> 
+                    <label for="name">Municipio: <span style="color: red;">*</span></label> 
+                    <input class="form-control" type="text" id="name" name="municipio" placeholder="Municipio"  required>
+                </div>                
+                <div class="col-3 form-control"> 
+                    <label for="name">Ciudad: <span style="color: red;">*</span></label> 
+                    <input class="form-control" type="text" id="name" name="ciudad" placeholder="Ciudad" >
+                </div> 
+                <div class="col-3 form-control"> 
+                    <label for="name">Colonia: <span style="color: red;">*</span></label> 
+                    <input class="form-control" type="text" id="name" name="colonia" placeholder="Colonia"  >
                 </div>
                 <div class="col-3 form-control"> 
                     <label for="name">Código Postal: <span style="color: red;">*</span></label> 
@@ -185,3 +186,10 @@
     <div class="col-6">
     </div>
 </div>
+<script>
+    require(['jquery', 'select2'], function($) {
+    $(document).ready(function() {
+        $(".select2").select2();
+    });
+});
+    </script>

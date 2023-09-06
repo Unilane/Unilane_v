@@ -15,7 +15,9 @@
         <css src="simple-line-icons/css/simple-line-icons.css" />
         <css src="icon-fonts/css/animation.css" /> 
         <css src="font-awesome/css/font-awesome.min.css" />
-        <!-- <script src="jquery.js" />
+        <!-- <css src="select2/css/select2.css"/>
+        <script src="select2/js/select2.js"/> -->
+        <!-- <script src="jquery.js" />        
         <script src="jquery-ui.js" />
         <script src="fancybox/js/jquery.fancybox.js" /> -->
     </head>

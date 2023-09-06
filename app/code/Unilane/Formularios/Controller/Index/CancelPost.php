@@ -17,11 +17,12 @@ use Magento\Framework\Exception\LocalizedException;
 use Psr\Log\LoggerInterface;
 use Magento\Framework\App\ObjectManager;
 use Magento\Framework\DataObject;
+use Magento\Framework\App\Action\Action;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-class CancelPost implements HttpPostActionInterface
+class CancelPost extends Action
 {
     /**
      * @var DataPersistorInterface
@@ -58,7 +59,7 @@ class CancelPost implements HttpPostActionInterface
         DataPersistorInterface $dataPersistor,
         LoggerInterface $logger = null
     ) {
-        $this->context = $context;
+        parent::__construct($context);
         $this->mail = $mail;
         $this->dataPersistor = $dataPersistor;
         $this->logger = $logger ?: ObjectManager::getInstance()->get(LoggerInterface::class);
@@ -84,6 +85,8 @@ class CancelPost implements HttpPostActionInterface
             $mail->Password   = 'D11DB6B02A.123';                               //SMTP password
             $mail->SMTPSecure = 'tls';            //Enable implicit TLS encryption
             $mail->Port       = '587';
+            $mail->CharSet    = 'UTF-8';
+
             $nombre        = $_POST['nombrerazon'];
             $folio         = $_POST['folio'];
             $fecha         = $_POST['fecha'];
@@ -119,11 +122,21 @@ class CancelPost implements HttpPostActionInterface
                         <p> <strong>Correo electrónico:</strong> '.$correo.'</p>
                         <p> <strong>Telefono:</strong> '.$telefono.'</p>
                         <p> <strong>Motivo de solicitud de la cancelacion:</strong> '.$motivo.'</p>';                       
-                        
+            
             if ($mail->Send())
-                 echo "<script>alert('Formulario enviado exitosamente.');</script>";
+            {
+                $this->messageManager->addSuccessMessage(
+                    __('El formulario se mando correctamente.')
+                );
+                return $this->resultRedirectFactory->create()->setPath('forms/index/cancelindex');
+            }
             else
-                 echo "<script>alert('Error al enviar el formulario');</script>";
+            {
+                $this->messageManager->addErrorMessage(
+                    __('Error al enviar el formulario.')
+                );
+                return $this->resultRedirectFactory->create()->setPath('forms/index/cancelindex');
+            }
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
