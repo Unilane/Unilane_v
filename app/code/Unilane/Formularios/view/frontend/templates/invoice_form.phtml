@@ -6,6 +6,67 @@
 	text-align: center;
 	margin: 10px 0;
 }
+
+.colorBorder{
+    border-color: #000000;
+}
+
+select{
+    border-color: #000000;
+}
+
+.colorunico{
+    background: #efefef17;
+    border-top: 4px solid #2D5D89;
+    padding: 10px 0;
+    border-radius: 12px;
+    width: 35%;
+    margin: 0 auto;
+    margin-bottom: -15px;
+}
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    max-width: 80%;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+}
+
+.inputfile + label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    margin-right: 0.25em;
+}
+
+.iborrainputfile {
+	font-size:16px; 
+	font-weight:normal;
+	font-family: 'Lato';
+}
+
+/* style 1 */
+
+.inputfile-1 + label {
+    color: #000;
+}
+
+
 </style>
 <div class="about-info cms-content">
     <div class="row">
@@ -16,10 +77,10 @@
             <p class="text-justify">
                 Bienvenido a la sección de facturación, aquí puedes solicitar factura de tus compras de manera rápida y sencilla. A continuación, te explicamos cómo hacerlo:<br><br>
 
-                1.	Indícanos el número de pedido o folio de tu orden<br>
-                2.	Registra tu información en los campos solicitados, o si lo prefieres adjunta tu constancia de situación fiscal<br>
-                3.	Ingresa los datos de contacto a los que enviaremos la factura<br>
-                4.	Déjanos algún comentario a considerar para efectos de la facturación.<br><br>
+                — Indícanos el número de pedido o folio de tu orden<br>
+                — Registra tu información en los campos solicitados, o si lo prefieres adjunta tu constancia de situación fiscal<br>
+                — Ingresa los datos de contacto a los que enviaremos la factura<br>
+                — Déjanos algún comentario a considerar para efectos de la facturación.<br><br>
 
                 Recibirás tu factura en un plazo no mayor a 48 horas en presentación PDF y XML, recomendamos revisar la carpeta de correo no deseado en caso de no encontrar tu factura en la bandeja principal. Si necesitas asistencia durante el proceso o tienes alguna pregunta, nuestro equipo de atención al cliente está listo para ayudarte; no dudes en contactarnos por el medio de tu preferencia.
 
@@ -39,11 +100,11 @@
             <div class="row">
                 <div class="col-4 form-control"> 
                     <label for="name">Folio Pedido o No. Orden: <span style="color: red;">*</span></label> 
-                    <input class="form-control" type="text" id="name" name="foliopedido" placeholder="Folio Pedido o No. Orden"  required> 
+                    <input class="form-control " type="text" id="name" name="foliopedido" placeholder="Folio Pedido o No. Orden"style="border-color: #000000;" required> 
                 </div>           
                 <div class="col-4 form-control"> 
                     <label for="name">Razón Social: <span style="color: red;">*</span></label> 
-                    <input class="form-control" type="text" id="name" name="razonsocial" placeholder="Razón Social" required>
+                    <input class="form-control " type="text" id="name" name="razonsocial" placeholder="Razón Social"style="border-color: #000000;" required>
                 </div>               
                 <div class="col-4 form-control"> 
                     <label for="name">Persona Física o Moral: <span style="color: red;">*</span></label> 
@@ -57,7 +118,7 @@
             <div class="row">
                 <div class="col-4 form-control"> 
                     <label for="name">RFC: <span style="color: red;">*</span></label> 
-                    <input class="form-control" type="text" id="name" name="rfc" placeholder="RFC"  required>
+                    <input class="form-control " type="text" id="name" name="rfc" placeholder="RFC" style="border-color: #000000;" required>
                 </div>
                 <div class="col-4 form-control"> 
                     <label for="name">Regimen Fiscal: <span style="color: red;">*</span></label> 
@@ -88,7 +149,20 @@
                 </div>
                 <div class="col-4 form-control"> 
                     <label for="name">Uso de CFDI: <span style="color: red;">*</span></label>                     
-                    <input class="form-control" type="text" id="cfdi" name="cfdi" placeholder="Uso de CFDI"  required>
+                    <select class="form-control" name="cfdi" required>
+                        <option value="0">--Seleccione--</option>
+                        <option value="G01 – Adquisición de mercancias">G01 – Adquisición de mercancias</option>
+                        <option value="G03 – Gastos en general">G03 – Gastos en general</option>
+                        <option value="I01 – Construcciones">I01 – Construcciones</option>
+                        <option value="I02 – Mobilario y equipo de oficina">I02 – Mobilario y equipo de oficina</option>
+                        <option value="I03 – Equipo de transporte">I03 – Equipo de transporte</option>
+                        <option value="I04 – Equipo de computo y accesorios">I04 – Equipo de computo y accesorios</option>
+                        <option value="I06 – Comunicaciones telefónicas">I06 – Comunicaciones telefónicas</option>
+                        <option value="I07 – Comunicaciones satelitales">I07 – Comunicaciones satelitales</option>
+                        <option value="I08 – Otra maquinaria y equipo de procesos">I08 – Otra maquinaria y equipo de procesos</option>
+                        <option value="D04 – Donativos">D04 – Donativos</option>
+                        <option value="P01 – Por definir">P01 – Por definir</option>
+                    </select>
                 </div>                
             </div>
             <div class="row">
@@ -112,7 +186,7 @@
                 </div>
                 <div class="col-4 form-control"> 
                     <label for="name">Importe Total: <span style="color: red;">*</span></label> 
-                    <input class="form-control" type="text" id="importeiva" name="importeiva" placeholder="Importe (Incluye IVA)"  required>
+                    <input class="form-control " type="text" id="importeiva" name="importeiva" placeholder="Importe (Incluye IVA)" style="border-color: #000000;"  required>
                 </div>
             </div>
             <br>
@@ -120,38 +194,37 @@
             <div class="row">
                 <div class="col-3 form-control"> 
                     <label for="name">Calle del domicilio: <span style="color: red;">*</span></label> 
-                    <input class="form-control" type="text" id="name" name="calle" placeholder="Calle del domicilio"  required> 
+                    <input class="form-control " type="text" id="name" name="calle" placeholder="Calle del domicilio"  style="border-color: #000000;" required> 
                 </div>
                 <div class="col-3 form-control">
                     <label for="name">Número Externo: <span style="color: red;">*</span></label> 
-                    <input class="form-control" type="text" id="name" name="noexterno" placeholder="Número Externo" required>
+                    <input class="form-control " type="text" id="name" name="noexterno" placeholder="Número Externo"style="border-color: #000000;" required>
                 </div>
                 <div class="col-3 form-control"> 
                     <label for="name">No. Interno:</label> 
-                    <input class="form-control" type="text" id="name" name="nointerno" placeholder="No. Interno" >
+                    <input class="form-control " type="text" id="name" name="nointerno" placeholder="No. Interno" style="border-color: #000000;">
                 </div>
                 <div class="col-3 form-control"> 
-                    <label for="name">Estado: <span style="color: red;">*</span></label> 
-                    <input class="form-control" type="text" id="name" name="estado" placeholder="Estado"  required>
-                </div>
-                  
+                    <label for="name">Colonia: <span style="color: red;">*</span></label> 
+                    <input class="form-control " type="text" id="name" name="colonia" placeholder="Colonia" style="border-color: #000000;" required>
+                </div>                  
             </div>
             <div class="row">
                 <div class="col-3 form-control"> 
                     <label for="name">Municipio: <span style="color: red;">*</span></label> 
-                    <input class="form-control" type="text" id="name" name="municipio" placeholder="Municipio"  required>
+                    <input class="form-control " type="text" id="name" name="municipio" placeholder="Municipio" style="border-color: #000000;"  required>
                 </div>                
                 <div class="col-3 form-control"> 
                     <label for="name">Ciudad: <span style="color: red;">*</span></label> 
-                    <input class="form-control" type="text" id="name" name="ciudad" placeholder="Ciudad" >
+                    <input class="form-control " type="text" id="name" name="ciudad" placeholder="Ciudad" style="border-color: #000000;">
                 </div> 
                 <div class="col-3 form-control"> 
-                    <label for="name">Colonia: <span style="color: red;">*</span></label> 
-                    <input class="form-control" type="text" id="name" name="colonia" placeholder="Colonia"  >
+                    <label for="name">Estado: <span style="color: red;">*</span></label> 
+                    <input class="form-control " type="text" id="name" name="estado" placeholder="Estado" style="border-color: #000000;" required>
                 </div>
                 <div class="col-3 form-control"> 
                     <label for="name">Código Postal: <span style="color: red;">*</span></label> 
-                    <input class="form-control" type="text" id="name" name="codigopostal" placeholder="Código Postal"  required>
+                    <input class="form-control " type="text" id="name" name="codigopostal" placeholder="Código Postal" style="border-color: #000000;" required>
                 </div>
             </div>  
             <br>
@@ -159,24 +232,28 @@
             <div class="row">
                 <div class="col-6 form-control"> 
                     <label for="name">Teléfono: <span style="color: red;">*</span></label> 
-                    <input class="form-control" type="text" id="name" name="telefono" placeholder="Teléfono"  required> 
+                    <input class="form-control " type="text" id="name" name="telefono" placeholder="Teléfono" style="border-color: #000000;"  required> 
                 </div>           
                 <div class="col-6 form-control"> 
                     <label for="name">Correo Electrónico: <span style="color: red;">*</span></label> 
-                    <input class="form-control" type="text" id="name" name="correoelec" placeholder="Correo Electrónico" required>
+                    <input class="form-control " type="text" id="name" name="correoelec" placeholder="Correo Electrónico" style="border-color: #000000;" required>
                 </div> 
             </div>
             <div class="row">
                 <div class="col-12 form-control"> 
                     <label for="name">Comentarios:<span style="color: red;">*</span></label> 
-                    <textarea class="form-control" type="textarea" rows="8" id="name" name="comentarios" placeholder="Indícanos el código de los productos que deseas facturar, de no hacerlo se facturará la totalidad de los artículos incluidos en la orden." required></textarea>            
+                    <textarea class="form-control colorBorder" type="textarea" rows="8" id="name" name="comentarios" placeholder="Indícanos el código de los productos que deseas facturar, de no hacerlo se facturará la totalidad de los artículos incluidos en la orden." required></textarea>            
                 </div> 
             </div>           
-            <br>            
-            <div class="col-12 form-control"> 
-                <label>Adjuntar Constancia de situación fiscal(Opcional):</label>
-                <input type="file" name="archivo" />            
-            </div>               
+            <br>
+            <div class="colorunico col-12 text-center">
+                <input type="file" name="file-1" id="file-1" class="inputfile inputfile-1" style="display: none;"/>
+                <label for="file-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
+                    <span class="iborrainputfile">Seleccionar archivo</span>
+                </label>
+            </div>  
+            <p class="text-center" style="font-size: smaller;">Adjuntar Constancia de Situación Fiscal (opcional)</p>
             <br>            
             <div class="col-12 text-center">
                 <button class="btn btn-primary" type="submit" name="uploadBtn" value="Upload">Enviar datos para facturar</button>
@@ -187,9 +264,29 @@
     </div>
 </div>
 <script>
-    require(['jquery', 'select2'], function($) {
-    $(document).ready(function() {
-        $(".select2").select2();
-    });
-});
-    </script>
+'use strict';
+
+;( function ( document, window, index )
+{
+	var inputs = document.querySelectorAll( '.inputfile' );
+	Array.prototype.forEach.call( inputs, function( input )
+	{
+		var label	 = input.nextElementSibling,
+			labelVal = label.innerHTML;
+
+		input.addEventListener( 'change', function( e )
+		{
+			var fileName = '';
+			if( this.files && this.files.length > 1 )
+				fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+			else
+				fileName = e.target.value.split( '\\' ).pop();
+
+			if( fileName )
+				label.querySelector( 'span' ).innerHTML = fileName;
+			else
+				label.innerHTML = labelVal;
+		});
+	});
+}( document, window, 0 ));
+</script>

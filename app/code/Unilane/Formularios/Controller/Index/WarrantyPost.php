@@ -93,9 +93,7 @@ class WarrantyPost extends Action
             $fecha         = $_POST['fecha'];
             $correo        = $_POST['correo'];
             $telefono      = $_POST['telefono'];
-            $motivo        = $_POST['motivo'];
-            $nombreArchivo = $_FILES["archivo"]["name"];
-            $rutaTemporal  = $_FILES["archivo"]["tmp_name"];        
+            $motivo        = $_POST['motivo'];       
             //Recipients
             $mail->setFrom('luis.pruebasqar@outlook.com', 'Unilane');
             $destinatarios = [
@@ -104,25 +102,21 @@ class WarrantyPost extends Action
             ];
             foreach ($destinatarios as $email => $nombre) {
                 $mail->addAddress($email, $nombre);
-            }         
-            //Attachments
-            if($nombreArchivo !=""){
-                $mail->addAttachment($rutaTemporal,$nombreArchivo);//Add attachments
             }
             //Content
             $mail->isHTML(true); //Set email format to HTML
-            $mail->Subject = 'únete al equipo unilane';
+            $mail->Subject = 'Garantía';
             $mail->Body    = '                                 
                         <img src="C:\xampp\htdocs\magento\pub\media\wysiwyg\smartwave\porto\homepage\34\unilane.png" alt="Imagen" style="display: block; max-width: 30%;">
                         <br>
                         <br>
-                        <h3> INFORMACION DE CANCELACION DEL PEDIDO </h3>
+                        <h3> INFORMACION DE LA GARANTIA </h3>
                         <p> <strong>Nombre Completo o Razon Social:</strong> '.$nombre.'</p>
                         <p> <strong>Folio del pedido:</strong> '.$folio.'</p>
                         <p> <strong>Fecha del pedido:</strong> '.$fecha.'</p>
                         <p> <strong>Correo electrónico:</strong> '.$correo.'</p>
                         <p> <strong>Telefono:</strong> '.$telefono.'</p>
-                        <p> <strong>Motivo de solicitud de la cancelacion:</strong> '.$motivo.'</p>';                                            
+                        <p> <strong>Motivo de solicitud de garantía:</strong> '.$motivo.'</p>';                                            
                         
             if ($mail->Send())
             {

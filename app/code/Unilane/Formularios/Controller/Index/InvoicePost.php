@@ -111,8 +111,8 @@ class InvoicePost extends Action
             $correoelec  = $_POST['correoelec'];
             $comentarios = $_POST['comentarios'];
             //Archivo
-            $nombreArchivo = $_FILES["archivo"]["name"];
-            $rutaTemporal  = $_FILES["archivo"]["tmp_name"];
+            $nombreArchivo = $_FILES["file-1"]["name"];
+            $rutaTemporal  = $_FILES["file-1"]["tmp_name"];
             //Attachments
             $mail->setFrom('luis.pruebasqar@outlook.com', 'Unilane');
             $destinatarios = [

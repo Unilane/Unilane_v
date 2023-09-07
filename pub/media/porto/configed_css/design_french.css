@@ -1,6 +1,6 @@
 /**
  * WARNING: Do not change this file. Your changes will be lost.
- * 2023-08-14 22:22:25 */
+ * 2023-09-06 17:32:40 */
 
 body {
         font-size: 14px;
@@ -61,6 +61,13 @@ html .text-color-primary,html .text-primary,.main-toggle-menu .menu-title.closed
         background: #2D5D89;
         border-right-color: #2D5D89;
     }
+}
+.page-main {
+        background-color:#FFFFFF;
+}
+
+.page-main .filterproduct-title .content {
+    background-color:#FFFFFF;
 }
 button.action.primary{
 }

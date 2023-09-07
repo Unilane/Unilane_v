@@ -92,9 +92,7 @@ class CancelPost extends Action
             $fecha         = $_POST['fecha'];
             $correo        = $_POST['correo'];
             $telefono      = $_POST['telefono'];
-            $motivo        = $_POST['motivo'];
-            $nombreArchivo = $_FILES["archivo"]["name"];
-            $rutaTemporal  = $_FILES["archivo"]["tmp_name"];        
+            $motivo        = $_POST['motivo'];     
             //Recipients
             $mail->setFrom('luis.pruebasqar@outlook.com', 'Unilane');
             $destinatarios = [
@@ -103,14 +101,10 @@ class CancelPost extends Action
             ];
             foreach ($destinatarios as $email => $nombre) {
                 $mail->addAddress($email, $nombre);
-            }         
-            //Attachments
-            if($nombreArchivo !=""){
-                $mail->addAttachment($rutaTemporal,$nombreArchivo);//Add attachments
-            }
+            } 
             //Content
             $mail->isHTML(true); //Set email format to HTML
-            $mail->Subject = 'únete al equipo unilane';
+            $mail->Subject = 'Cancelación';
             $mail->Body    = '                                 
                         <img src="C:\xampp\htdocs\magento\pub\media\wysiwyg\smartwave\porto\homepage\34\unilane.png" alt="Imagen" style="display: block; max-width: 30%;">
                         <br>

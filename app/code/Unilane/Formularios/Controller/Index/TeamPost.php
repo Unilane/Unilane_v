@@ -93,8 +93,8 @@ class TeamPost extends Action
             $telefono      = $_POST['telefono'];
             $area          = $_POST['area'];
             $mensaje       = $_POST['mensaje'];
-            $nombreArchivo = $_FILES["archivo"]["name"];
-            $rutaTemporal  = $_FILES["archivo"]["tmp_name"];        
+            $nombreArchivo = $_FILES["file-1"]["name"];
+            $rutaTemporal  = $_FILES["file-1"]["tmp_name"];        
             //Recipients
             $mail->setFrom('luis.pruebasqar@outlook.com', 'Unilane');
             $destinatarios = [
