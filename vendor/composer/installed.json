@@ -3032,6 +3032,44 @@
             "install-path": "../ezyang/htmlpurifier"
         },
         {
+            "name": "fasaro/magento2-es_mx-language-pack",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fasaro/magento2-es_mx-language-pack.git",
+                "reference": "b797038c0cd1313d6717c99b7bb6f25f0bce8631"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fasaro/magento2-es_mx-language-pack/zipball/b797038c0cd1313d6717c99b7bb6f25f0bce8631",
+                "reference": "b797038c0cd1313d6717c99b7bb6f25f0bce8631",
+                "shasum": ""
+            },
+            "require": {
+                "magento/framework": "*"
+            },
+            "time": "2022-09-25T16:48:24+00:00",
+            "default-branch": true,
+            "type": "magento2-language",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Spanish (Mexico) language package for Magento 2",
+            "support": {
+                "issues": "https://github.com/fasaro/magento2-es_mx-language-pack/issues",
+                "source": "https://github.com/fasaro/magento2-es_mx-language-pack/tree/master"
+            },
+            "install-path": "../fasaro/magento2-es_mx-language-pack"
+        },
+        {
             "name": "friendsofphp/php-cs-fixer",
             "version": "v3.14.2",
             "version_normalized": "3.14.2.0",

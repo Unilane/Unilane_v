@@ -495,6 +495,7 @@ class ComposerStaticInitc96ecaacf3719b75b13057a42d56b271
         '1506602cad1f917a0661dc7b3038b155' => __DIR__ . '/..' . '/weltpixel/m2-weltpixel-backend/registration.php',
         'd7b61400ceb71c481643812b365908a8' => __DIR__ . '/..' . '/weltpixel/m2-weltpixel-quickview-free/registration.php',
         '1ef19570c01787eb8d4dfc841a36038e' => __DIR__ . '/..' . '/aftership/aftership-apps-magento2/registration.php',
+        '6faaf700047e3ad2a689e23347b36ccd' => __DIR__ . '/..' . '/fasaro/magento2-es_mx-language-pack/registration.php',
         'a754c973d3b38fc831d832a54392dcd3' => __DIR__ . '/..' . '/icecat/magento2-extension/registration.php',
         'eda65932675b68b5aee4503e0762d64d' => __DIR__ . '/..' . '/magento/magento2-functional-testing-framework/src/Magento/FunctionalTestingFramework/_bootstrap.php',
         'a77049f7f3ca4c78b9e3635c8f857d84' => __DIR__ . '/..' . '/mageplaza/module-smtp/registration.php',

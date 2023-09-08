@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "387c51adb41e81b5d7bcd6c635475fa4",
+    "content-hash": "30b85c43b580d15a65d1460016ba8a6b",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -1945,6 +1945,41 @@
                 "html"
             ],
             "time": "2022-09-18T07:06:19+00:00"
+        },
+        {
+            "name": "fasaro/magento2-es_mx-language-pack",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fasaro/magento2-es_mx-language-pack.git",
+                "reference": "b797038c0cd1313d6717c99b7bb6f25f0bce8631"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fasaro/magento2-es_mx-language-pack/zipball/b797038c0cd1313d6717c99b7bb6f25f0bce8631",
+                "reference": "b797038c0cd1313d6717c99b7bb6f25f0bce8631",
+                "shasum": ""
+            },
+            "require": {
+                "magento/framework": "*"
+            },
+            "default-branch": true,
+            "type": "magento2-language",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Spanish (Mexico) language package for Magento 2",
+            "support": {
+                "issues": "https://github.com/fasaro/magento2-es_mx-language-pack/issues",
+                "source": "https://github.com/fasaro/magento2-es_mx-language-pack/tree/master"
+            },
+            "time": "2022-09-25T16:48:24+00:00"
         },
         {
             "name": "google/recaptcha",
@@ -28952,7 +28987,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "fasaro/magento2-es_mx-language-pack": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],

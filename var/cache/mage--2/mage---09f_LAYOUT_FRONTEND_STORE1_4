@@ -1,4 +1,4 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1694022288;s:6:"expire";i:1725558288;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1694209534;s:6:"expire";i:1725745534;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
 <?xml version="1.0"?>
 <layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><handle id="catalog_category_view"><body/>
 </handle><handle id="catalogsearch_advanced_index"><body/>
@@ -8151,6 +8151,24 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1694022288;s:6:"expire";i:1725558288;s:4:"t
    <referenceContainer name="content">
       <block class="Unilane\Formularios\Block\WarrantyForm" name="WarrantyForm" template="Unilane_Formularios::warranty_form.phtml"/>
    </referenceContainer>
+</body>
+</handle><handle id="sales_email_order_items" label="Email Order Items List" design_abstraction="custom"><update handle="sales_email_order_renderers"/>
+<update handle="sales_email_item_price"/>
+<body>
+   <block class="Magento\Sales\Block\Order\Email\Items" name="items" template="Unilane_Sales::email/items.phtml" cacheable="false">
+      <block class="Magento\Framework\View\Element\RendererList" name="sales.email.order.renderers" as="renderer.list"/>
+      <block class="Magento\Sales\Block\Order\Totals" name="order_totals" template="Magento_Sales::order/totals.phtml">
+         <arguments>
+            <argument name="label_properties" xsi:type="string">colspan="2"</argument>
+         </arguments>
+         <block class="Magento\Tax\Block\Sales\Order\Tax" name="tax" template="Magento_Tax::order/tax.phtml">
+            <action method="setIsPlaneMode">
+               <argument name="value" xsi:type="string">1</argument>
+            </action>
+         </block>
+      </block>
+   </block>
+   <block class="Magento\Framework\View\Element\Template" name="additional.product.info" template="Magento_Theme::template.phtml"/>
 </body>
 </handle><handle id="catalog_category_view"><body>
    <referenceContainer name="category.product.list.additional">

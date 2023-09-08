@@ -490,6 +490,17 @@
                 0 => '*',
             ),
         ),
+        'fasaro/magento2-es_mx-language-pack' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => 'b797038c0cd1313d6717c99b7bb6f25f0bce8631',
+            'type' => 'magento2-language',
+            'install_path' => __DIR__ . '/../fasaro/magento2-es_mx-language-pack',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'dev_requirement' => false,
+        ),
         'friendsofphp/php-cs-fixer' => array(
             'pretty_version' => 'v3.14.2',
             'version' => '3.14.2.0',
