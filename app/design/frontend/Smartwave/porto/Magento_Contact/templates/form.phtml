@@ -14,7 +14,7 @@
       data-hasrequired="<?php echo __('* Required Fields') ?>"
       data-mage-init='{"validation":{}}'>
     <fieldset class="fieldset">
-        <legend class="legend"><span><?php echo __('Write') ?> <b><?php echo __('Us') ?></b></span></legend><br />
+        <legend class="legend"><span><?php echo __('Escribenos') ?> </span></legend><br />
         <div class="fieldset row">
             <div class="fields col-md-6">
               <div class="field name required">
@@ -40,7 +40,7 @@
               <div class="field comment required">
                   <label class="label" for="comment"><span><?php echo __('What’s on your mind?') ?></span></label>
                   <div class="control">
-                      <textarea name="comment" id="comment" title="<?php echo __('What’s on your mind?') ?>" class="input-text" cols="5" rows="8" data-validate="{required:true}"></textarea>
+                      <textarea name="comment" id="comment" title="<?php echo __('What’s on your mind?') ?>" class="input-text" cols="5" rows="10" data-validate="{required:true}"></textarea>
                   </div>
               </div>
               <?php echo $block->getChildHtml('form.additional.info'); ?>
@@ -50,7 +50,7 @@
     <div class="actions-toolbar">
         <div class="primary">
             <input type="hidden" name="hideit" id="hideit" value="" />
-            <button type="submit" title="<?php echo __('Submit') ?>" class="action submit primary">
+            <button type="submit" title="<?php echo __('Submit') ?>" class="action submit primary" style="border-radius: 10px; background-color: #2D5D89; border-color: #2D5D89;">
                 <span><?php echo __('Submit') ?></span>
             </button>
         </div>

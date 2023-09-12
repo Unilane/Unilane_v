@@ -111,15 +111,21 @@ class TeamPost extends Action
             //Content
             $mail->isHTML(true); //Set email format to HTML
             $mail->Subject = 'únete al equipo unilane';
-            $mail->Body    = '                                 
-                        <img src="C:\xampp\htdocs\magento\pub\media\wysiwyg\smartwave\porto\homepage\34\unilane.png" alt="Imagen" style="display: block; max-width: 30%;">
-                        <br>
-                        <br>
-                        <h3> DATOS DEL SOLICITANTE </h3>
-                        <p> <strong>Nombre del solicitante:</strong> '.$nombre.'</p>
-                        <p> <strong>Telefono:</strong> '.$telefono.'</p>
-                        <p> <strong>Area prometida:</strong> '.$area.'</p>
-                        <p> <strong>Mensaje:</strong> '.$mensaje.'</p>';
+            $mail->Body    = '          
+            <!DOCTYPE html>       
+            <html>    
+                <body>        
+                    <img src="https://drive.google.com/file/d/1m39nzd8XJKp7CNPu4FIGlv8AKJdDvzFb/view?usp=drive_link" alt="Encabezado" width="600" height="200">
+                    <br>
+                    <br>
+                    <h3> DATOS DEL SOLICITANTE </h3>
+                    <p> <strong>Nombre del solicitante:</strong> '.$nombre.'</p>
+                    <p> <strong>Telefono:</strong> '.$telefono.'</p>
+                    <p> <strong>Area prometida:</strong> '.$area.'</p>
+                    <p> <strong>Mensaje:</strong> '.$mensaje.'</p>
+
+                </body>
+            </html>';
                         
             if ($mail->Send())
             {

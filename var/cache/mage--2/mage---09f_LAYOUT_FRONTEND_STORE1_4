@@ -1,4 +1,4 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1694209534;s:6:"expire";i:1725745534;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1694472850;s:6:"expire";i:1726008850;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
 <?xml version="1.0"?>
 <layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><handle id="catalog_category_view"><body/>
 </handle><handle id="catalogsearch_advanced_index"><body/>
@@ -8125,6 +8125,23 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1694209534;s:6:"expire";i:1725745534;s:4:"t
       <container name="div.onepage.category" htmlTag="div" htmlClass="onepage-category">
          <block class="Smartwave\Porto\Block\Template" name="category_list_on_left" ifconfig="sw_megamenu/general/enable" template="Smartwave_Megamenu::onepagecategory/category_list.phtml" before="-"/>
       </container>
+   </referenceContainer>
+</body>
+</handle><handle id="checkout_onepage_success" layout="1column"><head>
+   <title>Success Page</title>
+</head>
+<body>
+   <referenceBlock name="page.main.title">
+      <block class="Unilane\Checkout\Block\Onepage\Success" name="checkout.success.print.button" template="Unilane_Checkout::button.phtml"/>
+      <action method="setPageTitle">
+         <argument translate="true" name="title" xsi:type="string">Thank you for your purchase!</argument>
+      </action>
+   </referenceBlock>
+   <referenceContainer name="content">
+      <block class="Unilane\Checkout\Block\Onepage\Success" name="checkout.success" template="Unilane_Checkout::success.phtml" cacheable="false">
+         <container name="order.success.additional.info" label="Order Success Additional Info"/>
+      </block>
+      <block class="Unilane\Checkout\Block\Registration" name="checkout.registration" template="Unilane_Checkout::registration.phtml" cacheable="false"/>
    </referenceContainer>
 </body>
 </handle><handle id="forms_index_cancelindex" layout="1column"><body>

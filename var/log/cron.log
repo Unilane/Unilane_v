@@ -515,3 +515,169 @@
 [2023-08-24T23:13:58.411031+00:00] main.INFO: Cron Job newsletter_send_all is successfully finished. Statistics: {"sum":0.056015968322754,"count":1,"realmem":2097152,"emalloc":698512,"realmem_start":125829120,"emalloc_start":124807728} [] []
 [2023-08-24T23:13:58.520234+00:00] main.INFO: Cron Job bulk_cleanup is run [] []
 [2023-08-24T23:13:58.540466+00:00] main.INFO: Cron Job bulk_cleanup is successfully finished. Statistics: {"sum":0.020124912261963,"count":1,"realmem":0,"emalloc":1608,"realmem_start":127926272,"emalloc_start":125515552} [] []
+[2023-09-11T23:04:51.256240+00:00] main.INFO: 44 cron jobs were cleaned [] []
+[2023-09-11T23:04:51.573601+00:00] main.INFO: Cron Job indexer_reindex_all_invalid is run [] []
+[2023-09-11T23:04:51.792076+00:00] main.INFO: Cron Job indexer_reindex_all_invalid is successfully finished. Statistics: {"sum":0.22088885307312,"count":1,"realmem":0,"emalloc":536304,"realmem_start":111149056,"emalloc_start":108190264} [] []
+[2023-09-11T23:04:51.852922+00:00] main.INFO: Cron Job indexer_update_all_views is run [] []
+[2023-09-11T23:04:52.077141+00:00] main.INFO: Cron Job indexer_update_all_views is successfully finished. Statistics: {"sum":0.22443699836731,"count":1,"realmem":0,"emalloc":225352,"realmem_start":111149056,"emalloc_start":108729608} [] []
+[2023-09-11T23:04:58.108773+00:00] main.INFO: 56 cron jobs were cleaned [] []
+[2023-09-11T23:04:59.157477+00:00] main.INFO: Cron Job consumers_runner is run [] []
+[2023-09-11T23:21:33.281096+00:00] main.INFO: Cron Job update_stock is run [] []
+[2023-09-11T23:22:14.551321+00:00] main.ERROR: Cron Job update_stock has an error: Warning: Undefined property: Unilane\SyncProducts\Helper\ImportC::$productRepository in C:\xampp\htdocs\magento\app\code\Unilane\SyncProducts\Helper\ImportC.php on line 95. Statistics: {"sum":0,"count":1,"realmem":0,"emalloc":0,"realmem_start":111149056,"emalloc_start":107531104} [] []
+[2023-09-11T23:22:47.080175+00:00] main.CRITICAL: Exception: Warning: Undefined property: Unilane\SyncProducts\Helper\ImportC::$productRepository in C:\xampp\htdocs\magento\app\code\Unilane\SyncProducts\Helper\ImportC.php on line 95 in C:\xampp\htdocs\magento\vendor\magento\framework\App\ErrorHandler.php:62
+Stack trace:
+#0 C:\xampp\htdocs\magento\app\code\Unilane\SyncProducts\Helper\ImportC.php(95): Magento\Framework\App\ErrorHandler->handler(2, 'Undefined prope...', 'C:\\xampp\\htdocs...', 95)
+#1 C:\xampp\htdocs\magento\app\code\Unilane\SyncProducts\Cron\ImportCron.php(44): Unilane\SyncProducts\Helper\ImportC->updateStock()
+#2 [internal function]: Unilane\SyncProducts\Cron\ImportCron->update(Object(Magento\Cron\Model\Schedule))
+#3 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(368): call_user_func_array(Array, Array)
+#4 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(879): Magento\Cron\Observer\ProcessCronQueueObserver->_runJob(1694473800, 1694474493, Array, Object(Magento\Cron\Model\Schedule), 'unilane_syncpro...')
+#5 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(840): Magento\Cron\Observer\ProcessCronQueueObserver->tryRunJob(1694473800, 1694474493, Array, Object(Magento\Cron\Model\Schedule), 'unilane_syncpro...')
+#6 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(280): Magento\Cron\Observer\ProcessCronQueueObserver->processPendingJobs('unilane_syncpro...', Array, 1694474493)
+#7 C:\xampp\htdocs\magento\vendor\magento\framework\Event\Invoker\InvokerDefault.php(88): Magento\Cron\Observer\ProcessCronQueueObserver->execute(Object(Magento\Framework\Event\Observer))
+#8 C:\xampp\htdocs\magento\vendor\magento\framework\Event\Invoker\InvokerDefault.php(74): Magento\Framework\Event\Invoker\InvokerDefault->_callObserverMethod(Object(Magento\Cron\Observer\ProcessCronQueueObserver), Object(Magento\Framework\Event\Observer))
+#9 C:\xampp\htdocs\magento\vendor\magento\framework\Event\Manager.php(65): Magento\Framework\Event\Invoker\InvokerDefault->dispatch(Array, Object(Magento\Framework\Event\Observer))
+#10 C:\xampp\htdocs\magento\generated\code\Magento\Framework\Event\Manager\Proxy.php(95): Magento\Framework\Event\Manager->dispatch('default', Array)
+#11 C:\xampp\htdocs\magento\vendor\magento\framework\App\Cron.php(86): Magento\Framework\Event\Manager\Proxy->dispatch('default')
+#12 C:\xampp\htdocs\magento\vendor\magento\module-cron\Console\Command\CronCommand.php(126): Magento\Framework\App\Cron->launch()
+#13 C:\xampp\htdocs\magento\vendor\symfony\console\Command\Command.php(298): Magento\Cron\Console\Command\CronCommand->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 C:\xampp\htdocs\magento\vendor\magento\framework\Interception\Interceptor.php(58): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 C:\xampp\htdocs\magento\vendor\magento\framework\Interception\Interceptor.php(138): Magento\Cron\Console\Command\CronCommand\Interceptor->___callParent('run', Array)
+#16 C:\xampp\htdocs\magento\vendor\magento\framework\Interception\Interceptor.php(153): Magento\Cron\Console\Command\CronCommand\Interceptor->Magento\Framework\Interception\{closure}(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 C:\xampp\htdocs\magento\generated\code\Magento\Cron\Console\Command\CronCommand\Interceptor.php(77): Magento\Cron\Console\Command\CronCommand\Interceptor->___callPlugins('run', Array, Array)
+#18 C:\xampp\htdocs\magento\vendor\symfony\console\Application.php(1040): Magento\Cron\Console\Command\CronCommand\Interceptor->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 C:\xampp\htdocs\magento\vendor\symfony\console\Application.php(301): Symfony\Component\Console\Application->doRunCommand(Object(Magento\Cron\Console\Command\CronCommand\Interceptor), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 C:\xampp\htdocs\magento\vendor\magento\framework\Console\Cli.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 C:\xampp\htdocs\magento\vendor\symfony\console\Application.php(171): Magento\Framework\Console\Cli->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 C:\xampp\htdocs\magento\bin\magento(23): Symfony\Component\Console\Application->run()
+#23 {main} [] []
+[2023-09-11T23:22:47.149218+00:00] main.INFO: Cron Job update_stock is run [] []
+[2023-09-11T23:22:49.325660+00:00] main.ERROR: Cron Job update_stock has an error: Warning: Undefined property: Unilane\SyncProducts\Helper\ImportC::$productRepository in C:\xampp\htdocs\magento\app\code\Unilane\SyncProducts\Helper\ImportC.php on line 95. Statistics: {"sum":0,"count":1,"realmem":0,"emalloc":0,"realmem_start":111149056,"emalloc_start":108288376} [] []
+[2023-09-11T23:22:49.345819+00:00] main.CRITICAL: Exception: Warning: Undefined property: Unilane\SyncProducts\Helper\ImportC::$productRepository in C:\xampp\htdocs\magento\app\code\Unilane\SyncProducts\Helper\ImportC.php on line 95 in C:\xampp\htdocs\magento\vendor\magento\framework\App\ErrorHandler.php:62
+Stack trace:
+#0 C:\xampp\htdocs\magento\app\code\Unilane\SyncProducts\Helper\ImportC.php(95): Magento\Framework\App\ErrorHandler->handler(2, 'Undefined prope...', 'C:\\xampp\\htdocs...', 95)
+#1 C:\xampp\htdocs\magento\app\code\Unilane\SyncProducts\Cron\ImportCron.php(44): Unilane\SyncProducts\Helper\ImportC->updateStock()
+#2 [internal function]: Unilane\SyncProducts\Cron\ImportCron->update(Object(Magento\Cron\Model\Schedule))
+#3 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(368): call_user_func_array(Array, Array)
+#4 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(879): Magento\Cron\Observer\ProcessCronQueueObserver->_runJob(1694474400, 1694474493, Array, Object(Magento\Cron\Model\Schedule), 'unilane_syncpro...')
+#5 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(840): Magento\Cron\Observer\ProcessCronQueueObserver->tryRunJob(1694474400, 1694474493, Array, Object(Magento\Cron\Model\Schedule), 'unilane_syncpro...')
+#6 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(280): Magento\Cron\Observer\ProcessCronQueueObserver->processPendingJobs('unilane_syncpro...', Array, 1694474493)
+#7 C:\xampp\htdocs\magento\vendor\magento\framework\Event\Invoker\InvokerDefault.php(88): Magento\Cron\Observer\ProcessCronQueueObserver->execute(Object(Magento\Framework\Event\Observer))
+#8 C:\xampp\htdocs\magento\vendor\magento\framework\Event\Invoker\InvokerDefault.php(74): Magento\Framework\Event\Invoker\InvokerDefault->_callObserverMethod(Object(Magento\Cron\Observer\ProcessCronQueueObserver), Object(Magento\Framework\Event\Observer))
+#9 C:\xampp\htdocs\magento\vendor\magento\framework\Event\Manager.php(65): Magento\Framework\Event\Invoker\InvokerDefault->dispatch(Array, Object(Magento\Framework\Event\Observer))
+#10 C:\xampp\htdocs\magento\generated\code\Magento\Framework\Event\Manager\Proxy.php(95): Magento\Framework\Event\Manager->dispatch('default', Array)
+#11 C:\xampp\htdocs\magento\vendor\magento\framework\App\Cron.php(86): Magento\Framework\Event\Manager\Proxy->dispatch('default')
+#12 C:\xampp\htdocs\magento\vendor\magento\module-cron\Console\Command\CronCommand.php(126): Magento\Framework\App\Cron->launch()
+#13 C:\xampp\htdocs\magento\vendor\symfony\console\Command\Command.php(298): Magento\Cron\Console\Command\CronCommand->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 C:\xampp\htdocs\magento\vendor\magento\framework\Interception\Interceptor.php(58): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 C:\xampp\htdocs\magento\vendor\magento\framework\Interception\Interceptor.php(138): Magento\Cron\Console\Command\CronCommand\Interceptor->___callParent('run', Array)
+#16 C:\xampp\htdocs\magento\vendor\magento\framework\Interception\Interceptor.php(153): Magento\Cron\Console\Command\CronCommand\Interceptor->Magento\Framework\Interception\{closure}(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 C:\xampp\htdocs\magento\generated\code\Magento\Cron\Console\Command\CronCommand\Interceptor.php(77): Magento\Cron\Console\Command\CronCommand\Interceptor->___callPlugins('run', Array, Array)
+#18 C:\xampp\htdocs\magento\vendor\symfony\console\Application.php(1040): Magento\Cron\Console\Command\CronCommand\Interceptor->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 C:\xampp\htdocs\magento\vendor\symfony\console\Application.php(301): Symfony\Component\Console\Application->doRunCommand(Object(Magento\Cron\Console\Command\CronCommand\Interceptor), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 C:\xampp\htdocs\magento\vendor\magento\framework\Console\Cli.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 C:\xampp\htdocs\magento\vendor\symfony\console\Application.php(171): Magento\Framework\Console\Cli->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 C:\xampp\htdocs\magento\bin\magento(23): Symfony\Component\Console\Application->run()
+#23 {main} [] []
+[2023-09-11T23:36:46.519684+00:00] main.INFO: Cron Job update_stock is run [] []
+[2023-09-11T23:38:09.241377+00:00] main.ERROR: Cron Job update_stock has an error: Cannot access protected property Magento\Catalog\Model\Product\Interceptor::$_data. Statistics: {"sum":0,"count":1,"realmem":0,"emalloc":0,"realmem_start":111149056,"emalloc_start":107993704} [] []
+[2023-09-11T23:38:09.268502+00:00] main.CRITICAL: Error: Cannot access protected property Magento\Catalog\Model\Product\Interceptor::$_data in C:\xampp\htdocs\magento\app\code\Unilane\SyncProducts\Helper\ImportC.php:102
+Stack trace:
+#0 C:\xampp\htdocs\magento\app\code\Unilane\SyncProducts\Cron\ImportCron.php(44): Unilane\SyncProducts\Helper\ImportC->updateStock()
+#1 [internal function]: Unilane\SyncProducts\Cron\ImportCron->update(Object(Magento\Cron\Model\Schedule))
+#2 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(368): call_user_func_array(Array, Array)
+#3 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(879): Magento\Cron\Observer\ProcessCronQueueObserver->_runJob(1694475000, 1694475406, Array, Object(Magento\Cron\Model\Schedule), 'unilane_syncpro...')
+#4 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(840): Magento\Cron\Observer\ProcessCronQueueObserver->tryRunJob(1694475000, 1694475406, Array, Object(Magento\Cron\Model\Schedule), 'unilane_syncpro...')
+#5 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(280): Magento\Cron\Observer\ProcessCronQueueObserver->processPendingJobs('unilane_syncpro...', Array, 1694475406)
+#6 C:\xampp\htdocs\magento\vendor\magento\framework\Event\Invoker\InvokerDefault.php(88): Magento\Cron\Observer\ProcessCronQueueObserver->execute(Object(Magento\Framework\Event\Observer))
+#7 C:\xampp\htdocs\magento\vendor\magento\framework\Event\Invoker\InvokerDefault.php(74): Magento\Framework\Event\Invoker\InvokerDefault->_callObserverMethod(Object(Magento\Cron\Observer\ProcessCronQueueObserver), Object(Magento\Framework\Event\Observer))
+#8 C:\xampp\htdocs\magento\vendor\magento\framework\Event\Manager.php(65): Magento\Framework\Event\Invoker\InvokerDefault->dispatch(Array, Object(Magento\Framework\Event\Observer))
+#9 C:\xampp\htdocs\magento\generated\code\Magento\Framework\Event\Manager\Proxy.php(95): Magento\Framework\Event\Manager->dispatch('default', Array)
+#10 C:\xampp\htdocs\magento\vendor\magento\framework\App\Cron.php(86): Magento\Framework\Event\Manager\Proxy->dispatch('default')
+#11 C:\xampp\htdocs\magento\vendor\magento\module-cron\Console\Command\CronCommand.php(126): Magento\Framework\App\Cron->launch()
+#12 C:\xampp\htdocs\magento\vendor\symfony\console\Command\Command.php(298): Magento\Cron\Console\Command\CronCommand->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 C:\xampp\htdocs\magento\vendor\magento\framework\Interception\Interceptor.php(58): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 C:\xampp\htdocs\magento\vendor\magento\framework\Interception\Interceptor.php(138): Magento\Cron\Console\Command\CronCommand\Interceptor->___callParent('run', Array)
+#15 C:\xampp\htdocs\magento\vendor\magento\framework\Interception\Interceptor.php(153): Magento\Cron\Console\Command\CronCommand\Interceptor->Magento\Framework\Interception\{closure}(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 C:\xampp\htdocs\magento\generated\code\Magento\Cron\Console\Command\CronCommand\Interceptor.php(77): Magento\Cron\Console\Command\CronCommand\Interceptor->___callPlugins('run', Array, Array)
+#17 C:\xampp\htdocs\magento\vendor\symfony\console\Application.php(1040): Magento\Cron\Console\Command\CronCommand\Interceptor->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 C:\xampp\htdocs\magento\vendor\symfony\console\Application.php(301): Symfony\Component\Console\Application->doRunCommand(Object(Magento\Cron\Console\Command\CronCommand\Interceptor), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 C:\xampp\htdocs\magento\vendor\magento\framework\Console\Cli.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 C:\xampp\htdocs\magento\vendor\symfony\console\Application.php(171): Magento\Framework\Console\Cli->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 C:\xampp\htdocs\magento\bin\magento(23): Symfony\Component\Console\Application->run()
+#22 {main}
+
+Next RuntimeException: Error when running a cron job: Cannot access protected property Magento\Catalog\Model\Product\Interceptor::$_data in C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php:380
+Stack trace:
+#0 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(879): Magento\Cron\Observer\ProcessCronQueueObserver->_runJob(1694475000, 1694475406, Array, Object(Magento\Cron\Model\Schedule), 'unilane_syncpro...')
+#1 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(840): Magento\Cron\Observer\ProcessCronQueueObserver->tryRunJob(1694475000, 1694475406, Array, Object(Magento\Cron\Model\Schedule), 'unilane_syncpro...')
+#2 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(280): Magento\Cron\Observer\ProcessCronQueueObserver->processPendingJobs('unilane_syncpro...', Array, 1694475406)
+#3 C:\xampp\htdocs\magento\vendor\magento\framework\Event\Invoker\InvokerDefault.php(88): Magento\Cron\Observer\ProcessCronQueueObserver->execute(Object(Magento\Framework\Event\Observer))
+#4 C:\xampp\htdocs\magento\vendor\magento\framework\Event\Invoker\InvokerDefault.php(74): Magento\Framework\Event\Invoker\InvokerDefault->_callObserverMethod(Object(Magento\Cron\Observer\ProcessCronQueueObserver), Object(Magento\Framework\Event\Observer))
+#5 C:\xampp\htdocs\magento\vendor\magento\framework\Event\Manager.php(65): Magento\Framework\Event\Invoker\InvokerDefault->dispatch(Array, Object(Magento\Framework\Event\Observer))
+#6 C:\xampp\htdocs\magento\generated\code\Magento\Framework\Event\Manager\Proxy.php(95): Magento\Framework\Event\Manager->dispatch('default', Array)
+#7 C:\xampp\htdocs\magento\vendor\magento\framework\App\Cron.php(86): Magento\Framework\Event\Manager\Proxy->dispatch('default')
+#8 C:\xampp\htdocs\magento\vendor\magento\module-cron\Console\Command\CronCommand.php(126): Magento\Framework\App\Cron->launch()
+#9 C:\xampp\htdocs\magento\vendor\symfony\console\Command\Command.php(298): Magento\Cron\Console\Command\CronCommand->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#10 C:\xampp\htdocs\magento\vendor\magento\framework\Interception\Interceptor.php(58): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 C:\xampp\htdocs\magento\vendor\magento\framework\Interception\Interceptor.php(138): Magento\Cron\Console\Command\CronCommand\Interceptor->___callParent('run', Array)
+#12 C:\xampp\htdocs\magento\vendor\magento\framework\Interception\Interceptor.php(153): Magento\Cron\Console\Command\CronCommand\Interceptor->Magento\Framework\Interception\{closure}(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 C:\xampp\htdocs\magento\generated\code\Magento\Cron\Console\Command\CronCommand\Interceptor.php(77): Magento\Cron\Console\Command\CronCommand\Interceptor->___callPlugins('run', Array, Array)
+#14 C:\xampp\htdocs\magento\vendor\symfony\console\Application.php(1040): Magento\Cron\Console\Command\CronCommand\Interceptor->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 C:\xampp\htdocs\magento\vendor\symfony\console\Application.php(301): Symfony\Component\Console\Application->doRunCommand(Object(Magento\Cron\Console\Command\CronCommand\Interceptor), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 C:\xampp\htdocs\magento\vendor\magento\framework\Console\Cli.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 C:\xampp\htdocs\magento\vendor\symfony\console\Application.php(171): Magento\Framework\Console\Cli->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 C:\xampp\htdocs\magento\bin\magento(23): Symfony\Component\Console\Application->run()
+#19 {main} [] []
+[2023-09-11T23:42:14.100190+00:00] main.INFO: Cron Job update_stock is run [] []
+[2023-09-11T23:43:40.353954+00:00] main.ERROR: Cron Job update_stock has an error: Cannot access protected property Magento\Catalog\Model\Product\Interceptor::$_data. Statistics: {"sum":0,"count":1,"realmem":0,"emalloc":0,"realmem_start":111149056,"emalloc_start":107997728} [] []
+[2023-09-11T23:43:40.389859+00:00] main.CRITICAL: Error: Cannot access protected property Magento\Catalog\Model\Product\Interceptor::$_data in C:\xampp\htdocs\magento\app\code\Unilane\SyncProducts\Helper\ImportC.php:102
+Stack trace:
+#0 C:\xampp\htdocs\magento\app\code\Unilane\SyncProducts\Cron\ImportCron.php(44): Unilane\SyncProducts\Helper\ImportC->updateStock()
+#1 [internal function]: Unilane\SyncProducts\Cron\ImportCron->update(Object(Magento\Cron\Model\Schedule))
+#2 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(368): call_user_func_array(Array, Array)
+#3 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(879): Magento\Cron\Observer\ProcessCronQueueObserver->_runJob(1694475600, 1694475733, Array, Object(Magento\Cron\Model\Schedule), 'unilane_syncpro...')
+#4 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(840): Magento\Cron\Observer\ProcessCronQueueObserver->tryRunJob(1694475600, 1694475733, Array, Object(Magento\Cron\Model\Schedule), 'unilane_syncpro...')
+#5 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(280): Magento\Cron\Observer\ProcessCronQueueObserver->processPendingJobs('unilane_syncpro...', Array, 1694475733)
+#6 C:\xampp\htdocs\magento\vendor\magento\framework\Event\Invoker\InvokerDefault.php(88): Magento\Cron\Observer\ProcessCronQueueObserver->execute(Object(Magento\Framework\Event\Observer))
+#7 C:\xampp\htdocs\magento\vendor\magento\framework\Event\Invoker\InvokerDefault.php(74): Magento\Framework\Event\Invoker\InvokerDefault->_callObserverMethod(Object(Magento\Cron\Observer\ProcessCronQueueObserver), Object(Magento\Framework\Event\Observer))
+#8 C:\xampp\htdocs\magento\vendor\magento\framework\Event\Manager.php(65): Magento\Framework\Event\Invoker\InvokerDefault->dispatch(Array, Object(Magento\Framework\Event\Observer))
+#9 C:\xampp\htdocs\magento\generated\code\Magento\Framework\Event\Manager\Proxy.php(95): Magento\Framework\Event\Manager->dispatch('default', Array)
+#10 C:\xampp\htdocs\magento\vendor\magento\framework\App\Cron.php(86): Magento\Framework\Event\Manager\Proxy->dispatch('default')
+#11 C:\xampp\htdocs\magento\vendor\magento\module-cron\Console\Command\CronCommand.php(126): Magento\Framework\App\Cron->launch()
+#12 C:\xampp\htdocs\magento\vendor\symfony\console\Command\Command.php(298): Magento\Cron\Console\Command\CronCommand->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 C:\xampp\htdocs\magento\vendor\magento\framework\Interception\Interceptor.php(58): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 C:\xampp\htdocs\magento\vendor\magento\framework\Interception\Interceptor.php(138): Magento\Cron\Console\Command\CronCommand\Interceptor->___callParent('run', Array)
+#15 C:\xampp\htdocs\magento\vendor\magento\framework\Interception\Interceptor.php(153): Magento\Cron\Console\Command\CronCommand\Interceptor->Magento\Framework\Interception\{closure}(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 C:\xampp\htdocs\magento\generated\code\Magento\Cron\Console\Command\CronCommand\Interceptor.php(77): Magento\Cron\Console\Command\CronCommand\Interceptor->___callPlugins('run', Array, Array)
+#17 C:\xampp\htdocs\magento\vendor\symfony\console\Application.php(1040): Magento\Cron\Console\Command\CronCommand\Interceptor->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 C:\xampp\htdocs\magento\vendor\symfony\console\Application.php(301): Symfony\Component\Console\Application->doRunCommand(Object(Magento\Cron\Console\Command\CronCommand\Interceptor), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 C:\xampp\htdocs\magento\vendor\magento\framework\Console\Cli.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 C:\xampp\htdocs\magento\vendor\symfony\console\Application.php(171): Magento\Framework\Console\Cli->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 C:\xampp\htdocs\magento\bin\magento(23): Symfony\Component\Console\Application->run()
+#22 {main}
+
+Next RuntimeException: Error when running a cron job: Cannot access protected property Magento\Catalog\Model\Product\Interceptor::$_data in C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php:380
+Stack trace:
+#0 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(879): Magento\Cron\Observer\ProcessCronQueueObserver->_runJob(1694475600, 1694475733, Array, Object(Magento\Cron\Model\Schedule), 'unilane_syncpro...')
+#1 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(840): Magento\Cron\Observer\ProcessCronQueueObserver->tryRunJob(1694475600, 1694475733, Array, Object(Magento\Cron\Model\Schedule), 'unilane_syncpro...')
+#2 C:\xampp\htdocs\magento\vendor\magento\module-cron\Observer\ProcessCronQueueObserver.php(280): Magento\Cron\Observer\ProcessCronQueueObserver->processPendingJobs('unilane_syncpro...', Array, 1694475733)
+#3 C:\xampp\htdocs\magento\vendor\magento\framework\Event\Invoker\InvokerDefault.php(88): Magento\Cron\Observer\ProcessCronQueueObserver->execute(Object(Magento\Framework\Event\Observer))
+#4 C:\xampp\htdocs\magento\vendor\magento\framework\Event\Invoker\InvokerDefault.php(74): Magento\Framework\Event\Invoker\InvokerDefault->_callObserverMethod(Object(Magento\Cron\Observer\ProcessCronQueueObserver), Object(Magento\Framework\Event\Observer))
+#5 C:\xampp\htdocs\magento\vendor\magento\framework\Event\Manager.php(65): Magento\Framework\Event\Invoker\InvokerDefault->dispatch(Array, Object(Magento\Framework\Event\Observer))
+#6 C:\xampp\htdocs\magento\generated\code\Magento\Framework\Event\Manager\Proxy.php(95): Magento\Framework\Event\Manager->dispatch('default', Array)
+#7 C:\xampp\htdocs\magento\vendor\magento\framework\App\Cron.php(86): Magento\Framework\Event\Manager\Proxy->dispatch('default')
+#8 C:\xampp\htdocs\magento\vendor\magento\module-cron\Console\Command\CronCommand.php(126): Magento\Framework\App\Cron->launch()
+#9 C:\xampp\htdocs\magento\vendor\symfony\console\Command\Command.php(298): Magento\Cron\Console\Command\CronCommand->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#10 C:\xampp\htdocs\magento\vendor\magento\framework\Interception\Interceptor.php(58): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 C:\xampp\htdocs\magento\vendor\magento\framework\Interception\Interceptor.php(138): Magento\Cron\Console\Command\CronCommand\Interceptor->___callParent('run', Array)
+#12 C:\xampp\htdocs\magento\vendor\magento\framework\Interception\Interceptor.php(153): Magento\Cron\Console\Command\CronCommand\Interceptor->Magento\Framework\Interception\{closure}(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 C:\xampp\htdocs\magento\generated\code\Magento\Cron\Console\Command\CronCommand\Interceptor.php(77): Magento\Cron\Console\Command\CronCommand\Interceptor->___callPlugins('run', Array, Array)
+#14 C:\xampp\htdocs\magento\vendor\symfony\console\Application.php(1040): Magento\Cron\Console\Command\CronCommand\Interceptor->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 C:\xampp\htdocs\magento\vendor\symfony\console\Application.php(301): Symfony\Component\Console\Application->doRunCommand(Object(Magento\Cron\Console\Command\CronCommand\Interceptor), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 C:\xampp\htdocs\magento\vendor\magento\framework\Console\Cli.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 C:\xampp\htdocs\magento\vendor\symfony\console\Application.php(171): Magento\Framework\Console\Cli->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 C:\xampp\htdocs\magento\bin\magento(23): Symfony\Component\Console\Application->run()
+#19 {main} [] []
+[2023-09-12T00:06:23.195205+00:00] main.INFO: Cron Job update_stock is missed at 2023-09-11 23:50:00 [] []
+[2023-09-12T00:06:23.287515+00:00] main.INFO: Cron Job update_stock is run [] []
+[2023-09-12T00:06:51.221654+00:00] main.INFO: Cron Job update_stock is successfully finished. Statistics: {"sum":27.934231042862,"count":1,"realmem":33554432,"emalloc":33726728,"realmem_start":111149056,"emalloc_start":108020144} [] []

@@ -11,50 +11,25 @@
 <?php $_order = $block->getOrder() ?>
 <?php if ($_order) : ?>
     <?php $_items = $_order->getAllItems(); ?>
-    <table class="email-items">
-        <thead>
-            <tr>
-                <th class="item-info">
-                    <?= $block->escapeHtml(__('Items hola que hace')) ?>
-                </th>
-                <th class="item-qty">
-                    <?= $block->escapeHtml(__('Qty')) ?>
-                </th>
-                <th class="item-price">
-                    <?= $block->escapeHtml(__('Price')) ?>
-                </th>
-            </tr>
-        </thead>
+    <table class="email-items">       
+        <tr>
+            <th class="item-info">
+                <?= $block->escapeHtml(__('Producto(s)')) ?>
+            </th>
+            <th class="item-qty">
+                <?= $block->escapeHtml(__('Cantidad')) ?>
+            </th>
+            <th class="item-subtotal">
+                <?= $block->escapeHtml(__('Precio')) ?>
+            </th>
+        </tr> 
         <?php foreach ($_items as $_item) : ?>
-            <?php if (!$_item->getParentItem()) : ?>
-                <tbody>
-                    <?= $block->getItemHtml($_item) ?>
-                </tbody>
+            <?php if (!$_item->getParentItem()) : ?>                      
+                <td class="td"><?= $block->getItemHtml($_item) ?></td>
             <?php endif; ?>
         <?php endforeach; ?>
-        <tfoot class="order-totals">
+        <tfoot class="order-totals text-right">
             <?= $block->getChildHtml('order_totals') ?>
         </tfoot>
     </table>
-    <?php if ($this->helper(\Magento\GiftMessage\Helper\Message::class)
-            ->isMessagesAllowed('order', $_order, $_order->getStore())
-        && $_order->getGiftMessageId()
-    ) : ?>
-        <?php $_giftMessage = $this->helper(\Magento\GiftMessage\Helper\Message::class)
-            ->getGiftMessage($_order->getGiftMessageId()); ?>
-        <?php if ($_giftMessage) : ?>
-            <br />
-            <table class="message-gift">
-                <tr>
-                    <td>
-                        <h3><?= $block->escapeHtml(__('Gift Message for this Order')) ?></h3>
-                        <strong><?= $block->escapeHtml(__('From:')) ?></strong> <?= $block->escapeHtml($_giftMessage->getSender()) ?>
-                        <br /><strong><?= $block->escapeHtml(__('To:')) ?></strong> <?= $block->escapeHtml($_giftMessage->getRecipient()) ?>
-                        <br /><strong><?= $block->escapeHtml(__('Message:')) ?></strong>
-                        <br /><?= $block->escapeHtml($_giftMessage->getMessage()) ?>
-                    </td>
-                </tr>
-            </table>
-        <?php endif; ?>
-    <?php endif; ?>
 <?php endif; ?>

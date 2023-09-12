@@ -6,6 +6,7 @@
 namespace Unilane\SyncProducts\Helper;
 
 use Magento\Catalog\Api\Data\ProductInterfaceFactory;
+use Magento\Catalog\Api\ProductRepositoryInterface;
 
 /**
  * Adminhtml Catalog helper
@@ -15,6 +16,7 @@ use Magento\Catalog\Api\Data\ProductInterfaceFactory;
 class ImportC 
 {
     private $productFactory;
+    private $productRepository;
     /**
      * Constructor
      *
@@ -22,8 +24,11 @@ class ImportC
      */
     public function __construct(
         ProductInterfaceFactory $productFactory,
+        ProductRepositoryInterface $productRepository
     ) {
         $this->productFactory = $productFactory;
+        $this->productRepository = $productRepository;
+
     }
     /**
      * Set Custom Attribute Tab Block Name for Category Edit
@@ -86,7 +91,7 @@ class ImportC
         try{
             $products  = json_decode($data, true);
             foreach($products as $product){
-                $items = $this->productFactory->create();
+                //$items = $this->productFactory->create();
                 $sumaExistencia = 0;
                 $pro = $product['existencia'];
                 foreach($pro as $existencia){
@@ -94,12 +99,14 @@ class ImportC
                 }
                 $producto = $this->productRepository->get($product['clave']);
                 if($producto){
-                    foreach($producto->_data as $key => $valor){
-                        if($key == "quantity_and_stock_status"){
-                            $valor['qty'] = $sumaExistencia;
-                            $producto->setData($key, $valor);
-                        }
-                    }                           
+                    $producto->setStockData(
+                        array( 
+                        'use_config_manage_stock' => 1,                       
+                        'manage_stock' => 1,
+                        'is_in_stock' => 1,   
+                        'qty' => $sumaExistencia
+                        )
+                    );     
                     $this->productRepository->save($producto);
                 }               
             }

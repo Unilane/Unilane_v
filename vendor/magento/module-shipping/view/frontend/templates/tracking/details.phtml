@@ -41,8 +41,8 @@ $number = is_object($track) ? $track->getTracking() : $track['number'];
                     <?= $block->escapeHtml(__('Tracking information is currently not available. Please ')) ?>
                     <?php if ($parentBlock->getContactUsEnabled()) : ?>
                         <a href="<?= $block->escapeUrl($parentBlock->getContactUs()) ?>" target="_blank"
-                           title="<?= $block->escapeHtml(__('contact us')) ?>">
-                            <?= $block->escapeHtml(__('contact us')) ?>
+                           title="<?= $block->escapeHtml(__('Contacto')) ?>">
+                            <?= $block->escapeHtml(__('Contacto')) ?>
                         </a>
                         <?= $block->escapeHtml(__(' for more information or ')) ?>
                     <?php endif; ?>
