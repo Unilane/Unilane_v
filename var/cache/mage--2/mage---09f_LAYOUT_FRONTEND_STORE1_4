@@ -1,4 +1,4 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1694472850;s:6:"expire";i:1726008850;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1694823949;s:6:"expire";i:1726359949;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
 <?xml version="1.0"?>
 <layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><handle id="catalog_category_view"><body/>
 </handle><handle id="catalogsearch_advanced_index"><body/>
@@ -757,12 +757,6 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1694472850;s:6:"expire";i:1726008850;s:4:"t
                <argument name="at_label" xsi:type="string">none</argument>
                <argument name="title" translate="true" xsi:type="string">Details</argument>
                <argument name="sort_order" xsi:type="string">10</argument>
-            </arguments>
-         </block>
-         <block class="Magento\Catalog\Block\Product\View\Attributes" name="product.attributes" as="additional" template="Magento_Catalog::product/view/attributes.phtml" group="detailed_info">
-            <arguments>
-               <argument translate="true" name="title" xsi:type="string">More Information</argument>
-               <argument name="sort_order" xsi:type="string">20</argument>
             </arguments>
          </block>
       </block>

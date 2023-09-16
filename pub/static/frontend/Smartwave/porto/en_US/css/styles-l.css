@@ -2,6 +2,10 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+.checkout-index-index .product-item .qty-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
 .abs-reset-list {
   margin: 0;
   padding: 0;

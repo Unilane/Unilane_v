@@ -495,8 +495,8 @@ class IceCatUpdateProduct
                         $specificationHtml .= '<span style="font-size: 11px;" title="' . $val['featureDescription'] . '">' . $val['featureName'] . '</span>';                        
                         $specificationHtml .= (!empty($val['mandatory'])) ? '<span style="font-size: 11px;">*</span>' : '';
                         $specificationHtml .= '</div>';
-                        $featureStyle       = ($val['featureValue'] == "Y") ? 'style="color: #39DA2F; font-size: 20px;"' : (($val['featureValue'] == "N") ? 'style="color: #DC1B1B; font-size: 20px;"' : 'style="font-size: 11px;"');
-                        $featureValue       = ($val['featureValue'] == "Y") ? '&#x2713;' : (($val['featureValue'] == "N") ? '&#10005;' : $val['featureValue']);
+                        $featureStyle       = ($val['featureValue'] == "Si") ? 'style="color: #39DA2F; font-size: 20px;"' : (($val['featureValue'] == "No") ? 'style="color: #DC1B1B; font-size: 20px;"' : 'style="font-size: 11px;"');
+                        $featureValue       = ($val['featureValue'] == "Si") ? '&#x2713;' : (($val['featureValue'] == "No") ? '&#10005;' : $val['featureValue']);
                         $specificationHtml .= '<div class="ds_data" ' . $featureStyle . '>' . $featureValue . '</div>';
                         $specificationHtml .= '</div>';
                         $specificationHtml .= '<hr style="margin: -5px; background: #afafaf; margin-left: -10px;margin-right: -10px;">';
@@ -520,8 +520,8 @@ class IceCatUpdateProduct
                         $specificationHtml .= '<span style="font-size: 11px;" title="' . $val['featureDescription'] . '">' . $val['featureName'] . '</span>';
                         $specificationHtml .= (!empty($val['mandatory'])) ? '<span style="font-size: 11px;">*</span>' : '';
                         $specificationHtml .= '</div>';
-                        $featureStyle       = ($val['featureValue'] == "Y") ? 'style="color: #39DA2F; font-size: 20px;"' : (($val['featureValue'] == "N") ? 'style="color: #DC1B1B; font-size: 20px;"' : 'style="font-size: 11px;"');
-                        $featureValue       = ($val['featureValue'] == "Y") ? '&#x2713;' : (($val['featureValue'] == "N") ? '&#10005;' : $val['featureValue']);
+                        $featureStyle       = ($val['featureValue'] == "Si") ? 'style="color: #39DA2F; font-size: 20px;"' : (($val['featureValue'] == "No") ? 'style="color: #DC1B1B; font-size: 20px;"' : 'style="font-size: 11px;"');
+                        $featureValue       = ($val['featureValue'] == "Si") ? '&#x2713;' : (($val['featureValue'] == "No") ? '&#10005;' : $val['featureValue']);
                         $specificationHtml .= '<div class="ds_data" ' . $featureStyle . '>' . $featureValue . '</div>';
                         $specificationHtml .= '</div>';
                         $specificationHtml .= '<hr style="margin: -5px; background: #afafaf; margin-left: -10px;margin-right: -10px;">';

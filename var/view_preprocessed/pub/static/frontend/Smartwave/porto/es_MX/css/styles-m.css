@@ -544,6 +544,10 @@ select:not([disabled]):focus {
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+.checkout-index-index .product-item .qty-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
 .abs-reset-list,
 .bundle-options-container .block-bundle-summary .bundle.items,
 .product-items,

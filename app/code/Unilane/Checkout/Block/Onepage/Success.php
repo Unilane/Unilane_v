@@ -7,6 +7,8 @@ namespace Unilane\Checkout\Block\Onepage;
 
 use Magento\Customer\Model\Context;
 use Magento\Sales\Model\Order;
+use Magento\Catalog\Helper\Image;
+
 
 /**
  * One page checkout success page
@@ -30,7 +32,14 @@ class Success extends \Magento\Framework\View\Element\Template
      * @var \Magento\Framework\App\Http\Context
      */
     protected $httpContext;
-
+        /**
+     * @array orderSuccess
+     */
+    protected $orderSuccess;
+        /**
+     * @var imageHelper
+     */
+    protected $imageHelper;
     /**
      * @param \Magento\Framework\View\Element\Template\Context $context
      * @param \Magento\Checkout\Model\Session $checkoutSession
@@ -43,6 +52,7 @@ class Success extends \Magento\Framework\View\Element\Template
         \Magento\Checkout\Model\Session $checkoutSession,
         \Magento\Sales\Model\Order\Config $orderConfig,
         \Magento\Framework\App\Http\Context $httpContext,
+        \Magento\Catalog\Helper\Image $imageHelper,
         array $data = []
     ) {
         parent::__construct($context, $data);
@@ -50,6 +60,8 @@ class Success extends \Magento\Framework\View\Element\Template
         $this->_orderConfig = $orderConfig;
         $this->_isScopePrivate = true;
         $this->httpContext = $httpContext;
+        $this->orderSuccess = $this->checkoutSession->getLastRealOrder();
+        $this->imageHelper = $imageHelper;
     }
 
     /**
@@ -133,5 +145,21 @@ class Success extends \Magento\Framework\View\Element\Template
     public function getContinueUrl()
     {
         return $this->_storeManager->getStore()->getBaseUrl();
+    }
+    /**
+     * @return orderSuccess
+     * @since 100.2.0
+     */
+    public function getOrderItems(){
+        return $this->orderSuccess->getAllItems();
+    }
+    /**
+     * @return imageHelper
+     * @since 100.2.0
+     */
+    public function getImageHelper(){
+        return $this->imageHelper->init($product, 'product_page_image_small')
+        ->setImageFile($product->getSmallImage())
+        ->resize(480)->getUrl();
     }
 }

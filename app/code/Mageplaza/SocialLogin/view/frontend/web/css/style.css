@@ -19,6 +19,15 @@
  */
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+/* div.mfp-wrap.mfp-close-btn-in.mfp-auto-cursor.mfp-zoom-in.mfp-ready > div > div.mfp-content #social-login-popup{
+    background: #ffffff;
+}
+
+
+#html-body > div.mfp-wrap.mfp-close-btn-in.mfp-auto-cursor.mfp-zoom-in.mfp-ready > div > div.mfp-content #social-login-popup(
+background: #ffffff;
+) */
+
 .white-popup {
     position: relative;
     background: #FFF;

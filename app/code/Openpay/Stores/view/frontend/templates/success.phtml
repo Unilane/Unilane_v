@@ -5,7 +5,11 @@
  */
 ?>
 <?php /** @var $block \Magento\Checkout\Block\Onepage\Success */ ?>
-<?php $_order = $block->getOrder() ?>
+<?php 
+    $items   = $block->getOrderItems();
+    // $product = $item->getProduct(); //Foreach
+    // $image   = $block->getImageHelper($item->getProduct(), 'product_page_image_small'); //Foreach
+?>
 <div class="checkout-success">
     <?php if ($block->getOrderId()): ?>
         <?php if ($block->getCanViewOrder()) : ?>
