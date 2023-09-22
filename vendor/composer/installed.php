@@ -28,15 +28,6 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'aftership/aftership-apps-magento2' => array(
-            'pretty_version' => '1.0.1',
-            'version' => '1.0.1.0',
-            'reference' => NULL,
-            'type' => 'magento2-module',
-            'install_path' => __DIR__ . '/../aftership/aftership-apps-magento2',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
         'allure-framework/allure-codeception' => array(
             'pretty_version' => '1.5.2',
             'version' => '1.5.2.0',
@@ -4273,9 +4264,9 @@
             'dev_requirement' => false,
         ),
         'openpay/magento2-cards' => array(
-            'pretty_version' => '3.4.24',
-            'version' => '3.4.24.0',
-            'reference' => 'b9635432939b6d62180287e9d2d85f1a37577492',
+            'pretty_version' => '3.4.25',
+            'version' => '3.4.25.0',
+            'reference' => 'd20e972a43b6def5f0d862a7f9a9f15a12d224dd',
             'type' => 'magento2-module',
             'install_path' => __DIR__ . '/../openpay/magento2-cards',
             'aliases' => array(),

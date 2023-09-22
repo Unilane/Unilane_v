@@ -300,10 +300,10 @@ background: #ffffff;
 .mfp-move-from-top { /* start state */ /* animate in */ /* animate out */
 }
 
-.mfp-move-from-top .mfp-content {
+/* .mfp-move-from-top .mfp-content {
     vertical-align: top;
     margin-top: 50px;
-}
+} */
 
 .mfp-move-from-top .mfp-with-anim {
     opacity: 0;
@@ -337,9 +337,9 @@ background: #ffffff;
 .mfp-3d-unfold { /* start state */ /* animate in */ /* animate out */
 }
 
-.mfp-3d-unfold .mfp-content {
+/* .mfp-3d-unfold .mfp-content {
     perspective: 2000px;
-}
+} */
 
 .mfp-3d-unfold .mfp-with-anim {
     opacity: 0;

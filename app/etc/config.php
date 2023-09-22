@@ -327,7 +327,6 @@ return [
         'Magento_Wishlist' => 1,
         'Magento_WishlistAnalytics' => 1,
         'Magento_WishlistGraphQl' => 1,
-        'AfterShip_Tracking' => 1,
         'Icecat_DataFeed' => 1,
         'Mageplaza_Core' => 1,
         'Mageplaza_AjaxLayer' => 1,
@@ -355,6 +354,7 @@ return [
         'Unilane_Sales' => 1,
         'Unilane_SyncProduct' => 1,
         'WeltPixel_Backend' => 1,
-        'WeltPixel_Quickview' => 1
+        'WeltPixel_Quickview' => 1,
+        'WeltPixel_ThankYouPage' => 1
     ]
 ];

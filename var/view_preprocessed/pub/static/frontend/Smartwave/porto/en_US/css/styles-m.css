@@ -7400,6 +7400,306 @@ p.short-des {
 .fb-persons .fb-person img {
   width: 100%;
 }
+.checkout-onepage-success .thankyou-wrapper,
+.multishipping-checkout-success .thankyou-wrapper {
+  margin: 0 auto 67px auto;
+  text-align: center;
+}
+.checkout-onepage-success .thankyou-wrapper .block.newsletter .form.subscribe,
+.multishipping-checkout-success .thankyou-wrapper .block.newsletter .form.subscribe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.checkout-onepage-success .thankyou-wrapper .block.newsletter .field.newsletter,
+.multishipping-checkout-success .thankyou-wrapper .block.newsletter .field.newsletter {
+  max-width: 260px;
+  width: 100%;
+}
+.checkout-onepage-success .thankyou-wrapper .block.newsletter .actions,
+.multishipping-checkout-success .thankyou-wrapper .block.newsletter .actions {
+  width: auto;
+}
+.checkout-onepage-success .thankyou-wrapper p,
+.multishipping-checkout-success .thankyou-wrapper p {
+  margin-bottom: 0;
+}
+.checkout-onepage-success .thankyou-wrapper .actions-toolbar,
+.multishipping-checkout-success .thankyou-wrapper .actions-toolbar {
+  text-align: center;
+}
+.checkout-onepage-success .thankyou-wrapper .actions-toolbar .primary,
+.multishipping-checkout-success .thankyou-wrapper .actions-toolbar .primary {
+  float: none;
+}
+.checkout-onepage-success .thankyou-wrapper .thank-you-page h1,
+.multishipping-checkout-success .thankyou-wrapper .thank-you-page h1 {
+  margin-bottom: 12px;
+  line-height: 30px;
+}
+.checkout-onepage-success .thankyou-wrapper .thank-you-page .icon_thank_you_01,
+.multishipping-checkout-success .thankyou-wrapper .thank-you-page .icon_thank_you_01 {
+  width: 55px;
+  height: 55px;
+  background-image: url('../WeltPixel_ThankYouPage/images/icon_01.svg');
+  background-repeat: no-repeat;
+  margin: 81px auto 21px auto;
+}
+.checkout-onepage-success .thankyou-wrapper .newsletter-description,
+.multishipping-checkout-success .thankyou-wrapper .newsletter-description {
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.checkout-onepage-success .thankyou-wrapper .block.newsletter .actions span,
+.multishipping-checkout-success .thankyou-wrapper .block.newsletter .actions span {
+  margin-top: -2px;
+  display: block;
+}
+.checkout-onepage-success .thankyou-wrapper .block.newsletter .field .control:before,
+.multishipping-checkout-success .thankyou-wrapper .block.newsletter .field .control:before {
+  line-height: 32px;
+}
+.checkout-onepage-success .thankyou-wrapper .block.newsletter input:focus,
+.multishipping-checkout-success .thankyou-wrapper .block.newsletter input:focus,
+.checkout-onepage-success .thankyou-wrapper .block.newsletter .action.subscribe:focus,
+.multishipping-checkout-success .thankyou-wrapper .block.newsletter .action.subscribe:focus {
+  box-shadow: none;
+}
+.checkout-onepage-success .thankyou-wrapper .checkout-success .actions-toolbar,
+.multishipping-checkout-success .thankyou-wrapper .checkout-success .actions-toolbar {
+  margin-top: 21px;
+}
+.checkout-onepage-success .thankyou-wrapper .checkout-success .actions-toolbar .primary .action,
+.multishipping-checkout-success .thankyou-wrapper .checkout-success .actions-toolbar .primary .action {
+  margin: 0;
+}
+.checkout-onepage-success .thankyou-wrapper .checkout-success,
+.multishipping-checkout-success .thankyou-wrapper .checkout-success,
+.checkout-onepage-success .thankyou-wrapper #registration,
+.multishipping-checkout-success .thankyou-wrapper #registration,
+.checkout-onepage-success .thankyou-wrapper .cmsblock-container,
+.multishipping-checkout-success .thankyou-wrapper .cmsblock-container,
+.checkout-onepage-success .thankyou-wrapper .block.newsletter,
+.multishipping-checkout-success .thankyou-wrapper .block.newsletter {
+  margin-bottom: 64px;
+}
+.checkout-onepage-success .thankyou-wrapper div:last-child,
+.multishipping-checkout-success .thankyou-wrapper div:last-child {
+  margin-bottom: 0 !important;
+}
+.checkout-onepage-success .thankyou-wrapper .icon_thank_you_02,
+.multishipping-checkout-success .thankyou-wrapper .icon_thank_you_02 {
+  width: 55px;
+  height: 55px;
+  background-image: url('../WeltPixel_ThankYouPage/images/icon_02.svg');
+  background-repeat: no-repeat;
+  margin: 0 auto 21px auto;
+}
+.checkout-onepage-success .thankyou-wrapper .icon_thank_you_03,
+.multishipping-checkout-success .thankyou-wrapper .icon_thank_you_03 {
+  width: 55px;
+  height: 55px;
+  background-image: url('../WeltPixel_ThankYouPage/images/icon_03.svg');
+  background-repeat: no-repeat;
+  margin: 0 auto 21px auto;
+}
+.checkout-onepage-success .thankyou-wrapper .registration-thank-you .action,
+.multishipping-checkout-success .thankyou-wrapper .registration-thank-you .action {
+  margin-top: 21px;
+}
+.checkout-onepage-success .thankyou-wrapper .google-map-wrapper,
+.multishipping-checkout-success .thankyou-wrapper .google-map-wrapper {
+  width: 100%;
+  margin-bottom: 64px;
+}
+.checkout-onepage-success .thankyou-wrapper .google-map-wrapper .google-map,
+.multishipping-checkout-success .thankyou-wrapper .google-map-wrapper .google-map {
+  margin: 0 auto;
+}
+.checkout-onepage-success .thankyou-wrapper #ws_embed_sms_notification,
+.multishipping-checkout-success .thankyou-wrapper #ws_embed_sms_notification {
+  margin-bottom: 10px;
+  text-align: center;
+}
+.checkout-onepage-success .thankyou-wrapper #ws-responses,
+.multishipping-checkout-success .thankyou-wrapper #ws-responses {
+  padding-bottom: 60px;
+  min-height: 22px;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info,
+.multishipping-checkout-success .thankyou-wrapper .order-info {
+  margin-bottom: 64px;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info h4,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info h4 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper {
+  display: flex;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper h4,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper h4 {
+  font-weight: 600;
+  margin-top: 10px;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper .shipping-address,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper .shipping-address,
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address {
+  padding: 10px 0;
+  text-align: right;
+  width: 50%;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper .shipping-address h4,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper .shipping-address h4,
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address h4,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address h4,
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper .shipping-address p,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper .shipping-address p,
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address p,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address p {
+  padding-right: 10px;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address {
+  text-align: left;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address h4,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address h4,
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address p,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address p {
+  padding-right: 0;
+  padding-left: 10px;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .methods-wrapper,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .methods-wrapper {
+  display: flex;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .methods-wrapper h4,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .methods-wrapper h4 {
+  font-weight: 600;
+  margin-top: 10px;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .shipping-method,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .shipping-method,
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .payment-method,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .payment-method {
+  padding: 10px 0;
+  text-align: right;
+  width: 50%;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .shipping-method h4,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .shipping-method h4,
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .payment-method h4,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .payment-method h4,
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .shipping-method p,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .shipping-method p,
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .payment-method p,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .payment-method p {
+  padding-right: 10px;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .payment-method,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .payment-method {
+  text-align: left;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .payment-method h4,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .payment-method h4,
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .payment-method p,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .payment-method p {
+  padding-right: 0;
+  padding-left: 10px;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .product-grid,
+.multishipping-checkout-success .thankyou-wrapper .order-info .product-grid {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items,
+.multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items {
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .order-item-row-mobile,
+.multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .order-item-row-mobile {
+  display: none;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .item-options dt,
+.multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .item-options dt {
+  margin-top: 5px;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .textalign-left,
+.multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .textalign-left {
+  text-align: left !important;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .textalign-center,
+.multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .textalign-center {
+  text-align: center !important;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .textalign-right,
+.multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .textalign-right {
+  text-align: right !important;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .col.price span,
+.multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .col.price span,
+.checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .col.qty span,
+.multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .col.qty span,
+.checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .col.subtotal span,
+.multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .col.subtotal span {
+  font-size: 1.4rem;
+  line-height: 1.42857143;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items thead tr > th,
+.multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items thead tr > th {
+  border-bottom: 0 none;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items tfoot,
+.multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items tfoot {
+  background: transparent;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items tfoot tr:not(:first-child) > th,
+.multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items tfoot tr:not(:first-child) > th,
+.checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items tfoot tr:not(:first-child) > td,
+.multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items tfoot tr:not(:first-child) > td {
+  border-top: 0 none;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items tfoot th,
+.multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items tfoot th,
+.checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items tfoot td,
+.multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items tfoot td {
+  padding-top: 8px;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items tr > th,
+.multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items tr > th,
+.checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items tr > td,
+.multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items tr > td {
+  border-color: #eeeeee;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .grand_total,
+.multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .grand_total {
+  border-top: 1px solid #eeeeee;
+}
+.theme-pearl.checkout-onepage-success .thankyou-wrapper .block.newsletter .field .control:before,
+.theme-pearl.multishipping-checkout-success .thankyou-wrapper .block.newsletter .field .control:before {
+  line-height: 50px;
+}
+.page-wrapper .multicheckout.results .orders-succeed .orders-list .shipping-list .order-id {
+  float: none;
+}
+.page-wrapper .multicheckout.results .orders-succeed .orders-list .shipping-list .shipping-item {
+  margin-left: 0;
+}
+.page-wrapper .multicheckout.success .orders-succeed .orders-list .shipping-list .order-id {
+  float: none;
+}
+.page-wrapper .multicheckout.success .orders-succeed .orders-list .shipping-list .shipping-item {
+  margin-left: 0;
+}
 .block-category-event {
   background: #f0f0f0;
   color: #777777;
@@ -20138,6 +20438,22 @@ fieldset[disabled] .sidebar .block-addbysku .action.remove {
   .pagebuilder-mobile-hidden {
     display: none !important;
   }
+  .checkout-onepage-success .thankyou-wrapper .action.primary,
+  .multishipping-checkout-success .thankyou-wrapper .action.primary {
+    width: 100%;
+  }
+  .checkout-onepage-success .thankyou-wrapper .thank-you-page h1,
+  .multishipping-checkout-success .thankyou-wrapper .thank-you-page h1 {
+    margin-bottom: 10px;
+  }
+  .checkout-onepage-success .thankyou-wrapper .block.newsletter .block.newsletter .form.subscribe,
+  .multishipping-checkout-success .thankyou-wrapper .block.newsletter .block.newsletter .form.subscribe {
+    width: 100%;
+  }
+  .checkout-onepage-success .thankyou-wrapper .cmsblock-container,
+  .multishipping-checkout-success .thankyou-wrapper .cmsblock-container {
+    width: 100%;
+  }
   .my-credit-cards .table:not(.totals):not(.cart):not(.table-comparison) .status {
     display: none;
   }
@@ -20932,6 +21248,88 @@ fieldset[disabled] .sidebar .block-addbysku .action.remove {
   }
   .table-wrapper .table:not(.totals):not(.table-comparison) tfoot .grand.totals .amount {
     padding-bottom: 0.5em;
+  }
+  .checkout-onepage-success .thankyou-wrapper .table-wrapper,
+  .multishipping-checkout-success .thankyou-wrapper .table-wrapper {
+    border-top: 0 none;
+  }
+  .checkout-onepage-success .thankyou-wrapper #table-order-items thead,
+  .multishipping-checkout-success .thankyou-wrapper #table-order-items thead {
+    display: none;
+  }
+  .checkout-onepage-success .thankyou-wrapper #table-order-items .order-item-row,
+  .multishipping-checkout-success .thankyou-wrapper #table-order-items .order-item-row {
+    border-top: 1px solid #ccc;
+    text-align: left;
+  }
+  .checkout-onepage-success .thankyou-wrapper #table-order-items .order-item-row .col.image,
+  .multishipping-checkout-success .thankyou-wrapper #table-order-items .order-item-row .col.image,
+  .checkout-onepage-success .thankyou-wrapper #table-order-items .order-item-row .col.name,
+  .multishipping-checkout-success .thankyou-wrapper #table-order-items .order-item-row .col.name {
+    display: inline-block;
+  }
+  .checkout-onepage-success .thankyou-wrapper #table-order-items .order-item-row .col.image:before,
+  .multishipping-checkout-success .thankyou-wrapper #table-order-items .order-item-row .col.image:before,
+  .checkout-onepage-success .thankyou-wrapper #table-order-items .order-item-row .col.name:before,
+  .multishipping-checkout-success .thankyou-wrapper #table-order-items .order-item-row .col.name:before {
+    display: none;
+  }
+  .checkout-onepage-success .thankyou-wrapper #table-order-items .order-item-row:first-child,
+  .multishipping-checkout-success .thankyou-wrapper #table-order-items .order-item-row:first-child {
+    border-top: 0 none;
+  }
+  .checkout-onepage-success .thankyou-wrapper #table-order-items .order-item-row .col.sku,
+  .multishipping-checkout-success .thankyou-wrapper #table-order-items .order-item-row .col.sku,
+  .checkout-onepage-success .thankyou-wrapper #table-order-items .order-item-row .col.price,
+  .multishipping-checkout-success .thankyou-wrapper #table-order-items .order-item-row .col.price,
+  .checkout-onepage-success .thankyou-wrapper #table-order-items .order-item-row .col.qty,
+  .multishipping-checkout-success .thankyou-wrapper #table-order-items .order-item-row .col.qty,
+  .checkout-onepage-success .thankyou-wrapper #table-order-items .order-item-row .col.subtotal,
+  .multishipping-checkout-success .thankyou-wrapper #table-order-items .order-item-row .col.subtotal {
+    display: none;
+    padding: 0;
+    margin: 0;
+    visibility: hidden;
+  }
+  .checkout-onepage-success .thankyou-wrapper #table-order-items .order-item-row-mobile,
+  .multishipping-checkout-success .thankyou-wrapper #table-order-items .order-item-row-mobile {
+    display: inline-table;
+    width: 100%;
+  }
+  .checkout-onepage-success .thankyou-wrapper #table-order-items .order-item-row-mobile .col.price,
+  .multishipping-checkout-success .thankyou-wrapper #table-order-items .order-item-row-mobile .col.price,
+  .checkout-onepage-success .thankyou-wrapper #table-order-items .order-item-row-mobile .col.qty,
+  .multishipping-checkout-success .thankyou-wrapper #table-order-items .order-item-row-mobile .col.qty,
+  .checkout-onepage-success .thankyou-wrapper #table-order-items .order-item-row-mobile .col.subtotal,
+  .multishipping-checkout-success .thankyou-wrapper #table-order-items .order-item-row-mobile .col.subtotal {
+    display: table-cell;
+    margin: 10px 0;
+    padding: 10px;
+    border-bottom: 0 none;
+  }
+  .checkout-onepage-success .thankyou-wrapper #table-order-items .order-item-row-mobile .col.price:before,
+  .multishipping-checkout-success .thankyou-wrapper #table-order-items .order-item-row-mobile .col.price:before,
+  .checkout-onepage-success .thankyou-wrapper #table-order-items .order-item-row-mobile .col.qty:before,
+  .multishipping-checkout-success .thankyou-wrapper #table-order-items .order-item-row-mobile .col.qty:before,
+  .checkout-onepage-success .thankyou-wrapper #table-order-items .order-item-row-mobile .col.subtotal:before,
+  .multishipping-checkout-success .thankyou-wrapper #table-order-items .order-item-row-mobile .col.subtotal:before {
+    padding: 0;
+  }
+  .checkout-onepage-success .thankyou-wrapper #table-order-items .product-image-container,
+  .multishipping-checkout-success .thankyou-wrapper #table-order-items .product-image-container {
+    max-width: 115px;
+  }
+  .checkout-onepage-success .thankyou-wrapper #table-order-items tbody tr > td,
+  .multishipping-checkout-success .thankyou-wrapper #table-order-items tbody tr > td {
+    border-top: 0 none;
+  }
+  .checkout-onepage-success .thankyou-wrapper #table-order-items tfoot,
+  .multishipping-checkout-success .thankyou-wrapper #table-order-items tfoot {
+    clear: both;
+  }
+  .checkout-onepage-success:not(.theme-pearl) .block.newsletter .field .control:before,
+  .multishipping-checkout-success:not(.theme-pearl) .block.newsletter .field .control:before {
+    margin-top: 1px;
   }
   .form-new-agreement select {
     width: auto;

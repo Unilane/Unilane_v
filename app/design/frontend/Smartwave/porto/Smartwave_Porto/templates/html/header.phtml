@@ -1,13 +1,13 @@
 <?php
     use Magento\Framework\App\ObjectManager;
     use Magento\Customer\Model\Session;
-    $objectManager = ObjectManager::getInstance();
-    $customerSession = $objectManager->get(Session::class);
-    $customerName = $customerSession->getCustomer()->getName();
     $_helper = $this->helper('Smartwave\Porto\Helper\Data');
     $header_type = $this->getConfig('porto_settings/header/header_type');
     $header2_text = $this->getConfig('porto_settings/header/header2_text');
     $show_notice = $this->getConfig('porto_settings/general/show_site_notice');
+    $objectManager = ObjectManager::getInstance();
+    $customerSession = $objectManager->get(Session::class);
+    $customerName = $customerSession->getCustomer()->getName();
     if ($show_notice && $show_notice == 1)
         echo $this->getChildHtml("porto_custom_notice");
 ?>
@@ -40,7 +40,7 @@
           </div>
       </div>
   </div>
-  <div class="header-main">
+  <div class="header-main" style="margin-top: -20px;">
     <div class="header content header-row">
       <div class="header-left">
         <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
@@ -67,7 +67,6 @@
                   <div class="porto-sicon-header">
                     <h3 class="porto-sicon-title" style="font-weight: 400; font-size: 12px; line-height: 12px; color: #FFFFFF;">Bienvenido!</h3>
                     <?php if ($customerSession->isLoggedIn()) {
-                          // Obtiene el nombre del cliente logeado
                           echo "<p style='font-weight: 700; font-size: 13px; line-height: 13px; color: #FFFFFF;'>$customerName</p>";
                       } else {
                           echo "<p style='font-weight: 700; font-size: 13px; line-height: 13px; color: #FFFFFF;'>Iniciar sesion</p>";

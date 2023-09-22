@@ -4261,6 +4261,21 @@ p.short-des {
     width: 374px;
     float: right;
   }
+  .checkout-onepage-success .thankyou-wrapper .block.newsletter,
+  .multishipping-checkout-success .thankyou-wrapper .block.newsletter {
+    width: 35%;
+    margin: 0 auto 65px;
+  }
+  .checkout-onepage-success .thankyou-wrapper .block.newsletter .block.newsletter .form.subscribe,
+  .multishipping-checkout-success .thankyou-wrapper .block.newsletter .block.newsletter .form.subscribe {
+    width: 82%;
+    margin: 0 auto;
+  }
+  .checkout-onepage-success .thankyou-wrapper .cmsblock-container,
+  .multishipping-checkout-success .thankyou-wrapper .cmsblock-container {
+    width: 80%;
+    margin: 0 auto;
+  }
   .block-category-event.block:last-child {
     margin-bottom: 1.5em;
     padding: 0.5em 0 1.5em;

@@ -1421,6 +1421,18 @@ var config = {
 require.config(config);
 })();
 (function() {
+var config = {
+    config: {
+        mixins: {
+            'Magento_Checkout/js/view/registration': {
+                'WeltPixel_ThankYouPage/js/view/registration': true
+            }
+        }
+    }
+};
+require.config(config);
+})();
+(function() {
 /**
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.

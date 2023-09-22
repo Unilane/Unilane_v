@@ -8,6 +8,7 @@ namespace Unilane\Checkout\Block\Onepage;
 use Magento\Customer\Model\Context;
 use Magento\Sales\Model\Order;
 use Magento\Catalog\Helper\Image;
+use Magento\Checkout\Model\Session;
 
 
 /**
@@ -60,7 +61,7 @@ class Success extends \Magento\Framework\View\Element\Template
         $this->_orderConfig = $orderConfig;
         $this->_isScopePrivate = true;
         $this->httpContext = $httpContext;
-        $this->orderSuccess = $this->checkoutSession->getLastRealOrder();
+        $this->orderSuccess = $this->_checkoutSession->getLastRealOrder();
         $this->imageHelper = $imageHelper;
     }
 
@@ -161,5 +162,5 @@ class Success extends \Magento\Framework\View\Element\Template
         return $this->imageHelper->init($product, 'product_page_image_small')
         ->setImageFile($product->getSmallImage())
         ->resize(480)->getUrl();
-    }
+    } 
 }

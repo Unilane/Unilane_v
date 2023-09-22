@@ -34,7 +34,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
     protected function _getElementHtml(\Magento\Framework\Data\Form\Element\AbstractElement $element)
     {          
         //CT     
-        $data         = file_get_contents("C:\Users\luis.olivarria\Desktop\productsjson\dataPrueba.json");
+        $data  = file_get_contents("C:\Users\luis.olivarria\Desktop\productsjson\dataPrueba.json");
         if($data){
             try {
                 $products  = json_decode($data, true);
@@ -55,7 +55,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -82,7 +82,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             $items->setVisibility(4);
                             $items->setStatus(1);
                             $items->setTypeId('simple');
-                            $items->setTaxClassId(1);
+                            $items->setTaxClassId([2]);
                             $items->setWebsiteIds([1]);
                             //ICECAT
                             $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -109,7 +109,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -136,7 +136,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -163,7 +163,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -190,7 +190,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -217,7 +217,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -244,7 +244,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -271,7 +271,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -298,7 +298,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -325,7 +325,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -352,7 +352,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -379,7 +379,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -406,7 +406,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -433,7 +433,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -460,7 +460,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -487,7 +487,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -514,7 +514,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -541,7 +541,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -568,7 +568,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -595,7 +595,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -622,7 +622,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -649,7 +649,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -676,7 +676,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -703,7 +703,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -730,7 +730,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -757,7 +757,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -784,7 +784,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -811,7 +811,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -838,7 +838,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -865,7 +865,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -892,7 +892,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -919,7 +919,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -946,7 +946,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -973,7 +973,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1000,7 +1000,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1027,7 +1027,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1054,7 +1054,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1081,7 +1081,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1108,7 +1108,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1135,7 +1135,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1162,7 +1162,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1189,7 +1189,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1216,7 +1216,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1243,7 +1243,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1270,7 +1270,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1297,7 +1297,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1324,7 +1324,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1351,7 +1351,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1378,7 +1378,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1405,7 +1405,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1432,7 +1432,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1459,7 +1459,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1486,7 +1486,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1513,7 +1513,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1540,7 +1540,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1567,7 +1567,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1594,7 +1594,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1621,7 +1621,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1648,7 +1648,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1675,7 +1675,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1702,7 +1702,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1729,7 +1729,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1756,7 +1756,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1783,7 +1783,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1810,7 +1810,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1837,7 +1837,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1864,7 +1864,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1891,7 +1891,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1918,7 +1918,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1945,7 +1945,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1972,7 +1972,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -1999,7 +1999,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2026,7 +2026,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2053,7 +2053,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2080,7 +2080,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             $items->setVisibility(4);
                             $items->setStatus(1);
                             $items->setTypeId('simple');
-                            $items->setTaxClassId(1);
+                            $items->setTaxClassId([2]);
                             $items->setWebsiteIds([1]);
                             //ICECAT
                             $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2107,7 +2107,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2134,7 +2134,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2161,7 +2161,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2188,7 +2188,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2215,7 +2215,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2242,7 +2242,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2269,7 +2269,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2296,7 +2296,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2323,7 +2323,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2350,7 +2350,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2377,7 +2377,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2404,7 +2404,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2431,7 +2431,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2458,7 +2458,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2485,7 +2485,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2512,7 +2512,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2539,7 +2539,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2566,7 +2566,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2593,7 +2593,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2620,7 +2620,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2647,7 +2647,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2674,7 +2674,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2701,7 +2701,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2728,7 +2728,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2755,7 +2755,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2782,7 +2782,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2809,7 +2809,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2836,7 +2836,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2863,7 +2863,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2890,7 +2890,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2917,7 +2917,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2944,7 +2944,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2971,7 +2971,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -2998,7 +2998,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3025,7 +3025,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3052,7 +3052,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3079,7 +3079,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3106,7 +3106,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3133,7 +3133,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3160,7 +3160,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3187,7 +3187,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3214,7 +3214,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3241,7 +3241,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3268,7 +3268,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3295,7 +3295,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3322,7 +3322,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3349,7 +3349,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3376,7 +3376,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3403,7 +3403,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3430,7 +3430,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3457,7 +3457,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3484,7 +3484,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3511,7 +3511,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3538,7 +3538,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3565,7 +3565,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3592,7 +3592,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             $items->setVisibility(4);
                             $items->setStatus(1);
                             $items->setTypeId('simple');
-                            $items->setTaxClassId(1);
+                            $items->setTaxClassId([2]);
                             $items->setWebsiteIds([1]);
                             //ICECAT
                             $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3619,7 +3619,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3646,7 +3646,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3673,7 +3673,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3700,7 +3700,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3727,7 +3727,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3754,7 +3754,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3781,7 +3781,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3808,7 +3808,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3835,7 +3835,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3862,7 +3862,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3889,7 +3889,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3916,7 +3916,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3943,7 +3943,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3970,7 +3970,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -3997,7 +3997,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -4024,7 +4024,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -4051,7 +4051,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -4078,7 +4078,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -4105,7 +4105,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -4132,7 +4132,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -4159,7 +4159,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
@@ -4186,7 +4186,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId(1);
+                        $items->setTaxClassId([2]);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
