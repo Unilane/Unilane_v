@@ -2,10 +2,6 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-.checkout-index-index .product-item .qty-wrapper {
-  display: flex;
-  justify-content: space-between;
-}
 .abs-reset-list {
   margin: 0;
   padding: 0;
@@ -2036,6 +2032,30 @@ fieldset[disabled] .abs-add-fields .action.remove {
 }
 .filter-content .active.icon-expand:after {
   content: '\e622';
+}
+.filter-content input[type="text"]:focus,
+.filter-content input[type="checkbox"]:focus,
+.filter-content input[type="radio"]:focus,
+.filter-content select:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.filter-content .filter-options-item li a:hover {
+  background: none !important;
+  color: #006bb4;
+}
+.filter-content .filter-options-item li a:hover span {
+  color: #006bb4;
+}
+.filter-content .filter-options-item .ui-slider-handle {
+  height: 15px !important;
+  width: 15px !important;
+  background: #01007F;
+  left: -2px;
+  bottom: -3px;
+}
+.filter-content #ln_slider_price {
+  margin-bottom: 5px;
 }
 /**
  * Mageplaza

@@ -4,7 +4,11 @@ var config = {
         'packery': 'Smartwave_Porto/js/packery.pkgd',
         'themeSticky': 'js/jquery.sticky.min',
         'pt_appear': 'Smartwave_Porto/js/apear',
-        'pt_animate': 'Smartwave_Porto/js/animate'
+        'pt_animate': 'Smartwave_Porto/js/animate',
+        'lazyload': 'js/jquery.lazyload',
+        'owlcarousel': 'owl.carousel/owl.carousel',
+        'parallax': 'js/jquery.parallax.min',
+        'floatelement': 'js/jquery.floatelement'
     },
     shim: {
         'packery': {
@@ -15,6 +19,15 @@ var config = {
         },
         'pt_animate': {
           deps: ['jquery','pt_appear']
+        },
+        'owl.carousel/owl.carousel': {
+            deps: ['jquery']
+        },
+        'js/jquery.lazyload': {
+            deps: ['jquery']
+        },
+        'floatelement': {
+          deps: ['jquery']
         }
     }
 };

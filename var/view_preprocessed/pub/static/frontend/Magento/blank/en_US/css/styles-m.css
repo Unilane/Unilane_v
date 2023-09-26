@@ -5690,6 +5690,30 @@ div[data-content-type='video'] video {
 .filter-content .active.icon-expand:after {
   content: '\e622';
 }
+.filter-content input[type="text"]:focus,
+.filter-content input[type="checkbox"]:focus,
+.filter-content input[type="radio"]:focus,
+.filter-content select:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.filter-content .filter-options-item li a:hover {
+  background: none !important;
+  color: #006bb4;
+}
+.filter-content .filter-options-item li a:hover span {
+  color: #006bb4;
+}
+.filter-content .filter-options-item .ui-slider-handle {
+  height: 15px !important;
+  width: 15px !important;
+  background: #01007F;
+  left: -2px;
+  bottom: -3px;
+}
+.filter-content #ln_slider_price {
+  margin-bottom: 5px;
+}
 /**
  * Mageplaza
  *
@@ -6716,7 +6740,7 @@ p.short-des {
 .multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .col.qty span,
 .checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .col.subtotal span,
 .multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .col.subtotal span {
-  font-size: 1.4rem;
+  font-size: 15px;
   line-height: 1.42857143;
 }
 .checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items thead tr > th,

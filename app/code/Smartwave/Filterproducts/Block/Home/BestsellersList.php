@@ -21,7 +21,7 @@ class BestsellersList extends \Magento\Catalog\Block\Product\ListProduct {
             \Magento\Catalog\Model\ResourceModel\Product\Collection $collection,
             \Magento\Framework\App\ResourceConnection $resource,
             array $data = []
-    ) {
+    ) { 
         $this->categoryRepository = $categoryRepository;
         $this->_collection = $collection;
         $this->_resource = $resource;

@@ -44,7 +44,9 @@ class Demoversion implements \Magento\Framework\Option\ArrayInterface
             ['value' => 'demo35', 'label' => __('Demo 35')],
             ['value' => 'demo36', 'label' => __('Demo 36')],
             ['value' => 'demo37', 'label' => __('Demo 37')],
-            ['value' => 'demo38', 'label' => __('Demo 38')]
+            ['value' => 'demo38', 'label' => __('Demo 38')],
+            ['value' => 'demo39', 'label' => __('Demo 39')],
+            ['value' => 'demo40', 'label' => __('Demo 40')]
         ];
     }
 
@@ -89,7 +91,9 @@ class Demoversion implements \Magento\Framework\Option\ArrayInterface
             'demo35' => __('Demo 35'),
             'demo36' => __('Demo 36'),
             'demo37' => __('Demo 37'),
-            'demo38' => __('Demo 38')
+            'demo38' => __('Demo 38'),
+            'demo39' => __('Demo 39'),
+            'demo40' => __('Demo 40')
         ];
     }
 }

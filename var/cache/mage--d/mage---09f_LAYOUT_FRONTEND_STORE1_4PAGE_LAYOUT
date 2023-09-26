@@ -1,4 +1,4 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1695426282;s:6:"expire";i:1726962282;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1695687756;s:6:"expire";i:1727223756;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
 <?xml version="1.0"?>
 <layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><layout id="1column"><update handle="empty"/>
 <referenceContainer name="page.wrapper">
@@ -129,6 +129,9 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1695426282;s:6:"expire";i:1726962282;s:4:"t
    </container>
 </referenceContainer>
 </layout><layout id="3columns"><update handle="2columns-left"/>
+<referenceContainer name="sidebar.second">
+   <block class="Smartwave\Porto\Block\Template" name="sidebar_second_block" after="-" template="Smartwave_Porto::custom_block.phtml" ifconfig="porto_settings/general/sidebar_second_block"/>
+</referenceContainer>
 <referenceContainer name="columns">
    <container name="div.sidebar.second" htmlTag="div" htmlClass="sidebar sidebar-second" after="div.sidebar.main">
       <container name="sidebar.second" as="sidebar_second" label="Sidebar Secondary"/>
@@ -263,6 +266,9 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1695426282;s:6:"expire";i:1726962282;s:4:"t
    </container>
 </referenceContainer>
 </layout><layout id="3columns"><update handle="2columns-left"/>
+<referenceContainer name="sidebar.second">
+   <block class="Smartwave\Porto\Block\Template" name="sidebar_second_block" after="-" template="Smartwave_Porto::custom_block.phtml" ifconfig="porto_settings/general/sidebar_second_block"/>
+</referenceContainer>
 <referenceContainer name="columns">
    <container name="div.sidebar.second" htmlTag="div" htmlClass="sidebar sidebar-second" after="div.sidebar.main">
       <container name="sidebar.second" as="sidebar_second" label="Sidebar Secondary"/>

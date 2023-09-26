@@ -766,7 +766,7 @@
             <item>porto_product_side_custom_block</item>
             <item>porto_custom_menu_before</item>
             <item>porto_custom_menu</item>
-            <item>porto_custom_menu_22</item>
+            <item>porto_custom_menu_33</item>
             <item>porto_custom_tab</item>
         </blocks>
     </demo33>
@@ -788,7 +788,7 @@
             <item>porto_product_side_custom_block</item>
             <item>porto_custom_menu_before</item>
             <item>porto_secondary_menu_header_18</item>
-            <item>porto_custom_menu_22</item>
+            <item>porto_custom_menu_33</item>
             <item>porto_custom_tab</item>
         </blocks>
     </demo34>
@@ -884,5 +884,56 @@
             <item>porto_custom_tab</item>
         </blocks>
     </demo38>
+    <demo39>
+        <pages>
+            <item>about-porto</item>
+            <item>about-porto-1</item>
+            <item>no-route-2</item>
+            <item>porto_home_39</item>
+        </pages>
+        <blocks>
+            <item>porto_custom_notice</item>
+            <item>porto_custom_block_for_header_top</item>
+            <item>porto_custom_block_for_header_16</item>
+            <item>porto_custom_block_for_header_bottom</item>
+            <item>footer_top_block13</item>
+            <item>footer_middle_customer_service2</item>
+            <item>footer_middle_about_us_7</item>
+            <item>footer_middle_more_information</item>
+            <item>footer_middle_social_media</item>
+            <item>porto_footer_bottom_custom_block_2</item>
+            <item>porto_category_side_custom_block</item>
+            <item>porto_product_side_custom_block</item>
+            <item>porto_custom_menu_before</item>
+            <item>porto_custom_menu</item>
+            <item>porto_custom_tab</item>
+        </blocks>
+    </demo39>
+    <demo40>
+        <pages>
+            <item>about-porto</item>
+            <item>about-porto-1</item>
+            <item>no-route-2</item>
+            <item>porto_home_40</item>
+        </pages>
+        <blocks>
+            <item>porto_custom_notice17</item>
+            <item>porto_custom_block_for_header_top</item>
+            <item>porto_custom_block_for_header_18</item>
+            <item>porto_secondary_menu_header_18</item>
+            <item>porto_custom_block_header_bottom</item>
+            <item>porto_footer_logo_white</item>
+            <item>footer_middle_contact_info</item>
+            <item>footer_middle_customer_service</item>
+            <item>footer_middle_newsletter</item>
+            <item>footer_bottom_block</item>
+            <item>porto_category_side_custom_block</item>
+            <item>porto_product_side_custom_block</item>
+            <item>porto_custom_menu_before</item>
+            <item>porto_custom_menu</item>
+            <item>porto_custom_menu_33</item>
+            <item>porto_custom_tab</item>
+        </blocks>
+    </demo40>
 </demos>
 </root>

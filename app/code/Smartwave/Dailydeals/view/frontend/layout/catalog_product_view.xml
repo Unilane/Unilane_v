@@ -6,9 +6,8 @@
  */
 -->
 <page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <head>
-        <css src="Smartwave_Dailydeals::css/custom_dailydeal_list_page.css" />
-        <css src="Smartwave_Dailydeals::css/style.css" />  
+    <head> 
+        <css src="Smartwave_Dailydeals::css/style.css" />
     </head>
     <referenceContainer name="content">
         <!--<referenceContainer name="product.info.main" htmlTag="div" htmlClass="product-info-main" before="-">

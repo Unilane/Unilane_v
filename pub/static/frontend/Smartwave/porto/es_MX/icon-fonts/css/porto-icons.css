@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'porto-icons';
-  src: url('../font/porto-icons.eot?71946167');
-  src: url('../font/porto-icons.eot?71946167#iefix') format('embedded-opentype'),
-       url('../font/porto-icons.woff2?71946167') format('woff2'),
-       url('../font/porto-icons.woff?71946167') format('woff'),
-       url('../font/porto-icons.ttf?71946167') format('truetype'),
-       url('../font/porto-icons.svg?71946167#fontello') format('svg');
+  src: url('../font/porto-icons.eot?89292730');
+  src: url('../font/porto-icons.eot?89292730#iefix') format('embedded-opentype'),
+       url('../font/porto-icons.woff2?89292730') format('woff2'),
+       url('../font/porto-icons.woff?89292730') format('woff'),
+       url('../font/porto-icons.ttf?89292730') format('truetype'),
+       url('../font/porto-icons.svg?89292730#fontello') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'porto-icons';
-    src: url('../font/fontello.svg?71946167#fontello') format('svg');
+    src: url('../font/porto-icons.svg?89292730#fontello') format('svg');
   }
 }
 */
@@ -91,6 +91,8 @@
 .porto-icon-angle-double-right:before { content: '\e822'; } /* '' */
 .porto-icon-angle-double-up:before { content: '\e823'; } /* '' */
 .porto-icon-angle-double-down:before { content: '\e824'; } /* '' */
+.porto-icon-pulley:before { content: '\e825'; } /* '' */
+.porto-icon-check-circle-2:before { content: '\e826'; } /* '' */
 .porto-icon-skype-1:before { content: '\e827'; } /* '' */
 .porto-icon-mail-alt-1:before { content: '\e82e'; } /* '' */
 .porto-icon-fax:before { content: '\e82f'; } /* '' */
@@ -151,14 +153,21 @@
 .porto-icon-envolope:before { content: '\e88e'; } /* '' */
 .porto-icon-chart:before { content: '\e88f'; } /* '' */
 .porto-icon-long-arrow-right:before { content: '\e897'; } /* '' */
+.porto-icon-check-circle-1:before { content: '\e89c'; } /* '' */
 .porto-icon-long-arrow-alt:before { content: '\e89e'; } /* '' */
 .porto-icon-user-1:before { content: '\e8b9'; } /* '' */
 .porto-icon-shopping-cart:before { content: '\e8ba'; } /* '' */
 .porto-icon-phone-2:before { content: '\e8bb'; } /* '' */
+.porto-icon-percent-circle:before { content: '\e8bf'; } /* '' */
 .porto-icon-check-circle:before { content: '\e8c1'; } /* '' */
 .porto-icon-password-lock:before { content: '\e8c2'; } /* '' */
 .porto-icon-arrow-right-solid:before { content: '\e8c4'; } /* '' */
 .porto-icon-check-solid:before { content: '\e8c5'; } /* '' */
+.porto-icon-rotulo:before { content: '\e8c6'; } /* '' */
+.porto-icon-comida-organica:before { content: '\e8c7'; } /* '' */
+.porto-icon-estrela:before { content: '\e8c8'; } /* '' */
+.porto-icon-fazer-compras:before { content: '\e8c9'; } /* '' */
+.porto-icon-gluten:before { content: '\e8ca'; } /* '' */
 .porto-icon-arrow-forward-right:before { content: '\e8cc'; } /* '' */
 .porto-icon-category-home:before { content: '\e900'; } /* '' */
 .porto-icon-category-motors:before { content: '\e901'; } /* '' */
@@ -196,6 +205,7 @@
 .porto-icon-boy-broad-smile:before { content: '\e921'; } /* '' */
 .porto-icon-smiling-baby:before { content: '\e922'; } /* '' */
 .porto-icon-menu-button-of-three-lines-outline:before { content: '\e923'; } /* '' */
+.porto-icon-callin:before { content: '\e924'; } /* '' */
 .porto-icon-spinner:before { content: '\f110'; } /* '' */
 .porto-icon-sliders:before { content: '\f1de'; } /* '' */
 .porto-icon-shopping-basket:before { content: '\f291'; } /* '' */

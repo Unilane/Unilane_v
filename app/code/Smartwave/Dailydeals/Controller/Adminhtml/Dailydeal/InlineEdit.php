@@ -1,7 +1,7 @@
 <?php
 namespace Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal;
 
-abstract class InlineEdit extends \Magento\Backend\App\Action
+class InlineEdit extends \Magento\Backend\App\Action
 {
     /**
      * JSON Factory
@@ -29,7 +29,6 @@ abstract class InlineEdit extends \Magento\Backend\App\Action
         \Smartwave\Dailydeals\Model\DailydealFactory $dailydealFactory,
         \Magento\Backend\App\Action\Context $context
     ) {
-    
         $this->jsonFactory      = $jsonFactory;
         $this->dailydealFactory = $dailydealFactory;
         parent::__construct($context);

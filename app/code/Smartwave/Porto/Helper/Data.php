@@ -16,6 +16,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     private $_checkedPurchaseCode;
     private $_messageManager;
     protected $_configFactory;
+    protected $_storeManager;
 
     public function __construct(
         \Magento\Framework\App\Helper\Context $context,

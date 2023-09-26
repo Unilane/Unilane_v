@@ -14,19 +14,19 @@
             <argument name="filterPool" xsi:type="object" shared="false">SwDailydealsGirdFilterPool</argument>
         </arguments>
     </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="sw_dailydeals_dailydeal_listing_data_source" xsi:type="string">Smartwave\Dailydeals\Model\ResourceModel\Dailydeal\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
     <type name="Smartwave\Dailydeals\Model\ResourceModel\Dailydeal\Grid\Collection">
         <arguments>
             <argument name="mainTable" xsi:type="string">sw_dailydeals_dailydeal</argument>
             <argument name="eventPrefix" xsi:type="string">sw_dailydeals_dailydeal_grid_collection</argument>
             <argument name="eventObject" xsi:type="string">dailydeal_grid_collection</argument>
             <argument name="resourceModel" xsi:type="string">Smartwave\Dailydeals\Model\ResourceModel\Dailydeal</argument>
-        </arguments>
-    </type>
-    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
-        <arguments>
-            <argument name="collections" xsi:type="array">
-                <item name="sw_dailydeals_dailydeal_listing_data_source" xsi:type="string">Smartwave\Dailydeals\Model\ResourceModel\Dailydeal\Grid\Collection</item>
-            </argument>
         </arguments>
     </type>
     <type name="\Magento\Catalog\Pricing\Render\FinalPriceBox">

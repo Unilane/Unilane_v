@@ -47,26 +47,6 @@ var redirect_cart = false;
 <?php if($_redirect_cart):?>
     redirect_cart = true;
 <?php endif;?>
-var porto_config = {
-    paths: {
-        'parallax': 'js/jquery.parallax.min',
-        'owlcarousel': 'owl.carousel/owl.carousel',
-        'floatelement': 'js/jquery.floatelement'
-    },
-    shim: {
-        'owlcarousel': {
-          deps: ['jquery']
-        },
-        'owlcarousel_thumbs': {
-          deps: ['jquery','owlcarousel']
-        },
-        'floatelement': {
-          deps: ['jquery']
-        }
-    }
-};
-
-require.config(porto_config);
 </script>
 <script type="text/javascript">
 require([

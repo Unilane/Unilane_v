@@ -8,7 +8,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
         <tab id="smartwave_porto" translate="label" sortOrder="50">
-            <label>Porto 4.0.5</label>
+            <label>Porto 4.0.6</label>
         </tab>
         <section id="porto_settings" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Porto - Settings Panel</label>
@@ -186,6 +186,12 @@
                     <label>Static Block Custom Menu Id</label>
                     <depends>
                         <field id="header_type">15</field>
+                    </depends>
+                </field>
+                <field id="header_bottom_block" translate="label comment" type="text" sortOrder="27" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Static Block Custom Bottom Header</label>
+                    <depends>
+                        <field id="header_type">23</field>
                     </depends>
                 </field>
                 <field id="toggle_text_18" translate="label comment" type="text" sortOrder="27" showInDefault="1" showInWebsite="1" showInStore="1">

@@ -1,4 +1,4 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1695426137;s:6:"expire";i:1726962137;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1695687740;s:6:"expire";i:1727223740;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
 <?xml version="1.0"?>
 <layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><handle id="adminhtml_system_config_edit" layout="admin-2columns-left"><body>
    <referenceContainer name="js">
@@ -8393,6 +8393,41 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1695426137;s:6:"expire";i:1726962137;s:4:"t
    </referenceBlock>
    <referenceContainer name="content">
       <uiComponent name="sw_dailydeals_dailydeal_listing"/>
+   </referenceContainer>
+   <referenceContainer name="admin.scope.col.wrap" htmlClass="admin__old"/>
+</body>
+</handle><handle id="default" layout="admin-1column"><head>
+   <css src="Smartwave_Filterproducts::css/icons/porto-icons.css"/>
+   <css src="Smartwave_Filterproducts::css/owl.carousel/assets/owl.carousel.css"/>
+</head>
+</handle><handle id="pagebuilder_filterproducts_carousel_form" layout="admin-1column"><update handle="styles"/>
+<body>
+   <referenceContainer name="content">
+      <uiComponent name="pagebuilder_filterproducts_carousel_form"/>
+   </referenceContainer>
+</body>
+</handle><handle id="pagebuilder_filterproducts_form" layout="admin-1column"><update handle="styles"/>
+<body>
+   <referenceContainer name="content">
+      <uiComponent name="pagebuilder_filterproducts_form"/>
+   </referenceContainer>
+</body>
+</handle><handle id="pagebuilder_filterproducts_masonry_form" layout="admin-1column"><update handle="styles"/>
+<body>
+   <referenceContainer name="content">
+      <uiComponent name="pagebuilder_filterproducts_masonry_form"/>
+   </referenceContainer>
+</body>
+</handle><handle id="pagebuilder_filterproducts_sidelist_form" layout="admin-1column"><update handle="styles"/>
+<body>
+   <referenceContainer name="content">
+      <uiComponent name="pagebuilder_filterproducts_sidelist_form"/>
+   </referenceContainer>
+</body>
+</handle><handle id="pagebuilder_filterproducts_smallist_form" layout="admin-1column"><update handle="styles"/>
+<body>
+   <referenceContainer name="content">
+      <uiComponent name="pagebuilder_filterproducts_smallist_form"/>
    </referenceContainer>
 </body>
 </handle><handle id="adminhtml_system_config_edit" layout="admin-2columns-left"><body>

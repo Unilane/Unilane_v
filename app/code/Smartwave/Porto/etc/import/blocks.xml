@@ -10137,5 +10137,103 @@ padding: 5.5px 4px 5.5px 0px !important;
 ]]></content>
          <is_active>1</is_active>
       </cms_item>
+      <cms_item>
+         <title> Footer Top Block 13</title>
+         <identifier>footer_top_block13</identifier>
+         <content><![CDATA[ <div class="custom-subscribe no-padding flex-1">
+  <div class="vc_column_container">
+    <div class="wpb_wrapper vc_column-inner d-flex flex-wrap">
+      <div class="porto-sicon-box d-flex align-items-center mb-3 mb-xl-0 me-md-4 me-0 flex-column flex-sm-row newsletter-msg text-center text-sm-start">
+        <div class="porto-sicon-default">
+          <div class="porto-just-icon-wrapper porto-icon none" style="color: #183f72; font-size: 50px;margin-right: 15px;"><i class="porto-icon-envolope"></i></div>
+        </div>
+        <div class="porto-sicon-header">
+          <h4 class="porto-sicon-title" style="font-weight: 700; font-size: 18px; line-height: 1; color: #183f72;">Subscribe To Our Newsletter</h4>
+          <p style="font-size: 13px; line-height: 20px; letter-spacing: 0.005em; color: #90969a;">Get all the latest information on Events, Sales and Offers.</p>
+        </div>
+      </div>
+      <div class="flex-1">{{block class="Magento\Newsletter\Block\Subscribe" name="home.newsletter" template="subscribe_form_footer.phtml"}}</div>
+    </div>
+  </div>
+</div>
+<style>
+@media (max-width: 991px) {
+.custom-subscribe .vc_column-inner {
+    flex-direction: column;
+}
+}
+</style>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title> Porto - Custom Notice Block 17</title>
+         <identifier>porto_custom_notice17</identifier>
+         <content><![CDATA[<div class="container p-b-sm p-t-sm">
+  <div class="d-flex flex-wrap align-items-center justify-content-center">
+    <h4 style="font-size: 0.8125rem; line-height: 1.4; font-weight: 700; letter-spacing: -0.025em;" class="vc_custom_heading mb-0 me-1 align-left text-uppercase heading-light">Deal of the week</h4>
+    <h6 style="font-size: 0.8125rem; line-height: 1.4; font-weight: 500; letter-spacing: -0.025em;" class="vc_custom_heading mb-0 me-1 align-left heading-light">&nbsp;- 15% OFF in All Performance Parts - </h6>
+    <h5 style="font-size: 0.8125rem; line-height: 1.4; font-weight: 700; letter-spacing: -0.025em;border-bottom: 1px solid #fff;" class="vc_custom_heading mb-0 align-left heading-light">
+      <a href="/shop/" title="Shop" style="color: inherit;">&nbsp;Shop Now</a>
+    </h5>
+  </div>
+</div>
+]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title> Porto - Custom Block for Header 18</title>
+         <identifier>porto_custom_block_for_header_18</identifier>
+         <content><![CDATA[<span class="separator ms-lg-3 me-sm-3 pe-lg-1" style="height: 1.8em; border-left-color: #dadcdd;"></span>
+<div class="porto-sicon-box mb-0 d-none d-lg-flex style_1 default-icon" style="margin-right: 0.875rem;">
+  <div class="porto-sicon-default">
+    <div class="porto-just-icon-wrapper porto-icon none d-block" style="color: #222529; font-size: 30px; margin-right: 0.25rem;"><i class="porto-icon-phone-1 no-margin"></i></div>
+  </div>
+  <div class="porto-sicon-header">
+    <h4 class="porto-sicon-title" style="font-weight: 500; font-size: 11px; line-height: 1; color: #777777;">CALL US NOW</h4>
+    <p style="font-weight: 600; font-size: 17px; line-height: 1; color: #222529;">+123 5678 890</p>
+  </div>
+</div>
+<span class="separator ms-3 me-4 d-none d-lg-block" style="height: 1.8em; border-left-color: #dadcdd;"></span>
+<a class="porto-sicon-box-link" href="#" title="My account" style="margin-right: 0.875rem;">
+  <div class="porto-sicon-box mb-0 d-none d-sm-flex style_1 default-icon">
+    <div class="porto-sicon-default">
+      <div class="porto-just-icon-wrapper porto-icon none d-block" style="color: #222529; font-size: 28px; margin-right: 0.625rem;"><i class="porto-icon-user-2 no-margin"></i></div>
+    </div>
+    <div class="porto-sicon-header">
+      <h3 class="porto-sicon-title" style="font-weight: 400; font-size: 11px; line-height: 1; letter-spacing: -0.025em; color: #777777;">Welcome</h3>
+      <p style="font-weight: 700; font-size: 1rem; line-height: 1; color: #222529;">Sign In / Register</p>
+    </div>
+  </div>
+</a>
+<span class="separator ms-sm-2 me-3 d-none d-lg-block" style="height:1.8em;border-left-color:#dadcdd"></span>
+]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title> Porto - Custom Block for Header 6</title>
+         <identifier>porto_custom_block_for_header_6</identifier>
+         <content><![CDATA[<div class="custom-html">
+  <div class="porto-sicon-box text-left style_1 default-icon m-0">
+    <div class="porto-sicon-default">
+      <div class="porto-just-icon-wrapper" style="text-align: center;">
+        <div class="porto-sicon-img" style="display: inline-block; font-size: 30px;">
+          <img class="img-icon" alt="" src="{{media url=wysiwyg/smartwave/porto/homepage/04/shop4_header_phone.png}}" width="30"  />
+        </div>
+      </div>
+    </div>
+    <div class="porto-sicon-header">
+      <h3 class="porto-sicon-title" style="font-weight:600;font-size:11px;line-height:11px;color:#777;">CALL US NOW</h3>
+      <p style="font-weight:700;font-size:18px;line-height:18px;color:#222529;">+123 5678 890</p>
+    </div>
+  </div>
+</div>
+<style>
+.page-header .porto-sicon-box .porto-sicon-img {
+    margin-right: 15px;
+}
+</style>
+]]></content>
+         <is_active>1</is_active>
+      </cms_item>
    </blocks>
 </root>

@@ -29,7 +29,7 @@ class Dailydeal extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
         \Magento\Framework\Stdlib\DateTime\DateTime $date,
         \Magento\Framework\Model\ResourceModel\Db\Context $context
     ) {
-    
+
         $this->dateTime = $dateTime;
         $this->date     = $date;
         parent::__construct($context);

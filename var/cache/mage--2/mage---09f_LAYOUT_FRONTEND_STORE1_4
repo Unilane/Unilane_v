@@ -1,4 +1,4 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1695426281;s:6:"expire";i:1726962281;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1695687756;s:6:"expire";i:1727223756;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
 <?xml version="1.0"?>
 <layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><handle id="catalog_category_view"><body/>
 </handle><handle id="catalogsearch_advanced_index"><body/>
@@ -8051,7 +8051,6 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1695426281;s:6:"expire";i:1726962281;s:4:"t
         
     </body>
 </handle><handle id="catalog_product_view" layout="1column"><head>
-   <css src="Smartwave_Dailydeals::css/custom_dailydeal_list_page.css"/>
    <css src="Smartwave_Dailydeals::css/style.css"/>
 </head>
 <referenceContainer name="content">
@@ -8065,7 +8064,6 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1695426281;s:6:"expire";i:1726962281;s:4:"t
    </referenceBlock>
 </body>
 </handle><handle id="dailydeals_deal_view" layout="1column"><head>
-   <css src="Smartwave_Dailydeals::css/custom_dailydeal_list_page.css"/>
    <css src="Smartwave_Dailydeals::css/style.css"/>
 </head>
 <body>
@@ -8078,12 +8076,6 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1695426281;s:6:"expire";i:1726962281;s:4:"t
          <block class="Magento\Catalog\Block\Product\ProductList\Item\Container" name="category.product.addto" as="addto">
             <block class="Magento\Catalog\Block\Product\ProductList\Item\AddTo\Compare" name="category.product.addto.compare" as="compare" template="Magento_Catalog::product/list/addto/compare.phtml"/>
          </block>
-         <block class="Magento\Catalog\Block\Product\ProductList\Toolbar" name="product_list_toolbar" template="Magento_Catalog::product/list/toolbar.phtml">
-            <block class="Magento\Theme\Block\Html\Pager" name="product_list_toolbar_pager"/>
-         </block>
-         <action method="setToolbarBlockName">
-            <argument name="name" xsi:type="string">product_list_toolbar</argument>
-         </action>
       </block>
    </referenceBlock>
 </body>
@@ -8095,8 +8087,8 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1695426281;s:6:"expire";i:1726962281;s:4:"t
    <referenceBlock name="authentication-popup">
       <arguments>
          <argument name="jsLayout" xsi:type="array">
-                
-            </argument>
+
+          </argument>
       </arguments>
    </referenceBlock>
    <referenceBlock name="footer_links">
@@ -8108,6 +8100,9 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1695426281;s:6:"expire";i:1726962281;s:4:"t
       </block>
    </referenceBlock>
 </body>
+</handle><handle id="default"><head>
+   <css src="Smartwave_Filterproducts::css/owl.carousel/assets/owl.carousel.css"/>
+</head>
 </handle><handle id="cms_index_index"><body>
    <referenceBlock name="category_list_on_left" remove="true"/>
 </body>
@@ -8429,6 +8424,7 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1695426281;s:6:"expire";i:1726962281;s:4:"t
    <referenceContainer name="columns.top">
       <container name="category.view.container" htmlTag="div" htmlClass="category-view" after="-">
          <block class="Magento\Catalog\Block\Category\View" name="category.description.default" template="Magento_Catalog::category/description.phtml"/>
+         <block class="Magento\Catalog\Block\Category\View" name="category.cms" template="Magento_Catalog::category/cms.phtml"/>
       </container>
    </referenceContainer>
    <referenceContainer name="content">
@@ -8437,11 +8433,11 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1695426281;s:6:"expire";i:1726962281;s:4:"t
    <referenceContainer name="after.body.start">
       <block class="Smartwave\Porto\Block\Template" name="catalog_view_config" after="-" template="Magento_Catalog::category/config.phtml"/>
    </referenceContainer>
-   <move element="category.image" destination="content" before="category_desc_main_column"/>
-   <referenceBlock name="category.description" remove="1"/>
    <referenceContainer name="sidebar.main">
       <block class="Smartwave\Porto\Block\Template" name="category_view_custom_block" after="-" template="Magento_Catalog::category/custom_block.phtml"/>
    </referenceContainer>
+   <move element="category.image" destination="content" before="category_desc_main_column"/>
+   <referenceBlock name="category.description" remove="1"/>
 </body>
 </handle><handle id="catalog_product_view" layout="2columns-right"><body>
    <referenceContainer name="sidebar.additional">
@@ -8617,6 +8613,7 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1695426281;s:6:"expire";i:1726962281;s:4:"t
 </handle><handle id="weltpixel_quickview_catalog_product_view" layout="1column"><update handle="catalog_product_view"/>
 <body>
    <referenceBlock name="catalog.product.related" remove="true"/>
+   <referenceBlock name="catalog.product.move.related" remove="true"/>
    <referenceBlock name="product.info.upsell" remove="true"/>
    <referenceBlock name="prev_next_products" remove="true"/>
    <referenceBlock name="header.container" remove="true"/>
@@ -8791,6 +8788,9 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1695426281;s:6:"expire";i:1726962281;s:4:"t
    </container>
 </referenceContainer>
 </layout><layout id="3columns"><update handle="2columns-left"/>
+<referenceContainer name="sidebar.second">
+   <block class="Smartwave\Porto\Block\Template" name="sidebar_second_block" after="-" template="Smartwave_Porto::custom_block.phtml" ifconfig="porto_settings/general/sidebar_second_block"/>
+</referenceContainer>
 <referenceContainer name="columns">
    <container name="div.sidebar.second" htmlTag="div" htmlClass="sidebar sidebar-second" after="div.sidebar.main">
       <container name="sidebar.second" as="sidebar_second" label="Sidebar Secondary"/>

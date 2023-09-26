@@ -29,9 +29,11 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
      *
      * @return void
      */
+
     protected function _construct()
     {
-        $this->_init('Smartwave\Dailydeals\Model\Dailydeal', 'Smartwave\Dailydeals\Model\ResourceModel\Dailydeal');
+        $this->_init(\Smartwave\Dailydeals\Model\Dailydeal::class, \Smartwave\Dailydeals\Model\ResourceModel\Dailydeal::class);
+        $this->_map['fields']['dailydeal_id'] = 'main_table.dailydeal_id';
     }
 
     /**
@@ -40,20 +42,21 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
      *
      * @return \Magento\Framework\DB\Select
      */
-    public function getSelectCountSql()
-    {
-        $countSelect = parent::getSelectCountSql();
-        $countSelect->reset(\Zend_Db_Select::GROUP);
-        return $countSelect;
-    }
-    /**
-     * @param string $valueField
-     * @param string $labelField
-     * @param array $additional
-     * @return array
-     */
-    protected function _toOptionArray($valueField = 'dailydeal_id', $labelField = 'sw_product_sku', $additional = [])
-    {
-        return parent::_toOptionArray($valueField, $labelField, $additional);
-    }
+     public function getSelectCountSql()
+     {
+         $countSelect = parent::getSelectCountSql();
+         $countSelect->reset(\Magento\Framework\DB\Select::GROUP);
+
+         return $countSelect;
+     }
+     /**
+      * Returns pairs dailydeal_id - title
+      *
+      * @return array
+      */
+     public function toOptionArray()
+     {
+         return $this->_toOptionArray('dailydeal_id', 'sw_product_sku');
+     }
+
 }

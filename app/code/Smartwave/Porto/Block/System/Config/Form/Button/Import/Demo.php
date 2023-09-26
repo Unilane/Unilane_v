@@ -157,6 +157,8 @@ class Demo extends \Magento\Config\Block\System\Config\Form\Field
             ['demo_version' => 'demo36', 'label' => __('Demo 36')],
             ['demo_version' => 'demo37', 'label' => __('Demo 37')],
             ['demo_version' => 'demo38', 'label' => __('Demo 38')],
+            ['demo_version' => 'demo39', 'label' => __('Demo 39')],
+            ['demo_version' => 'demo40', 'label' => __('Demo 40')],
         ];
     }
 

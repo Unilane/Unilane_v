@@ -1,5 +1,6 @@
 <?php
 namespace Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal;
+use Magento\Framework\Filter\FilterInput;
 
 class Save extends \Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal
 {
@@ -35,7 +36,7 @@ class Save extends \Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal
         \Magento\Backend\App\Action\Context $context,
         \Magento\Catalog\Model\ProductFactory $productFactory
     ) {
-    
+
         parent::__construct($dailydealFactory, $registry, $context);
 
         $this->backendSession = $context->getSession();
@@ -62,10 +63,10 @@ class Save extends \Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
             $data = $this->filterData($data);
-           
+
             $dailydeal = $this->initDailydeal();
             $dailydeal->setData($data);
-            
+
             $this->_eventManager->dispatch(
                 'sw_dailydeals_dailydeal_prepare_save',
                 [
@@ -75,7 +76,7 @@ class Save extends \Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal
             );
             try {
                 $dailydealCollection=$this->dailydealFactory->create()->getCollection();
-       
+
                 $dailydealCollection->addFieldToSelect('*');
                 $dailydealCollection->addFieldToFilter('sw_product_sku', ['eq'=>$data["sw_product_sku"]]);
                 if (isset($dailydealId)) {
@@ -84,7 +85,7 @@ class Save extends \Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal
                         $editaction=1;
                     }
                 }
-              
+
                 if ($dailydealCollection->getSize()== 0 || isset($editaction)) {
                     if ($data["sw_deal_enable"] == 1) {
                         $productCollection=$this->productFactory->create()->getCollection();
@@ -94,7 +95,7 @@ class Save extends \Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal
                         $finalproductprice=$product->getFirstItem()->getFinalPrice();
                         if ($product->getFirstItem()->getTypeId() != "bundle") {
                             if ($data["sw_discount_type"] == 1) { // For Fixed
-                          
+
                                 $dailydeal->setSwProductPrice($finalproductprice - $data["sw_discount_amount"]);
                             } elseif ($data["sw_discount_type"] == 2) { // For Percentage
                                 $dailydeal->setSwProductPrice($finalproductprice  - (($finalproductprice * $data["sw_discount_amount"])/100));
@@ -108,12 +109,12 @@ class Save extends \Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal
                     $dailydeal->setSwDateTo($todate);
 
                     $dailydeal->save();
-    
+
                     $this->messageManager->addSuccess(__('The Dailydeal has been saved.'));
                 } else {
                     $this->messageManager->addError("Already set dailydeal for this Product.");
                 }
- 
+
                 $this->backendSession->setSwDailydealsDailydealData(false);
                 if ($this->getRequest()->getParam('back')) {
                     $resultRedirect->setPath(
@@ -156,7 +157,7 @@ class Save extends \Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal
      */
     protected function filterData($data)
     {
-        $inputFilter = new \Zend_Filter_Input(
+        $inputFilter = new FilterInput(
             [
                 'sw_date_from' => $this->dateFilter,
                 'sw_date_to' => $this->dateFilter,

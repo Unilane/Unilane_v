@@ -37,7 +37,7 @@ class Dailydeal extends \Magento\Backend\Block\Widget\Form\Generic implements \M
         \Magento\Framework\Data\FormFactory $formFactory,
         array $data = []
     ) {
-    
+
         $this->booleanOptions         = $booleanOptions;
         $this->swDiscountTypeOptions = $swDiscountTypeOptions;
         $this->swDealProductOptions = $swDealProductOptions;
@@ -118,9 +118,9 @@ class Dailydeal extends \Magento\Backend\Block\Widget\Form\Generic implements \M
                 'name'  => 'sw_date_from',
                 'label' => __('Date From'),
                 'title' => __('Date From'),
-                'date_format' => $this->_localeDate->getDateFormat(\IntlDateFormatter::SHORT),
-                'time_format' => $this->_localeDate->getTimeFormat(\IntlDateFormatter::SHORT),
-        
+                'date_format' => 'MM/d/Y',
+                'time_format' => 'HH:mm',
+
                 'class' => 'validate-date',
             ]
         );
@@ -131,9 +131,8 @@ class Dailydeal extends \Magento\Backend\Block\Widget\Form\Generic implements \M
                 'name'  => 'sw_date_to',
                 'label' => __('Date To'),
                 'title' => __('Date To'),
-                'date_format' => $this->_localeDate->getDateFormat(\IntlDateFormatter::SHORT),
-                'time_format' => $this->_localeDate->getTimeFormat(\IntlDateFormatter::SHORT),
-                // 'time_format' => 'hh:mm:ss a',
+                'date_format' => 'MM/d/Y',
+                'time_format' => 'HH:mm', 
                 'class' => 'validate-date',
             ]
         );

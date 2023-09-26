@@ -25,9 +25,7 @@ class SwDealProduct implements \Magento\Framework\Option\ArrayInterface
 
     public function toOptionArray()
     {
-
-//        $childArray=[];
-        // Temporary fix
+ 
         $childArray=[0];
 
         $productcollection=$this->productFactory->create()->getCollection();

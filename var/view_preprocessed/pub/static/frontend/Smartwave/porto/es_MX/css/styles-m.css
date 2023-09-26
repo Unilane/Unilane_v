@@ -544,10 +544,6 @@ select:not([disabled]):focus {
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-.checkout-index-index .product-item .qty-wrapper {
-  display: flex;
-  justify-content: space-between;
-}
 .abs-reset-list,
 .bundle-options-container .block-bundle-summary .bundle.items,
 .product-items,
@@ -6674,6 +6670,30 @@ div[data-content-type='video'] video {
 .filter-content .active.icon-expand:after {
   content: '\e622';
 }
+.filter-content input[type="text"]:focus,
+.filter-content input[type="checkbox"]:focus,
+.filter-content input[type="radio"]:focus,
+.filter-content select:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.filter-content .filter-options-item li a:hover {
+  background: none !important;
+  color: #006bb4;
+}
+.filter-content .filter-options-item li a:hover span {
+  color: #006bb4;
+}
+.filter-content .filter-options-item .ui-slider-handle {
+  height: 15px !important;
+  width: 15px !important;
+  background: #01007F;
+  left: -2px;
+  bottom: -3px;
+}
+.filter-content #ln_slider_price {
+  margin-bottom: 5px;
+}
 /**
  * Mageplaza
  *
@@ -7651,7 +7671,7 @@ p.short-des {
 .multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .col.qty span,
 .checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .col.subtotal span,
 .multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .col.subtotal span {
-  font-size: 1.4rem;
+  font-size: 15px;
   line-height: 1.42857143;
 }
 .checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items thead tr > th,
@@ -9038,7 +9058,7 @@ ul.products li {
   position: absolute;
   right: 0;
   bottom: -44px;
-  width: 1.4em;
+  width: 20px;
   visibility: visible;
   z-index: 3;
 }
@@ -11886,7 +11906,7 @@ body.catalog-product-compare-index .action.print {
 .cart-discount {
   border-bottom: 1px solid #e7e7e7;
   clear: left;
-  margin-top: -60px;
+  margin-top: 0;
 }
 .cart-discount .block > .title {
   display: none;
@@ -12597,6 +12617,9 @@ fieldset[disabled] .opc-estimated-wrapper .minicart-wrapper button.action.showca
   right: 0;
   top: 1px;
 }
+.field-tooltip > .label {
+  display: none;
+}
 .field-tooltip._active {
   z-index: 100;
 }
@@ -13059,6 +13082,10 @@ fieldset[disabled] .opc-estimated-wrapper .minicart-wrapper button.action.showca
   text-align: center;
   text-transform: uppercase;
   top: 0;
+}
+.block-authentication .actions-toolbar > .primary .action {
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 .checkout-payment-method .step-title {
   margin-bottom: 0;
@@ -15067,6 +15094,9 @@ fieldset[disabled] .wishlist.window.popup .popup-actions .action.close {
 }
 .multishipping-checkout-success .nav-sections {
   display: block;
+}
+.multishipping-checkout-login .login-container > .action.create {
+  display: none;
 }
 .block.newsletter .form.subscribe {
   display: table;

@@ -15,6 +15,6 @@
                 <container name="sidebar.additional" as="sidebar_additional" label="Sidebar Additional"/>
             </container>
           </container>
-        </container> 
-    </referenceContainer>
+        </container>
+    </referenceContainer> 
 </layout>

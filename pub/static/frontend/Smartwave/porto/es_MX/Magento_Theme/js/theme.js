@@ -5,7 +5,7 @@
 require([
     'jquery',
     'mage/smart-keyboard-handler',
-    'mage/mage', 
+    'mage/mage',
     'domReady!'
 ], function ($, keyboardHandler) {
     'use strict';
@@ -184,7 +184,7 @@ require([
 });
 require([
     'jquery',
-    'js/jquery.lazyload'
+    'lazyload'
 ], function ($) {
     $(document).ready(function(){
         $("img.porto-lazyload:not(.porto-lazyload-loaded)").lazyload({effect:"fadeIn", effect_speed: 400 });

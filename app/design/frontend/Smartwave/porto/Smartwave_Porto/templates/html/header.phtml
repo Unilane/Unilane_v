@@ -1,13 +1,8 @@
 <?php
-    use Magento\Framework\App\ObjectManager;
-    use Magento\Customer\Model\Session;
     $_helper = $this->helper('Smartwave\Porto\Helper\Data');
     $header_type = $this->getConfig('porto_settings/header/header_type');
     $header2_text = $this->getConfig('porto_settings/header/header2_text');
     $show_notice = $this->getConfig('porto_settings/general/show_site_notice');
-    $objectManager = ObjectManager::getInstance();
-    $customerSession = $objectManager->get(Session::class);
-    $customerName = $customerSession->getCustomer()->getName();
     if ($show_notice && $show_notice == 1)
         echo $this->getChildHtml("porto_custom_notice");
 ?>
@@ -40,7 +35,7 @@
           </div>
       </div>
   </div>
-  <div class="header-main" style="margin-top: -20px;">
+  <div class="header-main">
     <div class="header content header-row">
       <div class="header-left">
         <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
@@ -54,27 +49,7 @@
       </div>
       <div class="header-right">
         <div class="header-contact">
-          <div class="custom-html">
-              <a class="porto-sicon-box-link" href="#" title="My Account">
-                <div class="porto-sicon-box mb-0 style_1 default-icon">
-                  <div class="porto-sicon-default">
-                    <div class="porto-just-icon-wrapper" style="text-align: center;">
-                      <div class="porto-icon advanced" style="color: #FFFFFF; background: transparent; border-style: solid; border-color: #FFFFFF; border-width: 1px; width: 50px; height: 50px; line-height: 50px; border-radius: 26px; font-size: 25px; display: inline-block;">
-                        <i class="porto-icon-user-2"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="porto-sicon-header">
-                    <h3 class="porto-sicon-title" style="font-weight: 400; font-size: 12px; line-height: 12px; color: #FFFFFF;">Bienvenido!</h3>
-                    <?php if ($customerSession->isLoggedIn()) {
-                          echo "<p style='font-weight: 700; font-size: 13px; line-height: 13px; color: #FFFFFF;'>$customerName</p>";
-                      } else {
-                          echo "<p style='font-weight: 700; font-size: 13px; line-height: 13px; color: #FFFFFF;'>Iniciar sesion</p>";
-                      } ?>
-                  </div>
-                </div>
-              </a>
-            </div>
+          <?php echo $this->getChildHtml("custom_block"); ?>
           <a href="<?php echo $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account m-l-xs mr-1 mr-lg-2" title="My Account"><i class="porto-icon-user-2"></i></a>
           <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist mr-1 mr-lg-2 pr-lg-1" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
         </div>
@@ -1503,6 +1478,9 @@
     </div>
   </div>
   <?php echo $this->getChildHtml("navigation.sections"); ?>
+  <div class="header-bottom">
+    <?php echo $this->getChildHtml("custom_block_menu"); ?>
+  </div>
 <?php elseif($header_type == 24): ?>
   <div class="main-panel-top">
       <div class="container">
@@ -1578,7 +1556,7 @@
     <div class="header content header-row">
       <div class="header-left">
         <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-        <?php echo $this->getChildHtml("logo"); ?> 
+        <?php echo $this->getChildHtml("logo"); ?>
       </div>
       <div class="header-right">
         <div class="search-area show-icon-tablet">

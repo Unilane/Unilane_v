@@ -54,6 +54,7 @@
 </div>]]></header23_text>
             <static_block_top>porto_custom_block_for_header_top</static_block_top>
             <static_block>porto_custom_block_for_header_16</static_block>
+            <header_bottom_block></header_bottom_block>
             <sticky_header>0</sticky_header>
             <sticky_header_logo>0</sticky_header_logo>
             <mobile_sticky_header>1</mobile_sticky_header>

@@ -47,7 +47,7 @@
             }
             .product-item-name {
                 &:extend(.abs-checkout-product-name all);
-                
+
                 > a {
                     &, &:hover {
                         color: @link__color;
@@ -188,7 +188,7 @@
                     line-height: 1.4;
                 }
             }
-            
+
             .methods-payment .item-title label {
                 font-size: 14px;
                 vertical-align: top;
@@ -225,6 +225,13 @@
         .nav-sections {
             display: block;
         }
+    }
+    .multishipping-checkout-login {
+      .login-container {
+        > .action.create {
+          display: none;
+        }
+      }
     }
 }
 

@@ -64,7 +64,7 @@ class FeaturedList extends \Magento\Catalog\Block\Product\ListProduct {
                 ->addAttributeToSelect('small_image')
                 ->addAttributeToSelect('thumbnail')
                 ->addAttributeToSelect($this->_catalogConfig->getProductAttributes())
-                ->addUrlRewrite() 
+                ->addUrlRewrite()
                 ->addAttributeToFilter('sw_featured', 1, 'left');
         }
 

@@ -41,8 +41,18 @@ body {
 if(isset($d['general']['theme_color']) && $d['general']['theme_color']) {
 ?>
 :root {
-    --theme-color: <?php if (strlen($d['general']['theme_color']) == 6): echo "#"; endif; ?><?php echo $d['general']['theme_color']; ?>; 
-    --border-search-color: <?php if (strlen($d['header']['header_search_bordercolor']) == 6): echo "#"; endif; ?><?php echo $d['header']['header_search_bordercolor']; ?>;
+    --theme-color: <?php if (strlen($d['general']['theme_color']) == 6): echo "#"; endif; ?><?php echo $d['general']['theme_color']; ?>;
+    --border-search-color: <?php if (strlen($d['header']['header_search_bordercolor']?$d['header']['header_search_bordercolor']:'777') == 6): echo "#"; endif; ?><?php echo $d['header']['header_search_bordercolor'] ? $d['header']['header_search_bordercolor'] : '#777'; ?>;
+      <?php if(isset($d['colors']['button_bg_color']) && $d['colors']['button_bg_color']){ ?>
+    --button-bg-color: <?php if (strlen($d['colors']['button_bg_color']) == 6): echo "#"; endif; ?><?php echo $d['colors']['button_bg_color']; ?>;
+    --button-border-color: <?php if (strlen($d['colors']['button_bg_color']) == 6): echo "#"; endif; ?><?php echo $d['colors']['button_bg_color']; ?>;
+    --button-text-color: <?php if (strlen($d['colors']['button_text_color']) == 6): echo "#"; endif; ?><?php echo $d['colors']['button_text_color']; ?>;
+      <?php }?>
+      <?php if(isset($d['colors']['button_hover_bg_color']) && $d['colors']['button_hover_bg_color']){ ?>
+    --button-bg-hover-color: <?php if (strlen($d['colors']['button_hover_bg_color']) == 6): echo "#"; endif; ?><?php echo $d['colors']['button_hover_bg_color']; ?>;
+    --button-border-hover-color:<?php if (strlen($d['colors']['button_hover_bg_color']) == 6): echo "#"; endif; ?><?php echo $d['colors']['button_hover_bg_color']; ?>;
+    --button-text-hover-color: <?php if (strlen($d['colors']['button_hover_text_color']) == 6): echo "#"; endif; ?><?php echo $d['colors']['button_hover_text_color']; ?>;
+      <?php }?>
 }
 html .background-color-primary {
     background-color: <?php if (strlen($d['general']['theme_color']) == 6): echo "#"; endif; ?><?php echo $d['general']['theme_color']; ?> !important;

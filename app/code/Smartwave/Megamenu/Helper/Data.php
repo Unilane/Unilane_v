@@ -15,6 +15,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     protected $_categoryFlatConfig;
     protected $_filterProvider;
     protected $resultPageFactory;
+    protected $_storeManager;
 
     public function __construct(
         \Magento\Framework\App\Helper\Context $context,

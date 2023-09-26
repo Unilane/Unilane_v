@@ -73,6 +73,7 @@
         <arguments>
             <argument name="factories" xsi:type="array">
                 <item name="elasticsearch7" xsi:type="object">mpElasticsearchCategoryCollectionFactory</item>
+                <item name="opensearch" xsi:type="object">mpElasticsearchCategoryCollectionFactory</item>
             </argument>
         </arguments>
     </virtualType>
@@ -95,6 +96,7 @@
         <arguments>
             <argument name="factories" xsi:type="array">
                 <item name="elasticsearch7" xsi:type="object">mpElasticsearchFulltextSearchCollectionFactory</item>
+                <item name="opensearch" xsi:type="object">mpElasticsearchFulltextSearchCollectionFactory</item>
             </argument>
         </arguments>
     </virtualType>
@@ -105,4 +107,7 @@
     <type name="Magento\Framework\App\PageCache\Kernel">
         <plugin name="mplayerProcessRequest" type="Mageplaza\LayeredNavigation\Plugin\PageCache\ProcessRequest" />
     </type>
+
+    <preference for="Magento\Elasticsearch\Model\ResourceModel\Fulltext\Collection\SearchResultApplier"
+                type="Mageplaza\LayeredNavigation\Model\ResourceModel\Fulltext\Collection\SearchResultApplier"/>
 </config>

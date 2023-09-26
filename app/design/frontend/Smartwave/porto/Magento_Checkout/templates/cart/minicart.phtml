@@ -33,8 +33,8 @@ $popup_design = $_portohelper->getConfig('porto_design/header/header_minicart_po
         <span class="cart-subtotal">
           <?php echo __('Shopping Cart'); ?>
           <span class="cart-price">
-            <span class="amount" data-bind="html: getCartParam('subtotal_excl_tax')">
-              <!-- ko if: !getCartParam('subtotal_excl_tax') -->
+            <span class="amount" data-bind="html: getCartParam('subtotal')">
+              <!-- ko if: !getCartParam('subtotal') -->
                   <!-- ko i18n: '€ 0.00' --><!-- /ko -->
               <!-- /ko -->
             </span>

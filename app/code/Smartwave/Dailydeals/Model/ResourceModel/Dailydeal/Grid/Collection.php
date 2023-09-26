@@ -34,9 +34,9 @@ class Collection extends \Smartwave\Dailydeals\Model\ResourceModel\Dailydeal\Col
         $eventPrefix,
         $eventObject,
         $resourceModel,
-        $model = 'Magento\Framework\View\Element\UiComponent\DataProvider\Document'
+        $model = \Magento\Framework\View\Element\UiComponent\DataProvider\Document::class,
     ) {
-    
+
         parent::__construct($entityFactory, $logger, $fetchStrategy, $eventManager);
         $this->_eventPrefix = $eventPrefix;
         $this->_eventObject = $eventObject;
@@ -46,7 +46,9 @@ class Collection extends \Smartwave\Dailydeals\Model\ResourceModel\Dailydeal\Col
 
 
     /**
-     * @return \Magento\Framework\Search\AggregationInterface
+     * Get aggregation interface instance
+     *
+     * @return AggregationInterface
      */
     public function getAggregations()
     {
@@ -54,26 +56,15 @@ class Collection extends \Smartwave\Dailydeals\Model\ResourceModel\Dailydeal\Col
     }
 
     /**
-     * @param \Magento\Framework\Search\AggregationInterface $aggregations
+     * Set aggregation interface instance
+     *
+     * @param AggregationInterface $aggregations
      * @return $this
      */
     public function setAggregations($aggregations)
     {
         $this->aggregations = $aggregations;
-    }
-
-
-    /**
-     * Retrieve all ids for collection
-     * Backward compatibility with EAV collection
-     *
-     * @param int $limit
-     * @param int $offset
-     * @return array
-     */
-    public function getAllIds($limit = null, $offset = null)
-    {
-        return $this->getConnection()->fetchCol($this->_getAllIdsSelect($limit, $offset), $this->_bindParams);
+        return $this;
     }
 
     /**
