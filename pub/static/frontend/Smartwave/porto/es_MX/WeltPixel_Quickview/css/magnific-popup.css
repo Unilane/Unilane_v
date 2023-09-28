@@ -44,12 +44,15 @@
   vertical-align: middle;
   margin: 0 auto;
   text-align: left;
-  z-index: 1045; }
+  z-index: 1045; 
+}
 
 .mfp-inline-holder .mfp-content,
 .mfp-ajax-holder .mfp-content {
-  width: 100%;
-  cursor: auto; }
+  width: 32%;
+  background-color: #FFF;
+  cursor: auto;
+ }
 
 .mfp-ajax-cur {
   cursor: progress; }
@@ -66,7 +69,8 @@
   cursor: zoom-in; }
 
 .mfp-auto-cursor .mfp-content {
-  cursor: auto; }
+  cursor: auto; 
+}
 
 .mfp-close,
 .mfp-arrow,

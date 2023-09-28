@@ -55,14 +55,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,25,36,244
+                            2,36,245
                         ]);
                         $items->setStockData(
                             array( 
@@ -82,14 +82,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             $items->setVisibility(4);
                             $items->setStatus(1);
                             $items->setTypeId('simple');
-                            $items->setTaxClassId([2]);
+                            $items->setTaxClassId(2);
                             $items->setWebsiteIds([1]);
                             //ICECAT
                             $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                             $items->setBrandName($product['marca']);
                             $items->setProductCode($product['numParte']);                    
                             $items->setCategoryIds([
-                                2,51,66,242
+                                2,67,243
                             ]);
                             $items->setStockData(
                                 array( 
@@ -109,14 +109,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,66,241
+                            2,67,242
                         ]);
                         $items->setStockData(
                             array( 
@@ -136,14 +136,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,66,240
+                            2,67,241
                         ]);
                         $items->setStockData(
                             array( 
@@ -163,14 +163,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,66,239,25,36,102
+                            2,67,240,36,103
                         ]);
                         $items->setStockData(
                             array( 
@@ -190,14 +190,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,66,238
+                            2,67,239
                         ]);
                         $items->setStockData(
                             array( 
@@ -217,14 +217,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,66,237
+                            2,67,238
                         ]);
                         $items->setStockData(
                             array( 
@@ -244,14 +244,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,66,236
+                            2,67,237
                         ]);
                         $items->setStockData(
                             array( 
@@ -271,14 +271,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,66,235
+                            2,67,236
                         ]);
                         $items->setStockData(
                             array( 
@@ -298,14 +298,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,66,234
+                            2,67,235
                         ]);
                         $items->setStockData(
                             array( 
@@ -325,14 +325,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,66,233
+                            2,67,234
                         ]);
                         $items->setStockData(
                             array( 
@@ -352,14 +352,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,66,232
+                            2,67,233
                         ]);
                         $items->setStockData(
                             array( 
@@ -379,14 +379,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,65,231
+                            2,66,232
                         ]);
                         $items->setStockData(
                             array( 
@@ -406,14 +406,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,65,230
+                            2,66,231
                         ]);
                         $items->setStockData(
                             array( 
@@ -433,14 +433,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,65,229
+                            2,66,230
                         ]);
                         $items->setStockData(
                             array( 
@@ -460,14 +460,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,65,228
+                            2,66,229
                         ]);
                         $items->setStockData(
                             array( 
@@ -487,14 +487,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,65,227
+                            2,66,228
                         ]);
                         $items->setStockData(
                             array( 
@@ -514,14 +514,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,65,226
+                            2,66,227
                         ]);
                         $items->setStockData(
                             array( 
@@ -541,14 +541,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,65,225
+                            2,66,226
                         ]);
                         $items->setStockData(
                             array( 
@@ -568,14 +568,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,66,222
+                            2,64,222
                         ]);
                         $items->setStockData(
                             array( 
@@ -595,14 +595,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,64,217
+                            2,64,218
                         ]);
                         $items->setStockData(
                             array( 
@@ -622,14 +622,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,64,216
+                            2,64,217
                         ]);
                         $items->setStockData(
                             array( 
@@ -649,14 +649,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,63,214
+                            2,63,215
                         ]);
                         $items->setStockData(
                             array( 
@@ -676,14 +676,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,63,213
+                            2,63,214
                         ]);
                         $items->setStockData(
                             array( 
@@ -703,14 +703,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,63,212
+                            2,63,213
                         ]);
                         $items->setStockData(
                             array( 
@@ -730,14 +730,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,63,211
+                            2,63,212
                         ]);
                         $items->setStockData(
                             array( 
@@ -757,14 +757,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,63,210
+                            2,63,211
                         ]);
                         $items->setStockData(
                             array( 
@@ -784,14 +784,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,63,209
+                            2,63,210
                         ]);
                         $items->setStockData(
                             array( 
@@ -811,14 +811,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,63,208,49,56,165,26,40,124
+                            2,63,209,56,166,40,125
                         ]);
                         $items->setStockData(
                             array( 
@@ -838,14 +838,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,63,207
+                            2,63,208
                         ]);
                         $items->setStockData(
                             array( 
@@ -865,14 +865,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,63,206
+                            2,63,207
                         ]);
                         $items->setStockData(
                             array( 
@@ -892,14 +892,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,62,205
+                            2,62,206
                         ]);
                         $items->setStockData(
                             array( 
@@ -919,14 +919,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,62,204
+                            2,62,205
                         ]);
                         $items->setStockData(
                             array( 
@@ -946,14 +946,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,62,203
+                            2,62,204
                         ]);
                         $items->setStockData(
                             array( 
@@ -973,14 +973,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,62,202
+                            2,62,203
                         ]);
                         $items->setStockData(
                             array( 
@@ -1000,14 +1000,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,62,201
+                            2,62,202
                         ]);
                         $items->setStockData(
                             array( 
@@ -1027,14 +1027,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,62,200
+                            2,62,201
                         ]);
                         $items->setStockData(
                             array( 
@@ -1054,14 +1054,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,62,198
+                            2,62,199
                         ]);
                         $items->setStockData(
                             array( 
@@ -1081,14 +1081,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,25,36,104
+                            2,36,105
                         ]);
                         $items->setStockData(
                             array( 
@@ -1108,14 +1108,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,62,197
+                            2,62,198
                         ]);
                         $items->setStockData(
                             array( 
@@ -1135,14 +1135,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,61,195
+                            2,61,196
                         ]);
                         $items->setStockData(
                             array( 
@@ -1162,14 +1162,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,61,194
+                            2,61,195
                         ]);
                         $items->setStockData(
                             array( 
@@ -1189,14 +1189,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,61,193
+                            2,61,194
                         ]);
                         $items->setStockData(
                             array( 
@@ -1216,14 +1216,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,61,192
+                            2,61,193
                         ]);
                         $items->setStockData(
                             array( 
@@ -1243,14 +1243,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,61,191
+                            2,61,192
                         ]);
                         $items->setStockData(
                             array( 
@@ -1270,14 +1270,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,61,190
+                            2,61,191
                         ]);
                         $items->setStockData(
                             array( 
@@ -1297,14 +1297,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,61,189
+                            2,61,190
                         ]);
                         $items->setStockData(
                             array( 
@@ -1324,14 +1324,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,61,188
+                            2,61,189
                         ]);
                         $items->setStockData(
                             array( 
@@ -1351,14 +1351,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,61,187
+                            2,61,188
                         ]);
                         $items->setStockData(
                             array( 
@@ -1378,14 +1378,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,50,60,186
+                            2,60,187
                         ]);
                         $items->setStockData(
                             array( 
@@ -1405,14 +1405,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,50,60,185
+                            2,60,186
                         ]);
                         $items->setStockData(
                             array( 
@@ -1432,14 +1432,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,50,60,184
+                            2,60,185
                         ]);
                         $items->setStockData(
                             array( 
@@ -1459,14 +1459,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,50,59,183
+                            2,59,184
                         ]);
                         $items->setStockData(
                             array( 
@@ -1486,14 +1486,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,50,59,182
+                            2,59,183
                         ]);
                         $items->setStockData(
                             array( 
@@ -1513,14 +1513,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,50,59,181
+                            2,59,182
                         ]);
                         $items->setStockData(
                             array( 
@@ -1540,14 +1540,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,50,59,180
+                            2,59,181
                         ]);
                         $items->setStockData(
                             array( 
@@ -1567,14 +1567,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,50,59,179
+                            2,59,180
                         ]);
                         $items->setStockData(
                             array( 
@@ -1594,14 +1594,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,50,59,178
+                            2,59,179
                         ]);
                         $items->setStockData(
                             array( 
@@ -1621,14 +1621,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,50,59,177
+                            2,59,178
                         ]);
                         $items->setStockData(
                             array( 
@@ -1648,14 +1648,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,50,59,176,24,32,77
+                            2,59,177,32,77
                         ]);
                         $items->setStockData(
                             array( 
@@ -1675,14 +1675,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,50,59,175
+                            2,59,176
                         ]);
                         $items->setStockData(
                             array( 
@@ -1702,14 +1702,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,50,59,174
+                            2,59,175
                         ]);
                         $items->setStockData(
                             array( 
@@ -1729,14 +1729,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,50,59,173
+                            2,59,174
                         ]);
                         $items->setStockData(
                             array( 
@@ -1756,14 +1756,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,49,58,171
+                            2,58,172
                         ]);
                         $items->setStockData(
                             array( 
@@ -1783,14 +1783,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,64,221,49,57,168
+                            2,64,222,57,169
                         ]);
                         $items->setStockData(
                             array( 
@@ -1810,14 +1810,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,64,220,49,57,167
+                            2,64,221,57,168
                         ]);
                         $items->setStockData(
                             array( 
@@ -1837,14 +1837,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,25,36,105
+                            2,36,106
                         ]);
                         $items->setStockData(
                             array( 
@@ -1864,14 +1864,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,24,32,77,24,31,69
+                            2,32,78,31,70
                         ]);
                         $items->setStockData(
                             array( 
@@ -1891,14 +1891,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,64,215,49,57,166
+                            2,64,216,57,167
                         ]);
                         $items->setStockData(
                             array( 
@@ -1918,14 +1918,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,49,56,164
+                            2,56,165
                         ]);
                         $items->setStockData(
                             array( 
@@ -1945,14 +1945,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,64,224,49,56,163
+                            2,64,225,56,164
                         ]);
                         $items->setStockData(
                             array( 
@@ -1972,14 +1972,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,49,56,162
+                            2,56,163
                         ]);
                         $items->setStockData(
                             array( 
@@ -1999,14 +1999,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,49,56,160,159
+                            2,56,161,56,160
                         ]);
                         $items->setStockData(
                             array( 
@@ -2026,14 +2026,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,64,219,28,55,158
+                            2,64,220,55,159
                         ]);
                         $items->setStockData(
                             array( 
@@ -2053,14 +2053,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,51,64,223,28,55,157
+                            2,64,224,55,158
                         ]);
                         $items->setStockData(
                             array( 
@@ -2080,14 +2080,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             $items->setVisibility(4);
                             $items->setStatus(1);
                             $items->setTypeId('simple');
-                            $items->setTaxClassId([2]);
+                            $items->setTaxClassId(2);
                             $items->setWebsiteIds([1]);
                             //ICECAT
                             $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                             $items->setBrandName($product['marca']);
                             $items->setProductCode($product['numParte']);                    
                             $items->setCategoryIds([
-                                2,28,54,155
+                                2,54,156
                             ]);
                             $items->setStockData(
                                 array( 
@@ -2107,14 +2107,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,28,54,154
+                            2,54,155
                         ]);
                         $items->setStockData(
                             array( 
@@ -2134,14 +2134,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,28,54,153
+                            2,54,154
                         ]);
                         $items->setStockData(
                             array( 
@@ -2161,14 +2161,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,49,58,170,28,53,152
+                            2,58,171,53,153
                         ]);
                         $items->setStockData(
                             array( 
@@ -2188,14 +2188,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,49,58,172,28,53,151
+                            2,58,173,53,152
                         ]);
                         $items->setStockData(
                             array( 
@@ -2215,14 +2215,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,49,58,169,28,53,150
+                            2,58,170,53,151
                         ]);
                         $items->setStockData(
                             array( 
@@ -2242,14 +2242,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,28,53,149
+                            2,53,150
                         ]);
                         $items->setStockData(
                             array( 
@@ -2269,14 +2269,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,28,53,148
+                            2,53,149
                         ]);
                         $items->setStockData(
                             array( 
@@ -2296,14 +2296,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,28,53,147
+                            2,53,148
                         ]);
                         $items->setStockData(
                             array( 
@@ -2323,14 +2323,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,28,53,146
+                            2,53,147
                         ]);
                         $items->setStockData(
                             array( 
@@ -2350,14 +2350,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,28,53,145
+                            2,53,146
                         ]);
                         $items->setStockData(
                             array( 
@@ -2377,14 +2377,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,28,52,144
+                            2,52,145
                         ]);
                         $items->setStockData(
                             array( 
@@ -2404,14 +2404,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,28,52,143,142
+                            2,52,142
                         ]);
                         $items->setStockData(
                             array( 
@@ -2431,14 +2431,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,27,44,141
+                            2,44,142
                         ]);
                         $items->setStockData(
                             array( 
@@ -2458,14 +2458,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,27,44,140
+                            2,44,141
                         ]);
                         $items->setStockData(
                             array( 
@@ -2485,14 +2485,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,27,44,139
+                            2,44,140
                         ]);
                         $items->setStockData(
                             array( 
@@ -2512,14 +2512,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,27,44,138
+                            2,44,139
                         ]);
                         $items->setStockData(
                             array( 
@@ -2539,14 +2539,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,27,43,143
+                            2,43,144
                         ]);
                         $items->setStockData(
                             array( 
@@ -2566,14 +2566,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,28,52,143,43,27,136
+                            2,52,144,27,137
                         ]);
                         $items->setStockData(
                             array( 
@@ -2593,14 +2593,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,27,43,135
+                            2,43,136
                         ]);
                         $items->setStockData(
                             array( 
@@ -2620,14 +2620,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,27,43,134
+                            2,43,135
                         ]);
                         $items->setStockData(
                             array( 
@@ -2647,14 +2647,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,27,42,133
+                            2,42,134
                         ]);
                         $items->setStockData(
                             array( 
@@ -2674,14 +2674,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,27,42,132
+                            2,42,133
                         ]);
                         $items->setStockData(
                             array( 
@@ -2701,14 +2701,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,27,42,131
+                            2,42,132
                         ]);
                         $items->setStockData(
                             array( 
@@ -2728,14 +2728,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,27,42,130
+                            2,42,131
                         ]);
                         $items->setStockData(
                             array( 
@@ -2755,14 +2755,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,27,42,129
+                            2,42,130
                         ]);
                         $items->setStockData(
                             array( 
@@ -2782,14 +2782,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,26,41,128
+                            2,41,129
                         ]);
                         $items->setStockData(
                             array( 
@@ -2809,14 +2809,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,26,41,127
+                            2,41,128
                         ]);
                         $items->setStockData(
                             array( 
@@ -2836,14 +2836,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,28,54,156,155,41,26,126
+                            2,54,157,41,127
                         ]);
                         $items->setStockData(
                             array( 
@@ -2863,14 +2863,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,26,41,125
+                            2,41,126
                         ]);
                         $items->setStockData(
                             array( 
@@ -2890,14 +2890,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,26,40,124
+                            2,40,125
                         ]);
                         $items->setStockData(
                             array( 
@@ -2917,14 +2917,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,26,40,123
+                            2,40,124
                         ]);
                         $items->setStockData(
                             array( 
@@ -2944,14 +2944,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,26,39,121
+                            2,39,122
                         ]);
                         $items->setStockData(
                             array( 
@@ -2971,14 +2971,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,26,39,120
+                            2,39,121
                         ]);
                         $items->setStockData(
                             array( 
@@ -2998,14 +2998,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,49,56,161,26,39,119
+                            2,56,162,39,120
                         ]);
                         $items->setStockData(
                             array( 
@@ -3025,14 +3025,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,26,39,118,161,118
+                            2,39,119,118
                         ]);
                         $items->setStockData(
                             array( 
@@ -3052,14 +3052,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,26,39,117
+                            2,39,118
                         ]);
                         $items->setStockData(
                             array( 
@@ -3079,14 +3079,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,26,38,116
+                            2,38,117
                         ]);
                         $items->setStockData(
                             array( 
@@ -3106,14 +3106,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,26,38,115
+                            2,38,116
                         ]);
                         $items->setStockData(
                             array( 
@@ -3133,14 +3133,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,26,38,114
+                            2,38,115
                         ]);
                         $items->setStockData(
                             array( 
@@ -3160,14 +3160,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,26,38,113
+                            2,38,114
                         ]);
                         $items->setStockData(
                             array( 
@@ -3187,14 +3187,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,26,38,112
+                            2,38,113
                         ]);
                         $items->setStockData(
                             array( 
@@ -3214,14 +3214,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,26,38,111
+                            2,38,112
                         ]);
                         $items->setStockData(
                             array( 
@@ -3241,14 +3241,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,26,38,110
+                            2,38,111
                         ]);
                         $items->setStockData(
                             array( 
@@ -3268,14 +3268,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,25,37,109
+                            2,37,110
                         ]);
                         $items->setStockData(
                             array( 
@@ -3295,14 +3295,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,25,37,108
+                            2,37,109
                         ]);
                         $items->setStockData(
                             array( 
@@ -3322,14 +3322,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,25,37,107,36,106
+                            2,37,108,36,107
                         ]);
                         $items->setStockData(
                             array( 
@@ -3349,14 +3349,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,25,36,105
+                            2,36,106
                         ]);
                         $items->setStockData(
                             array( 
@@ -3376,14 +3376,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,25,36,101
+                            2,36,102
                         ]);
                         $items->setStockData(
                             array( 
@@ -3403,14 +3403,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,25,36,103,100
+                            2,36,104,101
                         ]);
                         $items->setStockData(
                             array( 
@@ -3430,14 +3430,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,25,36,99,98
+                            2,36,100,99
                         ]);
                         $items->setStockData(
                             array( 
@@ -3457,14 +3457,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,26,40,122,25,35,95
+                            2,40,123,35,96
                         ]);
                         $items->setStockData(
                             array( 
@@ -3484,14 +3484,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,25,35,94
+                            2,35,95
                         ]);
                         $items->setStockData(
                             array( 
@@ -3511,14 +3511,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,25,35,93
+                            2,35,94
                         ]);
                         $items->setStockData(
                             array( 
@@ -3538,14 +3538,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,25,35,92
+                            2,35,93
                         ]);
                         $items->setStockData(
                             array( 
@@ -3565,14 +3565,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,25,35,91
+                            2,35,92
                         ]);
                         $items->setStockData(
                             array( 
@@ -3592,14 +3592,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             $items->setVisibility(4);
                             $items->setStatus(1);
                             $items->setTypeId('simple');
-                            $items->setTaxClassId([2]);
+                            $items->setTaxClassId(2);
                             $items->setWebsiteIds([1]);
                             //ICECAT
                             $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                             $items->setBrandName($product['marca']);
                             $items->setProductCode($product['numParte']);                    
                             $items->setCategoryIds([
-                                2,25,35,90
+                                2,35,91
                             ]);
                             $items->setStockData(
                                 array( 
@@ -3619,14 +3619,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,25,35,89
+                            2,35,90
                         ]);
                         $items->setStockData(
                             array( 
@@ -3646,14 +3646,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,24,34,88
+                            2,34,89
                         ]);
                         $items->setStockData(
                             array( 
@@ -3673,14 +3673,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,24,34,87
+                            2,34,88
                         ]);
                         $items->setStockData(
                             array( 
@@ -3700,14 +3700,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,24,34,86
+                            2,34,87
                         ]);
                         $items->setStockData(
                             array( 
@@ -3727,14 +3727,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,24,34,85
+                            2,34,86
                         ]);
                         $items->setStockData(
                             array( 
@@ -3754,14 +3754,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,24,34,84
+                            2,34,85
                         ]);
                         $items->setStockData(
                             array( 
@@ -3781,14 +3781,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,24,34,83
+                            2,34,84
                         ]);
                         $items->setStockData(
                             array( 
@@ -3808,14 +3808,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,24,34,82
+                            2,34,83
                         ]);
                         $items->setStockData(
                             array( 
@@ -3835,14 +3835,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,24,34,81
+                            2,34,82
                         ]);
                         $items->setStockData(
                             array( 
@@ -3862,14 +3862,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,25,35,97,24,33,80
+                            2,35,98,33,81
                         ]);
                         $items->setStockData(
                             array( 
@@ -3889,14 +3889,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,25,35,96,24,33,79
+                            2,35,97,33,80
                         ]);
                         $items->setStockData(
                             array( 
@@ -3916,14 +3916,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,24,33,78
+                            2,33,79
                         ]);
                         $items->setStockData(
                             array( 
@@ -3943,14 +3943,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,24,32,76
+                            2,32,77
                         ]);
                         $items->setStockData(
                             array( 
@@ -3970,14 +3970,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,24,32,75
+                            2,32,76
                         ]);
                         $items->setStockData(
                             array( 
@@ -3997,14 +3997,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,24,31,74
+                            2,31,75
                         ]);
                         $items->setStockData(
                             array( 
@@ -4024,14 +4024,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,24,31,73
+                            2,31,74
                         ]);
                         $items->setStockData(
                             array( 
@@ -4051,14 +4051,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,24,31,72
+                            2,31,73
                         ]);
                         $items->setStockData(
                             array( 
@@ -4078,14 +4078,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,24,31,71
+                            2,31,72
                         ]);
                         $items->setStockData(
                             array( 
@@ -4105,14 +4105,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,24,31,70
+                            2,31,71
                         ]);
                         $items->setStockData(
                             array( 
@@ -4132,14 +4132,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,24,31,69
+                            2,31,70
                         ]);
                         $items->setStockData(
                             array( 
@@ -4159,14 +4159,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,24,31,68
+                            2,31,69
                         ]);
                         $items->setStockData(
                             array( 
@@ -4186,14 +4186,14 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setVisibility(4);
                         $items->setStatus(1);
                         $items->setTypeId('simple');
-                        $items->setTaxClassId([2]);
+                        $items->setTaxClassId(2);
                         $items->setWebsiteIds([1]);
                         //ICECAT
                         $items->setGtinEan($product['upc'] == "" || null ? $product['ean'] : $product['upc']);
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,24,31,67
+                            2,31,68
                         ]);
                         $items->setStockData(
                             array( 

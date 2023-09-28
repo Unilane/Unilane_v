@@ -13,6 +13,10 @@ body {
 html .background-color-primary {
     background-color: #2D5D89 !important;
 }
+span{
+    text-transform:none;
+}
+
 .theme-color{color:#2D5D89 !important;}
 .theme-hover-color:hover{color:#2D5D89 !important;}
 .theme-bg-color{background-color:#2D5D89 !important;}
