@@ -23,7 +23,12 @@ HTML;
     http_response_code(500);
     exit(1);
 }
-
+// $params = $_SERVER;
+// $params[\Magento\Store\Model\StoreManager::PARAM_RUN_CODE] = 'quickstart2000.local';
+// $params[\Magento\Store\Model\StoreManager::PARAM_RUN_TYPE] = 'website';
+// $bootstrap = \Magento\Framework\App\Bootstrap::create(BP, $params);
+// $app = $bootstrap->createApplication('Magento\Framework\App\Http');
+// $bootstrap->run($app);
 $bootstrap = Bootstrap::create(BP, $_SERVER);
 /** @var \Magento\Framework\App\Http $app */
 $app = $bootstrap->createApplication(\Magento\Framework\App\Http::class);
