@@ -91,13 +91,13 @@ class Gd2 extends AbstractAdapter
      */
     private function validateURLScheme(string $filename) : bool
     {
-              $allowed_schemes = ['ftp', 'ftps', 'http', 'https'];
-              $url = parse_url($filename);
-              if ($url && isset($url['scheme']) && !in_array($url['scheme'], $allowed_schemes) && !file_exists($filename)) {
-                  return false;
-              }
-    
-              return true;   
+        $allowed_schemes = ['ftp', 'ftps', 'http', 'https'];
+        $url = parse_url($filename);
+        if ($url && isset($url['scheme']) && !in_array($url['scheme'], $allowed_schemes) && !file_exists($filename)) {
+            return false;
+        }
+
+        return true;   
     }
 
     /**

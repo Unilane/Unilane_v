@@ -29,10 +29,7 @@ class IntegrationIntelisis
         $this->OrderInterface = $OrderInterface;
     }
     public function afterPlace(OrderManagementInterface $subject, OrderInterface $order)
-    {
-        $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/sales.log');
-        $logger = new \Zend_Log();
-        $logger->addWriter($writer);
-        $logger->info('entro');
+    {           
+        echo $orden;
     }
 }

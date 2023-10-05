@@ -1,0 +1,464 @@
+2023-10-04T16:40:44+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-04T16:41:26+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+            [0] => Magento\Search\Model\Autocomplete\Item Object
+                (
+                    [_data:protected] => Array
+                        (
+                            [title] => monitor
+                            [num_results] => 3
+                        )
+
+                )
+
+        )
+
+)
+
+2023-10-04T16:42:05+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-04T16:47:32+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'co%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T16:47:32+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-04T16:49:20+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'mo%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T16:49:20+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+            [0] => Magento\Search\Model\Autocomplete\Item Object
+                (
+                    [_data:protected] => Array
+                        (
+                            [title] => monitor
+                            [num_results] => 3
+                        )
+
+                )
+
+        )
+
+)
+
+2023-10-04T16:52:40+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'computadora%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T16:52:40+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+            [0] => Magento\Search\Model\Autocomplete\Item Object
+                (
+                    [_data:protected] => Array
+                        (
+                            [title] => computadora
+                            [num_results] => 1
+                        )
+
+                )
+
+        )
+
+)
+
+2023-10-04T16:53:10+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'comp%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T16:53:10+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+            [0] => Magento\Search\Model\Autocomplete\Item Object
+                (
+                    [_data:protected] => Array
+                        (
+                            [title] => computadora
+                            [num_results] => 1
+                        )
+
+                )
+
+        )
+
+)
+
+2023-10-04T16:53:11+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'computadora%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T16:53:11+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+            [0] => Magento\Search\Model\Autocomplete\Item Object
+                (
+                    [_data:protected] => Array
+                        (
+                            [title] => computadora
+                            [num_results] => 1
+                        )
+
+                )
+
+        )
+
+)
+
+2023-10-04T16:53:12+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'computad%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T16:53:12+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+            [0] => Magento\Search\Model\Autocomplete\Item Object
+                (
+                    [_data:protected] => Array
+                        (
+                            [title] => computadora
+                            [num_results] => 1
+                        )
+
+                )
+
+        )
+
+)
+
+2023-10-04T16:53:13+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'com%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T16:53:13+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+            [0] => Magento\Search\Model\Autocomplete\Item Object
+                (
+                    [_data:protected] => Array
+                        (
+                            [title] => computadora
+                            [num_results] => 1
+                        )
+
+                )
+
+        )
+
+)
+
+2023-10-04T16:53:14+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'comp%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T16:53:14+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+            [0] => Magento\Search\Model\Autocomplete\Item Object
+                (
+                    [_data:protected] => Array
+                        (
+                            [title] => computadora
+                            [num_results] => 1
+                        )
+
+                )
+
+        )
+
+)
+
+2023-10-04T16:53:14+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'compu%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T16:53:14+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+            [0] => Magento\Search\Model\Autocomplete\Item Object
+                (
+                    [_data:protected] => Array
+                        (
+                            [title] => computadora
+                            [num_results] => 1
+                        )
+
+                )
+
+        )
+
+)
+
+2023-10-04T16:53:15+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'comput%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T16:53:15+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+            [0] => Magento\Search\Model\Autocomplete\Item Object
+                (
+                    [_data:protected] => Array
+                        (
+                            [title] => computadora
+                            [num_results] => 1
+                        )
+
+                )
+
+        )
+
+)
+
+2023-10-04T16:53:57+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'laptop%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T16:53:57+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-04T16:54:36+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'lap%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T16:54:36+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-04T16:54:37+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'moni%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T16:54:37+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+            [0] => Magento\Search\Model\Autocomplete\Item Object
+                (
+                    [_data:protected] => Array
+                        (
+                            [title] => monitor
+                            [num_results] => 3
+                        )
+
+                )
+
+        )
+
+)
+
+2023-10-04T16:54:38+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'monit%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T16:54:38+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+            [0] => Magento\Search\Model\Autocomplete\Item Object
+                (
+                    [_data:protected] => Array
+                        (
+                            [title] => monitor
+                            [num_results] => 3
+                        )
+
+                )
+
+        )
+
+)
+
+2023-10-04T16:54:39+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'monitor%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T16:54:39+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+            [0] => Magento\Search\Model\Autocomplete\Item Object
+                (
+                    [_data:protected] => Array
+                        (
+                            [title] => monitor
+                            [num_results] => 3
+                        )
+
+                )
+
+        )
+
+)
+
+2023-10-04T17:04:53+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'comput%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T17:04:53+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-04T17:04:54+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'computadora%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T17:04:54+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-04T17:29:19+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'compu%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T17:29:19+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-04T17:29:20+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'computadora%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T17:29:20+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-04T17:33:12+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'mon%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T17:33:12+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-04T17:33:13+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'monit%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T17:33:13+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-04T17:33:14+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'monitor%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T17:33:14+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-04T17:33:17+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'monito%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T17:33:17+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-04T17:33:18+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'acer%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T17:33:18+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-04T17:34:15+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'acwe%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T17:34:15+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-04T17:34:16+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'acwe%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T17:34:16+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-04T17:34:17+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'aer%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T17:34:17+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-04T17:34:18+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'acer%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T17:34:18+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-04T17:34:23+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'ace%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T17:34:23+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-04T17:34:27+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'acer%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T17:34:27+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-04T23:51:34+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'lap%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-04T23:51:34+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+

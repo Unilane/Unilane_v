@@ -84,8 +84,9 @@ if ($exist = ($block->getProductCollection() && $block->getProductCollection()->
                             else
                                 $productImage = $_imagehelper->init($_product, $image)->resize($image_width, $image_height);
                             $productImageUrl = $productImage->getUrl();
+                            $imagenRealalv = str_replace("\\","/",$productImageUrl);
                         ?>
-                            <img class="product-image-photo default_image <?php if(!$_lazyload): ?>porto-lazyload<?php endif;?>" <?php if(!$_lazyload): ?>data-<?php endif; ?>src="<?php echo $productImageUrl; ?>" width="<?php echo $image_width; ?>" height="<?php echo $image_height; ?>" alt="<?php //echo $productImage->getLabel();?>"/>
+                            <img class="product-image-photo default_image <?php if(!$_lazyload): ?>porto-lazyload<?php endif;?>" <?php if(!$_lazyload): ?>data-<?php endif; ?>src="<?php echo $imagenRealalv; ?>" width="<?php echo $image_width; ?>" height="<?php echo $image_height; ?>" alt="<?php //echo $productImage->getLabel();?>"/>
                         <?php if($_category_config['alternative_image']): ?>
                         <?php
                             if($aspect_ratio)

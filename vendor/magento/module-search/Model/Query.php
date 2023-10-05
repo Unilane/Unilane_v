@@ -159,6 +159,10 @@ class Query extends AbstractModel implements QueryInterface
             );
             $this->setData('suggest_collection', $collection);
         }
+        $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/search.log');
+        $logger = new \Zend_Log();
+        $logger->addWriter($writer);
+        $logger->info($collection->getSelect()->__toString());
         return $collection;
     }
 

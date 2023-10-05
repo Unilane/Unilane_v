@@ -181,7 +181,10 @@ class Result extends Template
         if (null === $this->productCollection) {
             $this->productCollection = $this->getListBlock()->getLoadedProductCollection();
         }
-
+        $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/search1.log');
+        $logger = new \Zend_Log();
+        $logger->addWriter($writer);
+        $logger->info($this->productCollection->getSelect()->__toString());
         return $this->productCollection;
     }
 

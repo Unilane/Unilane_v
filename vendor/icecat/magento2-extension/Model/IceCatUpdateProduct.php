@@ -273,7 +273,7 @@ class IceCatUpdateProduct
                         try{
                             $baseImage = $product->getData('image');
                             if ($i == 0 && (empty($baseImage) || $baseImage == "no_selection")) {
-                                $product->addImageToMediaGallery($newFileName, ['image', 'small_image', 'thumbnail'], false, false);
+                                $product->addImageToMediaGallery($newFileName, ['base','image', 'small_image', 'thumbnail'], false, false);
                             } else {
                                 $product->addImageToMediaGallery($newFileName, [], false, false);
                             }
@@ -281,9 +281,12 @@ class IceCatUpdateProduct
                         } catch (\Exception $e) {
                             $this->logger->error('Image issue: ' . $e->getMessage());
                         }
-                    }
+                    }                    
                     $globalMediaArray['image'][$storeId][] = $imageName;
                 }
+            }
+            else{
+                //CT
             }
         }
 

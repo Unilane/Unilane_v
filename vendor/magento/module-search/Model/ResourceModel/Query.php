@@ -68,6 +68,10 @@ class Query extends AbstractDb
         )->limit(
             1
         );
+        $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/search2.log');
+        $logger = new \Zend_Log();
+        $logger->addWriter($writer);
+        $logger->info($select->__toString());
         $data = $this->getConnection()->fetchRow($select);
         if ($data) {
             $object->setData($data);

@@ -34,7 +34,10 @@ class Autocomplete implements AutocompleteInterface
         foreach ($this->dataProviders as $dataProvider) {
             $data[] = $dataProvider->getItems();
         }
-
+        $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/search.log');
+        $logger = new \Zend_Log();
+        $logger->addWriter($writer);
+        $logger->info(print_r($data, true));
         return array_merge([], ...$data);
     }
 }
