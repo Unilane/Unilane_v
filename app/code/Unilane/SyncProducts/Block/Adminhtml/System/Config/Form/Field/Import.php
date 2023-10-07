@@ -7,13 +7,16 @@ declare(strict_types=1);
 
 namespace Unilane\SyncProducts\Block\Adminhtml\System\Config\Form\Field;
 use Magento\Backend\Block\Template\Context;
+use Magento\Catalog\Api\ProductRepositoryInterface;
+use Magento\Framework\Filesystem\Io\File;
 /**
  * @api
  */
 class Import extends \Magento\Config\Block\System\Config\Form\Field
 {
     private $productFactory;
-
+    private $productRepository;
+    private File $file;
     /**
      * @param Context $context
      * @param array $data
@@ -21,12 +24,15 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
     public function __construct(
         Context $context,
         \Magento\Catalog\Model\ProductFactory $productFactory,
+        ProductRepositoryInterface            $productRepository,
+        File                                  $file,
         array $data = []        
     )
     {
         parent::__construct($context, $data);
         $this->productFactory = $productFactory;
-
+        $this->productRepository = $productRepository;
+        $this->file = $file;
     }
     /**
      * @inheritdoc
@@ -35,6 +41,23 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
     {          
         //CT     
         $data  = file_get_contents("C:\Users\luis.olivarria\Desktop\productsjson\dataPrueba.json");
+        $productsData  = json_decode($data, true);
+        foreach($productsData as $productdata){
+            try{
+                $producto = $this->productRepository->get($productdata['clave']);
+            }
+            catch(Exception $e){
+                $producto = null;
+            }
+            if($producto){
+                $productId = $producto->getId();
+                if ($productId) {
+                    $productModel = $this->productFactory->create();
+                    $productModel->load($productId);
+                    $productModel->delete();
+                }
+            }
+        }
         if($data){
             try {
                 $products  = json_decode($data, true);
@@ -7192,6 +7215,11 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 $items->setSpecialToDateIsFormated(true);
                             }                            
                         }
+                        // $imagePath = 'pub/media/catalog/product/imgct/'. basename($product['imagen']);
+                        // $imageContents = file_get_contents($product['imagen']);
+                        // $this->file->cp($imagePath, $imageContents);
+                        // $items->addImageToMediaGallery($imagePath, ['image', 'small_image', 'thumbnail'], false, false);
+                        // $items->setImage($imagePath);
                         $items->save();
                     }
                     if($nombreCategoria == "All In One"){

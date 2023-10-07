@@ -288,6 +288,9 @@ class ProductRepository implements \Magento\Catalog\Api\ProductRepositoryInterfa
             $product = $this->productFactory->create();
 
             $productId = $this->resourceModel->getIdBySku($sku);
+            if(!$productId){
+                return null;
+            }
             if (!$productId) {
                 throw new NoSuchEntityException(
                     __("The product that was requested doesn't exist. Verify the product and try again.")

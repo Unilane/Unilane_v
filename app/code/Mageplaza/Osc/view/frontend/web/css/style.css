@@ -291,11 +291,26 @@ fieldset.field.col-mp {
 
 .qty-wrapper {
     padding: 5px;
-    min-width: 83px;
+    min-width: 68px;
     height: 30px;
     white-space: nowrap;
+    display: flex;
+    gap: 3px;
+    align-items: stretch;
 }
-
+.page-header.type1 .search-area .minisearch .actions button {
+    border-radius: 0 25px 25px 0 !important;  
+}
+.footer .newsletter .action.subscribe {   
+    border-radius: 0 2rem 2rem 0 !important;   
+}
+.footer .newsletter input {   
+    border-radius: 2rem 0 0 2rem !important;   
+}
+.opc-block-summary .product-item .price {
+    font-size: 20px !important;
+    font-weight: 400 !important;
+}
 .qty-wrapper .qty-wrap {
     display: inline-block;
     width: 26px;
@@ -318,8 +333,8 @@ fieldset.field.col-mp {
 .button-action {
     display: inline-block;
     width: 18px;
-    height: 18px;
-    padding: 0;
+    height: 31px;
+    padding: 2px;
     overflow: hidden;
     cursor: pointer;
     border-radius: 2px;
@@ -329,8 +344,9 @@ fieldset.field.col-mp {
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
     text-decoration: none;
-    margin-top: -3px;
+    margin-top: -6px;
     background-color: #dddddd;
+    padding-bottom: 15px;
 }
 
 #checkout-review-table {
@@ -912,7 +928,7 @@ a.button-action{
 }
 .qty-wrapper a.button-action{
     color:black;
-    border: 1px solid;
+    /*border: 1px solid;*/
     border-color:#111111 !important;
     border-radius: 4px !important;
 }

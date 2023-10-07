@@ -273,7 +273,7 @@ class IceCatUpdateProduct
                         try{
                             $baseImage = $product->getData('image');
                             if ($i == 0 && (empty($baseImage) || $baseImage == "no_selection")) {
-                                $product->addImageToMediaGallery($newFileName, ['base','image', 'small_image', 'thumbnail'], false, false);
+                                $product->addImageToMediaGallery($newFileName, ['image', 'small_image', 'thumbnail'], false, false);
                             } else {
                                 $product->addImageToMediaGallery($newFileName, [], false, false);
                             }
@@ -436,11 +436,11 @@ class IceCatUpdateProduct
                 }
 
                 .ds_label {
-                    width: 50%;
+                    width: 65%;
                 }
 
                 .ds_data {
-                    width: 50%;
+                    width: 35%;
                 }
             </style>';
                 $specificationHtml .= '<div class="container mb-btm">';
