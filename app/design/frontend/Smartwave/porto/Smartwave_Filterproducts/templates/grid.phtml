@@ -234,15 +234,7 @@ if($product_type == null) {
                         ?>
                         <?php if($review_html): ?>
                             <?php echo $block->getReviewsSummaryHtml($_product, $templateType); ?>
-                        <?php else: ?>
-                        <div class="product-reviews-summary short">
-                            <div class="rating-summary">
-                                <span class="label"><span>Rating:</span></span>
-                                <div class="rating-result" title="0%">
-                                    <span style="width:0"><span>0%</span></span>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <?php endif; ?>
                         <?php endif; ?>
 

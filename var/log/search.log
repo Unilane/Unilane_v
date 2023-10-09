@@ -462,3 +462,23 @@
 
 )
 
+2023-10-07T19:53:30+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'DELLL%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-07T19:53:30+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-07T19:53:31+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'DELL%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-07T19:53:31+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+

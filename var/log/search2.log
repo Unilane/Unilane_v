@@ -19,3 +19,8 @@
 2023-10-04T17:34:23+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'ace') AND (store_id = '1') LIMIT 1
 2023-10-04T17:34:27+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'acer') AND (store_id = '1') LIMIT 1
 2023-10-04T23:51:34+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'lap') AND (store_id = '1') LIMIT 1
+2023-10-07T19:53:30+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'DELLL') AND (store_id = '1') LIMIT 1
+2023-10-07T19:53:31+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'DELL') AND (store_id = '1') LIMIT 1
+2023-10-07T19:53:32+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'DELL') AND (store_id = '1') LIMIT 1
+2023-10-07T19:53:47+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'DELL') AND (store_id = '1') LIMIT 1
+2023-10-07T19:53:49+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'DELL') AND (store_id = '1') LIMIT 1
