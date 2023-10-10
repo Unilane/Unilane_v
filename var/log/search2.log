@@ -24,3 +24,8 @@
 2023-10-07T19:53:32+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'DELL') AND (store_id = '1') LIMIT 1
 2023-10-07T19:53:47+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'DELL') AND (store_id = '1') LIMIT 1
 2023-10-07T19:53:49+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'DELL') AND (store_id = '1') LIMIT 1
+2023-10-10T19:07:14+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'vorogo') AND (store_id = '1') LIMIT 1
+2023-10-10T19:07:16+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'vorog') AND (store_id = '1') LIMIT 1
+2023-10-10T19:09:44+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'bocina') AND (store_id = '1') LIMIT 1
+2023-10-10T19:09:45+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'bocin') AND (store_id = '1') LIMIT 1
+2023-10-10T19:49:51+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'vogo') AND (store_id = '1') LIMIT 1
