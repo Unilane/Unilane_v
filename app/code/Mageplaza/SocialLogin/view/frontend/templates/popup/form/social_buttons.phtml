@@ -25,8 +25,8 @@ use Mageplaza\SocialLogin\Model\System\Config\Source\Position;
 <?php /** @var \Mageplaza\SocialLogin\Block\Popup\Social $block */
 $availableSocials = $block->getAvailableSocials(); ?>
 <?php if ($block->canShow(Position::PAGE_POPUP) && sizeof($availableSocials)): ?>
-    <div id="mp-popup-social-content">
-        <div class="block social-login-authentication-channel col-mp mp-6" style="margin-left: 335px; margin-top: -412px;">
+    <!-- <div id="mp-popup-social-content"> -->
+        <div class="block social-login-authentication-channel col-mp mp-5">
             <div class="block-title">
                 <?= __('Or Sign In With') ?>
             </div>
@@ -42,7 +42,7 @@ $availableSocials = $block->getAvailableSocials(); ?>
                 <?php endforeach; ?>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
 
     <script type="text/javascript">
         require(['jquery'], function ($) {

@@ -24,12 +24,15 @@ if ($block->isEnabled() && $block->isEnabled() === 'popup_login'): ?>
     <div id="social-login-popup" class="white-popup mfp-with-anim mfp-hide"
          data-mage-init='{"socialPopupForm": <?= $block->getFormParams() ?>}'>
         <?= $block->getChildHtml('popup.email') ?>
-        <div class="mp-social-popup" style="padding-top: 15px">
+        <!-- <div class="mp-social-popup" style="padding-top: 15px"> -->
+            <div class="social-login block-container authentication" >
             <?= $block->getChildHtml('popup.authentication') ?>
+           
+            <?= $block->getChildHtml('popup.authentication.social') ?>
+
+            </div>
             <?= $block->getChildHtml('popup.create') ?>
             <?= $block->getChildHtml('popup.forgot') ?>
-        </div>
-        <?= $block->getChildHtml('popup.authentication.social') ?>
         <?= $block->getChildHtml('popup.additional.info') ?>
     </div>
     <div style="clear: both"></div>
@@ -40,3 +43,9 @@ if ($block->isEnabled() && $block->isEnabled() === 'popup_login'): ?>
     </div>
     <div style="clear: both"></div>
 <?php endif; ?>
+
+<style>
+    .mfp-wrap {
+        overflow: hidden auto;
+    }
+</style>
