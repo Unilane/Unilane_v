@@ -2,6 +2,10 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+.checkout-index-index .product-item .qty-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
 .abs-reset-list {
   margin: 0;
   padding: 0;
@@ -2967,6 +2971,9 @@ p.short-des {
     display: none;
   }
 }
+.checkout-index-index .modal-popup .fieldset .field .label {
+  position: inherit;
+}
 @media (max-width: 991px) {
   .nav-sections .switcher-trigger strong:after {
     font-size: 1.6rem;
@@ -4822,10 +4829,12 @@ p.short-des {
   }
   .checkout-index-index .modal-popup .form-shipping-address {
     max-width: 500px;
+    position: inherit;
   }
   .checkout-index-index .modal-popup .modal-footer .action-save-address {
     float: right;
     margin: 0 0 0 1em;
+    position: inherit;
   }
   .checkout-shipping-method .actions-toolbar > .primary {
     float: right;

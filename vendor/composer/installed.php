@@ -431,9 +431,9 @@
             'dev_requirement' => false,
         ),
         'elasticsearch/elasticsearch' => array(
-            'pretty_version' => 'v7.17.1',
-            'version' => '7.17.1.0',
-            'reference' => 'f1b8918f411b837ce5f6325e829a73518fd50367',
+            'pretty_version' => 'v7.17.2',
+            'version' => '7.17.2.0',
+            'reference' => '2d302233f2bb0926812d82823bb820d405e130fc',
             'type' => 'library',
             'install_path' => __DIR__ . '/../elasticsearch/elasticsearch',
             'aliases' => array(),

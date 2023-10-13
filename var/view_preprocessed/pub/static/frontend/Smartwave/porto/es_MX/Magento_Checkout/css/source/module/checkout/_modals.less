@@ -25,6 +25,7 @@
                 .field {
                     .label {
                         font-weight: @font-weight__regular;
+                        position: inherit;
                     }
                 }
             }
@@ -66,11 +67,14 @@
         .modal-popup {
             .form-shipping-address {
                 .lib-css(max-width, @checkout-shipping-address__max-width);
+                position: inherit;
             }
             .modal-footer {
                 .action-save-address {
                     float: right;
                     margin: 0 0 0 @indent__base;
+                    position: inherit;
+
                 }
             }
         }

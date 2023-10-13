@@ -18,6 +18,7 @@
     },
     "version": "2.4.6",
     "require": {
+        "elasticsearch/elasticsearch": "^7.17",
         "fasaro/magento2-es_mx-language-pack": "dev-master",
         "icecat/magento2-extension": "^2.0",
         "magento/composer-dependency-version-audit-plugin": "~0.1",

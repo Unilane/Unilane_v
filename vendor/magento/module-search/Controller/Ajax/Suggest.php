@@ -35,6 +35,7 @@ class Suggest extends Action implements HttpGetActionInterface
      */
     public function execute()
     {
+        $l = $this->getRequest()->getParam('q');
         if (!$this->getRequest()->getParam('q', false)) {
             /** @var \Magento\Framework\Controller\Result\Redirect $resultRedirect */
             $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);

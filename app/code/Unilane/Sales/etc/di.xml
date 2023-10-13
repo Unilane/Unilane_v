@@ -7,7 +7,7 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Magento\Sales\view\frontend\email\items" type="Unilane\Sales\view\frontend\email\items" />
-    <!-- <type name="Magento\Sales\Api\OrderManagementInterface">
+    <type name="Magento\Sales\Api\OrderManagementInterface">
         <plugin name="integration_intelisis" type="Unilane\Sales\Plugin\Magento\Sales\Api\IntegrationIntelisis"/>
-    </type> -->
+    </type>
 </config>

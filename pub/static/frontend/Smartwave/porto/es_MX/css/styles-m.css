@@ -544,6 +544,10 @@ select:not([disabled]):focus {
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+.checkout-index-index .product-item .qty-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
 .abs-reset-list,
 .bundle-options-container .block-bundle-summary .bundle.items,
 .product-items,
@@ -12489,6 +12493,9 @@ fieldset[disabled] .minicart-wrapper .action.close {
 .minicart-items .subtitle {
   display: none;
 }
+.checkout-index-index .modal-popup .fieldset .field .label {
+  position: inherit;
+}
 .checkout-container {
   margin: 1.5rem 0 1em;
 }
@@ -12607,6 +12614,7 @@ fieldset[disabled] .opc-estimated-wrapper .minicart-wrapper button.action.showca
 }
 .checkout-index-index .modal-popup .fieldset .field .label {
   font-weight: 400;
+  position: inherit;
 }
 .checkout-index-index .modal-popup .modal-footer .action-hide-popup {
   margin-top: 3px;
@@ -12714,6 +12722,7 @@ fieldset[disabled] .opc-estimated-wrapper .minicart-wrapper button.action.showca
 .opc-wrapper .form-login .fieldset .field .label,
 .opc-wrapper .form-shipping-address .fieldset .field .label {
   font-weight: 400;
+  position: inherit;
 }
 .opc-wrapper .form-login .fieldset .note,
 .opc-wrapper .form-shipping-address .fieldset .note {
@@ -13516,6 +13525,9 @@ fieldset[disabled] .opc-estimated-wrapper .minicart-wrapper button.action.showca
 [class^="sales-guest-"] .data.table .col.actions .action.delete,
 .sales-guest-view .data.table .col.actions .action.delete {
   color: #d10029;
+}
+.field.street .field.additional .label {
+  position: inherit;
 }
 .column.main .block:last-child {
   margin-bottom: 0;
