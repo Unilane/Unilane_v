@@ -349,7 +349,7 @@ html .btn-v-dark {color: #fff !important;background-color: #222529 !important;bo
   .search-area.show-icon-tablet{position: relative;}
   .search-area.show-icon-tablet .block.block-search{display: none; position: absolute; top: 100%; right: -47px; min-width: 340px; margin-top: 8px; width: 100%; border: 5px solid #ccc; border-color: inherit;}
 }
-@media (max-width: 575px){.search-area.show-icon-tablet .block.block-search{right: -155px;}}
+@media (max-width: 575px){.search-area.show-icon-tablet .block.block-search{right: -117px;}}
 .porto-block-html-top {position: relative;overflow: hidden;}
 .mfp-close, html .fancybox-close,.modal-custom .action-close,.modal-popup .action-close,.modal-slide .action-close {color: #838383;text-indent: -9999px;-webkit-transform: rotateZ(45deg);transform: rotateZ(45deg);width: 41px;height: 41px;color: inherit;right: 0;top:0;background: none;opacity: .65;}
 html .fancybox-close:hover,.modal-custom .action-close:hover,.modal-popup .action-close:hover,.modal-slide .action-close:hover {color: #838383;}

@@ -84,6 +84,9 @@ class Social extends Template
             case 'vkontakte':
                 $class = 'vk';
                 break;
+            case 'live':
+                $class = 'windows';
+                break;
             default:
                 $class = $key;
         }
