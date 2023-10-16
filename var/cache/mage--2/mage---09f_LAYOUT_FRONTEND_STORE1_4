@@ -1,4 +1,4 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1697238048;s:6:"expire";i:1728774048;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1697488880;s:6:"expire";i:1729024880;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
 <?xml version="1.0"?>
 <layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><handle id="catalog_category_view"><body/>
 </handle><handle id="catalogsearch_advanced_index"><body/>
@@ -8386,6 +8386,14 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1697238048;s:6:"expire";i:1728774048;s:4:"t
    <referenceBlock name="report.bugs" remove="true"/>
    <referenceBlock name="catalog.compare.sidebar" remove="true"/>
    <referenceBlock name="wishlist_sidebar" remove="true"/>
+   <referenceBlock name="store.settings">
+      <arguments>
+         <argument name="title" translate="true" xsi:type="string">Centro de ayuda</argument>
+      </arguments>
+   </referenceBlock>
+   <referenceBlock name="store.settings">
+      <block class="Magento\Framework\View\Element\Template" name="store.menu.help" template="Magento_Theme::html/mobile_menu_help.phtml"/>
+   </referenceBlock>
 </body>
 </handle><handle id="default_head_blocks"><head>
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>

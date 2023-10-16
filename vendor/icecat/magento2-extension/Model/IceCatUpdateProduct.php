@@ -393,6 +393,7 @@ class IceCatUpdateProduct
             $allSpecifications = $productData['FeaturesGroups'];
             if (!empty($allSpecifications)) {
                 $specificationHtml = '<style>
+                @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
                 .break_cols {
                     display: flex;
                     /* align-items: center; */
@@ -437,10 +438,12 @@ class IceCatUpdateProduct
 
                 .ds_label {
                     width: 65%;
+                    font-family: "Montserrat", sans-serif;
                 }
 
                 .ds_data {
                     width: 35%;
+                    font-family: "Montserrat", sans-serif;
                 }
             </style>';
                 $specificationHtml .= '<div class="container mb-btm">';

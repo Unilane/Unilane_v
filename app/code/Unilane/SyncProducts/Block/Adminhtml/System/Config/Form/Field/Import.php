@@ -38,9 +38,15 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
      * @inheritdoc
      */
     protected function _getElementHtml(\Magento\Framework\Data\Form\Element\AbstractElement $element)
-    {          
+    { 
+        $connect = $this->connectCT();
+        if($connect){
+            $this->importProducts();
+        }                
+    }
+    public function importProducts(){
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-        $mediaDir = $objectManager->get('Magento\Framework\App\Filesystem\DirectoryList')->getPath('media');                       
+        $mediaDir = $objectManager->get('Magento\Framework\App\Filesystem\DirectoryList')->getPath('media');
         //CT     
         $data  = file_get_contents("C:\Users\luis.olivarria\Desktop\productsjson\dataPrueba.json");
         $productsData  = json_decode($data, true);
@@ -96,27 +102,29 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'is_in_stock' => 1,   
                             'qty' => $sumaExistencia
                             )
-                        ); 
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        );
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }                   
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }                  
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -151,24 +159,26 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 'qty' => $sumaExistencia
                                 )
                             );   
-                            if(@$product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
-                                $items->setSpecialPrice($precioPromocion);
-                                $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                                $items->setSpecialFromDateIsFormated(true);
-                                $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                                $items->setSpecialToDateIsFormated(true);
-                            }
-                            else{
-                                $porsentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porsentaje;
-                                $precioPromocion = $precioReal - $valor;
-                                $items->setSpecialPrice($precioPromocion);
-                                $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                                $items->setSpecialFromDateIsFormated(true);
-                                $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                                $items->setSpecialToDateIsFormated(true);
-                            }
+                            if(count($product['promociones']) > 0){
+                                if(@$product['promociones'][0]['tipo'] == "importe"){
+                                    $precioPromocion = $product['promociones'][0]['promocion'];
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }
+                                else{
+                                    $porsentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porsentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }
+                            }                            
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -203,26 +213,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }                    
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }                   
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -257,26 +269,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );    
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }                
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }               
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -311,26 +325,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );      
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }              
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }             
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -365,26 +381,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );       
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }             
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }            
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -419,26 +437,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );         
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }           
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }          
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -473,26 +493,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );      
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }              
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }             
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -527,26 +549,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );         
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }           
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }          
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -581,26 +605,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );       
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }             
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }            
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -635,26 +661,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -689,26 +717,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );        
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }            
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }           
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -743,26 +773,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );         
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }           
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }          
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -797,26 +829,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );        
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }            
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }           
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -851,26 +885,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );   
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }                 
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }                
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -905,26 +941,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );        
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }            
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }           
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -993,26 +1031,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );        
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }            
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }           
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -1081,26 +1121,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );        
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }            
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }           
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -1135,26 +1177,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );          
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }          
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }         
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -1189,26 +1233,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );          
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }          
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }         
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -1243,26 +1289,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );       
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }             
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }            
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -1297,26 +1345,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );         
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }           
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }          
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -1351,26 +1401,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );             
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -1405,26 +1457,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );      
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }              
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }             
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -1459,26 +1513,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );          
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }          
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }         
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -1513,26 +1569,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );        
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }            
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }           
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -1567,26 +1625,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );      
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }              
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }             
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -1621,26 +1681,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );          
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }          
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }         
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -1675,26 +1737,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -1729,26 +1793,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );             
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -1783,26 +1849,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );         
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }           
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }          
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -1837,26 +1905,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );        
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }            
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }           
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -1891,26 +1961,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );           
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }         
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }        
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -1945,26 +2017,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );             
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -1999,26 +2073,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );          
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }          
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }         
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -2053,26 +2129,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -2107,26 +2185,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );           
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }         
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }        
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -2161,26 +2241,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );         
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }           
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }          
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -2215,26 +2297,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );           
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }         
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }        
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -2269,26 +2353,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );             
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -2323,26 +2409,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );           
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }         
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }        
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -2377,26 +2465,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -2431,26 +2521,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -2485,26 +2577,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );           
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }         
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }        
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -2539,26 +2633,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );             
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -2593,26 +2689,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );              
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }      
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }     
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -2647,26 +2745,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );          
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }          
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }         
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -2701,26 +2801,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );         
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }           
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }          
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -2755,26 +2857,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );           
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }         
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }        
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -2809,26 +2913,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );          
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }          
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }         
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -2863,26 +2969,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );              
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }      
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }     
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -2917,26 +3025,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -2971,26 +3081,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );             
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -3025,26 +3137,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );             
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -3079,26 +3193,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -3133,26 +3249,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );              
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }      
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }     
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -3187,26 +3305,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );                
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }    
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }   
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -3241,26 +3361,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );             
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -3295,26 +3417,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -3349,26 +3473,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );           
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }         
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }        
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -3403,26 +3529,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );          
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }          
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }         
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -3457,26 +3585,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -3511,26 +3641,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -3565,26 +3697,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );           
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }         
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }        
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -3619,26 +3753,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );             
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -3673,26 +3809,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );              
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }      
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }     
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -3727,26 +3865,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -3781,26 +3921,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );             
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -3835,26 +3977,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -3889,26 +4033,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -3943,26 +4089,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );             
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -3997,26 +4145,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );             
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -4051,26 +4201,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );                
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }    
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }   
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -4104,25 +4256,27 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 'is_in_stock' => 1,   
                                 'qty' => $sumaExistencia
                                 )
-                            );           
-                            if(@$product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
-                                $items->setSpecialPrice($precioPromocion);
-                                $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                                $items->setSpecialFromDateIsFormated(true);
-                                $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                                $items->setSpecialToDateIsFormated(true);
+                            );  
+                            if(count($product['promociones']) > 0){
+                                if(@$product['promociones'][0]['tipo'] == "importe"){
+                                    $precioPromocion = $product['promociones'][0]['promocion'];
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }
+                                else{
+                                    $porsentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porsentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }         
                             }
-                            else{
-                                $porsentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porsentaje;
-                                $precioPromocion = $precioReal - $valor;
-                                $items->setSpecialPrice($precioPromocion);
-                                $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                                $items->setSpecialFromDateIsFormated(true);
-                                $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                                $items->setSpecialToDateIsFormated(true);
-                            }         
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -4157,26 +4311,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );                
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }    
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }   
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -4211,26 +4367,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );               
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }     
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }    
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -4265,26 +4423,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );               
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }     
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }    
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -4319,26 +4479,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );           
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }         
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }        
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -4373,26 +4535,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );             
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -4427,26 +4591,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );              
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }      
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }     
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -4481,26 +4647,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );             
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -4535,26 +4703,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );             
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -4589,26 +4759,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );              
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }      
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }     
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -4643,26 +4815,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );              
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }      
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }     
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -4697,26 +4871,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );               
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }     
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }    
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -4751,26 +4927,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );             
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -4805,26 +4983,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );             
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -4859,26 +5039,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -4913,26 +5095,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );              
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }      
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }     
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -4967,26 +5151,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );             
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -5021,26 +5207,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );                
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }    
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }   
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -5075,26 +5263,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );         
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }           
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }          
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -5129,26 +5319,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );         
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }           
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }          
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -5183,26 +5375,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -5237,26 +5431,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );           
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }         
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }        
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -5291,26 +5487,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -5345,26 +5543,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );          
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }          
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }         
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -5399,26 +5599,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );           
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }         
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }        
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -5453,26 +5655,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );          
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }          
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }         
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -5507,26 +5711,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -5561,26 +5767,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );        
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }            
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }           
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -5615,26 +5823,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );       
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }             
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }            
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -5669,26 +5879,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );                
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }    
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }   
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -5723,26 +5935,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );          
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }          
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }         
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -5777,26 +5991,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );           
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }         
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }        
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -5831,26 +6047,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );           
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }         
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }        
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -5885,26 +6103,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );                 
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }   
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }  
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -5939,26 +6159,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );                 
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }   
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }  
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -5993,26 +6215,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );               
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }     
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }    
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -6047,26 +6271,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );                  
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }  
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        } 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -6101,26 +6327,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -6155,26 +6383,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );                
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }    
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }   
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -6209,26 +6439,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );           
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }         
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }        
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -6263,26 +6495,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );           
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }         
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }        
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -6317,26 +6551,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );             
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -6371,26 +6607,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );              
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }      
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }     
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -6425,26 +6663,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );                
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }    
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }   
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -6479,26 +6719,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );               
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }     
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }    
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -6533,26 +6775,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );                
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }    
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }   
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -6587,26 +6831,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -6641,26 +6887,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );                
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }    
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }   
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -6695,26 +6943,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );                
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }    
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }   
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -6749,26 +6999,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -6803,26 +7055,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -6857,26 +7111,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );              
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }      
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }     
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -6911,26 +7167,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );           
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }         
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }        
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -6965,26 +7223,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );           
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }         
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }        
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -7019,26 +7279,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );           
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }         
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }        
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -7073,26 +7335,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );              
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }      
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }     
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -7127,26 +7391,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );   
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }                 
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }                
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -7181,26 +7447,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );        
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }            
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }           
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -7235,26 +7503,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );   
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }                 
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }                
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -7289,26 +7559,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );     
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }               
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }              
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -7343,26 +7615,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );         
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }           
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }          
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -7397,26 +7671,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );        
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }            
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }           
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -7451,26 +7727,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );           
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }         
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }        
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -7505,26 +7783,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -7559,26 +7839,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );               
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }     
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }    
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -7613,26 +7895,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );           
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }         
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }        
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -7667,26 +7951,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );         
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }           
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }          
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -7721,26 +8007,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -7775,26 +8063,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );             
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -7829,26 +8119,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );             
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -7882,27 +8174,29 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'is_in_stock' => 1,   
                             'qty' => $sumaExistencia
                             )
-                        );                 
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        ); 
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }   
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -7937,26 +8231,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );            
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }        
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }       
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -7991,26 +8287,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );                   
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        } 
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -8045,26 +8343,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );                
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }    
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }   
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -8099,26 +8399,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );                  
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }  
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        } 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -8153,26 +8455,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );   
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }                 
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }                
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -8207,26 +8511,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );                  
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }  
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        } 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -8261,26 +8567,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        if(count($product['promociones']) > 0){
+                            if($product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
-                        }                       
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }   
+                        }                      
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
                         else chmod($mediaDir, 0777);
@@ -8314,26 +8622,28 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'is_in_stock' => 1,   
                             'qty' => $sumaExistencia
                             )
-                        );       
-                        if(@$product['promociones'][0]['tipo'] == "importe"){
-                            $precioPromocion = $product['promociones'][0]['promocion'];
-                            $items->setSpecialPrice($precioPromocion);
-                            $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
-                            $items->setSpecialFromDateIsFormated(true);
-                            $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
-                            $items->setSpecialToDateIsFormated(true);
-                        }
-                        else{
-                            if(@$product['promociones'][0]['tipo'] == "porcentaje"){
-                                $porcentaje = $product['promociones'][0]['promocion'] / 100;
-                                $valor = $precioReal * $porcentaje;
-                                $precioPromocion = $precioReal - $valor;
+                        );
+                        if(count($product['promociones']) > 0){
+                            if(@$product['promociones'][0]['tipo'] == "importe"){
+                                $precioPromocion = $product['promociones'][0]['promocion'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
                                 $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
                                 $items->setSpecialToDateIsFormated(true);
-                            }                            
+                            }
+                            else{
+                                if(@$product['promociones'][0]['tipo'] == "porcentaje"){
+                                    $porcentaje = $product['promociones'][0]['promocion'] / 100;
+                                    $valor = $precioReal * $porcentaje;
+                                    $precioPromocion = $precioReal - $valor;
+                                    $items->setSpecialPrice($precioPromocion);
+                                    $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
+                                    $items->setSpecialFromDateIsFormated(true);
+                                    $items->setSpecialToDate($product['promociones'][0]['vigencia']['fin']);
+                                    $items->setSpecialToDateIsFormated(true);
+                                }                            
+                            }
                         }
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
                         if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
@@ -8367,8 +8677,42 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
         // $block->setTemplate('Unilane_SyncProduct::products.phtml')->setChild('button', $button)->setData('select_html', parent::_getElementHtml($element));
         // return $block->toHtml();
     }
-
     // public function getControllerUrl(){
     //     return $this->_urlBuilder->getUrl('syncproduct/products/importproducts');
     // }
+    public function connectCT(){
+        //FTP
+        // Configuración de la conexión FTP
+        $ftp_server = '216.70.82.104'; // Reemplaza con la dirección del servidor FTP
+        $ftp_user = 'HMO0410'; // Reemplaza con tu nombre de usuario FTP
+        $ftp_pass = 'Z6v3Bh7*k@lLcXTGR0!P'; // Reemplaza con tu contraseña FTP
+
+        // Ruta al archivo JSON en el servidor FTP
+        $remote_file = 'catalogo_xml/productos.json'; // Reemplaza con la ruta de tu archivo JSON
+
+        // Ruta local donde guardarás el archivo JSON descargado
+        $local_file = 'C:/Users/luis.olivarria/Desktop/productsjson/product.json'; // Reemplaza con la ruta de tu elección en tu servidor local
+
+        // Establece la conexión FTP
+        $ftp_conn = ftp_connect($ftp_server);
+        if (!$ftp_conn) {
+            die('No se pudo conectar al servidor FTP.');
+        }
+
+        // Inicia sesión en el servidor FTP
+        if (ftp_login($ftp_conn, $ftp_user, $ftp_pass)) {
+            // Descarga el archivo JSON
+            if (ftp_get($ftp_conn, $local_file, $remote_file, FTP_ASCII, 0)) {
+                return true;
+            } else {
+                return false;
+            }
+
+            // Cierra la conexión FTP
+            ftp_close($ftp_conn);
+        } else {
+            echo "Error al iniciar sesión en el servidor FTP.";
+        }
+        //FIN FTP
+    }
 }
