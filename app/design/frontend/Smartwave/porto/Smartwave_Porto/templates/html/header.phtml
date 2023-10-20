@@ -5,6 +5,17 @@
     $show_notice = $this->getConfig('porto_settings/general/show_site_notice');
     if ($show_notice && $show_notice == 1)
         echo $this->getChildHtml("porto_custom_notice");
+
+    /** @var $viewModel Smartwave\Porto\ViewModel */
+    $viewModel = $block->getViewModel();   // Accede al View Model
+    $customerId =  $viewModel->getCustomerId(); // Retorna el id del usuario
+    $isLoggin = $viewModel->isCustomerLoggedIn(); // Retorna true o false, en dado caso si esta loggeado o no
+    if($isLoggin){
+      $name = $viewModel->getCustomerNameById($customerId); // Retorna el nombre del usuario
+    }
+    else{
+      $name = "Iniciar Sesion";
+    }
 ?>
 <?php if($header_type == 10): ?>
 <div class="position-relative">
@@ -49,7 +60,21 @@
       </div>
       <div class="header-right">
         <div class="header-contact">
-          <?php echo $this->getChildHtml("custom_block"); ?>
+          <a href="#social-login-popup" class="social-login-btn" data-effect="mfp-zoom-out">
+            <div class="porto-sicon-box d-none d-md-flex style_1 default-icon mb-0">
+              <div class="porto-sicon-default">
+                <div class="porto-just-icon-wrapper" style="text-align: center;">
+                  <div class="porto-icon advanced" style="color: #FFFFFF; background: transparent; border-style: solid; border-color: #e7e7e7; border-width: 1px; width: 50px; height: 50px; line-height: 50px; border-radius: 26px; font-size: 25px; display: inline-block;margin-right: 15px;">
+                    <i class="porto-icon-user-2"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="porto-sicon-header">
+                <h3 class="porto-sicon-title" style="font-weight: 400; font-size: 12px; line-height: 12px; color: #FFFFFF;">Bienvenido!</h3>
+                <p style="font-weight: 700; font-size: 13px; line-height: 13px; color: #FFFFFF;"><?= $name ?></p>
+              </div>
+            </div>
+          </a>
           <a href="<?php echo $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account m-l-xs mr-1 mr-lg-2" title="My Account"><i class="porto-icon-user-2"></i></a>
           <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist mr-1 mr-lg-2 pr-lg-1" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
         </div>

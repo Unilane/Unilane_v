@@ -16,6 +16,9 @@
         </referenceContainer>
         <referenceContainer name="page.wrapper">
           <block class="Smartwave\Porto\Block\Template" name="porto_header" template="html/header.phtml" before="main.content">
+            <arguments>
+                <argument name="view_model" xsi:type="object">Smartwave\Porto\ViewModel\usersloggin</argument>
+            </arguments>
               <block class="Magento\Framework\View\Element\Html\Links" name="header.links">
                   <arguments>
                       <argument name="css_class" xsi:type="string">header links</argument>

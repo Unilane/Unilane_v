@@ -6719,10 +6719,8 @@ div[data-content-type='video'] video {
  */
 @media only screen and (max-width: 600px) {
   .minisearch .search-category {
-    top: 65% !important;
     right: 15px !important;
     height: 32px;
-    display: none;
   }
 }
 .autocomplete-suggestions {

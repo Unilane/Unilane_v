@@ -125,6 +125,25 @@ fieldset.field.col-mp {
     padding: 10px 35px 10px 20px;
     line-height: 25px
 }
+.opc-wrapper .shipping-address-item.selected-item {
+    border-color: #000000;
+}
+
+.opc-wrapper .shipping-address-item.selected-item:after {
+    background: #000000;
+    color: #ffffff;
+    content: '\f82b';
+    font-family: 'porto-icons';
+    height: 27px;
+    width: 29px;
+    font-size: 19px;
+    line-height: 21px;
+    padding-top: 2px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+}
 
 .opc-wrapper .shipping-address-item.not-selected-item {
     cursor: pointer;

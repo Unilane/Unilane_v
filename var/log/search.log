@@ -802,3 +802,93 @@
 
 )
 
+2023-10-18T20:56:22+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'lapo%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-18T20:56:22+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-18T20:56:31+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'paple%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-18T20:56:31+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-18T20:56:31+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'papel%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-18T20:56:31+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-18T20:57:30+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'papelñ%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-18T20:57:30+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-18T20:57:31+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'papel%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-18T20:57:31+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-18T21:48:47+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'bovin%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-18T21:48:47+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-18T21:48:48+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'bov%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-18T21:48:48+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-19T03:30:58+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'cable%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-19T03:30:58+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-19T16:12:11+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'cecce%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-19T16:12:11+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+

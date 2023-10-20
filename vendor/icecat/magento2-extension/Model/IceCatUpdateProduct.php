@@ -131,13 +131,17 @@ class IceCatUpdateProduct
                 $reasonsHtml  = '<style>
                                     .row-normal{
                                         display: flex;
+                                        flex-wrap: nowrap;
+                                        flex-direction: row-reverse;
+                                        justify-content: center;
+                                        align-items: center;
                                     }
                                 </style>';
                 foreach ($productReasonsToBuy as $reasons) {
                     $reasonsHtml .= '<div class = "row-normal" >';
                     if (isset($reasons['HighPic']) && (!empty($reasons['HighPic']))):
                         if ($flag === 'LEFT'):
-                            $reasonsHtml .= ' <div class = "content-block"> <h5><b>' . $reasons['Title'] . '</b></h5>';
+                            $reasonsHtml .= ' <div class = "content-block" style="margin-left: 30px;"> <h5><b>' . $reasons['Title'] . '</b></h5>';
                             $reasonsHtml .= '<span>' . $reasons['Value'] . '</span></div>';
                             if ($userType == 'full' && !empty($contentToken)) {
                                 $reasonsHtml .= ' <div class="image-block"><img class = "image-left" alt="IMAGE-NOT-AVAILABLE" src="' . $reasons['HighPic'] . '?content_token='.$contentToken.'" /></div>';
@@ -151,7 +155,7 @@ class IceCatUpdateProduct
                             } else {
                                 $reasonsHtml .= '<div class = "image-block">  <img class = "image-right" alt="IMAGE-NOT-AVAILABLE" src="' . $reasons['HighPic'] . '" /> </div>';
                             }
-                            $reasonsHtml .= '<div class = "content-block"><h5><b>' . $reasons['Title'] . '</b></h5>';
+                            $reasonsHtml .= '<div class = "content-block" style="margin-left: 30px;"><h5><b>' . $reasons['Title'] . '</b></h5>';
                             $reasonsHtml .= '<span>' . $reasons['Value'] . '</span></div>';
 
                             $flag = 'LEFT';
