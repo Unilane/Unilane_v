@@ -21,41 +21,30 @@
     }
     ?>
     <tr id="order-item-row-<?= /* @escapeNotVerified */ $_item->getId() ?>" class="order-item-row">
-        <td class="col image textalign-left">
+        <!-- <td class="col image textalign-left"> -->
+        <td class="">
             <?php if ($customProductUrl || $product->isVisibleInSiteVisibility()):?>
                 <a href="<?= /* @escapeNotVerified */ $productUrl ?>"
                    title="<?= $block->escapeHtml($_item->getName()) ?>"
                    tabindex="-1"
-                   class="product-item-photo"
+                   class="product-item-photo" style="margin-bottom:0px;"
                 >
-            <?php else:?>
-                <span class="product-item-photo">
+           
             <?php endif;?>
-                <?= $block->getImage($_item, 'cart_page_product_thumbnail')->toHtml(); ?>
+                <?= $block->getImage($_item, 'sendfriend_small_image')->toHtml(); ?>
 
             <?php if ($customProductUrl || $product->isVisibleInSiteVisibility()):?>
                 </a>
-            <?php else: ?>
-                </span>
+           
             <?php endif; ?>
         </td>
         <td class="col name textalign-left">
             <?php if ($customProductUrl || $product->isVisibleInSiteVisibility()):?>
-                <a href="<?= /* @escapeNotVerified */ $productUrl ?>"
-                   title="<?= $block->escapeHtml($_item->getName()) ?>"
-                   tabindex="-1"
-                   class="product-item-photo"
-                >
-            <?php else:?>
-                <strong class="product name product-item-name">
-            <?php endif; ?>
-
-                <?= $block->escapeHtml($_item->getName()) ?>
-
-            <?php if ($customProductUrl || $product->isVisibleInSiteVisibility()):?>
-                </a>
-            <?php else:?>
-                </strong>
+                <span class="content" style="line-height: 1.5;">
+                    <strong class="product name product-item-name">
+                        <?= $block->escapeHtml($_item->getName()) ?>
+                    </strong>
+                </span>
             <?php endif; ?>
             <?php $options = $_item->getProductOptions(); ?>
             <?php if (isset($options['attributes_info'])): ?>
@@ -82,7 +71,7 @@
             <?php endif; ?>
             <?= $block->escapeHtml($_item->getDescription()) ?>
         </td>
-        <td class="col sku textalign-left" data-th="<?= $block->escapeHtml(__('SKU')) ?>"><?= /* @escapeNotVerified */ $block->prepareSku($_item->getSku()) ?></td>
+        <td class="col sku textalign-left" data-th="<?= $block->escapeHtml(__('SKU')) ?>"> <span class="content" style="line-height: 1.5;"><?= /* @escapeNotVerified */ $block->prepareSku($_item->getSku()) ?></span></td>
         <td class="col price textalign-right" data-th="<?= $block->escapeHtml(__('Price')) ?>">
             <?= $block->getItemPriceHtml($_item) ?>
         </td>
