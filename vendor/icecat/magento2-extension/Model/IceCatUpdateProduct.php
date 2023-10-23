@@ -18,6 +18,8 @@ use Magento\Framework\Filesystem\Io\File;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Store\Model\StoreManagerInterface;
 use Icecat\DataFeed\Model\AttributeCodes;
+use Magento\Catalog\Api\ProductRepositoryInterface;
+
 
 class IceCatUpdateProduct
 {
@@ -36,6 +38,8 @@ class IceCatUpdateProduct
     private File $file;
     private $moduleDataSetup;
     public $globalMediaArray;
+    private $productRepository;
+
 
     /**
      * @param ProductResourceModel $productResource
@@ -70,7 +74,9 @@ class IceCatUpdateProduct
         ProductReviewFactory                          $productReview,
         ResourceModel\ProductReview\CollectionFactory $productReviewCollection,
         File                                          $file,
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
+        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
+        ProductRepositoryInterface $productRepository
+
     ) {
         $this->data = $data;
         $this->productResource = $productResource;
@@ -88,6 +94,8 @@ class IceCatUpdateProduct
         $this->_productReviewCollection = $productReviewCollection;
         $this->file = $file;
         $this->_scopeConfig = $scopeConfig;
+        $this->productRepository = $productRepository;
+
     }
 
     public function updateProductWithIceCatResponse(Product $product, $response, $storeId, $globalMediaArray)
@@ -277,7 +285,7 @@ class IceCatUpdateProduct
                         try{
                             $baseImage = $product->getData('image');
                             if ($i == 0 && (empty($baseImage) || $baseImage == "no_selection")) {
-                                $product->addImageToMediaGallery($newFileName, ['image', 'small_image', 'thumbnail'], false, false);
+                                $product->addImageToMediaGallery($newFileName, ['image', 'small_image','thumbnail'], false, false);
                             } else {
                                 $product->addImageToMediaGallery($newFileName, [], false, false);
                             }
@@ -291,6 +299,24 @@ class IceCatUpdateProduct
             }
             else{
                 //CT
+                $data  = file_get_contents("C:\Users\luis.olivarria\Desktop\productsjson\dataPrueba.json");
+                $products  = json_decode($data, true);
+                $productSku = $product->getSku();
+                foreach($products as $prod){
+                    if($prod['clave'] == $productSku){
+                        $producto = $this->productRepository->get($prod['clave']);
+                        if($producto){                            
+                            $filename = md5($prod['imagen']); // LE DAMOS UN NUEVO NOMBRE
+                            if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                            else chmod($mediaDir, 0777);
+                            $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
+                            file_put_contents($filepath, file_get_contents(trim($prod['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
+                            $imgUrl = $filepath;
+                            $producto->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                           
+                            $this->productRepository->save($producto);
+                        }
+                    }
+                }
             }
         }
 

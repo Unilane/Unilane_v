@@ -17,7 +17,7 @@
         <referenceBlock name="report.bugs" remove="true"/>
         <referenceBlock name="catalog.compare.sidebar" remove="true"/>
         <referenceBlock name="wishlist_sidebar" remove="true"/>
-
+        <referenceBlock name="breadcrumbs" remove="true" />
         
         <referenceBlock name="store.settings">
             <arguments>

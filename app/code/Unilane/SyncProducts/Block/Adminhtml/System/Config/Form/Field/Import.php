@@ -105,7 +105,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -125,13 +125,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }                  
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Adaptadores de Energía" || $nombreCategoria == "Inversores de Energia"){
@@ -161,7 +155,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             );   
                             if(count($product['promociones']) > 0){
                                 if(@$product['promociones'][0]['tipo'] == "importe"){
-                                    $precioPromocion = $product['promociones'][0]['promocion'];
+                                    $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                     $items->setSpecialPrice($precioPromocion);
                                     $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                     $items->setSpecialFromDateIsFormated(true);
@@ -171,7 +165,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 else{
                                     $porsentaje = $product['promociones'][0]['promocion'] / 100;
                                     $valor = $precioReal * $porsentaje;
-                                    $precioPromocion = $precioReal - $valor;
+                                    $precioPromo = $precioReal - $valor;
+                                    $precioPromocion = $precioPromo * $product['tipoCambio'];
                                     $items->setSpecialPrice($precioPromocion);
                                     $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                     $items->setSpecialFromDateIsFormated(true);
@@ -179,13 +174,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                     $items->setSpecialToDateIsFormated(true);
                                 }
                             }                            
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Reemplazos"){
@@ -215,7 +204,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -235,13 +224,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }                   
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Bancos de Batería"){
@@ -271,7 +254,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );    
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -291,13 +274,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }               
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Convertidores AV" || $nombreCategoria == "Transformadores" ){
@@ -327,7 +304,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );      
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -347,13 +324,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }             
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Supresores"){
@@ -383,7 +354,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );       
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -403,13 +374,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }            
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Regletas y Multicontactos"){
@@ -439,7 +404,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );         
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -459,13 +424,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }          
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Estaciones de Carga"){
@@ -495,7 +454,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );      
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -515,13 +474,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }             
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }  
                     if($nombreCategoria == "Reguladores"){
@@ -551,7 +504,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );         
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -571,13 +524,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }          
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "No Breaks y UPS"){
@@ -607,7 +554,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );       
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -627,13 +574,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }            
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     } 
                     if($nombreCategoria == "Baterías"){
@@ -663,7 +604,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -683,13 +624,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Barra de Contactos"){                    
@@ -719,7 +654,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );        
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -739,13 +674,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }           
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "SSD para servidores" || $nombreCategoria == "Storage"){
@@ -775,7 +704,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );         
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -795,13 +724,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }          
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Procesadores para Servidores"){
@@ -831,7 +754,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );        
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -851,13 +774,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }           
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Memorias RAM para Servidores"){
@@ -887,7 +804,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );   
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -907,13 +824,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }                
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Fuentes de Poder para Servidores"){
@@ -943,7 +854,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );        
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -963,13 +874,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }           
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Discos Duros para Servidores"){
@@ -997,13 +902,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );                    
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Cables para Servidores"){
@@ -1033,7 +932,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );        
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -1053,13 +952,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }           
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Gabinetes de Piso" || $nombreCategoria == "Gabinetes para Montaje" || $nombreCategoria == "Servidores" || $nombreCategoria == "Servidores Rack" || $nombreCategoria == "Unidades Ópticas para Servidores"){
@@ -1087,13 +980,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             'qty' => $sumaExistencia
                             )
                         );                    
-                                                $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+                        
                         $items->save();
                     }
                     if($nombreCategoria == "Tarjetas de Acceso"){
@@ -1123,7 +1010,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );        
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -1143,13 +1030,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }           
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Camaras Deteccion"){
@@ -1179,7 +1060,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );          
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -1199,13 +1080,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }         
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Accesorios para seguridad"){
@@ -1235,7 +1110,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );          
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -1255,13 +1130,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }         
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Soportes para Video Vigilancia"){
@@ -1291,7 +1160,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );       
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -1311,13 +1180,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }            
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Sirenas para Video Vigilancia"){
@@ -1347,7 +1210,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );         
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -1367,13 +1230,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }          
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Monitores para Video Vigilancia"){
@@ -1403,7 +1260,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );             
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -1423,13 +1280,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }      
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Kits de Video Vigilancia"){
@@ -1459,7 +1310,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );      
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -1479,13 +1330,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }             
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Grabadoras Digitales" || $nombreCategoria == "Grabadores analógicos" || $nombreCategoria == "Kit Analógicos HD" || $nombreCategoria == "Videovigilancia"){
@@ -1515,7 +1360,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );          
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -1535,13 +1380,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }         
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Fuentes de Poder para Video Vigilancia"){
@@ -1571,7 +1410,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );        
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -1591,13 +1430,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }           
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Cámara bala análogica" || $nombreCategoria == "Cámaras" || $nombreCategoria == "Cámaras de Video Vigilancia" || $nombreCategoria == "Cámaras domo analógicas" || $nombreCategoria == "Cámaras PTZ analógicas"){
@@ -1627,7 +1460,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );      
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -1647,13 +1480,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }             
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Cables y conectores"){
@@ -1683,7 +1510,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );          
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -1703,13 +1530,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }         
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Accesorios para Video Vigilancia" || $nombreCategoria == "Gabinete para Almacenaje"){
@@ -1739,7 +1560,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -1759,13 +1580,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Inyectores PoE"){
@@ -1795,7 +1610,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );             
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -1815,13 +1630,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }      
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Antenas"){
@@ -1851,7 +1660,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );         
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -1871,13 +1680,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }          
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Accesorios para Racks" || $nombreCategoria == "Racks Modulo"){
@@ -1907,7 +1710,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );        
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -1927,13 +1730,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }           
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Networking" || $nombreCategoria == "PDU" || $nombreCategoria == "Switches"){
@@ -1963,7 +1760,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );           
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -1983,13 +1780,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }        
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Amplificadores Wifi" || $nombreCategoria == "Extensores de Red" || $nombreCategoria == "Hub y Concentadores Wifi" || $nombreCategoria == "Seguridad Inteligente"){
@@ -2019,7 +1810,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );             
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -2039,13 +1830,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }      
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Access Points" || $nombreCategoria == "Routers"){
@@ -2075,7 +1860,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );          
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -2095,13 +1880,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }         
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Accesorios para Cables" || $nombreCategoria == "Bobinas" || $nombreCategoria == "Cables de Red" || $nombreCategoria == "Fibras Ópticas" || $nombreCategoria == "Herramientas" || $nombreCategoria == "Herramientas para red" || $nombreCategoria == "Jacks"){
@@ -2131,7 +1910,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -2151,13 +1930,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Adaptadores de Ethernet" || $nombreCategoria == "Adaptadores Inalámbricos" ||$nombreCategoria == "Adaptadores para Apple" || $nombreCategoria == "Adaptadores para Audio" || $nombreCategoria == "Adaptadores para Red" || $nombreCategoria == "Adaptadores USB Red" || $nombreCategoria == "Tarjetas para Red"){
@@ -2187,7 +1960,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );           
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -2207,13 +1980,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }        
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Accesorios de Redes" || $nombreCategoria == "Adaptadores de Red" || $nombreCategoria == "Convertidor de medios" || $nombreCategoria == "Transceptores"){
@@ -2243,7 +2010,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );         
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -2263,13 +2030,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }          
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Consumibles POS" || $nombreCategoria == "Etiquetas"){
@@ -2299,7 +2060,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );           
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -2319,13 +2080,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }        
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Bases" || $nombreCategoria == "Baterías POS" || $nombreCategoria == "Cables POS"){
@@ -2355,7 +2110,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );             
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -2375,13 +2130,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }      
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Digitalizadores de Firmas"){
@@ -2411,7 +2160,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );           
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -2431,13 +2180,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }        
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Terminales POS"){
@@ -2467,7 +2210,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -2487,13 +2230,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Monitores POS"){
@@ -2523,7 +2260,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -2543,13 +2280,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Lectores de Códigos de Barras"){
@@ -2579,7 +2310,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );           
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -2599,13 +2330,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }        
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Impresoras POS"){
@@ -2635,7 +2360,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );             
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -2655,13 +2380,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }      
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Cajones de Dinero"){
@@ -2691,7 +2410,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );              
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -2711,13 +2430,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }     
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Kit Punto de Venta"){
@@ -2747,7 +2460,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );          
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -2767,13 +2480,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }         
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Pcs de Escritorio Gaming"){
@@ -2803,7 +2510,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );         
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -2823,13 +2530,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }          
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Monitores Gaming"){
@@ -2859,7 +2560,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );           
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -2879,13 +2580,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }        
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Laptops Gaming"){
@@ -2915,7 +2610,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );          
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -2935,13 +2630,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }         
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Tarjetas de Video Gaming"){
@@ -2959,7 +2648,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,59,184
+                            2,60,184
                         ]);
                         $items->setStockData(
                             array( 
@@ -2971,7 +2660,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );              
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -2991,13 +2680,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }     
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Consolas y Video Juegos" || $nombreCategoria == "Controles Gaming" || $nombreCategoria == "Pilas" || $nombreCategoria == "Soporte para Control"){
@@ -3027,7 +2710,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -3047,13 +2730,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Escritorio Gaming"){
@@ -3083,7 +2760,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );             
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -3103,13 +2780,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }      
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Sillas Gaming"){
@@ -3139,7 +2810,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );             
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -3159,13 +2830,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }      
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Motherboards Gaming"){
@@ -3183,7 +2848,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,59,180
+                            2,60,180
                         ]);
                         $items->setStockData(
                             array( 
@@ -3195,7 +2860,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -3215,13 +2880,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Gabinetes Gaming"){
@@ -3239,7 +2898,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,59,179
+                            2,60,179
                         ]);
                         $items->setStockData(
                             array( 
@@ -3251,7 +2910,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );              
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -3271,13 +2930,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }     
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Fuentes de Poder Gaming"){
@@ -3295,7 +2948,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,59,178
+                            2,60,178
                         ]);
                         $items->setStockData(
                             array( 
@@ -3307,7 +2960,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -3327,13 +2980,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }   
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Kits de Teclado y Mouse Gaming"){
@@ -3363,7 +3010,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );             
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -3383,13 +3030,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }      
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Teclados Gaming"){
@@ -3419,7 +3060,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -3439,13 +3080,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Mouse Gaming" || $nombreCategoria == "Mouse Pads Gaming"){
@@ -3475,7 +3110,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );           
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -3495,13 +3130,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }        
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Diademas Gaming"){
@@ -3531,7 +3160,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );          
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -3551,13 +3180,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }         
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Hidrolavadoras"){
@@ -3587,7 +3210,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -3607,13 +3230,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Sensores" || $nombreCategoria == "Sensores para Vídeo Vigilancia"){
@@ -3643,7 +3260,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -3663,13 +3280,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Paneles para Alarma"){
@@ -3699,7 +3310,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );           
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -3719,13 +3330,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }        
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Adaptadores USB"){
@@ -3755,7 +3360,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );             
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -3775,13 +3380,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }      
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Accesorios para PCs" || $nombreCategoria == "Kits para Teclado y Mouse"){
@@ -3811,7 +3410,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );              
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -3831,13 +3430,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }     
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Acceso" || $nombreCategoria == "Seguridad Inteligente"){
@@ -3867,7 +3460,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -3887,13 +3480,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Cámara Inteligentes" || $nombreCategoria == "Cámaras Inteligentes"){
@@ -3923,7 +3510,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );             
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -3943,13 +3530,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }      
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Cerraduras" || $nombreCategoria == "Seguridad Inteligente" || $nombreCategoria == "Timbres"){
@@ -3979,7 +3560,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -3999,13 +3580,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Sensores Wifi"){
@@ -4035,7 +3610,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -4055,13 +3630,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Contactos Inteligentes Wifi" || $nombreCategoria == "Control Inteligente" || $nombreCategoria == "Iluminación" || $nombreCategoria == "Interruptores Wifi"){
@@ -4091,7 +3660,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );             
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -4111,13 +3680,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }      
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Control de Acceso"){
@@ -4147,7 +3710,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );             
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -4167,13 +3730,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }      
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Checadores" || $nombreCategoria == "Lector de Huella" || $nombreCategoria == "Reconocimiento Facial" || $nombreCategoria == "Tiempo y Asistencia"){
@@ -4203,7 +3760,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -4223,13 +3780,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }   
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Equipo" || $nombreCategoria == "Salud" || $nombreCategoria == "Termómetros"){
@@ -4259,7 +3810,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             );  
                             if(count($product['promociones']) > 0){
                                 if(@$product['promociones'][0]['tipo'] == "importe"){
-                                    $precioPromocion = $product['promociones'][0]['promocion'];
+                                    $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                     $items->setSpecialPrice($precioPromocion);
                                     $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                     $items->setSpecialFromDateIsFormated(true);
@@ -4277,13 +3828,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                     $items->setSpecialToDateIsFormated(true);
                                 }         
                             }
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Desinfectantes"){
@@ -4313,7 +3858,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -4333,13 +3878,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }   
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Caretas" || $nombreCategoria == "Cubrebocas"){
@@ -4369,7 +3908,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );               
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -4389,13 +3928,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }    
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Aspiradoras"){
@@ -4425,7 +3958,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );               
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -4445,13 +3978,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }    
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Microondas"){
@@ -4481,7 +4008,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );           
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -4501,13 +4028,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }        
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Aires Acondicionados"){
@@ -4537,7 +4058,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );             
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -4557,13 +4078,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }      
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Pantallas Profesionales"){
@@ -4593,7 +4108,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );              
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -4613,13 +4128,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }     
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Video Conferencia"){
@@ -4649,7 +4158,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );             
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -4669,13 +4178,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }      
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Análogos" || $nombreCategoria == "Central Telefónica" || $nombreCategoria == "Sistemas Análogos" || $nombreCategoria == "Telefonía para empresas" || $nombreCategoria == "Teléfonos Analógicos" || $nombreCategoria == "Teléfonos Digitales" || $nombreCategoria == "Teléfonos IP" || $nombreCategoria == "Teléfonos para Hogar" || $nombreCategoria == "Teléfonos SIP"){
@@ -4705,7 +4208,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );             
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -4725,13 +4228,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }      
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Escritorio de Oficina"){
@@ -4761,7 +4258,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );              
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -4781,13 +4278,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }     
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Ergonomia" || $nombreCategoria == "Sillas de Oficina"){
@@ -4817,7 +4308,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );              
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -4837,13 +4328,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }     
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Almacenamiento Óptico" || $nombreCategoria == "Contabilidad" || $nombreCategoria == "Quemadores DVD y BluRay"){
@@ -4873,7 +4358,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );               
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -4893,13 +4378,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }    
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Accesorios de Papeleria" || $nombreCategoria == "Articulos de Escritura" || $nombreCategoria == "Basico de Papeleria" || $nombreCategoria == "Cuadernos" || $nombreCategoria == "Papelería" || $nombreCategoria == "Plumas Interactivas"){
@@ -4929,7 +4408,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );             
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -4949,13 +4428,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }      
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Mantenimiento"){
@@ -4985,7 +4458,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );             
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -5005,13 +4478,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }      
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Refacciones"){
@@ -5041,7 +4508,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -5061,13 +4528,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Cabezales"){
@@ -5097,7 +4558,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );              
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -5117,13 +4578,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }     
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Accesorios para impresoras" || $nombreCategoria == "Gabinetes para Impresoras"){
@@ -5153,7 +4608,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );             
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -5173,13 +4628,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }      
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Cintas"){
@@ -5209,7 +4658,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -5229,13 +4678,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }   
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Papel"){
@@ -5265,7 +4708,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );         
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -5285,13 +4728,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }          
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Tóners"){
@@ -5321,7 +4758,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );         
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -5341,13 +4778,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }          
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Cartuchos"){
@@ -5377,7 +4808,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -5397,13 +4828,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Plotters"){
@@ -5433,7 +4858,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );           
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -5453,13 +4878,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }        
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Rotuladores"){
@@ -5489,7 +4908,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -5509,13 +4928,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Escaner"){
@@ -5545,7 +4958,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );          
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -5565,13 +4978,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }         
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Multifuncionales"){
@@ -5601,7 +5008,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );           
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -5621,13 +5028,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }        
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Impresoras"){
@@ -5657,7 +5058,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );          
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -5677,13 +5078,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }         
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Soporte para TV" || $nombreCategoria == "Soporte Videowall" || $nombreCategoria == "Soportes"){
@@ -5713,7 +5108,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -5733,13 +5128,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Soporte para Proyector"){
@@ -5769,7 +5158,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );        
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -5789,13 +5178,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }           
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Limpieza"){
@@ -5825,7 +5208,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );       
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -5845,13 +5228,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }            
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Controles"){
@@ -5881,7 +5258,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -5901,13 +5278,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }   
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Accesorios para Camaras"){
@@ -5937,7 +5308,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );          
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -5957,13 +5328,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }         
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Lentes"){
@@ -5993,7 +5358,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );           
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -6013,13 +5378,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }        
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Micrófonos"){
@@ -6049,7 +5408,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );           
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -6069,13 +5428,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }        
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Home Theaters"){
@@ -6105,7 +5458,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                 
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -6125,13 +5478,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }  
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Bocina Portatil" || $nombreCategoria == "Bocinas" || $nombreCategoria == "Bocinas Gaming" || $nombreCategoria == "Bocinas y Bocinas Portátiles"){
@@ -6161,7 +5508,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                 
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -6181,13 +5528,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }  
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria =="Audífonos para Apple" || $nombreCategoria == "Base Diademas" || $nombreCategoria == "Diademas" || $nombreCategoria == "Diademas y Audífonos"){
@@ -6217,7 +5558,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );               
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -6237,13 +5578,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }    
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria =="Audífonos" || $nombreCategoria == "Audífonos para Apple" || $nombreCategoria == "Auriculares" || $nombreCategoria == "Earbuds" || $nombreCategoria == "In Ears" || $nombreCategoria == "On Ear" || $nombreCategoria == "on-ear" || $nombreCategoria == "Perifericos Apple" || $nombreCategoria == "Reproductores MP3"){
@@ -6273,7 +5608,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                  
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -6293,13 +5628,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         } 
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Patinetas"){
@@ -6329,7 +5658,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -6349,13 +5678,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Streaming" || $nombreCategoria == "Televisiones"){
@@ -6385,7 +5708,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -6405,13 +5728,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }   
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Pantallas de Proyección" || $nombreCategoria == "Proyectores"){
@@ -6441,7 +5758,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );           
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -6461,13 +5778,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }        
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Power banks"){
@@ -6497,7 +5808,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );           
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -6517,13 +5828,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }        
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Smartwatch"){
@@ -6553,7 +5858,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );             
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -6573,13 +5878,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }      
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Cables Lightning" || $nombreCategoria == "Cargadores"){
@@ -6609,7 +5908,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );              
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -6629,13 +5928,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }     
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Accesorios de Telefonía" || $nombreCategoria == "Accesorios para Celulares" || $nombreCategoria == "Bases" || $nombreCategoria == "Celulares" || $nombreCategoria == "Equipo para Celulares" || $nombreCategoria == "Transmisores"){
@@ -6665,7 +5958,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -6685,13 +5978,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }   
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Gabinetes para Discos Duros"){
@@ -6721,7 +6008,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );               
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -6741,13 +6028,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }    
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Memorias Flash" || $nombreCategoria == "Memorias USB"){
@@ -6777,7 +6058,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -6797,13 +6078,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }   
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Adaptadores para Disco Duro" || $nombreCategoria == "Almacenamiento Externo" || $nombreCategoria == "Discos Duros" || $nombreCategoria == "Discos Duros Externos" || $nombreCategoria == "SSD"){
@@ -6833,7 +6108,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -6853,13 +6128,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Adaptadores Displayport" || $nombreCategoria == "Adaptadores DVI" || $nombreCategoria == "Adaptadores HDMI" || $nombreCategoria == "Adaptadores para Video" || $nombreCategoria == "Adaptadores Tipo C" || $nombreCategoria == "Adaptadores USB para Video" || $nombreCategoria == "Adaptadores VGA"){
@@ -6889,7 +6158,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -6909,13 +6178,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }   
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Cables Serial"){
@@ -6945,7 +6208,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -6965,13 +6228,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }   
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Cables Coaxial" || $nombreCategoria == "Cables de Video" || $nombreCategoria == "Cables Displayport" || $nombreCategoria == "Cables DVI" || $nombreCategoria == "Cables HDMI" || $nombreCategoria == "Cables KVM" || $nombreCategoria == "Cables VGA"){
@@ -7001,7 +6258,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -7021,13 +6278,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Cables de Audio" || $nombreCategoria == "Cables de Alimentación" || $nombreCategoria == "Cables de Energía"){
@@ -7057,7 +6308,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -7077,13 +6328,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Fundas y Maletines" || $nombreCategoria == "Mochila Gaming" || $nombreCategoria == "Mochilas y Maletines"){
@@ -7113,7 +6358,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );              
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -7133,13 +6378,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }     
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Fundas Laptops" || $nombreCategoria == "Fundas para Tablets" || $nombreCategoria == "Protectores para Tablets"){
@@ -7169,7 +6408,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );           
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -7189,13 +6428,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }        
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Filtro de Privacidad"){
@@ -7225,7 +6458,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );           
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -7245,13 +6478,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }        
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Concentradores Hub" || $nombreCategoria == "Docking Station"){
@@ -7281,7 +6508,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );           
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -7301,13 +6528,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }        
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Candados Laptops"){
@@ -7337,7 +6558,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );              
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -7357,13 +6578,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }     
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Bases Enfriadoras"){
@@ -7393,7 +6608,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );   
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -7413,13 +6628,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }                
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Accesorios para Laptops" || $nombreCategoria == "Adaptadores para Laptops" || $nombreCategoria == "Bases" || $nombreCategoria == "Baterias Laptops" || $nombreCategoria == "Pantallas Laptops" || $nombreCategoria == "Teclados Laptops"){
@@ -7449,7 +6658,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );        
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -7469,13 +6678,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }           
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Tarjetas de Sonido" || $nombreCategoria == "Tarjetas de Video" || $nombreCategoria == "Tarjetas Paralelas" || $nombreCategoria == "Tarjetas Seriales"){
@@ -7505,7 +6708,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );   
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -7525,13 +6728,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }                
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Motherboards"){
@@ -7561,7 +6758,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );     
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -7581,13 +6778,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }              
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Microprocesadores"){
@@ -7617,7 +6808,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );         
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -7637,13 +6828,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }          
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Memorias RAM"){
@@ -7673,7 +6858,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );        
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -7693,13 +6878,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }           
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Lectores de Memorias"){
@@ -7729,7 +6908,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );           
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -7749,13 +6928,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }        
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Gabinetes para Computadoras"){
@@ -7785,7 +6958,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -7805,13 +6978,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Fuentes de Poder"){
@@ -7841,7 +7008,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );               
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -7861,13 +7028,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }    
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Enfriamiento y Ventilación"){
@@ -7897,7 +7058,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );           
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -7917,13 +7078,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }        
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Webcams"){
@@ -7953,7 +7108,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );         
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -7973,13 +7128,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }          
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Bases" || $nombreCategoria == "Soporte de Monitor" || $nombreCategoria == "Soporte Laptops" || $nombreCategoria == "Soportes para PCs"){
@@ -8009,7 +7158,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -8029,13 +7178,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Monitores" || $nombreCategoria == "Monitores Curvos"){
@@ -8065,7 +7208,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );             
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -8085,13 +7228,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }      
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Teclados"){
@@ -8121,7 +7258,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );             
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -8141,13 +7278,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }      
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Mouse" || $nombreCategoria == "Mouse Pads"){
@@ -8177,7 +7308,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         ); 
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -8197,13 +7328,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "iPad" ||$nombreCategoria == "Soporte para Tablets" || $nombreCategoria == "Tabletas"){
@@ -8233,7 +7358,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );            
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -8253,13 +7378,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }       
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Workstations de Escritorio" || $nombreCategoria == "Workstations Gaming" || $nombreCategoria == "Workstations Móviles"){
@@ -8289,7 +7408,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                   
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -8309,13 +7428,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Mini PC"){
@@ -8345,7 +7458,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -8365,13 +7478,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }   
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "MacBook"){
@@ -8401,7 +7508,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                  
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -8421,13 +7528,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         } 
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "iMac"){
@@ -8457,7 +7558,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );   
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -8477,13 +7578,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         }                
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "PCs de Escritorio"){
@@ -8513,7 +7608,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                  
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -8533,13 +7628,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }   
                         } 
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }
                     if($nombreCategoria == "Laptops"){
@@ -8569,7 +7658,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );
                         if(count($product['promociones']) > 0){
                             if($product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -8625,7 +7714,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );
                         if(count($product['promociones']) > 0){
                             if(@$product['promociones'][0]['tipo'] == "importe"){
-                                $precioPromocion = $product['promociones'][0]['promocion'];
+                                $precioPromocion = $product['promociones'][0]['promocion'] * $product['tipoCambio'];
                                 $items->setSpecialPrice($precioPromocion);
                                 $items->setSpecialFromDate($product['promociones'][0]['vigencia']['inicio']);
                                 $items->setSpecialFromDateIsFormated(true);
@@ -8645,13 +7734,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                                 }                            
                             }
                         }
-                        $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
-                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                        file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                        $imgUrl = $filepath;
-                        $items->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                      
+
                         $items->save();
                     }                                       
                 }

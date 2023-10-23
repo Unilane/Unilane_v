@@ -19,7 +19,37 @@
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
 -->
-
+<td class="a-center last button-remove">
+    <div class="remove-wrapper">
+        <a class="button-action edit"
+           data-bind="click: function(data, event) { showProductModal($parent, data, event) },
+                      visible: (getConfigurableOptions($parent).length || getCustomOptions($parent).length) || getOptions($parent).length">
+            <i class="fa fa-pencil"></i>
+        </a>
+        <a class="button-action remove" data-bind="click:function(){removeItem($parent.item_id)}">
+            <i class="fa fa-trash-o"></i>
+        </a>
+    </div>
+</td>
+<td class="a-center details-qty">
+    <div class="qty-wrapper">
+        <a class="button-action minus" data-bind="click: minusQty" title="Minus">
+            <i class="fa fa-minus"></i>
+        </a>
+        <div class="qty-wrap">
+            <input class="item_qty input-text update value" name="item_qty"
+                   data-bind="value: getProductQty($parent.item_id), attr: {id: $parent.item_id}, event: {change: changeQty, load: checkGiftsItem($parent)}"/>
+        </div>
+        <a class="button-action plus" data-bind="click: plusQty" title="Plus">
+            <i class="fa fa-plus"></i>
+        </a>
+    </div>
+</td>
+<td class="a-center subtotal">
+    <!-- ko foreach: getRegion('after_details') -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <!-- /ko -->
+</td>
 <td class="a-left product">
     <!-- ko foreach: getRegion('before_details') -->
     <!-- ko template: getTemplate() --><!-- /ko -->
@@ -153,34 +183,5 @@
     <!-- ko template: getTemplate() --><!-- /ko -->
     <!-- /ko -->
 </td>
-<td class="a-center details-qty">
-    <div class="qty-wrapper">
-        <a class="button-action minus" data-bind="click: minusQty" title="Minus">
-            <i class="fa fa-minus"></i>
-        </a>
-        <div class="qty-wrap">
-            <input class="item_qty input-text update value" name="item_qty"
-                   data-bind="value: getProductQty($parent.item_id), attr: {id: $parent.item_id}, event: {change: changeQty, load: checkGiftsItem($parent)}"/>
-        </div>
-        <a class="button-action plus" data-bind="click: plusQty" title="Plus">
-            <i class="fa fa-plus"></i>
-        </a>
-    </div>
-</td>
-<td class="a-center subtotal">
-    <!-- ko foreach: getRegion('after_details') -->
-    <!-- ko template: getTemplate() --><!-- /ko -->
-    <!-- /ko -->
-</td>
-<td class="a-center last button-remove">
-    <div class="remove-wrapper">
-        <a class="button-action edit"
-           data-bind="click: function(data, event) { showProductModal($parent, data, event) },
-                      visible: (getConfigurableOptions($parent).length || getCustomOptions($parent).length) || getOptions($parent).length">
-            <i class="fa fa-pencil"></i>
-        </a>
-        <a class="button-action remove" data-bind="click:function(){removeItem($parent.item_id)}">
-            <i class="fa fa-trash-o"></i>
-        </a>
-    </div>
-</td>
+
+

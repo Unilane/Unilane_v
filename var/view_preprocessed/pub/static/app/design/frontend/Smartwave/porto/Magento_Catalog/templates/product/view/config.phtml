@@ -20,7 +20,8 @@ require([
         }
     <?php endif;?> }
     <?php if($move_addtolinks): ?>
-        $(".box-tocart .actions").after('<div class="moved-add-to-links"></div>');
+        
+        $(".box-tocart .field.qty").after('<div class="moved-add-to-links"></div>');
         $(".product-social-links > .product-addto-links").appendTo(".moved-add-to-links");
         $(".product-social-links > .action.mailto").appendTo(".product-addto-links");
     <?php endif; ?> });
