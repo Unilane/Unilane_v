@@ -167,9 +167,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         if (!empty($this->getGTINCode())) {
             $gtinCode = $this->getGTINCode();
             $gtinCodeData = $product->getData($gtinCode);
-            if (!empty($gtinCodeData)) {
-                return '?UserName=' . $username . '&Language=' . $language . '&GTIN=' . $gtinCodeData;
-            } elseif (!empty($this->getProductCode()) && !empty($this->getBrandCode())) {
+            if (!empty($this->getProductCode()) && !empty($this->getBrandCode())) {
                 $productCode = $this->getProductCode();
                 $brandCode = $this->getBrandCode();
                 $productCodeData = $product->getData($productCode);
@@ -183,6 +181,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
                 if (!empty($productCodeData) && !empty($brandCodeData)) {
                     return '?UserName=' . $username . '&Language=' . $language . '&Brand=' . $brandCodeData . '&ProductCode=' . $productCodeData;
                 }
+            } elseif (!empty($gtinCodeData) ) {
+                return '?UserName=' . $username . '&Language=' . $language . '&GTIN=' . $gtinCodeData;                
             }
         } elseif (!empty($this->getProductCode()) && !empty($this->getBrandCode())) {
             $productCode = $this->getProductCode();
