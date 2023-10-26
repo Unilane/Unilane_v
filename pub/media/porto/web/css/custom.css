@@ -240,6 +240,13 @@ html .btn-v-dark {color: #fff !important;background-color: #222529 !important;bo
   .logo {max-width: 80px;z-index: auto;}
   .panel.header .switcher {display: none;}
   .page-header .header.panel {display: none;}
+
+  .block-search input{
+    padding-right: 50%;
+  }
+  .block-search input:placeholder-shown {
+    text-overflow: ellipsis;
+  }
 }
 @media (min-width: 992px){
 .header.panel > .header.links > li.greet.welcome + .customer-welcome {margin-left: -10px;text-align: right;}

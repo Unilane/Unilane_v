@@ -459,8 +459,11 @@ class IceCatUpdateProduct
                 }
             </style>';
                 $specificationHtml .= '<div class="container mb-btm">';
-                $specificationHtml .= '<div class="panel-body break_cols">';
-                $specificationHtml .= '<div class="spec-column">';
+                // $specificationHtml .= '<div class="panel-body break_cols">';
+                // $specificationHtml .= '<div class="spec-column">';
+                $specificationHtml .= '<div class="row">';
+                $specificationHtml .= '<div class="tableRow col-12 col-md-6">';
+
                 $specificationHtml .= '<div class="table">';
                 $specificationHtml .= '<div class="tableRow col-12">';
 
@@ -524,7 +527,8 @@ class IceCatUpdateProduct
                 $specificationHtml .= '</div>';
                 $specificationHtml .= '</div>';
                 $specificationHtml .= '</div>';
-                $specificationHtml .= '<div class="spec-column">';
+                // $specificationHtml .= '<div class="spec-column">';
+                $specificationHtml .= '<div class="tableRow col-12 col-md-6">';
                 $specificationHtml .= '<div class="table">';
                 $specificationHtml .= '<div class="tableRow col-12">';
                 foreach ($arraySecond as $key => $value) {
