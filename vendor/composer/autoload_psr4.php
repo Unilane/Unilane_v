@@ -511,6 +511,7 @@ return array(
     'BaconQrCode\\' => array($vendorDir . '/bacon/bacon-qr-code/src'),
     'Aws\\' => array($vendorDir . '/aws/aws-sdk-php/src'),
     'Assert\\' => array($vendorDir . '/beberlei/assert/lib/Assert'),
+    'AfterShip\\Tracking\\' => array($vendorDir . '/aftership/aftership-apps-magento2'),
     'AdobeStock\\Api\\' => array($vendorDir . '/astock/stock-api-libphp/src'),
     'AESKW\\' => array($vendorDir . '/spomky-labs/aes-key-wrap/src'),
 );

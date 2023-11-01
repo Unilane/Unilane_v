@@ -8,8 +8,8 @@ namespace Unilane\Sales\Plugin\Magento\Sales\Api;
 
 use Magento\Sales\Api\OrderManagementInterface;
 use Magento\Sales\Api\Data\OrderInterface;
-
-class IntegrationIntelisis
+use Magento\Framework\App\Action\Action;
+class IntegrationIntelisis 
 {
     /**
     * @var OrderInterface 
@@ -29,33 +29,42 @@ class IntegrationIntelisis
         $this->OrderInterface           = $OrderInterface;
     }
     public function afterPlace(OrderManagementInterface $subject, OrderInterface $order)
-    {           
+    {
+       
         // Este codigo colecciona toda la informacion del cliente como su nombre y direccion
         $infoCliente = $order->getAddresses();
         $datosDomicilio = [];        
-        foreach($infoCliente as $cliente){            
-            $data["calle"]      =  $cliente->getStreet();
-            $data["delagacion"] =  $cliente->getRegion();
-            $data["estado"]     =  $cliente->getCity();
-            $data["pais"]       =  "Mexico";
-            $data["cp"]         =  $cliente->getPostCode();
-            $data["nombre"]     =  $order->getCustomerFirstname()." ".$order->getCustomerLastname(); 
-            $data["bandera"]    =  $cliente->getAddressType();
+        foreach($infoCliente as $cliente){       
+            $data["calle"]      = $cliente->getStreet();
+            $data["delegacion"] = $cliente->getCity();
+            $data["estado"]     = $cliente->getRegion();
+            $data["pais"]       = "Mexico";
+            $data["cp"]         = $cliente->getPostCode();
+            $data["nombre"]     = $order->getCustomerFirstname()." ".$order->getCustomerLastname(); 
+            $data["bandera"]    = $cliente->getAddressType();
+            $data['id']         = $order->getIncrementId();
+            $data['telefono']   = $cliente->getTelephone();
+            $data['colonia']    = $cliente->getMposcField1();
+            $data['entreCalle'] = $cliente->getMposcField2();
+            $data["query"]      = 1;
             array_push($datosDomicilio, $data);            
         }
         if($datosDomicilio){
             $result = $this->connectionAPI($datosDomicilio);
         }
-        if($result){
+        if($result["iDR"] != NULL){
             // Este codigo colecciona toda la informacion del pedido que requiere intelisis
             $pedidos = $order->getItems();
             $datosPedido = [];
             foreach($pedidos as $pedido){
-                $dataP["sku"]      = $pedido->getSku();
-                $dataP["qty"]      = $pedido->getQtyOrdered();
-                $dataP["tax"]      = $pedido->getTaxPercent() == 0 ? null : $pedido->getTaxPercent();
-                $dataP["discount"] = $pedido->getDiscountPercent() == 0 ? null : $pedido->getDiscountPercent();
-                $dataP["price"]    = $pedido->getPrice() == 0 ? $pedido->getOriginalPrice() : $pedido->getPrice();
+                $dataP["IDR"]        = $result["iDR"];
+                $dataP["Cantidad"]   = $pedido->getQtyOrdered();
+                $dataP["Almacen"]    = 'ALMGEN';
+                $dataP["Articulo"]   = $pedido->getSku();
+                $dataP["Precio"]     = $pedido->getPrice();
+                $dataP["Moneda"]     = 'MXN';
+                $dataP["TipoCambio"] = '1';
+                $dataP["query"]      = 2;
                 array_push($datosPedido, $dataP);
             }
             if($datosPedido){
@@ -63,8 +72,17 @@ class IntegrationIntelisis
             }
             if($resultP){
                 return $order;
-            }        
+            }            
+            else{
+                return false;
+            }     
         }        
+        else{
+            $this->messageManager->addErrorMessage(
+                __($result["okRef"])
+            );
+            return $this->resultRedirectFactory->create()->setPath('onestepcheckout/');
+        }               
     }
 
     public function connectionAPI($dataI){
@@ -99,11 +117,11 @@ class IntegrationIntelisis
         // Procesar la respuesta (puede ser JSON, XML, HTML, etc.)
         if ($result) {
             $response = json_decode($result, true);
-            if($response['estado']){
-                return $response['estado'];
+            if($response){
+                return $response;
             }
             else{
-                return false;
+                return $response;
             }
         } else {
             echo 'No se recibió una respuesta válida.';

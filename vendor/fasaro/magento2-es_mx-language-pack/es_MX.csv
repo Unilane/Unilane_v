@@ -894,7 +894,7 @@ You have successfully unsubscribed from %1.,Te has dado de baja con 茅xito de %1
 You will get less messages of this type. Notification frequency has been updated.,Recibir谩 menos mensajes de este tipo. La frecuencia de notificaci贸n ha sido actualizada.,module,Amasty_Base 
 You will get more messages of this type. Notification frequency has been updated.,Recibir谩 m谩s mensajes de este tipo. La frecuencia de notificaci贸n ha sido actualizada.,module,Amasty_Base 
 """%1"" SKU isn't associated with this configurable product","El ""%1"" SKU no est谩 asociado con este producto configurable",module,Amasty_Conf 
-%1,%1,module,Amasty_Conf 
+1%,1%,module,Amasty_Conf 
 A total of %1 record(s) have been deleted.,Se ha eliminado un total de %1 registro (s).,module,Amasty_Conf 
 Add New Group,Agregar nuevo grupo,module,Amasty_Conf 
 "Are you sure you wan't to delete a ""${ $.$data.name }"" record?","驴Est谩 seguro de que no desea eliminar un registro ""${ $.$data.name }""?",module,Amasty_Conf 
@@ -1075,7 +1075,7 @@ Last Cron Activity: ,脷ltima actividad de Cron:,module,Amasty_CronScheduleList
 Messages,Mensajes,module,Amasty_CronScheduleList 
 Missed,Perdido,module,Amasty_CronScheduleList 
 never,Nunca,module,Amasty_CronScheduleList 
-Pending,Pendiente,module,Amasty_CronScheduleList 
+Pending,Procesando,module,Amasty_CronScheduleList 
 Run Cron,Iniciar Cron,module,Amasty_CronScheduleList 
 Running,Corriendo,module,Amasty_CronScheduleList 
 Scheduled At,Programado en,module,Amasty_CronScheduleList 
@@ -1782,7 +1782,7 @@ Please Select ...,Por favor seleccione ...,module,Amasty_Finder
 Please specify an exiting Parts Finder ID,"Por favor, especifique una ID de buscador de piezas existente",module,Amasty_Finder 
 Please specify the Parts Finder ID,"Por favor, especifique la ID del buscador de piezas",module,Amasty_Finder 
 Please update Amasty Base module. Re-upload it and replace all the files.,Actualice el m贸dulo Amasty Base. Vuelva a cargarlo y reemplace todos los archivos.,module,Amasty_Finder 
-Processing,Procesando,module,Amasty_Finder 
+Processing,Enviado,module,Amasty_Finder 
 Product Parts Filnders,Rellenos de piezas de productos,module,Amasty_Finder 
 Product Parts Finder,Buscador de piezas de producto,module,Amasty_Finder 
 Products,Productos,module,Amasty_Finder 
@@ -2713,8 +2713,8 @@ your locales,tus locales,module,Amasty_PageSpeedOptimizer
  Subscription Paused at %store_name,聽Suscripci贸n pausada en %store_name,module,Amasty_RecurringPayments 
  Subscription Purchased at %store_name,聽Suscripci贸n comprada en %store_name,module,Amasty_RecurringPayments 
  Trial will end at %store_name,聽La prueba finalizar谩 en %store_name,module,Amasty_RecurringPayments 
--no,-no,module,Amasty_RecurringPayments 
--yes,-si,module,Amasty_RecurringPayments 
+#縉OMBRE?,#縉OMBRE?,module,Amasty_RecurringPayments 
+#縉OMBRE?,#縉OMBRE?,module,Amasty_RecurringPayments 
 (After the first %1 cycle(s) you will be paying <span>%2</span> per delivery),"(Despu茅s del primer %1 ciclo (s), pagar谩 <span> %2 </span> por factura)",module,Amasty_RecurringPayments 
 3D Secure Authentication,Autenticaci贸n segura 3D,module,Amasty_RecurringPayments 
 3D Secure Authentication Email Template,Plantilla de correo electr贸nico de autenticaci贸n segura 3D,module,Amasty_RecurringPayments 
@@ -3018,7 +3018,7 @@ CLI,CLI,module,Amasty_Rma
 Click the field to choose color.,Haga clic en el campo para elegir el color.,module,Amasty_Rma 
 Code,C贸digo,module,Amasty_Rma 
 Comment:,Comentario:,module,Amasty_Rma 
-Completed,Terminado,module,Amasty_Rma 
+Completed,Entregado,module,Amasty_Rma 
 Condition,Condici贸n,module,Amasty_Rma 
 "Condition with specified ID ""%1"" not found.","Condici贸n con ID especificado ""%1"" no encontrado.",module,Amasty_Rma 
 Condition/Reason/Resolution are required fields.,Condici贸n / raz贸n / resoluci贸n son campos obligatorios.,module,Amasty_Rma 
@@ -3807,7 +3807,7 @@ Yes,si,module,Amasty_Shopby
 Yes (Render Full Categories Tree) or No (For category filter tree customization),S铆 (Procesar 谩rbol de categor铆as completas) o No (Para la personalizaci贸n del 谩rbol de filtros de categor铆a),module,Amasty_Shopby 
 You deleted the group.,Eliminaste el grupo.,module,Amasty_Shopby 
 You saved the group.,Guardaste el grupo.,module,Amasty_Shopby 
-%1,%1,module,Amasty_ShopbyBase 
+1%,1%,module,Amasty_ShopbyBase 
 Default,Defecto,module,Amasty_ShopbyBase 
 Dropdown,Desplegable,module,Amasty_ShopbyBase 
 Featured Options,Opciones destacadas,module,Amasty_ShopbyBase 
@@ -7360,7 +7360,7 @@ Tiempo en segundos entre actualizaciones de widgets.
 {size},{size},module,Magento_Catalog
 {width}^{height} px,{width}^{height} px,module,Magento_Catalog
 * Required Fields,* Campos Requeridos,module,Magento_Catalog
-%1,%1,module,Magento_Catalog
+1%,1%,module,Magento_Catalog
 %1 - %2,%1 - %2,module,Magento_Catalog
 %1 - Special Products,%1 - art铆culos especiales,module,Magento_Catalog
 %1 <span>x</span> %2 <span>px.</span>,%1 <span>x</span> %2 <span>px.</span>,module,Magento_Catalog
@@ -9463,7 +9463,7 @@ Update Information,Actualizar informaci贸n,module,Magento_CmsStaging
 Update Name,Actualizar nombre,module,Magento_CmsStaging
 URL Key,Clave URL,module,Magento_CmsStaging
  - Duplicated, - Duplicado,module,Magento_Company
-- Duplicated,- Duplicado,module,Magento_Company
+#縉OMBRE?,#縉OMBRE?,module,Magento_Company
 """%fieldName"" is required. Enter and try again.","Se requiere ""%fieldName"". Entra y vuelve a intentarlo.",module,Magento_Company
 """%fieldName"" is required. Enter and try again.""%fieldName"" is required. Enter and try again.","""%fieldName"" es obligatorio. Introduzcalo y vuelva a intentarlo. ""%fieldName"" es obligatorio. Introduzcalo y vuelva a intentarlo.",module,Magento_Company
 (me),(yo),module,Magento_Company
@@ -10001,7 +10001,7 @@ Use config settings,Usar opciones de configuraci贸n,module,Magento_CompanyPaymen
 [GLOBAL],[GLOBAL],module,Magento_Config
 [STORE VIEW],[VISTA DE TIENDA],module,Magento_Config
 [WEBSITE],[WEBSEITE],module,Magento_Config
-%1,%1,module,Magento_Config
+1%,1%,module,Magento_Config
 %1 (Default),%1 (por defecto),module,Magento_Config
 %1 An empty value is allowed as well.,As铆 se permite %1 un valor vac铆o.,module,Magento_Config
 %1 should implement %2,%1 debe implementar %2,module,Magento_Config
@@ -12219,7 +12219,7 @@ Test Connection,Probar conexi贸n,module,Magento_Elasticsearch6
 The search failed because of a search engine misconfiguration.,La b煤squeda fall贸 debido a un error de configuraci贸n del motor de b煤squeda.,module,Magento_Elasticsearch6 
 """file"" parameter must be specified","se debe especificar el par谩metro ""archivo""",module,Magento_Email
 """file"" parameter must be specified and must not be empty","Par谩metro ""archivo"" debe ser especificado y no debe estar vac铆o",module,Magento_Email
-%1,%1,module,Magento_Email
+1%,1%,module,Magento_Email
 <pre> %1 </pre>,<pre>%1</pre>,module,Magento_Email
 <pre>' . . . . '</pre>,<pre>' . . . . '</pre>,module,Magento_Email
 1%,1%,module,Magento_Email
@@ -12804,7 +12804,7 @@ You can leave this box blank if you don\'t want to add a gift message for this a
 [STORE VIEW],[VISTA DE TIENDA],module,Magento_GiftRegistry
 [WEBSITE],[WEBSITE],module,Magento_GiftRegistry
 * Required Fields,* Campos Requeridos,module,Magento_GiftRegistry
-%1,%1,module,Magento_GiftRegistry
+1%,1%,module,Magento_GiftRegistry
 %1 email(s) were sent.,%1 email(s) fueron enviados.,module,Magento_GiftRegistry
 %1 item(s) have been added to the gift registry.,se han agregado elementos de %1 en el registro de regalo.,module,Magento_GiftRegistry
 "%name,","%name,",module,Magento_GiftRegistry
@@ -13117,7 +13117,7 @@ Zip/Postal Code,C贸digo Postal,module,Magento_GiftRegistry
 [GLOBAL],[GLOBAL],module,Magento_GiftWrapping
 [STORE VIEW],[VISTA DE TIENDA],module,Magento_GiftWrapping
 [WEBSITE],[WEBSITE],module,Magento_GiftWrapping
-%1,%1,module,Magento_GiftWrapping
+1%,1%,module,Magento_GiftWrapping
 1%,1%,module,Magento_GiftWrapping
 A valid currency code wasn't entered. Enter a valid %1 currency code and try again.,No se ingres贸 un c贸digo de moneda v谩lido. Ingrese un c贸digo de moneda %1 v谩lido e intente nuevamente. ,module,Magento_GiftWrapping
 Action,Acci贸n,module,Magento_GiftWrapping
@@ -14349,9 +14349,9 @@ Successful Messages Lifetime,Tiempo de vida de mensajes existosos,module,Magento
  has been declined by the seller., ha sido rechazado por el vendedor.,module,Magento_NegotiableQuote
  submitted by buyer, enviado al comprador,module,Magento_NegotiableQuote
  updated by buyer, actualizado por el comprador,module,Magento_NegotiableQuote
-- deleted,- eliminado,module,Magento_NegotiableQuote
-- deleted from catalog,- eliminado del cat谩logo,module,Magento_NegotiableQuote
-- removed,- eliminado,module,Magento_NegotiableQuote
+#縉OMBRE?,#縉OMBRE?,module,Magento_NegotiableQuote
+#縉OMBRE?,#縉OMBRE?,module,Magento_NegotiableQuote
+#縉OMBRE?,#縉OMBRE?,module,Magento_NegotiableQuote
 """%fieldName"" is required. Enter and try again.","Se requiere ""%fieldName"". Entra y vuelve a intentarlo.",module,Magento_NegotiableQuote
 (Added),(Agregado),module,Magento_NegotiableQuote
 (Removed),(Eliminado),module,Magento_NegotiableQuote
@@ -17847,7 +17847,7 @@ Unknown condition operator,Operador de condici贸n desconocido,module,Magento_Rul
 [deleted],[borrado],module,Magento_Sales
 * - Enter custom price excluding tax,* - Introduzca el precio a medida sin impuestos,module,Magento_Sales
 * - Enter custom price including tax,* - Introduzca el precio a medida con impuestos,module,Magento_Sales
-%1,%1,module,Magento_Sales
+1%,1%,module,Magento_Sales
 %1 / %2 rate:,tarifa %1 / %2:,module,Magento_Sales
 %1 for %2,%1 para %2,module,Magento_Sales
 %1 order(s) cannot be canceled.,El/los pedido(s) no puede(n) ser cancelado(s).,module,Magento_Sales
@@ -20014,7 +20014,7 @@ You removed this %1 from the update and saved it in the other one.,Ha removido e
 You removed this %1 from the update.,Ha removido este %1 de la actualizaci贸n.,module,Magento_Staging
 You saved this %1 update.,Has guardado esta actualizaci贸n %1.,module,Magento_Staging
 -- Please Select --,-- Por favor Seleccione --,module,Magento_Store
-%1,"El operador ""%1"" no es v谩lido. Verifique e intente nuevamente.",module,Magento_Store
+1%,"El operador ""%1"" no es v谩lido. Verifique e intente nuevamente.",module,Magento_Store
 %1 should implement %2,%1 debe implementar %2,module,Magento_Store
 1%,1%,module,Magento_Store
 Admin,Administrador,module,Magento_Store
@@ -20701,7 +20701,7 @@ The tax rate has been imported.,La tasa de impuesto se ha importado.,module,Mage
 Zip/Post Code,CP/C贸digo postal,module,Magento_TaxImportExport
 Zip/Post is Range,S贸lo para ciertos c贸digos postales,module,Magento_TaxImportExport
 -- Please Select --,-- Por favor Seleccione --,module,Magento_Theme
-%1,%1,module,Magento_Theme
+1%,1%,module,Magento_Theme
 %1 does not contain field '%2',%1 does not contain field '%2',module,Magento_Theme
 %1 does not contain field 'file',%1 does not contain field 'file',module,Magento_Theme
 %1 does not contain field \'%2\',%1 no contiene el campo \'%2\',module,Magento_Theme
@@ -21700,7 +21700,7 @@ Variable,Variable,module,Magento_Usps
 Width,Ancho,module,Magento_Usps
 Window Flat-Rate Envelope,Window Flat-Rate Envelope,module,Magento_Usps
 Yes,Si,module,Magento_Usps
-%1,%1,module,Magento_Variable
+1%,1%,module,Magento_Variable
 1%,1%,module,Magento_Variable
 Add New Variable,Agregar nueva Variable,module,Magento_Variable
 Base URL,Base URL,module,Magento_Variable
@@ -22135,7 +22135,7 @@ Website,Sitio web,module,Magento_Weee
 "When specifying fixed product tax regions within the same country, select either unique region names or all ('*')","Al especificar regiones de impuestos fijos de productos dentro del mismo pa铆s, seleccione nombres de regi贸n 煤nicos o todos ('*')",module,Magento_Weee
 You must set unique country-state combinations within the same fixed product tax,Debe establecer combinaciones 煤nicas de estado - pa铆s en el mismo impuesto fijo producto,module,Magento_Weee
 -- Please Select --,-- Por favor Seleccione --,module,Magento_Widget
-%1,%1,module,Magento_Widget
+1%,1%,module,Magento_Widget
 1%,1%,module,Magento_Widget
 Add Layout Update,Agregar actualizaci贸n de dise帽o,module,Magento_Widget
 Add Widget,Agregar Widget,module,Magento_Widget
@@ -25832,9 +25832,9 @@ We couldn\'t import this file because of these errors: %1,No podr铆amos importar
 Weight,Peso,module,WebShopApps_MatrixRate
 Weight vs. Destination,Peso vs. Destino,module,WebShopApps_MatrixRate
 Zip/Postal Code,C贸digo postal,module,WebShopApps_MatrixRate
-"- Wrong domain name - check active license domain under My Downloadable Products section of your weltpixel.com account. License allows using the product on one Magento installation with any number of store views / URLs. Product can be installed on up to 5 sub-domains of the licensed domain for testing purpose, including domains .local | .dev | .development | .staging | .stage  Ex: staging.domain.com, development.domain.com, domain.local, domain.dev etc..","- Nombre de dominio incorrecto: verifique el dominio de licencia activo en la secci贸n Mis productos descargables de su cuenta de weltpixel.com. La licencia permite usar el producto en una instalaci贸n de Magento con cualquier n煤mero de vistas de tienda / URL. El producto se puede instalar en hasta 5 subdominios del dominio con licencia con fines de prueba, incluidos los dominios .local | .dev | .desarrollo | .staging | .stage Ej .: staging.domain.com, development.domain.com, domain.local, domain.dev, etc.",module,WeltPixel_Backend 
-- Wrong Magento edition - using a Magento Open Source license key for a Magento Commerce installation.,- Edici贸n de Magento incorrecta: se usa una clave de licencia de c贸digo abierto de Magento para una instalaci贸n de Magento Commerce.,module,WeltPixel_Backend 
-- Wrong module - using a license key from a different product or product pack.,- M贸dulo incorrecto: se utiliza una clave de licencia de un producto o paquete de producto diferente.,module,WeltPixel_Backend 
+- Wrong domain name - check active license domain under My Downloadable Products section of your weltpixel.com account. License allows using the product on one Magento installation with any number of store views / URLs. Product can be installed on up to 5,- Nombre de dominio incorrecto: verifique el dominio de licencia activo en la secci贸n Mis productos descargables de su cuenta de weltpixel.com. La licencia permite usar el producto en una instalaci贸n de Magento con cualquier n煤mero de vistas de tienda ,module,WeltPixel_Backend 
+#縉OMBRE?,#縉OMBRE?,module,WeltPixel_Backend 
+#縉OMBRE?,#縉OMBRE?,module,WeltPixel_Backend 
 All Magento Modules,Todos los m贸dulos de Magento,module,WeltPixel_Backend 
 Area,Zona,module,WeltPixel_Backend 
 Change Magento Default Mode,Cambiar el modo predeterminado de Magento,module,WeltPixel_Backend 
@@ -25900,7 +25900,7 @@ Enable continue shopping/go to checkout buttons,Habilite los botones continuar c
 Enable go to product button,Habilitar el bot贸n ir al producto,module,WeltPixel_Quickview 
 Enable on product listing,Habilitar en la lista de productos,module,WeltPixel_Quickview 
 Enable zoom,Habilitar zoom,module,WeltPixel_Quickview 
-False,Falso,module,WeltPixel_Quickview 
+False,FALSO,module,WeltPixel_Quickview 
 General,General,module,WeltPixel_Quickview 
 Go To Checkout,Ir a Pagar,module,WeltPixel_Quickview 
 Go To Product,Ver Producto,module,WeltPixel_Quickview 

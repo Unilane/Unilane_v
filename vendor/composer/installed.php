@@ -28,6 +28,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'aftership/aftership-apps-magento2' => array(
+            'pretty_version' => '1.0.2',
+            'version' => '1.0.2.0',
+            'reference' => NULL,
+            'type' => 'magento2-module',
+            'install_path' => __DIR__ . '/../aftership/aftership-apps-magento2',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'allure-framework/allure-codeception' => array(
             'pretty_version' => '1.5.2',
             'version' => '1.5.2.0',

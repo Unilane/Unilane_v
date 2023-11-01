@@ -892,3 +892,143 @@
 
 )
 
+2023-10-25T20:03:34+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'cable%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-25T20:03:34+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-25T20:03:37+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'cab%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-25T20:03:37+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-25T20:03:45+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'cable%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-25T20:03:45+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-25T20:07:00+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'laptop%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-25T20:07:00+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-25T20:07:55+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'lapt%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-25T20:07:55+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-25T20:08:01+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'monitor%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-25T20:08:01+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-25T20:34:02+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'Cha%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-25T20:34:02+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-25T20:34:05+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'Char%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-25T20:34:05+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-25T20:34:14+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'Charola%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-25T20:34:14+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-25T20:46:13+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'cable%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-25T20:46:13+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-25T20:47:06+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'monitor%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-25T20:47:06+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-27T20:20:38+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'bateria%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-27T20:20:38+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-27T20:21:53+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'Batería APC RBC35-ACCAPC060%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-27T20:21:53+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-10-30T17:42:24+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'cabrl%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-10-30T17:42:24+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+

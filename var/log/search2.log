@@ -91,3 +91,39 @@
 2023-10-19T03:31:10+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'cable') AND (store_id = '1') LIMIT 1
 2023-10-19T03:31:29+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'cable') AND (store_id = '1') LIMIT 1
 2023-10-19T16:12:11+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'cecce') AND (store_id = '1') LIMIT 1
+2023-10-25T20:03:34+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'cable') AND (store_id = '1') LIMIT 1
+2023-10-25T20:03:37+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'cab') AND (store_id = '1') LIMIT 1
+2023-10-25T20:03:41+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'cable') AND (store_id = '1') LIMIT 1
+2023-10-25T20:03:45+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'cable') AND (store_id = '1') LIMIT 1
+2023-10-25T20:07:00+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'laptop') AND (store_id = '1') LIMIT 1
+2023-10-25T20:07:03+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'laptop') AND (store_id = '1') LIMIT 1
+2023-10-25T20:07:39+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'laptop') AND (store_id = '1') LIMIT 1
+2023-10-25T20:07:52+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'laptop') AND (store_id = '1') LIMIT 1
+2023-10-25T20:07:55+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'lapt') AND (store_id = '1') LIMIT 1
+2023-10-25T20:07:57+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'monitor') AND (store_id = '1') LIMIT 1
+2023-10-25T20:08:01+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'monitor') AND (store_id = '1') LIMIT 1
+2023-10-25T20:08:34+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'monitor') AND (store_id = '1') LIMIT 1
+2023-10-25T20:08:40+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'monitor') AND (store_id = '1') LIMIT 1
+2023-10-25T20:34:02+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'Cha') AND (store_id = '1') LIMIT 1
+2023-10-25T20:34:05+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'Char') AND (store_id = '1') LIMIT 1
+2023-10-25T20:34:09+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'Charola') AND (store_id = '1') LIMIT 1
+2023-10-25T20:34:14+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'Charola') AND (store_id = '1') LIMIT 1
+2023-10-25T20:34:49+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'Charola') AND (store_id = '1') LIMIT 1
+2023-10-25T20:34:59+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'Charola') AND (store_id = '1') LIMIT 1
+2023-10-25T20:46:13+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'cable') AND (store_id = '1') LIMIT 1
+2023-10-25T20:47:01+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'monitor') AND (store_id = '1') LIMIT 1
+2023-10-25T20:47:06+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'monitor') AND (store_id = '1') LIMIT 1
+2023-10-25T20:47:44+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'monitor') AND (store_id = '1') LIMIT 1
+2023-10-25T20:47:55+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'monitor') AND (store_id = '1') LIMIT 1
+2023-10-27T20:20:38+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'bateria') AND (store_id = '1') LIMIT 1
+2023-10-27T20:21:33+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'bateria') AND (store_id = '1') LIMIT 1
+2023-10-27T20:21:46+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'bateria') AND (store_id = '1') LIMIT 1
+2023-10-27T20:21:50+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'bateria') AND (store_id = '1') LIMIT 1
+2023-10-27T20:21:53+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'Batería APC RBC35-ACCAPC060') AND (store_id = '1') LIMIT 1
+2023-10-27T20:21:57+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'Batería APC RBC35-ACCAPC060') AND (store_id = '1') LIMIT 1
+2023-10-27T20:22:08+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'Batería APC RBC35-ACCAPC060') AND (store_id = '1') LIMIT 1
+2023-10-27T20:22:13+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'Batería APC RBC35-ACCAPC060') AND (store_id = '1') LIMIT 1
+2023-10-27T20:22:15+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'bateria apc rbc35 accapc060') AND (store_id = '1') LIMIT 1
+2023-10-27T20:22:26+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'bateria apc rbc35 accapc060') AND (store_id = '1') LIMIT 1
+2023-10-27T20:22:29+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'bateria apc rbc35 accapc060') AND (store_id = '1') LIMIT 1
+2023-10-30T17:42:24+00:00 INFO (6): SELECT `search_query`.* FROM `search_query` WHERE (query_text = 'cabrl') AND (store_id = '1') LIMIT 1

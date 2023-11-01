@@ -44,6 +44,18 @@ return [
             ]
         ]
     ],
+    'elasticsearch' => [
+        'server_configs' => [
+            [
+                'server' => 'localhost',
+                'index' => 'magento2',
+                'port' => '9200',
+                'enable_auth' => '0',
+                'auth_user' => '',
+                'auth_password' => ''
+            ]
+        ]
+    ],
     'resource' => [
         'default_setup' => [
             'connection' => 'default'
