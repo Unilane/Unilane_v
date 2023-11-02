@@ -212,29 +212,7 @@ class ProductData extends Action
                     if ($icecatUri) {
                         $response = $this->icecatApiService->execute($icecatUri);
                         if (!empty($response) && !empty($response['Code'])) {
-                            //$errorMessage = $response['Message'];
-                            //CT
-                            $data  = file_get_contents("C:\Users\luis.olivarria\Desktop\productsjson\dataPrueba.json");
-                            $products  = json_decode($data, true);
-                            $productSku = $product->getSku();
-                            $mediaDir = $objectManager->get('Magento\Framework\App\Filesystem\DirectoryList')->getPath('media');
-                            foreach($products as $prod){
-                                if($prod['clave'] == $productSku){
-                                    $producto = $this->productRepository->get($prod['clave']);
-                                    if($producto){                            
-                                        $filename = md5($prod['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                                        else chmod($mediaDir, 0777);
-                                        $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
-                                        file_put_contents($filepath, file_get_contents(trim($prod['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
-                                        $imgUrl = $filepath;
-                                        $producto->addImageToMediaGallery($imgUrl, ['image', 'small_image', 'thumbnail'], false, false);                           
-                                        $this->productRepository->save($producto);
-                                        break;
-                                    }
-                                }
-                            }
-                            $updatedStore[] = [1];
+                            $errorMessage = $response['Message'];                            
                         } else {
                             $globalMediaArray = $this->iceCatUpdateProduct->updateProductWithIceCatResponse($product, $response, $store, $globalMediaArray);
                             $globalImageArray = array_key_exists('image', $globalMediaArray)?$globalMediaArray['image']:[];

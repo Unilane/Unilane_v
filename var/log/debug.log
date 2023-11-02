@@ -1,0 +1,90 @@
+[2023-11-02T19:01:59.451074+00:00] main.INFO: Broken reference: the 'catalog.compare.sidebar' element cannot be added as child to 'sidebar.additional', because the latter doesn't exist [] []
+[2023-11-02T19:01:59.455602+00:00] main.INFO: Broken reference: the 'sale.reorder.sidebar' element cannot be added as child to 'sidebar.additional', because the latter doesn't exist [] []
+[2023-11-02T19:01:59.458780+00:00] main.INFO: Broken reference: the 'wishlist_sidebar' element cannot be added as child to 'sidebar.additional', because the latter doesn't exist [] []
+[2023-11-02T19:01:59.460987+00:00] main.INFO: Broken reference: the 'sidebar.menu' element cannot be added as child to 'sidebar.main', because the latter doesn't exist [] []
+[2023-11-02T19:01:59.462733+00:00] main.INFO: Broken reference: the 'sw.sidebarnav' element cannot be added as child to 'sidebar.main', because the latter doesn't exist [] []
+[2023-11-02T19:01:59.464263+00:00] main.INFO: Broken reference: the 'sidebar_second_block' element cannot be added as child to 'sidebar.second', because the latter doesn't exist [] []
+[2023-11-02T19:01:59.465925+00:00] main.INFO: Broken reference: the 'paypal.partner.right.logo' element cannot be added as child to 'sidebar.additional', because the latter doesn't exist [] []
+[2023-11-02T19:01:59.467485+00:00] main.INFO: Broken reference: the 'bml.right.logo' element cannot be added as child to 'sidebar.additional', because the latter doesn't exist [] []
+[2023-11-02T19:01:59.469001+00:00] main.INFO: Broken reference: the 'sidebar.container.paylater' element cannot be added as child to 'sidebar.additional', because the latter doesn't exist [] []
+[2023-11-02T19:01:59.470714+00:00] main.INFO: Broken reference: the 'currency' tries to reorder itself towards 'store_language', but their parents are different: 'header.panel' and 'porto_header' respectively. [] []
+[2023-11-02T19:01:59.473097+00:00] main.INFO: Broken reference: the 'catalog.compare.link' tries to reorder itself towards 'top.links', but their parents are different: 'header.links' and 'header.panel' respectively. [] []
+[2023-11-02T19:01:59.477186+00:00] main.INFO: Broken reference: the 'sw.sidebarnav' tries to reorder itself towards 'category_leftnav', but their parents are different: 'sidebar.main' and '' respectively. [] []
+[2023-11-02T19:01:59.478917+00:00] main.INFO: Broken reference: the 'sidebar_second_block' tries to reorder itself towards '', but their parents are different: 'sidebar.second' and '' respectively. [] []
+[2023-11-02T19:11:13.576578+00:00] main.INFO: Broken reference: the 'tracking' element cannot be added as child to 'header', because the latter doesn't exist [] []
+[2023-11-02T19:11:13.579937+00:00] main.INFO: Broken reference: the 'notification_area' element cannot be added as child to 'notifications', because the latter doesn't exist [] []
+[2023-11-02T19:11:13.581987+00:00] main.INFO: Broken reference: the 'unread_system_messages' element cannot be added as child to 'notifications', because the latter doesn't exist [] []
+[2023-11-02T19:11:13.583581+00:00] main.INFO: Broken reference: the 'notification_window' element cannot be added as child to 'notifications', because the latter doesn't exist [] []
+[2023-11-02T19:11:13.585122+00:00] main.INFO: Broken reference: the 'notification.messages' element cannot be added as child to 'header', because the latter doesn't exist [] []
+[2023-11-02T19:11:13.586706+00:00] main.INFO: Broken reference: the 'global_notices' element cannot be added as child to 'global.notices', because the latter doesn't exist [] []
+[2023-11-02T19:11:13.588378+00:00] main.INFO: Broken reference: the 'logo' element cannot be added as child to 'header', because the latter doesn't exist [] []
+[2023-11-02T19:11:13.591689+00:00] main.INFO: Broken reference: the 'global.search' element cannot be added as child to 'header', because the latter doesn't exist [] []
+[2023-11-02T19:11:13.593327+00:00] main.INFO: Broken reference: the 'user' element cannot be added as child to 'header', because the latter doesn't exist [] []
+[2023-11-02T19:11:13.594849+00:00] main.INFO: Broken reference: the 'menu' element cannot be added as child to 'page.menu', because the latter doesn't exist [] []
+[2023-11-02T19:11:13.596471+00:00] main.INFO: Broken reference: the 'breadcrumbs' element cannot be added as child to 'page.breadcrumbs', because the latter doesn't exist [] []
+[2023-11-02T19:11:13.597977+00:00] main.INFO: Broken reference: the 'formkey' element cannot be added as child to 'page.formkey', because the latter doesn't exist [] []
+[2023-11-02T19:11:13.599539+00:00] main.INFO: Broken reference: the 'page.title' element cannot be added as child to 'main.top', because the latter doesn't exist [] []
+[2023-11-02T19:11:13.601120+00:00] main.INFO: Broken reference: the 'messages' element cannot be added as child to 'page.messages', because the latter doesn't exist [] []
+[2023-11-02T19:11:13.602616+00:00] main.INFO: Broken reference: the 'page.actions.toolbar' element cannot be added as child to 'page.main.actions', because the latter doesn't exist [] []
+[2023-11-02T19:11:13.604444+00:00] main.INFO: Broken reference: the 'legal' element cannot be added as child to 'footer', because the latter doesn't exist [] []
+[2023-11-02T19:11:13.613471+00:00] main.INFO: Broken reference: the 'before.body.end_schedule_block0' element cannot be added as child to 'before.body.end', because the latter doesn't exist [] []
+[2023-11-02T19:11:13.618218+00:00] main.INFO: Broken reference: the 'before.body.end_schedule_block1' element cannot be added as child to 'before.body.end', because the latter doesn't exist [] []
+[2023-11-02T19:11:13.621310+00:00] main.INFO: Broken reference: the 'header.inner.left' element cannot be added as child to 'header', because the latter doesn't exist [] []
+[2023-11-02T19:11:13.626585+00:00] main.INFO: Broken reference: the 'header.inner.right' element cannot be added as child to 'header', because the latter doesn't exist [] []
+[2023-11-02T19:11:13.629424+00:00] main.INFO: Broken reference: the 'user' tries to reorder itself towards '', but their parents are different: 'header' and '' respectively. [] []
+[2023-11-02T19:11:13.632474+00:00] main.INFO: Broken reference: the 'notification.messages' tries to reorder itself towards 'user', but their parents are different: 'header' and '' respectively. [] []
+[2023-11-02T19:11:13.635921+00:00] main.INFO: Broken reference: the 'logo' tries to reorder itself towards '', but their parents are different: 'header' and '' respectively. [] []
+[2023-11-02T19:11:13.640771+00:00] main.INFO: Broken reference: the 'global.search' tries to reorder itself towards 'logo', but their parents are different: 'header' and '' respectively. [] []
+[2023-11-02T19:11:13.644986+00:00] main.INFO: Broken reference: the 'page.actions.toolbar' tries to reorder itself towards '', but their parents are different: 'page.main.actions' and '' respectively. [] []
+[2023-11-02T19:11:13.648636+00:00] main.INFO: Broken reference: the 'header.inner.left' tries to reorder itself towards '', but their parents are different: 'header' and '' respectively. [] []
+[2023-11-02T19:11:13.651373+00:00] main.INFO: Broken reference: the 'header.inner.right' tries to reorder itself towards 'header.inner.left', but their parents are different: 'header' and '' respectively. [] []
+[2023-11-02T19:11:13.653293+00:00] main.INFO: Broken reference: the 'notification.messages' tries to reorder itself towards 'user', but their parents are different: 'header.inner.right' and '' respectively. [] []
+[2023-11-02T19:11:13.887109+00:00] main.CRITICAL: Magento\Framework\Exception\FileSystemException: Cannot gather stats! Warning!stat(): stat failed for C:/xampp/htdocs/magento/pub/static/adminhtml/Magento/backend/es_MX/mage/requirejs/mixins.js in C:\xampp\htdocs\magento\vendor\magento\framework\Filesystem\Driver\File.php:94
+Stack trace:
+#0 C:\xampp\htdocs\magento\vendor\magento\framework\Filesystem\Directory\Read.php(229): Magento\Framework\Filesystem\Driver\File->stat('C:/xampp/htdocs...')
+#1 C:\xampp\htdocs\magento\vendor\magento\framework\View\Asset\MergeStrategy\Checksum.php(69): Magento\Framework\Filesystem\Directory\Read->stat('pub/static/admi...')
+#2 C:\xampp\htdocs\magento\vendor\magento\framework\View\Asset\Merged.php(111): Magento\Framework\View\Asset\MergeStrategy\Checksum->merge(Array, Object(Magento\Framework\View\Asset\File))
+#3 C:\xampp\htdocs\magento\vendor\magento\framework\View\Asset\Merged.php(183): Magento\Framework\View\Asset\Merged->initialize()
+#4 C:\xampp\htdocs\magento\vendor\magento\framework\View\Page\Config\Renderer.php(420): Magento\Framework\View\Asset\Merged->rewind()
+#5 C:\xampp\htdocs\magento\vendor\magento\framework\View\Page\Config\Renderer.php(297): Magento\Framework\View\Page\Config\Renderer->renderAssetHtml(Object(Magento\Framework\View\Asset\PropertyGroup))
+#6 C:\xampp\htdocs\magento\vendor\magento\framework\View\Page\Config\Renderer.php(284): Magento\Framework\View\Page\Config\Renderer->renderAssetGroup(Object(Magento\Framework\View\Asset\PropertyGroup))
+#7 C:\xampp\htdocs\magento\vendor\magento\framework\View\Page\Config\Renderer.php(137): Magento\Framework\View\Page\Config\Renderer->renderAssets(Array)
+#8 C:\xampp\htdocs\magento\vendor\magento\framework\View\Result\Page.php(252): Magento\Framework\View\Page\Config\Renderer->renderHeadContent()
+#9 C:\xampp\htdocs\magento\vendor\magento\framework\View\Result\Layout.php(171): Magento\Framework\View\Result\Page->render(Object(Magento\Framework\App\Response\Http\Interceptor))
+#10 C:\xampp\htdocs\magento\vendor\magento\framework\Interception\Interceptor.php(58): Magento\Framework\View\Result\Layout->renderResult(Object(Magento\Framework\App\Response\Http\Interceptor))
+#11 C:\xampp\htdocs\magento\vendor\magento\framework\Interception\Interceptor.php(138): Magento\Backend\Model\View\Result\Page\Interceptor->___callParent('renderResult', Array)
+#12 C:\xampp\htdocs\magento\vendor\magento\framework\Interception\Interceptor.php(153): Magento\Backend\Model\View\Result\Page\Interceptor->Magento\Framework\Interception\{closure}(Object(Magento\Framework\App\Response\Http\Interceptor))
+#13 C:\xampp\htdocs\magento\generated\code\Magento\Backend\Model\View\Result\Page\Interceptor.php(140): Magento\Backend\Model\View\Result\Page\Interceptor->___callPlugins('renderResult', Array, Array)
+#14 C:\xampp\htdocs\magento\vendor\magento\framework\App\Http.php(120): Magento\Backend\Model\View\Result\Page\Interceptor->renderResult(Object(Magento\Framework\App\Response\Http\Interceptor))
+#15 C:\xampp\htdocs\magento\generated\code\Magento\Framework\App\Http\Interceptor.php(23): Magento\Framework\App\Http->launch()
+#16 C:\xampp\htdocs\magento\vendor\magento\framework\App\Bootstrap.php(264): Magento\Framework\App\Http\Interceptor->launch()
+#17 C:\xampp\htdocs\magento\pub\index.php(35): Magento\Framework\App\Bootstrap->run(Object(Magento\Framework\App\Http\Interceptor))
+#18 {main} {"exception":"[object] (Magento\\Framework\\Exception\\FileSystemException(code: 0): Cannot gather stats! Warning!stat(): stat failed for C:/xampp/htdocs/magento/pub/static/adminhtml/Magento/backend/es_MX/mage/requirejs/mixins.js at C:\\xampp\\htdocs\\magento\\vendor\\magento\\framework\\Filesystem\\Driver\\File.php:94)"} []
+[2023-11-02T19:11:14.844476+00:00] main.ERROR: Requested path adminhtml/Magento/backend/es_MX/extjs/resources/css/ext-all.css is wrong. [] []
+[2023-11-02T19:11:14.848892+00:00] main.CRITICAL: Requested path adminhtml/Magento/backend/es_MX/extjs/resources/css/ext-all.css is wrong. [] []
+[2023-11-02T19:11:14.939535+00:00] main.ERROR: Requested path adminhtml/Magento/backend/es_MX/extjs/resources/css/ytheme-magento.css is wrong. [] []
+[2023-11-02T19:11:14.945539+00:00] main.CRITICAL: Requested path adminhtml/Magento/backend/es_MX/extjs/resources/css/ytheme-magento.css is wrong. [] []
+[2023-11-02T19:11:14.962064+00:00] main.ERROR: Requested path adminhtml/Magento/backend/es_MX/Smartwave_Filterproducts/css/icons/porto-icons.css is wrong. [] []
+[2023-11-02T19:11:14.966335+00:00] main.CRITICAL: Requested path adminhtml/Magento/backend/es_MX/Smartwave_Filterproducts/css/icons/porto-icons.css is wrong. [] []
+[2023-11-02T19:11:14.970064+00:00] main.ERROR: Requested path adminhtml/Magento/backend/es_MX/jquery/jstree/themes/default/style.css is wrong. [] []
+[2023-11-02T19:11:14.974638+00:00] main.CRITICAL: Requested path adminhtml/Magento/backend/es_MX/jquery/jstree/themes/default/style.css is wrong. [] []
+[2023-11-02T19:11:14.977887+00:00] main.ERROR: Requested path adminhtml/Magento/backend/es_MX/Smartwave_Filterproducts/css/owl.carousel/assets/owl.carousel.css is wrong. [] []
+[2023-11-02T19:11:14.980552+00:00] main.CRITICAL: Requested path adminhtml/Magento/backend/es_MX/Smartwave_Filterproducts/css/owl.carousel/assets/owl.carousel.css is wrong. [] []
+[2023-11-02T19:11:18.076697+00:00] main.ERROR: Requested path adminhtml/Magento/backend/es_MX/css/styles.css is wrong. [] []
+[2023-11-02T19:11:18.080554+00:00] main.CRITICAL: Requested path adminhtml/Magento/backend/es_MX/css/styles.css is wrong. [] []
+[2023-11-02T19:11:18.228659+00:00] main.ERROR: Requested path adminhtml/Magento/backend/es_MX/Magento_ReCaptchaUser/css/recaptcha.css is wrong. [] []
+[2023-11-02T19:11:18.231669+00:00] main.CRITICAL: Requested path adminhtml/Magento/backend/es_MX/Magento_ReCaptchaUser/css/recaptcha.css is wrong. [] []
+[2023-11-02T19:11:18.294776+00:00] main.ERROR: Requested path adminhtml/Magento/backend/es_MX/requirejs/require.js is wrong. [] []
+[2023-11-02T19:11:18.298179+00:00] main.ERROR: Requested path adminhtml/Magento/backend/es_MX/Mageplaza_Core/js/help.js is wrong. [] []
+[2023-11-02T19:11:18.299295+00:00] main.CRITICAL: Requested path adminhtml/Magento/backend/es_MX/requirejs/require.js is wrong. [] []
+[2023-11-02T19:11:18.299705+00:00] main.ERROR: Requested path adminhtml/Magento/backend/es_MX/mage/requirejs/mixins.js is wrong. [] []
+[2023-11-02T19:11:18.301660+00:00] main.CRITICAL: Requested path adminhtml/Magento/backend/es_MX/Mageplaza_Core/js/help.js is wrong. [] []
+[2023-11-02T19:11:18.303885+00:00] main.CRITICAL: Requested path adminhtml/Magento/backend/es_MX/mage/requirejs/mixins.js is wrong. [] []
+[2023-11-02T19:11:18.889502+00:00] main.ERROR: Requested path adminhtml/Magento/backend/es_MX/images/magento-logo.svg is wrong. [] []
+[2023-11-02T19:11:18.891764+00:00] main.CRITICAL: Requested path adminhtml/Magento/backend/es_MX/images/magento-logo.svg is wrong. [] []
+[2023-11-02T19:12:04.877881+00:00] main.DEBUG: URI '/admin/admin/system_config/index/key/9c00e27fee3828ee1ccb36bb02c4704ad0279c5230e8546cfe3d753689d0944c/'' cannot be accessed with POST method (Magento\Config\Controller\Adminhtml\System\Config\Index) [] []
+[2023-11-02T19:12:04.884784+00:00] main.DEBUG: Request validation failed for action "Magento\Config\Controller\Adminhtml\System\Config\Index\Interceptor" {"exception":"[object] (Magento\\Framework\\App\\Request\\InvalidRequestException(code: 0): Invalid request received at C:\\xampp\\htdocs\\magento\\vendor\\magento\\framework\\App\\Request\\HttpMethodValidator.php:69)"} []
+[2023-11-02T19:12:05.128308+00:00] main.DEBUG: cache_invalidate:  {"method":"POST","url":"http://quickstart244.local/admin/admin/system_config/index/key/9c00e27fee3828ee1ccb36bb02c4704ad0279c5230e8546cfe3d753689d0944c/","invalidateInfo":{"tags":["BACKEND_MAINMENU"],"mode":"matchingAnyTag"}} []
+[2023-11-02T19:12:26.190964+00:00] main.DEBUG: cache_invalidate:  {"method":"POST","url":"http://quickstart244.local/admin/admin/system_config/index/key/9c00e27fee3828ee1ccb36bb02c4704ad0279c5230e8546cfe3d753689d0944c/","invalidateInfo":{"tags":["PB_EDITOR_CONFIG","CONFIG"],"mode":"matchingTag"}} []
+[2023-11-02T19:12:42.624079+00:00] main.INFO: Broken reference: the 'notification.messages' tries to reorder itself towards 'user', but their parents are different: 'header.inner.right' and 'header' respectively. [] []
+[2023-11-02T19:12:44.652933+00:00] main.DEBUG: Request validation failed for action "Magento\Framework\App\Action\Forward\Interceptor" {"exception":"[object] (Magento\\Framework\\App\\Request\\InvalidRequestException(code: 0): Invalid request received at C:\\xampp\\htdocs\\magento\\vendor\\magento\\framework\\App\\Request\\CsrfValidator.php:105)"} []
