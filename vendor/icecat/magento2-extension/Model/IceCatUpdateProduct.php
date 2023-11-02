@@ -19,7 +19,7 @@ use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Store\Model\StoreManagerInterface;
 use Icecat\DataFeed\Model\AttributeCodes;
 use Magento\Catalog\Api\ProductRepositoryInterface;
-
+use Magento\Framework\App\Bootstrap;
 
 class IceCatUpdateProduct
 {
@@ -245,6 +245,21 @@ class IceCatUpdateProduct
         if ($this->data->isImportImagesEnabled()) {
             $productImageData = $productData['Gallery'];
             if (count($productImageData) > 0) {
+                //<<<<<< Eliminar imagen de CT >>>>>>//
+                $productSku = $product->getSku();
+                $bootstrap = Bootstrap::create(BP, $_SERVER);
+                $objectManager = $bootstrap->getObjectManager();
+                $productRepository = $objectManager->get('\Magento\Catalog\Api\ProductRepositoryInterface');
+                $productCT = $productRepository->get($productSku);                
+                $mediaGalleryEntries = $productCT->getMediaGalleryEntries();
+                if (!empty($mediaGalleryEntries)) {
+                    foreach ($mediaGalleryEntries as $mediaGalleryEntry) {
+                        $mediaGalleryEntry->setDisabled(true);
+                    }                
+                    $productCT->setMediaGalleryEntries($mediaGalleryEntries);                
+                    $productCT->save();
+                }
+                //<<<<<< Fin de eliminar imagen de CT >>>>>>//
                 $i = 0;
                 $oldImageName = [];
                 $productId = $product->getId();
@@ -296,10 +311,7 @@ class IceCatUpdateProduct
                     }                    
                     $globalMediaArray['image'][$storeId][] = $imageName;
                 }
-            }
-            else{
-                
-            }
+            }            
         }
 
         if ($this->data->isImportMultimediaEnabled()) {
