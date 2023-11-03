@@ -29,8 +29,7 @@ class IntegrationIntelisis
         $this->OrderInterface           = $OrderInterface;
     }
     public function afterPlace(OrderManagementInterface $subject, OrderInterface $order)
-    {
-       
+    {       
         // Este codigo colecciona toda la informacion del cliente como su nombre y direccion
         $infoCliente = $order->getAddresses();
         $datosDomicilio = [];        

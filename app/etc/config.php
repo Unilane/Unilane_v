@@ -354,6 +354,7 @@ return [
         'Unilane_Csp' => 1,
         'Unilane_FieldsAddresses' => 1,
         'Unilane_Formularios' => 1,
+        'Unilane_Openpay' => 1,
         'Unilane_Sales' => 1,
         'Unilane_SyncProduct' => 1,
         'WeltPixel_Backend' => 1,

@@ -243,26 +243,76 @@ class IceCatUpdateProduct
 
         
         if ($this->data->isImportImagesEnabled()) {
-            $productImageData = $productData['Gallery'];
-            if (count($productImageData) > 0) {
-                //<<<<<< Eliminar imagen de CT >>>>>>//
-                $productSku = $product->getSku();
-                $bootstrap = Bootstrap::create(BP, $_SERVER);
-                $objectManager = $bootstrap->getObjectManager();
-                $productRepository = $objectManager->get('\Magento\Catalog\Api\ProductRepositoryInterface');
-                $productCT = $productRepository->get($productSku);                
-                $mediaGalleryEntries = $productCT->getMediaGalleryEntries();
-                if (!empty($mediaGalleryEntries)) {
-                    foreach ($mediaGalleryEntries as $mediaGalleryEntry) {
-                        $mediaGalleryEntry->setDisabled(true);
-                    }                
-                    $productCT->setMediaGalleryEntries($mediaGalleryEntries);                
-                    $productCT->save();
-                }
-                //<<<<<< Fin de eliminar imagen de CT >>>>>>//
+            $productId = $product->getId();
+            $productImageData = $productData['Gallery']; //ICECAT
+            // //<<<<<< Eliminar imagen de CT >>>>>>//
+            // $mediaGallery = $product->getMediaGallery(); //CT
+            // $position = "";
+            // foreach($mediaGallery['images'] as $imagen){
+            //     $position = $imagen['position'];
+            //     break;
+            // }
+            // if($position == "1"){
+                
+            //     if ($product->getId()) {
+            //         // Obtiene la galería de medios del producto
+            //         $mediaGallery = $product->getMediaGalleryEntries();
+                
+            //         // Elimina las imágenes del producto
+            //         if (!empty($mediaGallery)) {
+            //             foreach ($mediaGallery as $mediaEntry) {
+            //                 $imageId = $mediaEntry->getId();
+            //                 $bootstrap = Bootstrap::create(BP, $_SERVER);
+            //                 $objectManager = $bootstrap->getObjectManager();
+            //                 $state = $objectManager->get('Magento\Framework\App\State');
+            //                 $state->setAreaCode('frontend');
+            //                 // Borra la entrada de la galería de medios
+            //                $this->processor->removeImage($product, $mediaEntry->getFile());
+            //                //$product->getResource()->getAttribute('media_gallery')->getBackend()->removeImage($product, $mediaEntry->getFile());
+                
+            //                 // Borra el archivo de la imagen del sistema de archivos si es necesario
+            //                 $mediaPath = $objectManager->get('Magento\Framework\Filesystem')->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::MEDIA)->getAbsolutePath();
+            //                 $imageFilePath = $mediaPath . 'catalog/product' . $mediaEntry->getFile();
+            //                 if (file_exists($imageFilePath)) {
+            //                     unlink($imageFilePath);
+            //                 }
+            //             }
+            //             // // Inicializa la aplicación de Magento
+            //             $bootstrap = \Magento\Framework\App\Bootstrap::create(BP, $_SERVER);
+
+            //             // Obtiene el objeto del entorno de la aplicación
+            //             $objectManager = $bootstrap->getObjectManager();
+
+            //             // Inicializa el entorno de la aplicación
+            //             $state = $objectManager->get('Magento\Framework\App\State');
+            //             $state->setAreaCode('frontend'); // Cambia 'frontend' al área que necesites
+
+            //             // Realiza la eliminación de imágenes
+            //             $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+            //             $connection = $resource->getConnection();
+
+            //             // Consulta para eliminar las imágenes de la tabla catalog_product_entity_media_gallery_value_to_entity
+            //             $connection->delete(
+            //                 $resource->getTableName('catalog_product_entity_media_gallery_value_to_entity'),
+            //                 ['entity_id = ?' => $productId]
+            //             );
+
+            //             // Consulta para eliminar las imágenes de la tabla catalog_product_entity_media_gallery
+            //             $connection->delete(
+            //                 $resource->getTableName('catalog_product_entity_media_gallery'),
+            //                 ['value_id = ?' => $productId]
+            //             );   
+
+            //         } else {
+            //             echo "El producto no tiene imágenes.";
+            //         }
+            //     }
+            //     //<<<<<< Fin de eliminar imagen de CT >>>>>>//
+            // }
+            
+            if (count($productImageData) > 0) {                
                 $i = 0;
                 $oldImageName = [];
-                $productId = $product->getId();
                 $images = $product->getMediaGalleryImages();
                 foreach ($productImageData as $imageData) {
                     $image = $imageData['Pic'];

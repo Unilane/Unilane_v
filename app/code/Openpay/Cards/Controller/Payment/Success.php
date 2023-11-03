@@ -256,6 +256,9 @@ class Success extends \Magento\Framework\App\Action\Action
 
             case '3012':
                 return 'Se requiere solicitar al banco autorización para realizar este pago';
+                case '1018':
+                    $msg = 'Mi leyenda 3';
+                    break;
 
             default: /* Demás errores 400 */
                 return 'La petición no pudo ser procesada';
