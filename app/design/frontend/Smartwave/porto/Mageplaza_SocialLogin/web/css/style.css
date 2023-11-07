@@ -31,7 +31,8 @@
 .social-login-title .login-title {background-image: url(images/login-title.png);}
 .social-login-title .create-account-title {background-image: url(images/create-account-title.png);}
 .social-login-title .forgot-pass-title {background-image: url(images/forgot-pass-title.png);}
-#social-login-popup .mfp-close {color: #ffffff;}
+#social-login-popup .mfp-close {color: #838383;}
+#social-login-popup .mfp-close:hover {color:#222529; background:transparent;}
 #social-login-popup .message.error > *:first-child:before{top: 50% !important;}
 #social-login-popup .message.success > *:first-child:before{top: 50% !important;}
 /* Authentication Popup */
