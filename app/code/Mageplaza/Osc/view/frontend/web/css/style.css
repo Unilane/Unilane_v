@@ -298,6 +298,7 @@ fieldset.field.col-mp {
 .one-step-checkout-wrapper .minicart-items-wrapper .product-item-detail {
     display: inherit;
     padding-left: 10px;
+    display: flex;
 }
 
 .minicart-items .product-item-name {
