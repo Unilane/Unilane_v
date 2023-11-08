@@ -8,7 +8,10 @@ namespace Unilane\Sales\Plugin\Magento\Sales\Api;
 
 use Magento\Sales\Api\OrderManagementInterface;
 use Magento\Sales\Api\Data\OrderInterface;
+use Magento\Sales\Api\OrderRepositoryInterface;
 use Magento\Framework\App\Action\Action;
+use Magento\Framework\App\ResourceConnection;
+
 class IntegrationIntelisis 
 {
     /**
@@ -19,14 +22,20 @@ class IntegrationIntelisis
     * @var OrderManagementInterface 
     */
     private $OrderManagementInterface;
+    /**
+    * @var OrderRepositoryInterface 
+    */
+    private $OrderRepository;
     
     public function __construct(
         OrderInterface $OrderInterface,
-        OrderManagementInterface $OrderManagementInterface
+        OrderManagementInterface $OrderManagementInterface,
+        OrderRepositoryInterface $OrderRepository
     ) 
     {
         $this->OrderManagementInterface = $OrderManagementInterface;
         $this->OrderInterface           = $OrderInterface;
+        $this->OrderRepository          = $OrderRepository;
     }
     public function afterPlace(OrderManagementInterface $subject, OrderInterface $order)
     {       
@@ -51,12 +60,22 @@ class IntegrationIntelisis
         if($datosDomicilio){
             $result = $this->connectionAPI($datosDomicilio);
         }
-        if($result["iDR"] != NULL){
+        if($result["IDR"] != NULL){
+            //Guarda el IDR que correspone a la orden actual
+            $resource = \Magento\Framework\App\ObjectManager::getInstance()->get(ResourceConnection::class);
+            $connection = $resource->getConnection();
+            $tableName = $resource->getTableName('sales_order');
+            $sql = "UPDATE $tableName SET idr = :idr WHERE entity_id = :id";
+            $params = [
+                'id' => $order->getId(),
+                'idr' => $result["IDR"]
+            ];
+            $results = $connection->fetchAll($sql, $params);
             // Este codigo colecciona toda la informacion del pedido que requiere intelisis
             $pedidos = $order->getItems();
             $datosPedido = [];
             foreach($pedidos as $pedido){
-                $dataP["IDR"]        = $result["iDR"];
+                $dataP["IDR"]        = $result["IDR"];
                 $dataP["Cantidad"]   = $pedido->getQtyOrdered();
                 $dataP["Almacen"]    = 'ALMGEN';
                 $dataP["Articulo"]   = $pedido->getSku();

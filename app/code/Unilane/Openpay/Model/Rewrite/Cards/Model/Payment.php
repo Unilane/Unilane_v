@@ -63,7 +63,7 @@ class Payment extends OriginalPayment
                 break;
         }
 
-        return 'ERROR. '.$msg;
+        return 'error, '.$msg;
     }
 }
 

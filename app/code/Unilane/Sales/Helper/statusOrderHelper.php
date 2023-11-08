@@ -11,6 +11,7 @@ use Magento\Framework\App\ResourceConnection;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+use Magento\Contact\Model\MailInterface;
 /**
  * Adminhtml Catalog helper
  *
@@ -52,7 +53,7 @@ class statusOrderHelper
         $resource = \Magento\Framework\App\ObjectManager::getInstance()->get(ResourceConnection::class);
         $connection = $resource->getConnection();
         $tableName = $resource->getTableName('sales_order');
-        $sql = "SELECT entity_id,customer_firstname,customer_lastname,customer_email,ide FROM $tableName WHERE status = :valor ORDER BY entity_id DESC";
+        $sql = "SELECT entity_id,customer_firstname,customer_lastname,customer_email,idr FROM $tableName WHERE status = :valor";
         $params = ['valor' => 'pending'];
         $results = $connection->fetchAll($sql, $params);
         if($results){

@@ -23,9 +23,15 @@ $_order = $block->getLastOrder();
     <?= $block->getAdditionalInfoHtml() ?>
 
     <?php if ($_helper->showContinueShopping()) : ?>
-    <div class="actions-toolbar">
-        <div class="primary">
+    <div class="row actions-toolbar">
+        <div class="primary col-12">
             <a class="action primary continue" style="background-color: #2D5D89; border-color: #2D5D89; border-radius: 10px;" href="<?= /* @escapeNotVerified */ $block->getContinueUrl() ?>"><span><?= /* @escapeNotVerified */ __('Continue Shopping') ?></span></a>
+        </div>
+        <div class="col-12" style="margin-top: 10px;"></div>
+        <div class="primary col-12">
+            <?php if (isset($_SESSION['pdf_url'])): ?>    
+                <a class="action primary continue" style="background-color: #2D5D89; border-color: #2D5D89; border-radius: 10px;" href="<?php echo $_SESSION["pdf_url"] ?>"><span><?= /* @escapeNotVerified */ __('INSTRUCCIONES DE PAGO') ?></span></a>
+            <?php endif; ?> 
         </div>
     </div>
     <?php endif; ?>

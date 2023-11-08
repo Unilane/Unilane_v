@@ -464,9 +464,6 @@ class Payment extends \Magento\Payment\Model\Method\AbstractMethod
                 $msg = 'El webhook ya existe, has caso omiso de este mensaje.';
             case '6002':
                 $msg = 'El webhook no pudo ser verificado, revisa la URL.';
-                case '1018':
-                    $msg = 'Mi leyenda 2';
-                    break;
             default: /* Demás errores 400 */
                 $msg = 'La petición no pudo ser procesada.';
                 break;
