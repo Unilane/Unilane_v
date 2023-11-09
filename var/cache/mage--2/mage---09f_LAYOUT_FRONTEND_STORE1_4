@@ -1,4 +1,4 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1699311401;s:6:"expire";i:1730847401;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1699483418;s:6:"expire";i:1731019418;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
 <?xml version="1.0"?>
 <layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><handle id="catalog_category_view"><body/>
 </handle><handle id="catalogsearch_advanced_index"><body/>
@@ -8389,7 +8389,7 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1699311401;s:6:"expire";i:1730847401;s:4:"t
    <referenceBlock name="breadcrumbs" remove="true"/>
    <referenceBlock name="store.settings">
       <arguments>
-         <argument name="title" translate="true" xsi:type="string">Centro de ayuda</argument>
+         <argument name="title" translate="true" xsi:type="string">Ayuda</argument>
       </arguments>
    </referenceBlock>
    <referenceBlock name="store.settings">
@@ -8513,6 +8513,15 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1699311401;s:6:"expire";i:1730847401;s:4:"t
    <referenceContainer name="after.body.start">
       <block class="Smartwave\Porto\Block\Template" name="catalog_view_config" after="-" template="Magento_Catalog::category/config.phtml"/>
    </referenceContainer>
+</body>
+</handle><handle id="sales_email_order_items" label="Email Order Items List" design_abstraction="custom"><update handle="sales_email_order_renderers"/>
+<update handle="sales_email_item_price"/>
+<body>
+   <referenceBlock name="order_totals">
+      <arguments>
+         <argument name="label_properties" xsi:type="string">colspan="3"</argument>
+      </arguments>
+   </referenceBlock>
 </body>
 </handle><handle id="checkout_cart_index" layout="1column"><body>
    <referenceContainer name="checkout.cart.container">
