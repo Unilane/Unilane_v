@@ -132,8 +132,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     //$precio5porciento = $product['precio'] * 0.05;
                     //$precioReal = $product['precio'] * $product['tipoCambio'];
-                    $precioIva = $productdata['precio'] * 1.16;                
-                    $precioivaxtipocambio = $precioIva * $productdata['tipoCambio'];
+                    $precioIva = $product['precio'] * 1.16;                
+                    $precioivaxtipocambio = $precioIva * $product['tipoCambio'];
                     $precioReal = $precioivaxtipocambio * 1.05;
                     $nombreCategoria = $product['subcategoria'];
                     if($nombreCategoria == "Cables USB" ){
@@ -185,8 +185,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }                  
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -242,8 +242,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             }                            
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -300,8 +300,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }                   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -358,8 +358,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }               
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -416,8 +416,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }             
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -474,8 +474,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }            
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -532,8 +532,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -590,8 +590,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }             
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -648,8 +648,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -706,8 +706,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }            
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -764,8 +764,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -822,8 +822,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }           
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -880,8 +880,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -938,8 +938,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }           
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -996,8 +996,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }                
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1054,8 +1054,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }           
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1090,8 +1090,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                    
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1148,8 +1148,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }           
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1184,8 +1184,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                    
                         
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1242,8 +1242,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }           
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1300,8 +1300,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1358,8 +1358,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1416,8 +1416,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }            
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1474,8 +1474,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1532,8 +1532,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1590,8 +1590,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }             
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1648,8 +1648,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1706,8 +1706,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }           
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1764,8 +1764,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }             
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1822,8 +1822,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1880,8 +1880,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1938,8 +1938,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1996,8 +1996,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2054,8 +2054,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }           
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2112,8 +2112,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2170,8 +2170,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2228,8 +2228,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2286,8 +2286,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2344,8 +2344,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2402,8 +2402,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2460,8 +2460,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2518,8 +2518,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2576,8 +2576,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2634,8 +2634,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2692,8 +2692,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2750,8 +2750,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2808,8 +2808,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2866,8 +2866,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2924,8 +2924,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2982,8 +2982,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3040,8 +3040,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3098,8 +3098,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3156,8 +3156,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3214,8 +3214,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3272,8 +3272,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3330,8 +3330,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3388,8 +3388,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3446,8 +3446,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3504,8 +3504,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3562,8 +3562,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3620,8 +3620,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3678,8 +3678,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3736,8 +3736,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3794,8 +3794,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3852,8 +3852,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3910,8 +3910,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3968,8 +3968,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4026,8 +4026,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4084,8 +4084,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4142,8 +4142,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4200,8 +4200,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4258,8 +4258,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4316,8 +4316,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4374,8 +4374,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4432,8 +4432,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4488,8 +4488,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             }
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4546,8 +4546,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4604,8 +4604,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }    
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4662,8 +4662,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }    
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4720,8 +4720,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4778,8 +4778,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4836,8 +4836,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4894,8 +4894,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4952,8 +4952,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5010,8 +5010,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5068,8 +5068,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5126,8 +5126,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }    
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5184,8 +5184,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5242,8 +5242,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5300,8 +5300,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5358,8 +5358,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5416,8 +5416,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5474,8 +5474,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5532,8 +5532,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5590,8 +5590,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5648,8 +5648,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5706,8 +5706,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5764,8 +5764,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5822,8 +5822,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5880,8 +5880,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5938,8 +5938,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5996,8 +5996,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6054,8 +6054,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }           
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6112,8 +6112,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }            
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6170,8 +6170,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6228,8 +6228,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6286,8 +6286,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6344,8 +6344,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6402,8 +6402,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }  
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6460,8 +6460,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }  
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6518,8 +6518,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }    
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6576,8 +6576,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         } 
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6634,8 +6634,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6692,8 +6692,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6750,8 +6750,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6808,8 +6808,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6866,8 +6866,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6924,8 +6924,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6982,8 +6982,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7040,8 +7040,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }    
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7098,8 +7098,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7156,8 +7156,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7214,8 +7214,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7272,8 +7272,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7330,8 +7330,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7388,8 +7388,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7446,8 +7446,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7504,8 +7504,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7562,8 +7562,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7620,8 +7620,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7678,8 +7678,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7736,8 +7736,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }                
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7794,8 +7794,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }           
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7852,8 +7852,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }                
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7910,8 +7910,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }              
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7968,8 +7968,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8026,8 +8026,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }           
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8084,8 +8084,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8142,8 +8142,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8200,8 +8200,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }    
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8258,8 +8258,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8316,8 +8316,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8374,8 +8374,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8432,8 +8432,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8490,8 +8490,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8548,8 +8548,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8606,8 +8606,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8664,8 +8664,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8722,8 +8722,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8780,8 +8780,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         } 
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8838,8 +8838,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }                
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8896,8 +8896,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         } 
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8953,8 +8953,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             }   
                         } 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -9011,8 +9011,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        //else chmod($mediaDir, 0777);
+                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
