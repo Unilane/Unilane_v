@@ -616,7 +616,7 @@ body {
 .email-items .order-totals > tr > th,
 .email-items .order-totals > tr > td {
   padding: 0.5em;
-  text-align: right;
+  text-align: left;
 }
 .email-items .order-totals > tr + tr th,
 .email-items .order-totals > tr + tr td {

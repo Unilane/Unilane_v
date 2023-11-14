@@ -13,10 +13,10 @@
     <?php endif;?>
     <?php if ($_helper->showCustomerInfo()): ?>
         <div class="customer-info">
-            <h4><?= /* @escapeNotVerified */ __('Customer Information') ?></h4>
+            <h4>Información de cliente</h4>
             <div class="address-wrapper">
                 <div class="shipping-address">
-                    <h4><?= /* @escapeNotVerified */ __('Shipping Address') ?></h4>
+                    <h4>Dirección de Envió</h4>
                     <p>
                         <?php if ($_order->getShippingAddress()): ?>
                             <?= /* @escapeNotVerified */ $block->getFormattedAddress($_order->getShippingAddress()) ?>
@@ -41,7 +41,7 @@
                     </p>
                 </div>
                 <div class="payment-method">
-                    <h4><?= /* @escapeNotVerified */ __('Payment Method') ?></h4>
+                    <h4>Método de pago</h4>
                     <p><?= /* @escapeNotVerified */ $block->getPaymentMethodTitle($_order) ?></p>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                     <thead>
                         <tr>
                             <th class="col image textalign-left"><?= /* @escapeNotVerified */ __('Image') ?></th>
-                            <th class="col name textalign-left"><?= /* @escapeNotVerified */ __('Product Name') ?></th>
+                            <th class="col name textalign-left" style="word-wrap: break-word;"><?= /* @escapeNotVerified */ __('Product Name') ?></th>
                             <th class="col sku textalign-left"><?= /* @escapeNotVerified */ __('SKU') ?></th>
                             <th class="col price textalign-right"><?= /* @escapeNotVerified */ __('Price') ?></th>
                             <th class="col qty textalign-center"><?= /* @escapeNotVerified */ __('Qty') ?></th>

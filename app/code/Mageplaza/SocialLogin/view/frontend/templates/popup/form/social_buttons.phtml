@@ -34,9 +34,9 @@ $availableSocials = $block->getAvailableSocials(); ?>
                 <?php foreach ($availableSocials as $key => $social): ?>
                     <div class="actions-toolbar social-btn <?= $key ?>-login">
                         <a class="btn btn-block btn-social btn-<?= $block->getBtnKey($key) ?>"
-                           data-mage-init='{"socialProvider": {"url": "<?= $social['login_url'] ?>", "label": "<?= __('Login By %1', $social['label']) ?>"}}'>
+                           data-mage-init='{"socialProvider": {"url": "<?= $social['login_url'] ?>", "label": "<?= __($social['label']) ?>"}}'>
                             <span class="fa fa-<?= $block->getBtnKey($key) ?>"></span>
-                            <?= __('Sign in with %1', $social['label']) ?>
+                            <?= __($social['label']) ?>
                         </a>
                     </div>
                 <?php endforeach; ?>

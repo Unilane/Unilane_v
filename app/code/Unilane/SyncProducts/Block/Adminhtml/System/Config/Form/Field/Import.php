@@ -138,7 +138,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     $nombreCategoria = $product['subcategoria'];
                     if($nombreCategoria == "Cables USB" ){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -185,8 +185,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }                  
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -196,7 +196,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Adaptadores de Energía" || $nombreCategoria == "Inversores de Energia"){
                         $items->setAttributeSetId(4);
-                            $items->setName($product['nombre']."-".$product['clave']);
+                            $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                             $items->setSku($product['clave']);
                             $items->setPrice($precioReal);
                             $items->setVisibility(4);
@@ -242,8 +242,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             }                            
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -253,7 +253,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Reemplazos"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -300,8 +300,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }                   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -311,7 +311,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Bancos de Batería"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -358,8 +358,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }               
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -369,7 +369,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Convertidores AV" || $nombreCategoria == "Transformadores" ){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -416,8 +416,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }             
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -427,7 +427,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Supresores"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -474,8 +474,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }            
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -485,7 +485,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Regletas y Multicontactos"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -532,8 +532,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -543,7 +543,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Estaciones de Carga"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -590,8 +590,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }             
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -601,7 +601,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }  
                     if($nombreCategoria == "Reguladores"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -648,8 +648,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -659,7 +659,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "No Breaks y UPS"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -706,8 +706,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }            
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -717,7 +717,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     } 
                     if($nombreCategoria == "Baterías"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -764,8 +764,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -775,7 +775,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Barra de Contactos"){                    
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -822,8 +822,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }           
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -833,7 +833,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "SSD para servidores" || $nombreCategoria == "Storage"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -880,8 +880,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -891,7 +891,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Procesadores para Servidores"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -938,8 +938,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }           
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -949,7 +949,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Memorias RAM para Servidores"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -996,8 +996,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }                
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1007,7 +1007,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Fuentes de Poder para Servidores"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -1054,8 +1054,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }           
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1065,7 +1065,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Discos Duros para Servidores"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -1090,8 +1090,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                    
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1101,7 +1101,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Cables para Servidores"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -1148,8 +1148,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }           
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1159,7 +1159,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Gabinetes de Piso" || $nombreCategoria == "Gabinetes para Montaje" || $nombreCategoria == "Servidores" || $nombreCategoria == "Servidores Rack" || $nombreCategoria == "Unidades Ópticas para Servidores"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -1184,8 +1184,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         );                    
                         
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1195,7 +1195,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Tarjetas de Acceso"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -1242,8 +1242,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }           
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1253,7 +1253,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Camaras Deteccion"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -1300,8 +1300,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1311,7 +1311,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Accesorios para seguridad"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -1358,8 +1358,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1369,7 +1369,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Soportes para Video Vigilancia"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -1416,8 +1416,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }            
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1427,7 +1427,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Sirenas para Video Vigilancia"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -1474,8 +1474,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1485,7 +1485,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Monitores para Video Vigilancia"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -1532,8 +1532,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1543,7 +1543,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Kits de Video Vigilancia"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -1590,8 +1590,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }             
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1601,7 +1601,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Grabadoras Digitales" || $nombreCategoria == "Grabadores analógicos" || $nombreCategoria == "Kit Analógicos HD" || $nombreCategoria == "Videovigilancia"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -1648,8 +1648,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1659,7 +1659,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Fuentes de Poder para Video Vigilancia"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -1706,8 +1706,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }           
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1717,7 +1717,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Cámara bala análogica" || $nombreCategoria == "Cámaras" || $nombreCategoria == "Cámaras de Video Vigilancia" || $nombreCategoria == "Cámaras domo analógicas" || $nombreCategoria == "Cámaras PTZ analógicas"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -1764,8 +1764,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }             
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1775,7 +1775,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Cables y conectores"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -1822,8 +1822,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1833,7 +1833,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Accesorios para Video Vigilancia" || $nombreCategoria == "Gabinete para Almacenaje"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -1880,8 +1880,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1891,7 +1891,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Inyectores PoE"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -1938,8 +1938,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -1949,7 +1949,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Antenas"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -1996,8 +1996,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2007,7 +2007,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Accesorios para Racks" || $nombreCategoria == "Racks Modulo"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -2054,8 +2054,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }           
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2065,7 +2065,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Networking" || $nombreCategoria == "PDU" || $nombreCategoria == "Switches"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -2112,8 +2112,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2123,7 +2123,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Amplificadores Wifi" || $nombreCategoria == "Extensores de Red" || $nombreCategoria == "Hub y Concentadores Wifi" || $nombreCategoria == "Seguridad Inteligente"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -2170,8 +2170,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2181,7 +2181,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Access Points" || $nombreCategoria == "Routers"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -2228,8 +2228,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2239,7 +2239,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Accesorios para Cables" || $nombreCategoria == "Bobinas" || $nombreCategoria == "Cables de Red" || $nombreCategoria == "Fibras Ópticas" || $nombreCategoria == "Herramientas" || $nombreCategoria == "Herramientas para red" || $nombreCategoria == "Jacks"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -2286,8 +2286,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2297,7 +2297,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Adaptadores de Ethernet" || $nombreCategoria == "Adaptadores Inalámbricos" ||$nombreCategoria == "Adaptadores para Apple" || $nombreCategoria == "Adaptadores para Audio" || $nombreCategoria == "Adaptadores para Red" || $nombreCategoria == "Adaptadores USB Red" || $nombreCategoria == "Tarjetas para Red"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -2344,8 +2344,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2355,7 +2355,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Accesorios de Redes" || $nombreCategoria == "Adaptadores de Red" || $nombreCategoria == "Convertidor de medios" || $nombreCategoria == "Transceptores"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -2402,8 +2402,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2413,7 +2413,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Consumibles POS" || $nombreCategoria == "Etiquetas"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -2460,8 +2460,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2471,7 +2471,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Bases" || $nombreCategoria == "Baterías POS" || $nombreCategoria == "Cables POS"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -2518,8 +2518,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2529,7 +2529,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Digitalizadores de Firmas"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -2576,8 +2576,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2587,7 +2587,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Terminales POS"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -2634,8 +2634,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2645,7 +2645,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Monitores POS"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -2692,8 +2692,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2703,7 +2703,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Lectores de Códigos de Barras"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -2750,8 +2750,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2761,7 +2761,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Impresoras POS"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -2808,8 +2808,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2819,7 +2819,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Cajones de Dinero"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -2866,8 +2866,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2877,7 +2877,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Kit Punto de Venta"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -2924,8 +2924,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2935,7 +2935,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Pcs de Escritorio Gaming"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -2982,8 +2982,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -2993,7 +2993,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Monitores Gaming"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -3040,8 +3040,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3051,7 +3051,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Laptops Gaming"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -3098,8 +3098,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3109,7 +3109,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Tarjetas de Video Gaming"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -3156,8 +3156,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3167,7 +3167,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Consolas y Video Juegos" || $nombreCategoria == "Controles Gaming" || $nombreCategoria == "Pilas" || $nombreCategoria == "Soporte para Control"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -3214,8 +3214,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3225,7 +3225,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Escritorio Gaming"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -3272,8 +3272,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3283,7 +3283,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Sillas Gaming"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -3330,8 +3330,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3341,7 +3341,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Motherboards Gaming"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -3388,8 +3388,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3399,7 +3399,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Gabinetes Gaming"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -3446,8 +3446,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3457,7 +3457,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Fuentes de Poder Gaming"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -3504,8 +3504,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3515,7 +3515,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Kits de Teclado y Mouse Gaming"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -3562,8 +3562,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3573,7 +3573,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Teclados Gaming"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -3620,8 +3620,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3631,7 +3631,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Mouse Gaming" || $nombreCategoria == "Mouse Pads Gaming"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -3678,8 +3678,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3689,7 +3689,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Diademas Gaming"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -3736,8 +3736,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3747,7 +3747,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Hidrolavadoras"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -3794,8 +3794,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3805,7 +3805,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Sensores" || $nombreCategoria == "Sensores para Vídeo Vigilancia"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -3852,8 +3852,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3863,7 +3863,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Paneles para Alarma"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -3910,8 +3910,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3921,7 +3921,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Adaptadores USB"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -3968,8 +3968,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -3979,7 +3979,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Accesorios para PCs" || $nombreCategoria == "Kits para Teclado y Mouse"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -4026,8 +4026,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4037,7 +4037,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Acceso" || $nombreCategoria == "Seguridad Inteligente"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -4084,8 +4084,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4095,7 +4095,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Cámara Inteligentes" || $nombreCategoria == "Cámaras Inteligentes"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -4142,8 +4142,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4153,7 +4153,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Cerraduras" || $nombreCategoria == "Seguridad Inteligente" || $nombreCategoria == "Timbres"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -4200,8 +4200,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4211,7 +4211,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Sensores Wifi"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -4258,8 +4258,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4269,7 +4269,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Contactos Inteligentes Wifi" || $nombreCategoria == "Control Inteligente" || $nombreCategoria == "Iluminación" || $nombreCategoria == "Interruptores Wifi"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -4316,8 +4316,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4327,7 +4327,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Control de Acceso"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -4374,8 +4374,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4385,7 +4385,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Checadores" || $nombreCategoria == "Lector de Huella" || $nombreCategoria == "Reconocimiento Facial" || $nombreCategoria == "Tiempo y Asistencia"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -4432,8 +4432,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4443,7 +4443,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Equipo" || $nombreCategoria == "Salud" || $nombreCategoria == "Termómetros"){
                         $items->setAttributeSetId(4);
-                            $items->setName($product['nombre']."-".$product['clave']);
+                            $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                             $items->setSku($product['clave']);
                             $items->setPrice($precioReal);
                             $items->setVisibility(4);
@@ -4488,8 +4488,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             }
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4499,7 +4499,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Desinfectantes"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -4546,8 +4546,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4557,7 +4557,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Caretas" || $nombreCategoria == "Cubrebocas"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -4604,8 +4604,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }    
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4615,7 +4615,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Aspiradoras"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -4662,8 +4662,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }    
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4673,7 +4673,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Microondas"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -4720,8 +4720,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4731,7 +4731,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Aires Acondicionados"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -4778,8 +4778,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4789,7 +4789,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Pantallas Profesionales"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -4836,8 +4836,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4847,7 +4847,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Video Conferencia"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -4894,8 +4894,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4905,7 +4905,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Análogos" || $nombreCategoria == "Central Telefónica" || $nombreCategoria == "Sistemas Análogos" || $nombreCategoria == "Telefonía para empresas" || $nombreCategoria == "Teléfonos Analógicos" || $nombreCategoria == "Teléfonos Digitales" || $nombreCategoria == "Teléfonos IP" || $nombreCategoria == "Teléfonos para Hogar" || $nombreCategoria == "Teléfonos SIP"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -4952,8 +4952,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -4963,7 +4963,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Escritorio de Oficina"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -5010,8 +5010,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5021,7 +5021,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Ergonomia" || $nombreCategoria == "Sillas de Oficina"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -5068,8 +5068,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5079,7 +5079,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Almacenamiento Óptico" || $nombreCategoria == "Contabilidad" || $nombreCategoria == "Quemadores DVD y BluRay"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -5126,8 +5126,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }    
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5137,7 +5137,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Accesorios de Papeleria" || $nombreCategoria == "Articulos de Escritura" || $nombreCategoria == "Basico de Papeleria" || $nombreCategoria == "Cuadernos" || $nombreCategoria == "Papelería" || $nombreCategoria == "Plumas Interactivas"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -5184,8 +5184,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5195,7 +5195,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Mantenimiento"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -5242,8 +5242,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5253,7 +5253,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Refacciones"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -5300,8 +5300,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5311,7 +5311,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Cabezales"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -5358,8 +5358,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5369,7 +5369,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Accesorios para impresoras" || $nombreCategoria == "Gabinetes para Impresoras"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -5416,8 +5416,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5427,7 +5427,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Cintas"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -5474,8 +5474,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5485,7 +5485,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Papel"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -5532,8 +5532,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5543,7 +5543,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Tóners"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -5590,8 +5590,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5601,7 +5601,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Cartuchos"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -5648,8 +5648,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5659,7 +5659,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Plotters"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -5706,8 +5706,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5717,7 +5717,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Rotuladores"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -5764,8 +5764,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5775,7 +5775,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Escaner"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -5822,8 +5822,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5833,7 +5833,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Multifuncionales"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -5880,8 +5880,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5891,7 +5891,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Impresoras"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -5938,8 +5938,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -5949,7 +5949,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Soporte para TV" || $nombreCategoria == "Soporte Videowall" || $nombreCategoria == "Soportes"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -5996,8 +5996,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6007,7 +6007,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Soporte para Proyector"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -6054,8 +6054,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }           
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6065,7 +6065,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Limpieza"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -6112,8 +6112,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }            
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6123,7 +6123,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Controles"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -6170,8 +6170,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6181,7 +6181,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Accesorios para Camaras"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -6228,8 +6228,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }         
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6239,7 +6239,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Lentes"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -6286,8 +6286,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6297,7 +6297,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Micrófonos"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -6344,8 +6344,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6355,7 +6355,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Home Theaters"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -6402,8 +6402,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }  
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6413,7 +6413,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Bocina Portatil" || $nombreCategoria == "Bocinas" || $nombreCategoria == "Bocinas Gaming" || $nombreCategoria == "Bocinas y Bocinas Portátiles"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -6460,8 +6460,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }  
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6471,7 +6471,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria =="Audífonos para Apple" || $nombreCategoria == "Base Diademas" || $nombreCategoria == "Diademas" || $nombreCategoria == "Diademas y Audífonos"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -6518,8 +6518,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }    
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6529,7 +6529,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria =="Audífonos" || $nombreCategoria == "Audífonos para Apple" || $nombreCategoria == "Auriculares" || $nombreCategoria == "Earbuds" || $nombreCategoria == "In Ears" || $nombreCategoria == "On Ear" || $nombreCategoria == "on-ear" || $nombreCategoria == "Perifericos Apple" || $nombreCategoria == "Reproductores MP3"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -6576,8 +6576,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         } 
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6587,7 +6587,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Patinetas"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -6634,8 +6634,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6645,7 +6645,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Streaming" || $nombreCategoria == "Televisiones"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -6692,8 +6692,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6703,7 +6703,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Pantallas de Proyección" || $nombreCategoria == "Proyectores"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -6750,8 +6750,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6761,7 +6761,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Power banks"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -6808,8 +6808,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6819,7 +6819,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Smartwatch"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -6866,8 +6866,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6877,7 +6877,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Cables Lightning" || $nombreCategoria == "Cargadores"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -6924,8 +6924,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6935,7 +6935,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Accesorios de Telefonía" || $nombreCategoria == "Accesorios para Celulares" || $nombreCategoria == "Bases" || $nombreCategoria == "Celulares" || $nombreCategoria == "Equipo para Celulares" || $nombreCategoria == "Transmisores"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -6982,8 +6982,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -6993,7 +6993,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Gabinetes para Discos Duros"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -7040,8 +7040,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }    
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7051,7 +7051,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Memorias Flash" || $nombreCategoria == "Memorias USB"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -7098,8 +7098,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7109,7 +7109,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Adaptadores para Disco Duro" || $nombreCategoria == "Almacenamiento Externo" || $nombreCategoria == "Discos Duros" || $nombreCategoria == "Discos Duros Externos" || $nombreCategoria == "SSD"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -7156,8 +7156,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7167,7 +7167,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Adaptadores Displayport" || $nombreCategoria == "Adaptadores DVI" || $nombreCategoria == "Adaptadores HDMI" || $nombreCategoria == "Adaptadores para Video" || $nombreCategoria == "Adaptadores Tipo C" || $nombreCategoria == "Adaptadores USB para Video" || $nombreCategoria == "Adaptadores VGA"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -7214,8 +7214,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7225,7 +7225,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Cables Serial"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -7272,8 +7272,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7283,7 +7283,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Cables Coaxial" || $nombreCategoria == "Cables de Video" || $nombreCategoria == "Cables Displayport" || $nombreCategoria == "Cables DVI" || $nombreCategoria == "Cables HDMI" || $nombreCategoria == "Cables KVM" || $nombreCategoria == "Cables VGA"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -7330,8 +7330,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7341,7 +7341,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Cables de Audio" || $nombreCategoria == "Cables de Alimentación" || $nombreCategoria == "Cables de Energía"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -7388,8 +7388,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7399,7 +7399,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Fundas y Maletines" || $nombreCategoria == "Mochila Gaming" || $nombreCategoria == "Mochilas y Maletines"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -7446,8 +7446,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7457,7 +7457,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Fundas Laptops" || $nombreCategoria == "Fundas para Tablets" || $nombreCategoria == "Protectores para Tablets"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -7504,8 +7504,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7515,7 +7515,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Filtro de Privacidad"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -7562,8 +7562,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7573,7 +7573,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Concentradores Hub" || $nombreCategoria == "Docking Station"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -7620,8 +7620,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7631,7 +7631,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Candados Laptops"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -7678,8 +7678,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }     
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7689,7 +7689,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Bases Enfriadoras"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -7736,8 +7736,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }                
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7747,7 +7747,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Accesorios para Laptops" || $nombreCategoria == "Adaptadores para Laptops" || $nombreCategoria == "Bases" || $nombreCategoria == "Baterias Laptops" || $nombreCategoria == "Pantallas Laptops" || $nombreCategoria == "Teclados Laptops"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -7794,8 +7794,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }           
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7805,7 +7805,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Tarjetas de Sonido" || $nombreCategoria == "Tarjetas de Video" || $nombreCategoria == "Tarjetas Paralelas" || $nombreCategoria == "Tarjetas Seriales"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -7852,8 +7852,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }                
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7863,7 +7863,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Motherboards"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -7910,8 +7910,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }              
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7921,7 +7921,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Microprocesadores"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -7968,8 +7968,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -7979,7 +7979,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Memorias RAM"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -8026,8 +8026,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }           
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8037,7 +8037,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Lectores de Memorias"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -8084,8 +8084,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8095,7 +8095,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Gabinetes para Computadoras"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -8142,8 +8142,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8153,7 +8153,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Fuentes de Poder"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -8200,8 +8200,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }    
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8211,7 +8211,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Enfriamiento y Ventilación"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -8258,8 +8258,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }        
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8269,7 +8269,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Webcams"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -8316,8 +8316,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }          
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8327,7 +8327,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Bases" || $nombreCategoria == "Soporte de Monitor" || $nombreCategoria == "Soporte Laptops" || $nombreCategoria == "Soportes para PCs"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -8374,8 +8374,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8385,7 +8385,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Monitores" || $nombreCategoria == "Monitores Curvos"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -8432,8 +8432,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8443,7 +8443,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Teclados"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -8490,8 +8490,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }      
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8501,7 +8501,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Mouse" || $nombreCategoria == "Mouse Pads"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -8548,8 +8548,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8559,7 +8559,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "iPad" ||$nombreCategoria == "Soporte para Tablets" || $nombreCategoria == "Tabletas"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -8606,8 +8606,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }       
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8617,7 +8617,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Workstations de Escritorio" || $nombreCategoria == "Workstations Gaming" || $nombreCategoria == "Workstations Móviles"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -8664,8 +8664,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8675,7 +8675,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Mini PC"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -8722,8 +8722,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }   
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8733,7 +8733,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "MacBook"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -8780,8 +8780,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         } 
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8791,7 +8791,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "iMac"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -8838,8 +8838,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }                
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8849,7 +8849,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "PCs de Escritorio"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -8896,8 +8896,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         } 
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8907,7 +8907,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "Laptops"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -8953,8 +8953,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                             }   
                         } 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;
@@ -8964,7 +8964,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                     }
                     if($nombreCategoria == "All In One"){
                         $items->setAttributeSetId(4);
-                        $items->setName($product['nombre']."-".$product['clave']);
+                        $items->setName(ucfirst(strtolower($product['nombre']."-".$product['clave'])));
                         $items->setSku($product['clave']);
                         $items->setPrice($precioReal);
                         $items->setVisibility(4);
@@ -9011,8 +9011,8 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         }
 
                         $filename = md5($product['imagen']); // LE DAMOS UN NUEVO NOMBRE
-                        if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
-                        else chmod($mediaDir, 0777);
+                        //if (!file_exists($mediaDir)) mkdir($mediaDir, 0777, true);
+                        //else chmod($mediaDir, 0777);
                         $filepath = $mediaDir . '/catalog/product/imgct/' . $filename.'.jpg'; // SELECCIONAMOS UN PATH TEMPORAL
                         file_put_contents($filepath, file_get_contents(trim($product['imagen']))); // OBTENEMOS LA IMAGEN DE UNA URL EXTENA
                         $imgUrl = $filepath;

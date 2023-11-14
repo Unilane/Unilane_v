@@ -9,19 +9,10 @@
     <update handle="sales_email_order_renderers"/>
     <update handle="sales_email_item_price"/>
     <body>
-        <block class="Magento\Sales\Block\Order\Email\Items" name="items" template="Unilane_Sales::email/items.phtml" cacheable="false">
-            <block class="Magento\Framework\View\Element\RendererList" name="sales.email.order.renderers" as="renderer.list"/>
-            <block class="Magento\Sales\Block\Order\Totals" name="order_totals" template="Magento_Sales::order/totals.phtml">
-                <arguments>
-                    <argument name="label_properties" xsi:type="string">colspan="2"</argument>
-                </arguments>
-                <block class="Magento\Tax\Block\Sales\Order\Tax" name="tax" template="Magento_Tax::order/tax.phtml">
-                    <action method="setIsPlaneMode">
-                        <argument name="value" xsi:type="string">1</argument>
-                    </action>
-                </block>
-            </block>
-        </block>
-        <block class="Magento\Framework\View\Element\Template" name="additional.product.info" template="Magento_Theme::template.phtml"/>
+        <referenceBlock name="order_totals">
+            <arguments>
+                <argument name="label_properties" xsi:type="string">colspan="3"</argument>
+            </arguments>
+        </referenceBlock>
     </body>
 </page>
