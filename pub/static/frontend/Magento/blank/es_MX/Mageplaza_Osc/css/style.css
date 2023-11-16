@@ -303,6 +303,7 @@ fieldset.field.col-mp {
 
 .minicart-items .product-item-name {
     font-size: 16px !important;
+    padding-right: 30px !important;
 }
 
 .remove-wrapper {

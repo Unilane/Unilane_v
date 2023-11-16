@@ -2713,8 +2713,8 @@ your locales,tus locales,module,Amasty_PageSpeedOptimizer
  Subscription Paused at %store_name, Suscripción pausada en %store_name,module,Amasty_RecurringPayments 
  Subscription Purchased at %store_name, Suscripción comprada en %store_name,module,Amasty_RecurringPayments 
  Trial will end at %store_name, La prueba finalizará en %store_name,module,Amasty_RecurringPayments 
-#�NOMBRE?,#�NOMBRE?,module,Amasty_RecurringPayments 
-#�NOMBRE?,#�NOMBRE?,module,Amasty_RecurringPayments 
+#�NOMBRE?,#�NOMBRE?,module,Amasty_RecurringPayments 
+#�NOMBRE?,#�NOMBRE?,module,Amasty_RecurringPayments 
 (After the first %1 cycle(s) you will be paying <span>%2</span> per delivery),"(Después del primer %1 ciclo (s), pagará <span> %2 </span> por factura)",module,Amasty_RecurringPayments 
 3D Secure Authentication,Autenticación segura 3D,module,Amasty_RecurringPayments 
 3D Secure Authentication Email Template,Plantilla de correo electrónico de autenticación segura 3D,module,Amasty_RecurringPayments 
@@ -4097,7 +4097,7 @@ Above customer login form,Arriba formulario de inicio de sesión del cliente,mod
 Above customer registration form,Por encima del formulario de registro del cliente,module,Amasty_SocialLogin 
 Add Social Login to,Agregar inicio de sesión social a,module,Amasty_SocialLogin 
 "Additional Social Login package is not installed. Please, run the following command in the SSH: composer require hybridauth/hybridauth ^2.15.1",El paquete adicional de inicio de sesión social no está instalado. Ejecute el siguiente comando en SSH: el compositor requiere hybridauth / hybridauth ^ 2.15.1,module,Amasty_SocialLogin 
-Amazon,Amazonas,module,Amasty_SocialLogin 
+Amazon,Amazon,module,Amasty_SocialLogin
 Amount,Cantidad,module,Amasty_SocialLogin 
 Amount:,Cantidad:,module,Amasty_SocialLogin 
 An unspecified error occurred during creating new customer.,Se produjo un error no especificado durante la creación de un nuevo cliente.,module,Amasty_SocialLogin 
@@ -9463,7 +9463,7 @@ Update Information,Actualizar información,module,Magento_CmsStaging
 Update Name,Actualizar nombre,module,Magento_CmsStaging
 URL Key,Clave URL,module,Magento_CmsStaging
  - Duplicated, - Duplicado,module,Magento_Company
-#�NOMBRE?,#�NOMBRE?,module,Magento_Company
+#�NOMBRE?,#�NOMBRE?,module,Magento_Company
 """%fieldName"" is required. Enter and try again.","Se requiere ""%fieldName"". Entra y vuelve a intentarlo.",module,Magento_Company
 """%fieldName"" is required. Enter and try again.""%fieldName"" is required. Enter and try again.","""%fieldName"" es obligatorio. Introduzcalo y vuelva a intentarlo. ""%fieldName"" es obligatorio. Introduzcalo y vuelva a intentarlo.",module,Magento_Company
 (me),(yo),module,Magento_Company
@@ -11126,7 +11126,7 @@ You have not set a default billing address.,No ha establecido una dirección de 
 You have not set a default shipping address.,No ha establecido una dirección de envío predeterminada.,module,Magento_Customer
 You have revoked the customer's tokens.,Revocaste los tokens del cliente.,module,Magento_Customer
 You have revoked the customer\'s tokens.,Usted ha revocado las fichas del cliente.,module,Magento_Customer
-You have signed out and will go to our homepage in 5 seconds.,Usted ha cerrado la sesión y irá a su página de inicio en 5 segundos.,module,Magento_Customer
+You have signed out and will go to our homepage in 5 seconds.,Usted ha cerrado la sesión e irá a su página de inicio en 5 segundos.,module,Magento_Customer
 You must confirm your %customer_email email before you can sign in (link is only valid once):,Usted debe confirmar su correo electrónico %customer_email antes de firmarlo (el link sólo es válido una vez):,module,Magento_Customer
 "You must confirm your account. Please check your email for the confirmation link or <a href=""%1"">click here</a> for a new link.","Debes confirmar tu cuenta. Por favor compruebe su correo electrónico para el enlace de confirmación o <a href=""%1"">haga clic aquí</a> para un nuevo enlace.",module,Magento_Customer
 You saved the account information.,Ha guardado la información de cuenta.,module,Magento_Customer
@@ -14349,9 +14349,9 @@ Successful Messages Lifetime,Tiempo de vida de mensajes existosos,module,Magento
  has been declined by the seller., ha sido rechazado por el vendedor.,module,Magento_NegotiableQuote
  submitted by buyer, enviado al comprador,module,Magento_NegotiableQuote
  updated by buyer, actualizado por el comprador,module,Magento_NegotiableQuote
-#�NOMBRE?,#�NOMBRE?,module,Magento_NegotiableQuote
-#�NOMBRE?,#�NOMBRE?,module,Magento_NegotiableQuote
-#�NOMBRE?,#�NOMBRE?,module,Magento_NegotiableQuote
+#�NOMBRE?,#�NOMBRE?,module,Magento_NegotiableQuote
+#�NOMBRE?,#�NOMBRE?,module,Magento_NegotiableQuote
+#�NOMBRE?,#�NOMBRE?,module,Magento_NegotiableQuote
 """%fieldName"" is required. Enter and try again.","Se requiere ""%fieldName"". Entra y vuelve a intentarlo.",module,Magento_NegotiableQuote
 (Added),(Agregado),module,Magento_NegotiableQuote
 (Removed),(Eliminado),module,Magento_NegotiableQuote
@@ -25833,8 +25833,8 @@ Weight,Peso,module,WebShopApps_MatrixRate
 Weight vs. Destination,Peso vs. Destino,module,WebShopApps_MatrixRate
 Zip/Postal Code,Código postal,module,WebShopApps_MatrixRate
 - Wrong domain name - check active license domain under My Downloadable Products section of your weltpixel.com account. License allows using the product on one Magento installation with any number of store views / URLs. Product can be installed on up to 5,- Nombre de dominio incorrecto: verifique el dominio de licencia activo en la sección Mis productos descargables de su cuenta de weltpixel.com. La licencia permite usar el producto en una instalación de Magento con cualquier número de vistas de tienda ,module,WeltPixel_Backend 
-#�NOMBRE?,#�NOMBRE?,module,WeltPixel_Backend 
-#�NOMBRE?,#�NOMBRE?,module,WeltPixel_Backend 
+#�NOMBRE?,#�NOMBRE?,module,WeltPixel_Backend 
+#�NOMBRE?,#�NOMBRE?,module,WeltPixel_Backend 
 All Magento Modules,Todos los módulos de Magento,module,WeltPixel_Backend 
 Area,Zona,module,WeltPixel_Backend 
 Change Magento Default Mode,Cambiar el modo predeterminado de Magento,module,WeltPixel_Backend 
