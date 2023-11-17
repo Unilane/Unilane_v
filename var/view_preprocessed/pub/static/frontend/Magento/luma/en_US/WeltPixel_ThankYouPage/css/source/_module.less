@@ -128,7 +128,12 @@
 						margin-bottom: 10px;
 					}
 					.address-wrapper {
-						display: flex;
+						// display: flex;
+						display: grid;
+						max-width: 400px;
+						grid-template-columns: repeat(2, 1fr);
+						margin: 0 auto;
+
 						h4 {
 							font-weight: 600;
 							margin-top: 10px;
@@ -136,8 +141,8 @@
 						.shipping-address,
 						.billing-address {
 							padding: 10px 0;
-							text-align: right;
-							width: 50%;
+							text-align: left;
+							width: 100%;
 							h4,
 							p {
 								padding-right: 10px;
@@ -145,6 +150,7 @@
 						}
 						.billing-address {
 							text-align: left;
+							padding-left: 30px;
 							h4,
 							p {
 								padding-right: 0;
@@ -153,7 +159,11 @@
 						}
 					}
 					.methods-wrapper {
-						display: flex;
+						// display: flex;
+						display: grid;
+						max-width: 400px;
+						grid-template-columns: repeat(2, 1fr);
+						margin: 0 auto;
 						h4 {
 							font-weight: 600;
 							margin-top: 10px;
@@ -161,8 +171,8 @@
 						.shipping-method,
 						.payment-method {
 							padding: 10px 0;
-							text-align: right;
-							width: 50%;
+							text-align: left;
+							width: 100%;
 							h4,
 							p {
 								padding-right: 10px;
@@ -170,6 +180,7 @@
 						}
 						.payment-method {
 							text-align: left;
+							padding-left: 30px;
 							h4,
 							p {
 								padding-right: 0;

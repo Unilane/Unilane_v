@@ -1,4 +1,4 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1700167461;s:6:"expire";i:1731703461;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1700248256;s:6:"expire";i:1731784256;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
 <?xml version="1.0"?>
 <layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><handle id="catalog_category_view"><body/>
 </handle><handle id="catalogsearch_advanced_index"><body/>
@@ -8158,15 +8158,24 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1700167461;s:6:"expire";i:1731703461;s:4:"t
       <block class="Unilane\Formularios\Block\WarrantyForm" name="WarrantyForm" template="Unilane_Formularios::warranty_form.phtml"/>
    </referenceContainer>
 </body>
-</handle><handle id="sales_email_order_items" label="Email Order Items List" design_abstraction="custom"><update handle="sales_email_order_renderers"/>
-<update handle="sales_email_item_price"/>
-<body>
-   <referenceBlock name="order_totals">
-      <arguments>
-         <argument name="label_properties" xsi:type="string">colspan="3"</argument>
-      </arguments>
-   </referenceBlock>
+</handle><handle id="default" layout="1column"><body>
+   <referenceBlock name="sale.reorder.sidebar" remove="true"/>
 </body>
+</handle><handle id="sales_email_order_items"><referenceBlock name="items">
+   <action method="setTemplate">
+      <argument name="template" xsi:type="string">Unilane_Sales::email/items.phtml</argument>
+   </action>
+</referenceBlock>
+<referenceBlock name="order_totals">
+   <action method="setTemplate">
+      <argument name="template" xsi:type="string">Unilane_Sales::order/totals.phtml</argument>
+   </action>
+</referenceBlock>
+<referenceBlock name="order_totals">
+   <arguments>
+      <argument name="label_properties" xsi:type="string">colspan="3"</argument>
+   </arguments>
+</referenceBlock>
 </handle><handle id="catalog_category_view"><body>
    <referenceContainer name="category.product.list.additional">
       <block class="Magento\Catalog\Block\Product\ListProduct" name="category.product.list.weltpixel.quickview.image" template="WeltPixel_Quickview::listing/retailjs.phtml"/>

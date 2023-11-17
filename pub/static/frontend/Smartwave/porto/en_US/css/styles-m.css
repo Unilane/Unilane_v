@@ -7501,7 +7501,10 @@ p.short-des {
 }
 .checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper,
 .multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper {
-  display: flex;
+  display: grid;
+  max-width: 400px;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0 auto;
 }
 .checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper h4,
 .multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper h4 {
@@ -7513,8 +7516,8 @@ p.short-des {
 .checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address,
 .multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address {
   padding: 10px 0;
-  text-align: right;
-  width: 50%;
+  text-align: left;
+  width: 100%;
 }
 .checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper .shipping-address h4,
 .multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper .shipping-address h4,
@@ -7529,6 +7532,7 @@ p.short-des {
 .checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address,
 .multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address {
   text-align: left;
+  padding-left: 30px;
 }
 .checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address h4,
 .multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address h4,
@@ -7539,7 +7543,10 @@ p.short-des {
 }
 .checkout-onepage-success .thankyou-wrapper .order-info .customer-info .methods-wrapper,
 .multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .methods-wrapper {
-  display: flex;
+  display: grid;
+  max-width: 400px;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0 auto;
 }
 .checkout-onepage-success .thankyou-wrapper .order-info .customer-info .methods-wrapper h4,
 .multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .methods-wrapper h4 {
@@ -7551,8 +7558,8 @@ p.short-des {
 .checkout-onepage-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .payment-method,
 .multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .payment-method {
   padding: 10px 0;
-  text-align: right;
-  width: 50%;
+  text-align: left;
+  width: 100%;
 }
 .checkout-onepage-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .shipping-method h4,
 .multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .shipping-method h4,
@@ -7567,6 +7574,7 @@ p.short-des {
 .checkout-onepage-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .payment-method,
 .multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .payment-method {
   text-align: left;
+  padding-left: 30px;
 }
 .checkout-onepage-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .payment-method h4,
 .multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .payment-method h4,
