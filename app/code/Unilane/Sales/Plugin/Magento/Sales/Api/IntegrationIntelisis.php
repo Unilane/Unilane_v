@@ -80,12 +80,21 @@ class IntegrationIntelisis
                 $dataP["Cantidad"]   = $pedido->getQtyOrdered();
                 $dataP["Almacen"]    = 'ALMGEN';
                 $dataP["Articulo"]   = $pedido->getSku();
-                $dataP["Precio"]     = $pedido->getPrice();
+                $dataP["Precio"]     = $pedido->getPrice() / 1.16;
                 $dataP["Moneda"]     = 'MXN';
                 $dataP["TipoCambio"] = '1';
                 $dataP["query"]      = 2;
                 array_push($datosPedido, $dataP);
             }
+            $dataPa["IDR"]        = $result["IDR"];
+            $dataPa["Cantidad"]   = '1';
+            $dataPa["Almacen"]    = 'ALMGEN';
+            $dataPa["Articulo"]   = "U00002";
+            $dataPa["Precio"]     = $order->getShippingAmount() / 1.16;
+            $dataPa["Moneda"]     = 'MXN';
+            $dataPa["TipoCambio"] = '1';
+            $dataPa["query"]      = 2;
+            array_push($datosPedido, $dataPa);
             if($datosPedido){
                 $resultP = $this->connectionAPI($datosPedido);
             }
@@ -106,7 +115,7 @@ class IntegrationIntelisis
 
     public function connectionAPI($dataI){
         // URL de la API a la que te deseas conectar
-        $url = 'http://192.168.233.7/APIserve/index.php';
+        $url = 'http://187.141.179.27/APIserve/index.php';
         // Datos que deseas enviar (por ejemplo, en formato JSON)
         $data = array(
             'datos' => $dataI

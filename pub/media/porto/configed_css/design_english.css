@@ -249,3 +249,14 @@ button.action.primary:hover{
 .footer-bottom a:hover{
     color:#777;
 }
+
+@media (min-width: 992px){
+    .sw-megamenu.navigation li.level0.fullwidth .submenu a, .sw-megamenu.navigation li.level0.staticwidth .submenu a {
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 18px;
+        padding: 7px 0;
+        text-transform: capitalize;
+        color: #696969;
+    }
+}
