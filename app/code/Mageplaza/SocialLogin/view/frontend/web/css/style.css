@@ -43,7 +43,7 @@
  .actions-toolbar button {border-radius: 0;}
  .social-btn button {height: 33px; border: none;}
  .social-btn button span span {margin-left: 25px; color: #ffffff;}
- .social-login-customer-authentication {width: 100%}
+ /* .social-login-customer-authentication {width: 100%} */
  .social-login-authentication-channel .actions-toolbar.social-btn > .primary .action {width: 100%; margin: 0; min-width: 170px; text-align: left; border-radius: 5px;}
  .social-login-authentication-channel .actions-toolbar.social-btn > .primary .action:hover{opacity: 0.9;}
  .social-btn-actions-toolbar{display: inline-block !important;}
@@ -298,3 +298,6 @@
  .btn-amazon:active,.btn-amazon.active,.open>.dropdown-toggle.btn-amazon{background-image:none}
  .btn-amazon.disabled:hover,.btn-amazon[disabled]:hover,fieldset[disabled] .btn-amazon:hover,.btn-amazon.disabled:focus,.btn-amazon[disabled]:focus,fieldset[disabled] .btn-amazon:focus,.btn-amazon.disabled.focus,.btn-amazon[disabled].focus,fieldset[disabled] .btn-amazon.focus{background-color:#ff9900;border-color:rgba(0,0,0,0.2)}
  .btn-amazon .badge{color:#ff9900;background-color:#fff}
+ .mp-7 {
+    width: 58.3333333333%;
+}
