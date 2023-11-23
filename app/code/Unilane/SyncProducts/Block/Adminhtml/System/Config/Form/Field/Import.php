@@ -60,8 +60,6 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
         $mediaDir = $objectManager->get('Magento\Framework\App\Filesystem\DirectoryList')->getPath('media');
         //CT
-        $file = __FILE__;
-        $dir = __DIR__;
         $dataCt  = file_get_contents("C:\Users\luis.olivarria\Desktop\productsjson\dataPrueba.json");
         $productsData  = json_decode($dataCt, true);
         $data = [];
@@ -72,53 +70,9 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
             catch(Exception $e){
                 $producto = null;
             }
-            if($producto){
-                $sumaExistencia = 0;
-                $pro = $productdata['existencia'];
-                foreach($pro as $existencia){
-                    $sumaExistencia += $existencia;
-                }
-                //$precio5porciento = $product['precio'] * 0.05;
-                $precioIva = $productdata['precio'] * 1.16;                
-                $precioivaxtipocambio = $precioIva * $productdata['tipoCambio'];
-                $precioReal = $precioivaxtipocambio * 1.05;
-                $producto->setName($productdata['nombre']."-".$productdata['clave']);
-                $producto->setPrice($precioReal);                
-                $producto->setStockData(
-                    array( 
-                    'use_config_manage_stock' => 1,                       
-                    'manage_stock' => 1,
-                    'is_in_stock' => 1,   
-                    'qty' => $sumaExistencia
-                    )
-                );
-                if(count($productdata['promociones']) > 0){
-                    if($productdata['promociones'][0]['tipo'] == "importe"){
-                        $precioPromocion = $productdata['promociones'][0]['promocion'] * $productdata['tipoCambio'];
-                        $producto->setSpecialPrice($precioPromocion);
-                        $producto->setSpecialFromDate($productdata['promociones'][0]['vigencia']['inicio']);
-                        $producto->setSpecialFromDateIsFormated(true);
-                        $producto->setSpecialToDate($productdata['promociones'][0]['vigencia']['fin']);
-                        $producto->setSpecialToDateIsFormated(true);
-                    }
-                    else{
-                        if(@$productdata['promociones'][0]['tipo'] == "porcentaje"){
-                            $porcentaje = $productdata['promociones'][0]['promocion'] / 100;
-                            $valor = $precioReal * $porcentaje;
-                            $precioPromocion = $precioReal - $valor;
-                            $producto->setSpecialPrice($precioPromocion);
-                            $producto->setSpecialFromDate($productdata['promociones'][0]['vigencia']['inicio']);
-                            $producto->setSpecialFromDateIsFormated(true);
-                            $producto->setSpecialToDate($productdata['promociones'][0]['vigencia']['fin']);
-                            $producto->setSpecialToDateIsFormated(true);
-                        }                            
-                    }   
-                }                       
-                $this->productRepository->save($producto);
-            }
-            else{
+            if($producto == null){                
                 array_push($data, $productdata);
-            }            
+            }        
         }
         if($data){
             try {
@@ -3992,7 +3946,7 @@ class Import extends \Magento\Config\Block\System\Config\Form\Field
                         $items->setBrandName($product['marca']);
                         $items->setProductCode($product['numParte']);                    
                         $items->setCategoryIds([
-                            2,32,78,31,70
+                            2,32,78,70
                         ]);
                         $items->setStockData(
                             array( 

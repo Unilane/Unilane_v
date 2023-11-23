@@ -33,22 +33,22 @@ class AfterJsConfig
 
 
                 $jsonLayoutArray['components']['checkout']['children']['steps']['children']['shipping-step'] 
-                ['children']['shippingAddress']['children']['shipping-address-fieldset'] ['children']['street']['children'][0]['label'] = "campo 1";
+                ['children']['shippingAddress']['children']['shipping-address-fieldset'] ['children']['street']['children'][0]['label'] = "Calle o Avenida";
 
                 $jsonLayoutArray['components']['checkout']['children']['steps']['children']['shipping-step'] 
-                ['children']['shippingAddress']['children']['shipping-address-fieldset'] ['children']['street']['children'][1]['label'] = "Campo 2";
+                ['children']['shippingAddress']['children']['shipping-address-fieldset'] ['children']['street']['children'][1]['label'] = "Número Ext - Int";
 
                 $jsonLayoutArray['components']['checkout']['children']['steps']['children']['shipping-step'] 
-                ['children']['shippingAddress']['children']['shipping-address-fieldset'] ['children']['street']['children'][2]['label'] = "campo 3";
+                ['children']['shippingAddress']['children']['shipping-address-fieldset'] ['children']['street']['children'][2]['label'] = "Entre calle";
 
                 $jsonLayoutArray['components']['checkout']['children']['steps']['children']['shipping-step'] 
-                ['children']['billingAddress']['children']['billing-address-fieldset'] ['children']['street']['children'][0]['label'] = "billing campo 1";
+                ['children']['billingAddress']['children']['billing-address-fieldset'] ['children']['street']['children'][0]['label'] = "Calle o Avenida";
 
                 $jsonLayoutArray['components']['checkout']['children']['steps']['children']['shipping-step'] 
-                ['children']['billingAddress']['children']['billing-address-fieldset'] ['children']['street']['children'][1]['label'] = "billing campo 2";
+                ['children']['billingAddress']['children']['billing-address-fieldset'] ['children']['street']['children'][1]['label'] = "Número Ext - Int";
 
                 $jsonLayoutArray['components']['checkout']['children']['steps']['children']['shipping-step'] 
-                ['children']['billingAddress']['children']['billing-address-fieldset'] ['children']['street']['children'][2]['label'] = "billing campo 3";
+                ['children']['billingAddress']['children']['billing-address-fieldset'] ['children']['street']['children'][2]['label'] = "Entre calle";
 
                 return $this->serializer->serialize($jsonLayoutArray);
             }

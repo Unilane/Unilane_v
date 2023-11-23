@@ -39,7 +39,7 @@ class IntegrationIntelisis
     }
     public function afterPlace(OrderManagementInterface $subject, OrderInterface $order)
     {
-        return $order;
+        //return $order;
         // Este codigo colecciona toda la informacion del cliente como su nombre y direccion
         $infoCliente = $order->getAddresses();
         $datosDomicilio = [];        
@@ -54,7 +54,7 @@ class IntegrationIntelisis
             $data['id']         = $order->getIncrementId();
             $data['telefono']   = $cliente->getTelephone();
             $data['colonia']    = $cliente->getMposcField1();
-            $data['entreCalle'] = $cliente->getMposcField2();
+            $data['entreCalle'] = $data["calle"][2] ." - ". $cliente->getMposcField2();
             $data["query"]      = 1;
             array_push($datosDomicilio, $data);            
         }
@@ -115,7 +115,7 @@ class IntegrationIntelisis
 
     public function connectionAPI($dataI){
         // URL de la API a la que te deseas conectar
-        $url = 'http://197.168.233.7/APIserve/index.php';
+        $url = 'http://187.141.179.27/APIserve/index.php';
         // Datos que deseas enviar (por ejemplo, en formato JSON)
         $data = array(
             'datos' => $dataI

@@ -99,15 +99,48 @@ class ImportC
                 }
                 $producto = $this->productRepository->get($product['clave']);
                 if($producto){
-                    $producto->setStockData(
-                        array( 
-                        'use_config_manage_stock' => 1,                       
-                        'manage_stock' => 1,
-                        'is_in_stock' => 1,   
-                        'qty' => $sumaExistencia
-                        )
-                    );     
-                    $this->productRepository->save($producto);
+                    $sumaExistencia = 0;
+                $pro = $productdata['existencia'];
+                foreach($pro as $existencia){
+                    $sumaExistencia += $existencia;
+                }
+                //$precio5porciento = $product['precio'] * 0.05;
+                $precioIva = $productdata['precio'] * 1.16;                
+                $precioivaxtipocambio = $precioIva * $productdata['tipoCambio'];
+                $precioReal = $precioivaxtipocambio * 1.05;
+                $producto->setName($productdata['nombre']."-".$productdata['clave']);
+                $producto->setPrice($precioReal);                
+                $producto->setStockData(
+                    array( 
+                    'use_config_manage_stock' => 1,                       
+                    'manage_stock' => 1,
+                    'is_in_stock' => 1,   
+                    'qty' => $sumaExistencia
+                    )
+                );
+                if(count($productdata['promociones']) > 0){
+                    if($productdata['promociones'][0]['tipo'] == "importe"){
+                        $precioPromocion = $productdata['promociones'][0]['promocion'] * $productdata['tipoCambio'];
+                        $producto->setSpecialPrice($precioPromocion);
+                        $producto->setSpecialFromDate($productdata['promociones'][0]['vigencia']['inicio']);
+                        $producto->setSpecialFromDateIsFormated(true);
+                        $producto->setSpecialToDate($productdata['promociones'][0]['vigencia']['fin']);
+                        $producto->setSpecialToDateIsFormated(true);
+                    }
+                    else{
+                        if(@$productdata['promociones'][0]['tipo'] == "porcentaje"){
+                            $porcentaje = $productdata['promociones'][0]['promocion'] / 100;
+                            $valor = $precioReal * $porcentaje;
+                            $precioPromocion = $precioReal - $valor;
+                            $producto->setSpecialPrice($precioPromocion);
+                            $producto->setSpecialFromDate($productdata['promociones'][0]['vigencia']['inicio']);
+                            $producto->setSpecialFromDateIsFormated(true);
+                            $producto->setSpecialToDate($productdata['promociones'][0]['vigencia']['fin']);
+                            $producto->setSpecialToDateIsFormated(true);
+                        }                            
+                    }   
+                }                       
+                $this->productRepository->save($producto);
                 }               
             }
         }catch (Exception $e) {

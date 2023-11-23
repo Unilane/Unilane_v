@@ -669,6 +669,10 @@ class IceCatUpdateProduct
                 );
             }
         }
+
+        $product->setIcecatRun(1);
+        $this->productRepository->save($product);
+
         return $globalMediaArray;
     }
 
