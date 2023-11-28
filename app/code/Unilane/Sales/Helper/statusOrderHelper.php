@@ -53,8 +53,8 @@ class statusOrderHelper
         $resource = \Magento\Framework\App\ObjectManager::getInstance()->get(ResourceConnection::class);
         $connection = $resource->getConnection();
         $tableName = $resource->getTableName('sales_order');
-        $sql = "SELECT entity_id,customer_firstname,customer_lastname,customer_email,idr FROM $tableName WHERE status = :valor";
-        $params = ['valor' => 'pending'];
+        $sql = "SELECT entity_id,customer_firstname,customer_lastname,customer_email,idr FROM $tableName WHERE status = :valor1 AND status = :valor2";
+        $params = ['valor1' => 'Pending', 'valor2' => 'Processing'];
         $results = $connection->fetchAll($sql, $params);
         if($results){
             try {

@@ -113,8 +113,8 @@ class Processor extends \Magento\Catalog\Model\Product\Gallery\Processor
         $mediaGalleryData['images'][] = array_merge([
             'file' => $finalName,
             'label' => $videoData['video_title'],
-            'position' => $position,
-            'disabled' => (int)$exclude
+            'position' => "$position",
+            'disabled' => $exclude == true ? "1" : "0"
         ], $videoData);
 
         $product->setData($attrCode, $mediaGalleryData);
@@ -125,7 +125,8 @@ class Processor extends \Magento\Catalog\Model\Product\Gallery\Processor
         
         // $this->createHandler->execute($product);
         $product->save();
-        return $finalName;
+        
+        return $product;
     }
 
     /**

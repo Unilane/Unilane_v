@@ -250,32 +250,32 @@ class ProductData extends Action
                         }
 
                         // Hide video from non-required stores
-                        if (!empty($globalVideoArray)) {
+                        // if (!empty($globalVideoArray)) {
                                     
-                            if ($this->columnExists === false) {
-                                $query = "select * from " . $this->galleryEntitytable . " A left join " . $this->galleryTable . " B on B.value_id = A.value_id
-                                left join " . $this->videoTable . "  C on C.value_id = A.value_id
-                                where A.row_id=" . $productId . " and B.media_type='external-video'";
-                            } else {
-                                $query = "select * from " . $this->galleryEntitytable . " A left join " . $this->galleryTable . " B on B.value_id = A.value_id
-                                left join " . $this->videoTable . "  C on C.value_id = A.value_id
-                                where A.entity_id=" . $productId . " and B.media_type='external-video'";
-                            }
-                            $videoData = $this->db->query($query)->fetchAll();
-                            foreach ($globalVideoArray as $key => $videoArray) {
-                                foreach ($videoArray as $video) {
-                                    $videoUrl = $video;
-                                    foreach ($videoData as $k => $value) {
-                                        if ((int)$value['metadata'] != (int)$value['store_id']) {
-                                            if ($value['url'] == $videoUrl) {
-                                                $updateQuery = "UPDATE " . $this->galleryEntitytable . " SET disabled=1 WHERE value_id=" . $value['value_id'] . " AND store_id =" . $value['store_id'];
-                                                $this->db->query($updateQuery);
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                        //     if ($this->columnExists === false) {
+                        //         $query = "select * from " . $this->galleryEntitytable . " A left join " . $this->galleryTable . " B on B.value_id = A.value_id
+                        //         left join " . $this->videoTable . "  C on C.value_id = A.value_id
+                        //         where A.row_id=" . $productId . " and B.media_type='external-video'";
+                        //     } else {
+                        //         $query = "select * from " . $this->galleryEntitytable . " A left join " . $this->galleryTable . " B on B.value_id = A.value_id
+                        //         left join " . $this->videoTable . "  C on C.value_id = A.value_id
+                        //         where A.entity_id=" . $productId . " and B.media_type='external-video'";
+                        //     }
+                        //     $videoData = $this->db->query($query)->fetchAll();
+                        //     foreach ($globalVideoArray as $key => $videoArray) {
+                        //         foreach ($videoArray as $video) {
+                        //             $videoUrl = $video;
+                        //             foreach ($videoData as $k => $value) {
+                        //                 if ((int)$value['metadata'] != (int)$value['store_id']) {
+                        //                     if ($value['url'] == $videoUrl) {
+                        //                         $updateQuery = "UPDATE " . $this->galleryEntitytable . " SET disabled=1 WHERE value_id=" . $value['value_id'] . " AND store_id =" . $value['store_id'];
+                        //                         $this->db->query($updateQuery);
+                        //                     }
+                        //                 }
+                        //             }
+                        //         }
+                        //     }
+                        // }
                         
 
                         if (count($updatedStore) > 0) {

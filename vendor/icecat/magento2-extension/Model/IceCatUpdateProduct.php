@@ -373,7 +373,7 @@ class IceCatUpdateProduct
                     if ($multiMediaData['IsVideo']) {
                         if (strpos($multiMediaData['URL'], 'youtube') !== false) {
                             $videoUrl = $multiMediaData['URL'];
-                            $headers = get_headers("https://www.youtube.com/oembed?url=$videoUrl");
+                            $headers = get_headers("$videoUrl");
                             if(strpos($headers[0], '200')) {
                                 $videoData = [
                                     'video_id' => $multiMediaData['ID'], //set your video id
@@ -389,7 +389,7 @@ class IceCatUpdateProduct
                                 ];
     
                                 // Add video to the product
-
+                               
                                 // Skip Duplicate Video Start
                                 $videoFlag = 0; 
                                 foreach ($productMedia as $child) { 
@@ -408,7 +408,7 @@ class IceCatUpdateProduct
 
                                 $mediaTmpDiretory = $this->getMediaDirTmpDir();
                                 if ($product->hasGalleryAttribute()) {
-                                    $videoName = $this->videoGalleryProcessor->addVideo(
+                                    $product = $this->videoGalleryProcessor->addVideo(
                                             $product->getId(),
                                             $videoData,
                                             $storeId,
