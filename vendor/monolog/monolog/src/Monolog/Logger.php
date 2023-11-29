@@ -595,6 +595,10 @@ class Logger implements LoggerInterface, ResettableInterface
      */
     public function debug($message, array $context = []): void
     {
+        if(is_string($context))
+        {
+            $context = [$context];
+        }    
         $this->addRecord(static::DEBUG, (string) $message, $context);
     }
 

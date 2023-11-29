@@ -418,6 +418,8 @@ class IceCatUpdateProduct
                                             $mediaTmpDiretory
                                         );
                                     $globalMediaArray['video'][$storeId][] = $multiMediaData['URL'];
+                                    $product->setHasVideo(1);
+                                    $this->productRepository->save($product);
                                 }
                             }
                         }

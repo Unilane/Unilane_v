@@ -93,6 +93,7 @@ class Webhook extends \Magento\Framework\App\Action\Action implements CsrfAwareA
             $order_status = $order->getStatus();
             $order_id = $order->getId();
             $status = \Magento\Sales\Model\Order::STATE_PROCESSING;
+            //$status = 'Pending_approved';
 
             /*Logging Webhook data*/
             $this->logger->debug('#Webhook.openpay_cards.ln:98', array('webhook.trx_id' => $json->transaction->id, 'webhook.type' => $json->type , 'charge.status' => $charge->status, 'order.status' => $order_status));

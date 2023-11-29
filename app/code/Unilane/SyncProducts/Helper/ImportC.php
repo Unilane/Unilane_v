@@ -115,7 +115,7 @@ class ImportC
                     'use_config_manage_stock' => 1,                       
                     'manage_stock' => 1,
                     'is_in_stock' => 1,   
-                    'qty' => $sumaExistencia
+                    'qty' => $sumaExistencia <= 5 ? 0 : $sumaExistencia 
                     )
                 );
                 if(count($productdata['promociones']) > 0){
@@ -141,6 +141,22 @@ class ImportC
                     }   
                 }                       
                 $this->productRepository->save($producto);
+                }               
+            }
+        }catch (Exception $e) {
+            $data = [];
+        } 
+    }
+
+    public function specsCt() {
+        $data = file_get_contents("C:\Users\luis.olivarria\Desktop\productsjson\dataPrueba.json");
+        try{
+            $products  = json_decode($data, true);
+            foreach($products as $product){
+                $producto = $this->productRepository->get($product['clave']);
+                if($producto){
+                    $producto->setCtSpecs($productdata['especificaciones']);                  
+                    $this->productRepository->save($producto);
                 }               
             }
         }catch (Exception $e) {

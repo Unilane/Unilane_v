@@ -12,6 +12,12 @@ $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : '
 $host = $_SERVER['HTTP_HOST'];
 $base_url = $protocol . '://' . $host;
 ?>
+<?php
+    if($_product->getIcecatSpecifications() == null){
+        $specs = $_product->getCtSpecs();
+        echo $specs;
+    }
+?>
 <p><?php echo $_product->getIcecatBulletPoints(); ?></p>
 <br>
 <p><?php echo $_product->getTotalDescription(); ?></p>
