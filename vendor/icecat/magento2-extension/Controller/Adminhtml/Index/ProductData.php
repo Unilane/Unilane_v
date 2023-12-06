@@ -207,14 +207,15 @@ class ProductData extends Action
 
                 // foreach ($storeArray as $store) {
                     $product = $this->productRepository->getById($productId, false, 1);
+                    $language = $this->data->getStoreLanguage(1);
+                    $icecatUri = $this->data->getIcecatUri($product, $language);
+                    $response = $this->icecatApiService->execute($icecatUri);
+
                     if($product->getIcecatRun() == 0){
-                        $language = $this->data->getStoreLanguage(1);
-                        $icecatUri = $this->data->getIcecatUri($product, $language);
                         if ($icecatUri) {
-                            $response = $this->icecatApiService->execute($icecatUri);
                             if (!empty($response) && !empty($response['Code'])) {
                                 $errorMessage = $response['Message'];                            
-                            } else {
+                            } else {                                
                                 $globalMediaArray = $this->iceCatUpdateProduct->updateProductWithIceCatResponse($product, $response, 1, $globalMediaArray);
                                 $globalImageArray = array_key_exists('image', $globalMediaArray)?$globalMediaArray['image']:[];
                                 $globalVideoArray = array_key_exists('video', $globalMediaArray)?$globalMediaArray['video']:[];
@@ -250,33 +251,31 @@ class ProductData extends Action
                         }
 
                         // Hide video from non-required stores
-                        // if (!empty($globalVideoArray)) {
-                                    
-                        //     if ($this->columnExists === false) {
-                        //         $query = "select * from " . $this->galleryEntitytable . " A left join " . $this->galleryTable . " B on B.value_id = A.value_id
-                        //         left join " . $this->videoTable . "  C on C.value_id = A.value_id
-                        //         where A.row_id=" . $productId . " and B.media_type='external-video'";
-                        //     } else {
-                        //         $query = "select * from " . $this->galleryEntitytable . " A left join " . $this->galleryTable . " B on B.value_id = A.value_id
-                        //         left join " . $this->videoTable . "  C on C.value_id = A.value_id
-                        //         where A.entity_id=" . $productId . " and B.media_type='external-video'";
-                        //     }
-                        //     $videoData = $this->db->query($query)->fetchAll();
-                        //     foreach ($globalVideoArray as $key => $videoArray) {
-                        //         foreach ($videoArray as $video) {
-                        //             $videoUrl = $video;
-                        //             foreach ($videoData as $k => $value) {
-                        //                 if ((int)$value['metadata'] != (int)$value['store_id']) {
-                        //                     if ($value['url'] == $videoUrl) {
-                        //                         $updateQuery = "UPDATE " . $this->galleryEntitytable . " SET disabled=1 WHERE value_id=" . $value['value_id'] . " AND store_id =" . $value['store_id'];
-                        //                         $this->db->query($updateQuery);
-                        //                     }
-                        //                 }
-                        //             }
-                        //         }
-                        //     }
-                        // }
-                        
+                        if (!empty($globalVideoArray)) {                                    
+                            if ($this->columnExists === false) {
+                                $query = "select * from " . $this->galleryEntitytable . " A left join " . $this->galleryTable . " B on B.value_id = A.value_id
+                                left join " . $this->videoTable . "  C on C.value_id = A.value_id
+                                where A.row_id=" . $productId . " and B.media_type='external-video'";
+                            } else {
+                                $query = "select * from " . $this->galleryEntitytable . " A left join " . $this->galleryTable . " B on B.value_id = A.value_id
+                                left join " . $this->videoTable . "  C on C.value_id = A.value_id
+                                where A.entity_id=" . $productId . " and B.media_type='external-video'";
+                            }
+                            $videoData = $this->db->query($query)->fetchAll();
+                            foreach ($globalVideoArray as $key => $videoArray) {
+                                foreach ($videoArray as $video) {
+                                    $videoUrl = $video;
+                                    foreach ($videoData as $k => $value) {
+                                        if ((int)$value['metadata'] != (int)$value['store_id']) {
+                                            if ($value['url'] == $videoUrl) {
+                                                $updateQuery = "UPDATE " . $this->galleryEntitytable . " SET disabled=1 WHERE value_id=" . $value['value_id'] . " AND store_id =" . $value['store_id'];
+                                                $this->db->query($updateQuery);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }                        
 
                         if (count($updatedStore) > 0) {
                             $result = ['success'=>1,'message'=>'Product updated successfully'];
@@ -286,6 +285,13 @@ class ProductData extends Action
                         $this->getResponse()->setBody(json_encode($result));
                     }
                     else{
+                        if(count($response["data"]["Multimedia"]) > 0){
+                            foreach($response["data"]["Multimedia"] as $multimedia){
+                                if(strpos($multimedia['URL'], 'youtube')){
+                                    $this->iceCatUpdateProduct->updateProductHasVideo($product, $response, 1, $globalMediaArray);
+                                } 
+                            }
+                        }
                         $result = ['success'=>1,'message'=>'El producto ya ejecuto IceCat'];
                         $this->getResponse()->setBody(json_encode($result));                        
                     }                    

@@ -58,3 +58,303 @@
 
 )
 
+2023-11-30T22:21:31+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'mem%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-11-30T22:21:31+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-11-30T22:21:32+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'memoria%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-11-30T22:21:32+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-11-30T22:23:46+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'monito%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-11-30T22:23:46+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-11-30T22:23:48+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'monitor%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-11-30T22:23:48+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-11-30T22:23:51+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'memo%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-11-30T22:23:51+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-11-30T22:25:24+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'memopr%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-11-30T22:25:24+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-11-30T22:25:29+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'memo%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-11-30T22:25:29+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-11-30T22:25:31+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'memoria%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-11-30T22:25:31+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-11-30T22:29:43+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'memo%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-11-30T22:29:43+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-11-30T22:29:49+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'memoria%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-11-30T22:29:49+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-11-30T22:33:32+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'memr%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-11-30T22:33:32+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-11-30T23:14:22+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'memori%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-11-30T23:14:22+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-11-30T23:14:23+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'memo%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-11-30T23:14:23+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-11-30T23:14:24+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'mem%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-11-30T23:14:24+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-11-30T23:14:26+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'memo%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-11-30T23:14:26+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-11-30T23:14:28+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'memoria%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-11-30T23:14:28+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-12-01T19:01:24+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'memr%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-12-01T19:01:24+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-12-01T19:01:25+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'mem%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-12-01T19:01:25+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-12-01T19:01:27+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'memoria%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-12-01T19:01:27+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-12-01T21:00:54+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'memoria%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-12-01T21:00:54+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-12-05T19:09:38+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'lap%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-12-05T19:09:38+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-12-05T19:12:44+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'mono%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-12-05T19:12:44+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-12-05T19:12:45+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'monitor%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-12-05T19:12:45+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-12-05T19:29:40+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'mem%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-12-05T19:29:40+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-12-05T19:29:42+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'mema%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-12-05T19:29:42+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-12-05T19:30:28+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'mem%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-12-05T19:30:28+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-12-05T19:33:36+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'mem%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-12-05T19:33:36+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-12-05T19:52:20+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'mem%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-12-05T19:52:20+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-12-06T00:03:55+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'memoria%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-12-06T00:03:55+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+
+2023-12-06T00:07:46+00:00 INFO (6): SELECT DISTINCT  `main_table`.`query_text`, `main_table`.`num_results`, `main_table`.`popularity` FROM `search_query` AS `main_table` WHERE (num_results > 0 AND display_in_terms = 1 AND query_text LIKE 'memoria%') AND (store_id = 1) ORDER BY `popularity` DESC
+
+2023-12-06T00:07:46+00:00 INFO (6): Array
+(
+    [0] => Array
+        (
+        )
+
+)
+

@@ -418,11 +418,12 @@ class Queue
                         }
                         //foreach ($storeArray as $store) {
                         $product = $this->productRepository->getById($productId, false, 1);
+                        $language = $this->data->getStoreLanguage(1);
+                        $icecatUri = $this->data->getIcecatUri($product, $language);
+                        $response = $this->icecatApiService->execute($icecatUri);
+
                         if($product->getIcecatRun() == 0){
-                            $language = $this->data->getStoreLanguage(1);
-                            $icecatUri = $this->data->getIcecatUri($product, $language);
                             if ($icecatUri) {                                
-                                $response = $this->icecatApiService->execute($icecatUri);
                                 $responseArray[1] = $response;
                                 if (!empty($response) && !empty($response['Code'])) {
                                     $errorMessage       = $this->errorMessageResponse($response, $product);
@@ -505,6 +506,15 @@ class Queue
                             $query = "DELETE table1 FROM icecat_datafeed_queue_log table1 INNER JOIN icecat_datafeed_queue_log table2 WHERE table1.id < table2.id AND table1.job_id = table2.job_id";
                             $connection->query($query);
                             $this->logRecord['processed_jobs'] += 1;
+                        }
+                        else{
+                            if(count($response["data"]["Multimedia"]) > 0){
+                                foreach($response["data"]["Multimedia"] as $multimedia){
+                                    if(strpos($multimedia['URL'], 'youtube')){
+                                        $this->iceCatUpdateProduct->updateProductHasVideo($product, $response, 1, $globalMediaArray);
+                                    } 
+                                }
+                            }
                         }                        
                         //}                        
                     }

@@ -6631,7 +6631,7 @@ p.short-des {
 .checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper,
 .multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper {
   display: grid;
-  max-width: 400px;
+  max-width: 550px;
   grid-template-columns: repeat(2, 1fr);
   margin: 0 auto;
 }
@@ -6658,10 +6658,16 @@ p.short-des {
 .multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address p {
   padding-right: 10px;
 }
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper .shipping-address h4,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper .shipping-address h4,
+.checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address h4,
+.multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address h4 {
+  text-align: center;
+}
 .checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address,
 .multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address {
   text-align: left;
-  padding-left: 30px;
+  padding-left: 0;
 }
 .checkout-onepage-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address h4,
 .multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .address-wrapper .billing-address h4,
@@ -6673,7 +6679,7 @@ p.short-des {
 .checkout-onepage-success .thankyou-wrapper .order-info .customer-info .methods-wrapper,
 .multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .methods-wrapper {
   display: grid;
-  max-width: 400px;
+  max-width: 550px;
   grid-template-columns: repeat(2, 1fr);
   margin: 0 auto;
 }
@@ -6681,6 +6687,7 @@ p.short-des {
 .multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .methods-wrapper h4 {
   font-weight: 600;
   margin-top: 10px;
+  text-align: center;
 }
 .checkout-onepage-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .shipping-method,
 .multishipping-checkout-success .thankyou-wrapper .order-info .customer-info .methods-wrapper .shipping-method,
@@ -6723,6 +6730,10 @@ p.short-des {
   border-bottom: 1px solid #eeeeee;
   margin-top: 40px;
   margin-bottom: 40px;
+}
+.checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .order-item-row td,
+.multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .order-item-row td {
+  vertical-align: middle;
 }
 .checkout-onepage-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .order-item-row-mobile,
 .multishipping-checkout-success .thankyou-wrapper .order-info .product-grid .order-items .table-order-items .order-item-row-mobile {

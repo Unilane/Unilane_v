@@ -19,7 +19,7 @@
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
 -->
-<td class="a-center last button-remove">
+<td class="a-center last button-remove" style="vertical-align: top; padding-top:23px;">
     <div class="remove-wrapper">
         <a class="button-action edit"
            data-bind="click: function(data, event) { showProductModal($parent, data, event) },
@@ -31,7 +31,7 @@
         </a>
     </div>
 </td>
-<td class="a-center details-qty">
+<td class="a-center details-qty" style="vertical-align: top; padding-top:20px;">
     <div class="qty-wrapper">
         <a class="button-action minus" data-bind="click: minusQty" title="Minus">
             <i class="fa fa-minus"></i>
@@ -45,7 +45,7 @@
         </a>
     </div>
 </td>
-<td class="a-center subtotal">
+<td class="a-center subtotal" style="vertical-align: top; padding-top:25px;">
     <!-- ko foreach: getRegion('after_details') -->
     <!-- ko template: getTemplate() --><!-- /ko -->
     <!-- /ko -->
@@ -55,11 +55,11 @@
     <!-- ko template: getTemplate() --><!-- /ko -->
     <!-- /ko -->
 
-    <div class="product-item-detail">
+    <div class="product-item-detail" style="vertical-align: top; padding-top:8px;">
         <div class="product-item-inner">
             <div class="product-item-name-block">
                 <!-- ko if: getProductUrl($parent) -->
-                <a data-bind="attr:{href: getProductUrl($parent)}" target="_blank">
+                <a  data-bind="attr:{href: getProductUrl($parent), title: $parent.name}" target="_blank">
                     <strong class="product-item-name" data-bind="text: $parent.name"></strong>
                 </a>
                 <!-- /ko -->

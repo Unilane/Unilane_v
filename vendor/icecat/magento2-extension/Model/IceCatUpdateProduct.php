@@ -244,72 +244,24 @@ class IceCatUpdateProduct
         
         if ($this->data->isImportImagesEnabled()) {
             $productId = $product->getId();
+            $position = null;
+            // Get the existing media gallery entries
+            $mediaGalleryEntries = $product->getMediaGalleryEntries();
+            foreach ($mediaGalleryEntries as $key => $mediaGalleryEntry) {
+                // Remove the media gallery entry
+                if($mediaGalleryEntry->getPosition() == "1"){
+                    unset($mediaGalleryEntries[$key]);
+                    $product->setImage("no_selection");
+                    $product->setSmallImage("no_selection");
+                    $product->setThumbnail("no_selection");
+                    $this->productRepository->save($product);
+                    break;
+                }
+            }
+            // Set the updated media gallery entries to the product
+            $product->setMediaGalleryEntries($mediaGalleryEntries);
+
             $productImageData = $productData['Gallery']; //ICECAT
-            // //<<<<<< Eliminar imagen de CT >>>>>>//
-            // $mediaGallery = $product->getMediaGallery(); //CT
-            // $position = "";
-            // foreach($mediaGallery['images'] as $imagen){
-            //     $position = $imagen['position'];
-            //     break;
-            // }
-            // if($position == "1"){
-                
-            //     if ($product->getId()) {
-            //         // Obtiene la galería de medios del producto
-            //         $mediaGallery = $product->getMediaGalleryEntries();
-                
-            //         // Elimina las imágenes del producto
-            //         if (!empty($mediaGallery)) {
-            //             foreach ($mediaGallery as $mediaEntry) {
-            //                 $imageId = $mediaEntry->getId();
-            //                 $bootstrap = Bootstrap::create(BP, $_SERVER);
-            //                 $objectManager = $bootstrap->getObjectManager();
-            //                 $state = $objectManager->get('Magento\Framework\App\State');
-            //                 $state->setAreaCode('frontend');
-            //                 // Borra la entrada de la galería de medios
-            //                $this->processor->removeImage($product, $mediaEntry->getFile());
-            //                //$product->getResource()->getAttribute('media_gallery')->getBackend()->removeImage($product, $mediaEntry->getFile());
-                
-            //                 // Borra el archivo de la imagen del sistema de archivos si es necesario
-            //                 $mediaPath = $objectManager->get('Magento\Framework\Filesystem')->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::MEDIA)->getAbsolutePath();
-            //                 $imageFilePath = $mediaPath . 'catalog/product' . $mediaEntry->getFile();
-            //                 if (file_exists($imageFilePath)) {
-            //                     unlink($imageFilePath);
-            //                 }
-            //             }
-            //             // // Inicializa la aplicación de Magento
-            //             $bootstrap = \Magento\Framework\App\Bootstrap::create(BP, $_SERVER);
-
-            //             // Obtiene el objeto del entorno de la aplicación
-            //             $objectManager = $bootstrap->getObjectManager();
-
-            //             // Inicializa el entorno de la aplicación
-            //             $state = $objectManager->get('Magento\Framework\App\State');
-            //             $state->setAreaCode('frontend'); // Cambia 'frontend' al área que necesites
-
-            //             // Realiza la eliminación de imágenes
-            //             $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
-            //             $connection = $resource->getConnection();
-
-            //             // Consulta para eliminar las imágenes de la tabla catalog_product_entity_media_gallery_value_to_entity
-            //             $connection->delete(
-            //                 $resource->getTableName('catalog_product_entity_media_gallery_value_to_entity'),
-            //                 ['entity_id = ?' => $productId]
-            //             );
-
-            //             // Consulta para eliminar las imágenes de la tabla catalog_product_entity_media_gallery
-            //             $connection->delete(
-            //                 $resource->getTableName('catalog_product_entity_media_gallery'),
-            //                 ['value_id = ?' => $productId]
-            //             );   
-
-            //         } else {
-            //             echo "El producto no tiene imágenes.";
-            //         }
-            //     }
-            //     //<<<<<< Fin de eliminar imagen de CT >>>>>>//
-            // }
-            
             if (count($productImageData) > 0) {                
                 $i = 0;
                 $oldImageName = [];
@@ -345,12 +297,13 @@ class IceCatUpdateProduct
                     }
 
                     // Updating file permission of the uploaded file
+                    //5/1/518b8c3ec2925d730662d930aa4e389b.jpg
                     $this->file->chmod($newFileName, 0777);
                     if ($result) {
                         try{
                             $baseImage = $product->getData('image');
                             if ($i == 0 && (empty($baseImage) || $baseImage == "no_selection")) {
-                                $product->addImageToMediaGallery($newFileName, ['image', 'small_image','thumbnail'], false, false);
+                                $product->addImageToMediaGallery($newFileName, ['image', 'small_image','thumbnail'], false, false);  
                             } else {
                                 $product->addImageToMediaGallery($newFileName, [], false, false);
                             }
@@ -361,7 +314,7 @@ class IceCatUpdateProduct
                     }                    
                     $globalMediaArray['image'][$storeId][] = $imageName;
                 }
-            }            
+            }
         }
 
         if ($this->data->isImportMultimediaEnabled()) {
@@ -538,8 +491,12 @@ class IceCatUpdateProduct
 
                 foreach ($allSpecifications as $allSpecification) {
                     $featureCount = $featureCount + count($allSpecification['Features']);
-                    $specficFeatureCount[$allSpecification['FeatureGroup']['Name']['Value']] = $featureCount;
-                    $counting = $featureCount;
+                    // $attributeCode = ["Color del producto" => "color","Tipo de pantalla" => "Pantalla"];
+                    // foreach($allSpecification['Feature'] as $attribute){
+                    //     $product->setCustomAttribute($attributeCode[$attribute["Features"]["name"]["value"]], $attribute["value"]);
+                    // }
+                    // $specficFeatureCount[$allSpecification['FeatureGroup']['Name']['Value']] = $featureCount;
+                    // $counting = $featureCount;
 
                     $specifications = $allSpecification['Features'];
                     foreach ($specifications as $specification) {
@@ -827,5 +784,105 @@ class IceCatUpdateProduct
             return $productDataSku[0]['sku'];
         }
         return null;
+    }
+
+    public function updateProductHasVideo(Product $product, $response, $storeId, $globalMediaArray)
+    {
+        $tmpMediaDir = $this->getMediaDir();
+        if (!file_exists($tmpMediaDir . "/tmp")) {
+            mkdir($tmpMediaDir . "/tmp", 0755, true);
+        }
+
+        $contentToken = $this->data->getContentToken();
+        $userType = $this->data->getUserType();
+
+        $product->setStoreId($storeId);
+        $product->setData('icecat_icecat_id', $response['data']['GeneralInfo']['IcecatId']);
+
+        $attributeForMapping = $this->data->getProductAttributes();
+        
+        $productData = $response['data'];
+        if (!empty($attributeForMapping)) {
+            $attributeArray = [];
+            foreach ($attributeForMapping as $attributeMapping) {
+                $attributeArray[$attributeMapping['attribute']] = explode('-', $attributeMapping['icecat_fields']);
+            }
+
+            foreach ($attributeArray as $key => $value) {
+                $productData1 = $response['data'];
+                foreach ($value as $a) {
+                    $productData1 = $productData1[$a];
+                    if (empty($productData1)) {
+                        break;
+                    }
+                }
+                $product->setData($key, $productData1);
+            }
+        }      
+
+        if ($this->data->isImportMultimediaEnabled()) {
+            $productMultiMediaData = $productData['Multimedia'];
+            if (count($productMultiMediaData) > 0) {
+                $count = 1;
+                $productMedia = $product->getMediaGalleryImages();
+                foreach ($productMultiMediaData as $multiMediaData) {
+                    if ($multiMediaData['IsVideo']) {
+                        if (strpos($multiMediaData['URL'], 'youtube') !== false) {
+                            $videoUrl = $multiMediaData['URL'];
+                            $headers = get_headers("$videoUrl");
+                            if(strpos($headers[0], '200')) {
+                                $videoData = [
+                                    'video_id' => $multiMediaData['ID'], //set your video id
+                                    'video_title' => $multiMediaData['Description'], //set your video title
+                                    'video_description' => $multiMediaData['Description'], //set your video description
+                                    'thumbnail' => "image path", //set your video thumbnail path.
+                                    'video_provider' => "youtube",
+                                    'video_metadata' => $storeId,
+                                    'video_url' => $multiMediaData['URL'], //set your youtube channel's video url
+                                    'media_type' => \Magento\ProductVideo\Model\Product\Attribute\Media\ExternalVideoEntryConverter::MEDIA_TYPE_CODE,
+                                    'thumbnail_url' => ($multiMediaData['ThumbUrl'] ? $multiMediaData['ThumbUrl']: $multiMediaData['PreviewUrl']),
+                                    'store_id' => $storeId
+                                ];
+    
+                                // Add video to the product
+                               
+                                // Skip Duplicate Video Start
+                                $videoFlag = 0; 
+                                foreach ($productMedia as $child) { 
+                                    $mageProdVideoData = $child->getData();
+                                    if (isset($mageProdVideoData['media_type']) && $mageProdVideoData['media_type'] == 'external-video') {
+                                        if ($mageProdVideoData['video_url'] == $videoUrl) {
+                                            $videoFlag = 1;                            
+                                            continue;
+                                        } 
+                                    }
+                                }
+                                if($videoFlag == 1){                        
+                                    continue;
+                                } 
+                                // Skip Duplicate Video End
+
+                                $mediaTmpDiretory = $this->getMediaDirTmpDir();
+                                if ($product->hasGalleryAttribute()) {
+                                    $product = $this->videoGalleryProcessor->addVideo(
+                                            $product->getId(),
+                                            $videoData,
+                                            $storeId,
+                                            ['image', 'small_image', 'thumbnail'],
+                                            false,
+                                            false,
+                                            $mediaTmpDiretory
+                                        );
+                                    $globalMediaArray['video'][$storeId][] = $multiMediaData['URL'];
+                                    $product->setHasVideo(1);
+                                    $this->productRepository->save($product);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } 
+        return $globalMediaArray;
     }
 }

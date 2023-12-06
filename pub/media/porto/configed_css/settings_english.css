@@ -164,7 +164,7 @@ html .background-color-secondary {
     min-width: auto;
 }
 .page-header.type1 .search-area {
-    max-width: 564px;
+    max-width: 1000px;
 }
 .page-header.type1 .minicart-wrapper .action.showcart .counter.qty {
     background-color: #222529;

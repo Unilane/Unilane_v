@@ -130,7 +130,7 @@
 					.address-wrapper {
 						// display: flex;
 						display: grid;
-						max-width: 400px;
+						max-width: 550px;
 						grid-template-columns: repeat(2, 1fr);
 						margin: 0 auto;
 
@@ -147,10 +147,13 @@
 							p {
 								padding-right: 10px;
 							}
+							h4{
+								text-align: center;
+							}
 						}
 						.billing-address {
 							text-align: left;
-							padding-left: 30px;
+							padding-left: 0;
 							h4,
 							p {
 								padding-right: 0;
@@ -161,12 +164,13 @@
 					.methods-wrapper {
 						// display: flex;
 						display: grid;
-						max-width: 400px;
+						max-width: 550px;
 						grid-template-columns: repeat(2, 1fr);
 						margin: 0 auto;
 						h4 {
 							font-weight: 600;
 							margin-top: 10px;
+							text-align: center;
 						}
 						.shipping-method,
 						.payment-method {
@@ -198,6 +202,9 @@
 							border-bottom: 1px solid #eeeeee;
 							margin-top: 40px;
 							margin-bottom: 40px;
+							.order-item-row td{
+								vertical-align: middle;
+							}
 							.order-item-row-mobile {
 								display: none;
 							}

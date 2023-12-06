@@ -90,34 +90,40 @@ class ImportC
         $data = file_get_contents("C:\Users\luis.olivarria\Desktop\productsjson\dataPrueba.json");
         try{
             $products  = json_decode($data, true);
-            foreach($products as $product){
-                //$items = $this->productFactory->create();
-                $sumaExistencia = 0;
+            foreach($products as $product){                
+                $producto = $this->productRepository->get($product['clave']);
+                if($producto){
+                    $sumaExistencia = 0;
                 $pro = $product['existencia'];
                 foreach($pro as $existencia){
                     $sumaExistencia += $existencia;
                 }
-                $producto = $this->productRepository->get($product['clave']);
-                if($producto){
-                    $sumaExistencia = 0;
-                $pro = $productdata['existencia'];
-                foreach($pro as $existencia){
-                    $sumaExistencia += $existencia;
-                }
                 //$precio5porciento = $product['precio'] * 0.05;
-                $precioIva = $productdata['precio'] * 1.16;                
-                $precioivaxtipocambio = $precioIva * $productdata['tipoCambio'];
+                $precioIva = $product['precio'] * 1.16;                
+                $precioivaxtipocambio = $precioIva * $product['tipoCambio'];
                 $precioReal = $precioivaxtipocambio * 1.05;
-                $producto->setName($productdata['nombre']."-".$productdata['clave']);
-                $producto->setPrice($precioReal);                
-                $producto->setStockData(
-                    array( 
-                    'use_config_manage_stock' => 1,                       
-                    'manage_stock' => 1,
-                    'is_in_stock' => 1,   
-                    'qty' => $sumaExistencia <= 5 ? 0 : $sumaExistencia 
-                    )
-                );
+                $producto->setName($product['nombre']."-".$product['clave']);
+                $producto->setPrice($precioReal);
+                if($sumaExistencia <= 10){
+                    $producto->setStockData(
+                        array( 
+                        'use_config_manage_stock' => 1,                       
+                        'manage_stock' => 1,
+                        'is_in_stock' => 0,   
+                        'qty' => 0
+                        )
+                    );
+                }
+                else{
+                    $producto->setStockData(
+                        array( 
+                        'use_config_manage_stock' => 1,                       
+                        'manage_stock' => 1,
+                        'is_in_stock' => 1,   
+                        'qty' => $sumaExistencia - 10
+                        )
+                    );
+                }                
                 if(count($productdata['promociones']) > 0){
                     if($productdata['promociones'][0]['tipo'] == "importe"){
                         $precioPromocion = $productdata['promociones'][0]['promocion'] * $productdata['tipoCambio'];
