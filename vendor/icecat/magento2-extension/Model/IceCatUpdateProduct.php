@@ -39,6 +39,7 @@ class IceCatUpdateProduct
     private $moduleDataSetup;
     public $globalMediaArray;
     private $productRepository;
+    protected $eavConfig;
 
 
     /**
@@ -75,7 +76,8 @@ class IceCatUpdateProduct
         ResourceModel\ProductReview\CollectionFactory $productReviewCollection,
         File                                          $file,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
-        ProductRepositoryInterface $productRepository
+        ProductRepositoryInterface $productRepository,
+        \Magento\Eav\Model\Config $eavConfig
 
     ) {
         $this->data = $data;
@@ -95,6 +97,7 @@ class IceCatUpdateProduct
         $this->file = $file;
         $this->_scopeConfig = $scopeConfig;
         $this->productRepository = $productRepository;
+        $this->_eavConfig = $eavConfig;
 
     }
 
@@ -417,6 +420,84 @@ class IceCatUpdateProduct
                 }
             }
         }
+        $compara=[
+            "Familia de procesador"         =>  "familia_procesador",
+            "Capacidad total de almacenaje" =>  "cap_almacenaje",
+            "Color del producto"            =>  "color_product",
+            "Memoria interna"               =>  "memoria_interna",
+            "Memoria interna máxima"        =>  "memoria_interna_max",
+            "Capacidad de RAM"              =>  "capacidad_ram",
+            "Diagonal"                      =>  "diagonal",
+            "Tipo de tarjeta flash"         =>  "tipo_tarjeta_flash",
+            "Capacidad del HDD"             =>  "capacidad_hdd",
+            "Capacidad"                     =>  "capacidad",
+            "Fuente de alimentación"        =>  "fuente_alimentacion",
+            "Máxima resolución"             =>  "max_resolucion",
+            "Frecuencia del procesador"     =>  "frecuencia_procesador",
+            "Familia de procesador"         =>  "familia_procesador",
+            "Colores de impresión"          =>  "colores_impresion",
+            "Fabricante de procesador"      =>  "fabricante_procesador",
+            "Género del conector 1"         =>  "genero_conector1",
+            "Wifi"                          =>  "wifi",
+            "Voltaje"                       =>  "voltaje",
+            "Velocidad de captura de vídeo" =>  "velocidad_captura_video",
+            "Tipo de Pantalla"              =>  "tipo_pantalla",
+            "Tipo de Memoria RAM"           =>  "tipo_memoria_ram",
+            "Tipo de memoria interna"       =>  "tipo_memoria_int",
+            "Tipo de memoria"               =>  "tipo_memoria",
+            "Tipo de Disco Duro"            =>  "tipo_disco_duro",
+            "Tipo de antena"                =>  "tipo_antena",
+            "Tecnología de visualización"   =>  "tecnologia_visualizacion",
+            "Tecnología de impresión"       =>  "tecnologia_impresion",
+            "Tarjetas de memoria compatibles"   =>    "tarjetas_memoria_comp",
+            "Tamaños de disco duro soportados"  =>    "tam_disco_duro_soportado",
+            "Tamaño máximo de tarjeta de memoria"  =>   "tam_max_memoria",
+            "Tamaño máximo de pantalla"     =>  "tam_max_pantalla",
+            "Smart TV"                      =>  "smarttv",
+            "Sistema operativo instalado"   =>  "so_instalado",
+            "Resolución de movimiento"      =>  "resolucion_movimiento",
+            "Resolución de la pantalla"     =>  "resolucion_pantalla",
+            "Ranuras de memoria"            =>  "ranuras_memoria",
+            "Pantalla táctil"               =>  "pantalla_tactil",
+            'Número de puertos 3.5"'        =>  "num_puertos_35",
+            'Número de bahías 2.5"'         =>  "num_bahias_25",
+            "montaje VESA"                  =>  "montaje_vesa",
+            "Modelo del procesador"         =>  "modelo_procesador",
+            "Memoria flash"                 =>  "memoria_flash",
+            "Marcar del procesador"         =>  "marca_procesador",
+            "Latencia CAS"                  =>  "latencia_cas",
+            "Impresión a doble cara"        =>  "impresion_doble_cara",
+            "Género del conector"           =>  "genero_conector",
+            "Formas de factor de tarjeta madre soportadas"  =>    "tarjeta_madre_soportada",
+            "Factor de formato SSD"         =>  "formato_ssd",
+            "Ethernet"                      =>  "ethernet",
+            "Estilo de teclado"             =>  "estilo_teclado",
+            "Diagonal de pantalla"          =>  "diagonal_pantalla",
+            "Conectar y usar (Plug and Play)"  =>  "con_usar_plug",
+            "Capacidad total de salida"     =>    "cap_total_salida",
+            "Capacidad de potencia de salida (VA)"  =>    "cap_potencia_salida",
+            "Capacidad de batería"          =>  "cap_bateria",
+            "Cantidad de antenas"           =>  "cant_antenas",
+            "Brillo de proyector"           =>  "brillo_proyector",
+            "Ángulo de inclinación"         =>  "inclinacion",
+            "AirPlay"                       =>  "airplay",
+            "Velocidad del procesador"      =>  "velocidad_procesador",
+            "Tipo Procesador"               =>  "tipo_procesador",
+            "Tecnología de conectividad"    =>  "tecnologia_conect",
+            "Tamaño del HDD"                =>  "tam_hdd",
+            "Tamaño de pantalla"            =>  "tam_pantalla",
+            "Tamaño de memoria RAM"         =>  "memoria_ram",
+            "Núcleos del procesador"        =>  "nucleos_procesador",
+            "Memoria interna máxima"        =>  "memoria_interna_max",
+            "Memoria interna"               =>  "memoria_interna",
+            "Forma de la pantalla"          =>  "forma_pantalla",
+            "Factor de forma"               =>  "factor_forma",
+            "Color del producto"            =>  "color_product",
+            "Capacidad total de almacenaje" =>  "cap_almacenaje",
+            "Pantalla"                      =>  "pantalla",
+            "Capacidad de Disco Duro"       =>  "disco_duro"
+        ];
+        $optFail = array();
 
         if ($this->data->isImportSpecificationEnabled()) {
             $allSpecifications = $productData['FeaturesGroups'];
@@ -500,11 +581,57 @@ class IceCatUpdateProduct
 
                     $specifications = $allSpecification['Features'];
                     foreach ($specifications as $specification) {
-                        $data1['featureName']         = $specification['Feature']['Name']['Value'];
-                        $data1['featureValue']        = $specification['PresentationValue'];
+                        $data1['featureName']         = $customAttrName     =   $specification['Feature']['Name']['Value'];
+                        $data1['featureValue']        = $customAttrValue    =   $specification['PresentationValue'];
                         $data1['featureDescription']  = $specification['Description'];
                         $data1['mandatory']           = $specification['Mandatory'];
                         $features[$allSpecification['FeatureGroup']['Name']['Value']][] = $data1;
+
+                         // se agregó esto icecat
+                         // Si es uno de los atributos del listado
+                        if($customAttrCode =  $compara[$customAttrName]??false){
+                            //test
+                            // if($customAttrCode=="familia_procesador"){
+                            //     $customAttrValue = "Intel i3 qwerty";
+                            // }
+                            // si encuentra el atributo en magento
+                            if($attribute = $this->_eavConfig->getAttribute('catalog_product', $customAttrCode)??false){
+                                $options = $attribute->getSource()->getAllOptions();
+                                $arrayOpt = array();
+                                $attrId = false;
+                                    foreach($options as $option) {
+                                        if($customAttrValue == $option['label']){
+                                            $attrId = $option['value'];
+                                            break;
+                                        }
+                                    }
+                                if($attrId){
+                                    //AGREGA LA OPCIÓN-ATRIBUTO AL PRODUCTO
+                                    $product->setCustomAttribute($customAttrCode,$attrId);
+                                    $product->save();
+                                }else{
+                                    // CREA NUEVA OPCIÓN DEL ATRIBUTO
+                                        $attributeCode = $customAttrCode;
+                                        $value = $customAttrValue;
+                                        $objectManagerFactorys = \Magento\Framework\App\Bootstrap::createObjectManagerFactory(BP, []);
+
+                                        $objectManagers = $objectManagerFactorys->create([]);
+                                        $state = $objectManagers->get('Magento\Framework\App\State');
+                                        $state->setAreaCode('global');
+                                        $optionFactory  = $objectManagers->create('\Magento\Eav\Api\Data\AttributeOptionInterfaceFactory');
+                                        $option = $optionFactory->create();
+                                        $option->setLabel($value);
+                                        $option->setIsDefault(false);
+                                        $attributeOptionManagement = $objectManagers->create('\Magento\Eav\Api\AttributeOptionManagementInterface');
+                                        $attributeOptionManagement->add(
+                                            'catalog_product',
+                                            $attributeCode,
+                                            $option
+                                        );
+                                }
+                            }
+                        }
+                         // se agregó esto icecat
                     }
                 }
 

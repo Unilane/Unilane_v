@@ -1290,3 +1290,9 @@ body>.custom-html .mfp-close:before{content:'';position:absolute;width:17px;top:
 .text-uppercase {
     text-transform: uppercase !important;
 }
+.filter-options-title{
+  text-transform: lowercase;
+}
+.filter-options-title:first-letter{
+  text-transform: uppercase;
+}
