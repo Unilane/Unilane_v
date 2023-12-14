@@ -352,6 +352,7 @@ return [
         'Temando_ShippingRemover' => 1,
         'Unilane_Checkout' => 1,
         'Unilane_Csp' => 1,
+        'Unilane_CustomProducts' => 1,
         'Unilane_FieldsAddresses' => 1,
         'Unilane_Formularios' => 1,
         'Unilane_Openpay' => 1,

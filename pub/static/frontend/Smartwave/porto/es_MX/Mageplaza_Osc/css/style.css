@@ -229,6 +229,15 @@ fieldset.field.col-mp {
     width: 100% !important;
     min-width: 0;
 }
+.table-checkout-shipping-method tr{
+    display: inline;
+}
+.checkout-step-shipping_method{
+    margin:0 0 0 8px;
+}
+.table-checkout-shipping-method tr td{
+    text-align: center;
+}
 
 .osc-shipping-method ul {
     padding: 0;

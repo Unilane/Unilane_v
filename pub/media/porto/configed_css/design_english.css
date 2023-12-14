@@ -260,3 +260,31 @@ button.action.primary:hover{
         color: #696969;
     } 
 }
+
+.product-item .weltpixel-quickview.weltpixel_quickview_button_v2 {
+    padding: 0;
+    bottom: 0;
+    top: auto;
+    left: 0;
+    width: 100%;
+    text-indent: 0;
+    height: auto;
+    border: none;
+    position: absolute;
+    z-index: 6;
+    opacity: 0;
+    visibility: hidden;
+    background-color: #000000db;
+    color: #fff;
+    display: block;
+    text-transform: uppercase;
+    font-size: 13px;
+    line-height: 34px;
+    transition: .25s;
+    text-align: center;
+}
+
+.products-list .product-item-photo {
+    flex: 0 0 171px;
+    margin: 0 9px 0 0;
+}

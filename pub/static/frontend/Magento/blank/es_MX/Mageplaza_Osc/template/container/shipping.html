@@ -44,16 +44,16 @@
              data-role="content"
              role="tabpanel"
              aria-hidden="false"
-             data-bind="blockLoader: isLoading">
+             data-bind="blockLoader: isLoading" >
             <!-- ko if: rates().length  -->
             <form class="form methods-shipping" id="co-shipping-method-form" data-bind="submit: setShippingInformation" novalidate="novalidate">
                 <div id="checkout-shipping-method-load">
                     <table class="table-checkout-shipping-method">
                         <thead>
                             <tr class="row">
-                                <th class="col col-method" data-bind="i18n: 'Select Method'"></th>
-                                <th class="col col-price" data-bind="i18n: 'Price'"></th>
-                                <th class="col col-method" data-bind="i18n: 'Method Title'"></th>
+                                <th width="8%" class="col col-method" data-bind="i18n: 'Select Method'"></th>
+                                <th width="25%" class="col col-price" data-bind="i18n: 'Price'"></th>
+                                <th width="20%" class="col col-method" data-bind="i18n: 'Method Title'"></th>
                                 <th class="col col-carrier" data-bind="i18n: 'Carrier Title'"></th>
                             </tr>
                         </thead>

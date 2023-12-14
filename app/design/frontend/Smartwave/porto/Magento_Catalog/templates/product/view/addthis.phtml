@@ -22,13 +22,14 @@ $base_url = $protocol . '://' . $host;
     }
 ?>
 <br>
+<img src=<?php $base_url."pub\media\wysiwyg\smartwave\porto\product\pdf.png"?> />
 <p><?php echo $_product->getTotalDescription(); ?></p>
 <?php 
     if($results){
         $urldoc = "";
         foreach($results as $result){
             $urldoc = $base_url.'/pub/media/'.$result['attachment_file'];
-            $html = '<br>'.'<i class="fas fa-file"></i>'.'<a href='.$urldoc.' download='.$result['title'].'>'. $result['title'].'</a>';
+            $html = '<br>'.'<i class="fa fa-file-pdf-o fa-lg"></i>'.'<a href='.$urldoc.' download='.$result['title'].'>'. $result['title'].'</a>';
             echo $html;
         }
     }   

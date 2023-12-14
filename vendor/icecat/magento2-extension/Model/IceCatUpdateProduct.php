@@ -247,22 +247,22 @@ class IceCatUpdateProduct
         
         if ($this->data->isImportImagesEnabled()) {
             $productId = $product->getId();
-            $position = null;
+            // $position = null;
             // Get the existing media gallery entries
-            $mediaGalleryEntries = $product->getMediaGalleryEntries();
-            foreach ($mediaGalleryEntries as $key => $mediaGalleryEntry) {
-                // Remove the media gallery entry
-                if($mediaGalleryEntry->getPosition() == "1"){
-                    unset($mediaGalleryEntries[$key]);
-                    $product->setImage("no_selection");
-                    $product->setSmallImage("no_selection");
-                    $product->setThumbnail("no_selection");
-                    $this->productRepository->save($product);
-                    break;
-                }
-            }
+            // $mediaGalleryEntries = $product->getMediaGalleryEntries();
+            // foreach ($mediaGalleryEntries as $key => $mediaGalleryEntry) {
+            //     Remove the media gallery entry
+            //     if($mediaGalleryEntry->getPosition() == "1"){
+            //         unset($mediaGalleryEntries[$key]);
+            //         $product->setImage("no_selection");
+            //         $product->setSmallImage("no_selection");
+            //         $product->setThumbnail("no_selection");
+            //         $this->productRepository->save($product);
+            //         break;
+            //     }
+            // }
             // Set the updated media gallery entries to the product
-            $product->setMediaGalleryEntries($mediaGalleryEntries);
+            // $product->setMediaGalleryEntries($mediaGalleryEntries);
 
             $productImageData = $productData['Gallery']; //ICECAT
             if (count($productImageData) > 0) {                
@@ -756,8 +756,8 @@ class IceCatUpdateProduct
             }
         }
 
-        $product->setIcecatRun(1);
-        $this->productRepository->save($product);
+        // $product->setIcecatRun(1);
+        // $product->save();
 
         return $globalMediaArray;
     }

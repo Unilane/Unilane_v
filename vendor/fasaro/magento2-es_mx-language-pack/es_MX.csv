@@ -9021,7 +9021,7 @@ One-page checkout is turned off.,Pago en una página está desactivado.,module,M
 Options Details,Detalles de las opciones,module,Magento_Checkout
 Order #,Pedido #,module,Magento_Checkout
 Order Summary,Resumen de la orden,module,Magento_Checkout
-Order Total,Total del pedido,module,Magento_Checkout
+Order Total,Total Pedido (IVA Incl.),module,Magento_Checkout
 Out of stock,Sin stock,module,Magento_Checkout
 Page not found.,Página no encontrada.,module,Magento_Checkout
 Password,Contraseña,module,Magento_Checkout
@@ -25832,7 +25832,7 @@ We couldn\'t import this file because of these errors: %1,No podríamos importar
 Weight,Peso,module,WebShopApps_MatrixRate
 Weight vs. Destination,Peso vs. Destino,module,WebShopApps_MatrixRate
 Zip/Postal Code,Código postal,module,WebShopApps_MatrixRate
-- Wrong domain name - check active license domain under My Downloadable Products section of your weltpixel.com account. License allows using the product on one Magento installation with any number of store views / URLs. Product can be installed on up to 5,- Nombre de dominio incorrecto: verifique el dominio de licencia activo en la sección Mis productos descargables de su cuenta de weltpixel.com. La licencia permite usar el producto en una instalación de Magento con cualquier número de vistas de tienda ,module,WeltPixel_Backend 
+- Wrong domain name - check active license domain under My Downloadable Products section of your weltpixel.com account. License allows using the product on one Magento installation with any number of store views / URLs. Product can be installed on up to 5,#�NOMBRE?,module,WeltPixel_Backend 
 #�NOMBRE?,#�NOMBRE?,module,WeltPixel_Backend 
 #�NOMBRE?,#�NOMBRE?,module,WeltPixel_Backend 
 All Magento Modules,Todos los módulos de Magento,module,WeltPixel_Backend 

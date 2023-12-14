@@ -154,6 +154,33 @@ class ImportC
         } 
     }
 
+    // public function updateStock(){
+    //     $dataCt  = file_get_contents("C:\Users\luis.olivarria\Desktop\productsjson\dataPrueba.json");
+    //     $productsData  = json_decode($dataCt, true);
+    //     $resource = \Magento\Framework\App\ObjectManager::getInstance()->get(ResourceConnection::class);
+    //     $connection = $resource->getConnection();
+    //     $csi = $resource->getTableName('cataloginventory_stock_item');
+    //     $cpe = $resource->getTableName('catalog_product_entity');
+    //     $sql = "SELECT t1.product_id, t1.stock_id, t1.qty, t1.is_in_stock, t2.sku FROM $csi as t1 LEFT JOIN $cpe as t2 ON t1.product_id = t2.entity_id";
+    //     $resultsCSI = $connection->fetchAll($sql);
+    //     $jsonSKU = ""; 
+    //     foreach($productsData as $key => $CT_){
+    //         $jsonSKU .= $CT_["clave"]." ";
+    //         $skus = explode(" ",$jsonSKU);
+    //     }
+    //     foreach($resultsCSI as $CSI_){
+    //         if(!in_array($CSI_["sku"],$skus)){
+    //             $updateStock = "UPDATE $csi SET qty = :qty, is_in_stock = :is_in_stock WHERE product_id = :product_id";
+    //             $params = [
+    //                 'product_id'  => $CSI_["product_id"],
+    //                 'qty'         => 0,
+    //                 'is_in_stock' => 0
+    //             ];
+    //             $results = $connection->fetchAll($updateStock, $params);
+    //         }
+    //     }        
+    // }
+
     public function specsCt() {
         $data = file_get_contents("C:\Users\luis.olivarria\Desktop\productsjson\dataPrueba.json");
         try{
